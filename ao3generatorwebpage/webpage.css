@@ -23,4 +23,20 @@
   color: black;  
   text-decoration: none;  
   padding: 10px;  
-}  
+} 
+
+.largeinput{
+  min-height: 2cm;
+  overflow-y:auto;
+  overflow-x: hidden;
+  height: auto;
+  max-width: 70%;
+  width: 70%;
+  font: 1em sans-serif;
+  box-sizing: border-box;
+
+  /* Match form field borders */
+  border: 1px solid #999;
+  vertical-align: text-top;
+  
+}

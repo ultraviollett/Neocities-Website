@@ -5,28 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AO3 Workskin Generator</title>
     <link rel="stylesheet" href="webpage.css">
+    <link rel="stylesheet" href="generatorcss.css">
   </head>
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
     <body>
         <form>  
-            <b> What Minecraft option do you want?</b>  
-            <select id = "myList" onchange = "favTutorial()" >  
+            <b> What Minecraft option do you want?</b> <br>
+            <select id = "myList" onchange = "mcchoice()" >  
             <option></option>
             <option>Minecraft Button</option>  
             <option> Minecraft End Poem </option>  
             <option> Minecraft Book</option>    
             </select>  
-            <p> You selected: 
-            <input type = "text" id = "favourite" size = "20"></p>  
+  
             </form>  
+<br>
+ <textarea type="text" id="mctext" class="largeinput" value="" oninput="mcform()">
+ </textarea>
 
- <input type="text" id="myText" value="Some text...">
- <button onclick="mcform()">Try it</button>
+ 
+<div class="" id="classchange"> <p id="paste"></p></div>
 
- <p id="demo"></p>
-<form>
-        <input type="text" id = "favourite">
-        <button onclick="copyText()">Copy text</button>
-</form>
+<button onclick="generateHTML()">Generate HTML</button>
+<br><br><br>
+
+
+<textarea class="largeinput" type="text" id = "fullthing" onclick="copyText()"></textarea>
+<button onclick="copyText()">Copy text</button>
+
         <script src="app.js"></script>
     </body>
 </html>

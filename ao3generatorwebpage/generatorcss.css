@@ -159,3 +159,29 @@
   
   
    
+
+.mcbook{
+  display: block;
+  background: url("https://images.squidge.org/images/2023/08/22/Book_and_Quill_Writing_webp.png");
+  text-align:center;
+  background-position: center;
+  background-repeat:no-repeat;
+  margin: auto;
+  background-size:cover;
+  padding: 40px;
+
+
+  font-size: smaller;
+  overflow-y: auto;
+
+  width: 60vw + 30px;
+  height: 78vw;
+  max-width: 400px;
+  max-height: 500px;
+
+  color: black;
+}
+
+.mcbook>h1, .mcbook>h2, .mcbook>h3{
+  color:black;
+}
