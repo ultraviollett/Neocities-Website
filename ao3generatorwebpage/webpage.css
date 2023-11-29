@@ -1,31 +1,26 @@
-body {
-  width: 100vw;
-  background-color: #ddd;
-  font-family: sans-serif;
-}
-
-.container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.form-control {
-  display: block;
-  width: 300px;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  border: 2px solid #172432;
-}
-
-button {
-  display: inline-block;
-  background-color: #172432;
-  border: none;
-  color: #ddd;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
+/* set the position of dropdown */  
+.dropdown {  
+  position: relative;  
+  display: inline-block;  
+}  
+/* set the size and position of button on web */  
+.button {  
+  padding: 10px 30px;  
+  font-size: 15px;  
+}  
+/* provide css to background of list items */   
+#list-items {  
+ display: none;  
+ position: absolute;  
+ background-color: white;  
+ min-width: 185px;  
+}  
+/* provide css to list items */   
+#list-items a {  
+  display: block;  
+  font-size: 18px;  
+  background-color: #ddd;  
+  color: black;  
+  text-decoration: none;  
+  padding: 10px;  
+}  

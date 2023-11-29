@@ -1,9 +1,32 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="webpage.css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AO3 Workskin Generator</title>
+    <link rel="stylesheet" href="webpage.css">
+  </head>
     <body>
-        <p id="demo"></p>
-          <script src="app.js"></script>
+        <form>  
+            <b> What Minecraft option do you want?</b>  
+            <select id = "myList" onchange = "favTutorial()" >  
+            <option></option>
+            <option>Minecraft Button</option>  
+            <option> Minecraft End Poem </option>  
+            <option> Minecraft Book</option>    
+            </select>  
+            <p> You selected: 
+            <input type = "text" id = "favourite" size = "20"></p>  
+            </form>  
+
+ <input type="text" id="myText" value="Some text...">
+ <button onclick="mcform()">Try it</button>
+
+ <p id="demo"></p>
+<form>
+        <input type="text" id = "favourite">
+        <button onclick="copyText()">Copy text</button>
+</form>
+        <script src="app.js"></script>
     </body>
 </html>
