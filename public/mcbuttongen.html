@@ -11,27 +11,28 @@
     <body>
  <p>
             Pick an option:<br>
-            
-            <select id = "mcchoiceid" onchange = "mcchoice()">  
-            <option></option>
-            <option>Minecraft Button</option>  
-            <option> Minecraft End Poem </option>  
-            <option> Minecraft Book</option>    
-            </select>  
+<form>
+<select id = "mcchoiceid" onchange = "mcchoice()">  
+    <option>--</option>
+    <option>Minecraft Button</option>  
+    <option>Minecraft End Poem</option>  
+    <option>Minecraft Book</option>    
+</select>  
+</form>
 </p>
-
- <textarea type="text" id="mctext" class="largeinput" value="" oninput="mcform()">
- </textarea>
+<textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
+</textarea>
 
  
-<div class="" id="classchange"> <p id="paste"></p></div>
+<div class="" id="classchange"> <p id="paste" ></p></div>
+
+<div class="buttonbg"><p class="buttontext">hello there</p></div>
 
 <button onclick="generateHTML()">Generate HTML</button>
 <br><br><br>
 
 
-<textarea class="largeinput" type="text" id = "fullthing" onclick="copyText()"></textarea>
-<button onclick="copyText()">Copy text</button>
+<textarea class="largeinput" type="text" id = "fullthing"></textarea>
 
         <script src="JS/app.js"></script>
     </body>
