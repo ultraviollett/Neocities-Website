@@ -2,26 +2,29 @@ var mcchoice;
 var fullthing;
 var mctext;
 
-function mcchoice() {  
-    var mylist = document.getElementById("myList");  
-    document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;  
-    
+console.log("test js");
+
+function mcchoice() { 
+    var mcchoice2 = document.getElementById('mychoiceid');
     var mcchoice = mylist.options[mylist.selectedIndex].text;
+    console.log("test button: "+mcchoice2);
+
     switch(mcchoice){
+
         case "Minecraft Button":
-        document.getElementById("favourite").innerHTML = "button";  
-        document.getElementById("classchange").className = "buttonbg"
+        document.getElementById("mctype").innerHTML = "button";  
+        document.getElementById("classchange").className = "buttonbg";
         document.getElementById("paste").className = "buttontext";
         break;
 
         case "Minecraft End Poem":
-        document.getElementById("favourite").innerHTML = "poem";  
+        document.getElementById("mctype").innerHTML = "poem";  
         document.getElementById("classchange").className = "poembg";
         document.getElementById("paste").className = "poemtextwhite";
         break;
 
         case "Minecraft Book":
-        document.getElementById("favourite").innerHTML = "book";  
+        document.getElementById("mctype").innerHTML = "book";  
         document.getElementById("classchange").className = "mcbook";
         document.getElementById("paste").className = "";
         break;
@@ -31,6 +34,7 @@ function mcchoice() {
 } 
 
 function mcform() {
+    console.log("mcform");
     var mctext = document.getElementById("mctext").value;
     document.getElementById("paste").innerHTML = mctext;
     return mctext
@@ -39,7 +43,7 @@ function mcform() {
   }
 
 function generateHTML(){
-
+    console.log("generate HTML");
     var fullthing = "";
 
     switch(mcchoice()){
@@ -66,8 +70,9 @@ function generateHTML(){
 }
 
 function copyText() {
+    console.log("copytext");
     // Get the text field
-    var copyText = document.getElementById("favourite");
+    var copyText = document.getElementById("mctype");
   
     // Select the text field
     copyText.select();
