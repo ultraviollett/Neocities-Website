@@ -7,7 +7,7 @@ console.log("test js");
 function mcchoice() { 
     var mcchoice = document.getElementById("mcchoiceid");  
     var mcchoice2 = mcchoice.options[mcchoice.selectedIndex].value;
-
+    
     switch(mcchoice2){
 
         case "Minecraft Button":
@@ -28,6 +28,7 @@ function mcchoice() {
 
         break;
     }
+
     return mcchoice2;
 
 } 
