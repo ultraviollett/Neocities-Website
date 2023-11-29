@@ -11,7 +11,7 @@ function mcchoice() {
     switch(mcchoice2){
 
         case "Minecraft Button":
-        //document.getElementById("classchange").className = "buttonbg";
+        document.getElementById("classchange").className = "buttonbg";
         //document.getElementById("paste").className = "buttontext";
         document.getElementById("paste").style.fontSize = "large";
         break;
