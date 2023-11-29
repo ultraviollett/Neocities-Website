@@ -1,0 +1,203 @@
+
+
+.twitchtable{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+
+}
+
+.twitchtable div{
+  padding-right: 30px;
+}
+
+
+
+.twitchside{
+  position:relative;
+  padding: 7px !important; 
+  border-left: 1px solid lightgrey;
+  font-size: small;
+  background-color: rgba(0, 0, 0, 0.864);
+  color:white;
+  border: 1px solid rgba(135, 135, 135, 0.502);
+  border-radius: 3px;
+}
+
+.twitch>p, .twitchside>p{
+  display: block;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  padding: 0.7vh 5px 0.7vh 5px;
+  margin:unset
+}
+
+
+.twitch>p:hover, .twitchside>p:hover{
+  background-color: rgba(130, 130, 130, 0.1);
+  border-radius: 5px;
+}
+
+
+
+.twitch b:hover, .twitchside b:hover{
+background-color: rgba(136, 136, 136, 0.2);
+border-radius: 5px;
+}
+
+.twitch .user1, .twitchside .user1{
+  color:rgb(0, 162, 162) !important;
+}
+
+.twitchgrey{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size:93%;
+  opacity: 40%;
+  background-color: rgba(255, 255, 255, 0.051) !important;
+}
+
+
+.twitch img, .twitchside img{
+  height: 23px;
+  vertical-align: middle
+}
+
+
+.twitch{
+  margin:auto;
+  display:block;
+  float:none;
+  width:20em;
+  padding: 1em 1em 1em 1em; 
+  font-size:small;
+
+}
+
+.twitchcolumn{
+  column-count: 3;
+  width: auto;
+  max-width: 50em;
+}
+
+.twitchdark{
+  margin:auto;
+  display:block;
+  float:none;
+  width:20em;
+  padding: 1em 1em 1em 1em; 
+  border: 1px solid rgba(135, 135, 135, 0.502);
+  border-radius: 3px;
+  font-size:small;
+  background-color: rgba(0, 0, 0, 0.864);
+  color:white;
+
+}
+
+.twitch>p, .twitchdark>p{
+  display: block;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  padding: 0.7vh 5px 0.7vh 5px;
+  margin:unset
+}
+
+
+.twitch>p:hover, .twitchdark>p:hover{
+  background-color: rgba(130, 130, 130, 0.1);
+  border-radius: 5px;
+}
+
+/*RED*/
+.twitch :nth-of-type(n) b, .twitchdark :nth-child(n) b{
+  color:rgb(254,0,0);
+}
+
+/*BLUE*/
+.twitch :nth-of-type(15n-14) b, .twitchdark :nth-child(15n-14) b{
+  color:rgb(0,0,254);
+}
+
+/*GREEN*/
+.twitch :nth-of-type(15n+2) b, .twitchdark :nth-child(15n+2) b{
+  color:rgb(0,127,0);
+}
+/*FIREBRICK*/
+.twitch :nth-of-type(15n+3) b, .twitchdark :nth-child(15n+3) b{
+  color:rgb(179,35,35);
+}
+/*?? LIGHT ORANGE*/
+.twitch :nth-of-type(15n+4) b, .twitchdark :nth-child(15n+4) b{
+  color:rgb(255,128,81);
+}
+/*YELLOWGREEN*/
+.twitch :nth-of-type(15n+5) b, .twitchdark :nth-child(15n+5) b{
+  color:rgb(155,204,52);
+}
+/*ORANGERED*/
+.twitch :nth-of-type(15n+6) b, .twitchdark :nth-child(15n+6) b{
+  color:rgb(255,68,0);
+}
+/*SPRINGREEN*/
+.twitch :nth-of-type(15n+7) b, .twitchdark :nth-child(15n+7) b{
+  color:rgb(46,138,87);
+}
+/*GOLDENROD*/
+.twitch :nth-of-type(15n+8) b, .twitchdark :nth-child(15n+8) b{
+  color:rgb(217,164,32);
+}
+/*?? ORANGE OF SOME KIND*/
+.twitch :nth-of-type(15n+9) b, .twitchdark :nth-child(15n+9) b{
+  color:rgb(212,104,32);
+}
+/*?? SOMEBLUE*/
+.twitch :nth-of-type(15n-5) b, .twitchdark :nth-child(15n-5) b{
+  color:rgb(96,157,160);
+}
+/*?? MORE BLUE*/
+.twitch :nth-of-type(15n-4) b, .twitchdark :nth-child(15n-4) b{
+  color:rgb(30,144,255);
+}
+/*HOTPINK*/
+.twitch :nth-of-type(15n-3) b, .twitchdark :nth-child(15n-3) b{
+  color:rgb(252,104,178);
+}
+/*BLUEVIOLET*/
+.twitch :nth-of-type(15n-2) b, .twitchdark :nth-child(15n-2) b{
+  color:rgb(138,43,225);
+}
+/*SEAGREEN*/
+.twitch :nth-of-type(15n-1) b, .twitchdark :nth-child(15n-1) b{
+  color:rgb(0,255,127);
+}
+
+
+
+
+.twitch b:hover, .twitchdark b:hover{
+background-color: rgba(136, 136, 136, 0.2);
+border-radius: 5px;
+}
+
+.twitch .user1, .twitchdark .user1{
+  font-weight: bold;
+  color:rgb(0, 162, 162);
+}
+
+.twitch .user1:hover, .twitchdark .user1:hover{
+  background-color: rgba(136, 136, 136, 0.2);
+  border-radius: 5px;
+  }
+
+
+
+.twitchgrey{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size:93%;
+  opacity: 40%;
+  background-color: rgba(255, 255, 255, 0.051) !important;
+
+}
+
+
+.twitch img, .twitchdark img{
+  height: 23px;
+  vertical-align: middle
+}
+

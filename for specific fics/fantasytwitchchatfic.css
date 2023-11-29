@@ -1,0 +1,50 @@
+
+  .twitch>p{
+    display: block;
+    font-family:monospace;
+    font-weight: bold;
+    padding: 0.7vh 5px 0.7vh 5px;
+    margin:unset
+  }
+  
+  
+  .twitch>p:hover{
+    background-color: rgba(130, 130, 130, 0.1);
+    border-radius: 5px;
+  } 
+  
+  .twitch img{
+    height: 23px;
+    vertical-align: middle
+  }
+  
+  
+  .twitch{
+    margin:auto;
+    display:block;
+    float:none;
+    width:20em;
+    padding: 1em 1em 1em 1em; 
+    font-size:small;
+    column-count: 3;
+    width: auto;
+    max-width: 50em;
+  
+  }
+  
+  
+  .twitch>p:hover .twitchdark>p:hover{
+    background-color: rgba(130, 130, 130, 0.1);
+    border-radius: 5px;
+  }
+  
+  
+  .twitchgrey{  opacity: 40%;  }
+
+  
+  .twitch img, .twitchdark img{
+    height: 23px;
+    vertical-align: middle
+  }
+  
+  

@@ -1,0 +1,25 @@
+.texting{
+    display: inline-block;
+    border: 2px solid rgba(0, 0, 0, 0.53);
+    width: 40%;
+    padding: 6px 25px 6px 25px;
+    border-radius: 15px;
+    margin: 10px;
+    width: fit-content;
+    max-width: 25em;
+  }
+
+  .left{
+    align-items: left;
+    border-bottom-left-radius: 0;
+    margin-left: 15%;
+    margin-right: 40%;
+
+  }
+
+  .right{
+    float:right;
+    border-bottom-right-radius: 0;
+    margin-right: 15%;
+    margin-left: 40%;
+  }

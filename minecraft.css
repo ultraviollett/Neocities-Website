@@ -1,0 +1,161 @@
+
+/*FOR THE MINECRAFT CHAT */
+
+.bg1 {
+  background-image: url("https://images.squidge.org/images/2023/08/23/BG1.png");
+}/*plainest background, sky and the sun*/
+
+.bg2 {
+  background-image: url("https://images.squidge.org/images/2023/08/23/BG2.jpeg");
+}/*fancy build*/
+
+.bg3 {
+  background-image: url("https://images.squidge.org/images/2023/08/23/BG3.png");
+}/*clouds*/
+
+.bg4 {
+  background-image: url("https://images.squidge.org/images/2023/08/23/BG4.png");
+}/*nightime in lmanhole*/
+
+.bg5 {
+  background-image: url("https://images.squidge.org/images/2023/08/23/BG5.jpeg");
+}/*nice looking urban build*/
+
+.bg6 {
+  background-image: url("https://64.media.tumblr.com/3b4f3bf67d053ec83d4272def80016f3/a935ae17fdcabf34-e4/s1280x1920/95275244d4bf414a938ef7e889a5546a17fc5e1f.pnj");
+}/*my drawing*/
+
+
+
+
+.chat{
+  padding: 10em 0.5em 1em 0.5em;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+
+
+.chat>p {
+  margin: 0;
+  padding: .15em 3em .15em .5em;
+  color: white;
+  background: rgba(0, 0, 0, .6);
+  font-weight: bold;
+  font-family: Verdana, sans-serif;
+  line-height: 1.5;
+  width: 70%;
+}
+
+.chat .joinleft{
+  color: #ff0;
+}/*for the joined/left styled text*/
+
+.chat .whisper {
+  color: gray;
+  font-style:italic
+}/*for the whisper styled text*/
+
+.chat .green{ color: green}
+.chat .yellow{ color: yellow}
+.chat .red{ color: red}
+
+
+
+.chat>p:nth-last-child(n+7):nth-child(1){
+  opacity: .3;
+}
+.chat>p:nth-last-child(n+7):nth-child(2){
+  opacity: .7;
+}/*for the two messages to fade out if there are 7 or more messages*/
+
+
+.chat>p:nth-last-child(7):nth-child(1){
+  opacity: .7;
+}/*for when there are exactly 7 kids so it doesnt fade out weird*/
+
+  
+/* FOR THE BUTTONS*/
+
+
+
+  .buttonbg{
+    display: block;
+    width: 70%;
+    background-image: url('https://64.media.tumblr.com/c5663c79c435e0b27c1f88d8ec87ee78/ecb05f32086a896c-3c/s640x960/bdcb471565b0b2db728fbc6e57fde00a7c1ff430.png');
+    text-align:center;
+    border-color: black;
+    border-width: 2em;
+    color: white;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: 100% 100%;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    display: table;
+    margin:scroll;
+    font-size: 17px;
+  }
+
+  .buttonbg:hover{
+   background-image: url("https://64.media.tumblr.com/d9c2eeb62a08eb66ee61e0e53d68ac00/ecb05f32086a896c-12/s640x960/dc45f552659a2ced0d79951f40c8b9d00df845d9.png");
+  }
+
+  .buttontext{
+    padding-left: 2em;
+    padding-right: 2em;
+    font-family: "Verdana";
+    font-size: larger;
+    font-stretch:extra-expanded;
+  }
+
+
+
+
+/*FOR THE MINECRAFT POEMS */
+  .poembg{
+    background-image: url("https://64.media.tumblr.com/39fc537eb60f04420b6f6c32af10614d/9fffb7796e456dbf-f5/s400x600/d5da308502f575092badcbab3f150b9597339fc4.jpg");
+    background-image: url('https://64.media.tumblr.com/df08e5844615ba879c478f8ab4c3cf88/ca2facd6a58b90de-23/s400x600/6f414adcc9da23c62366b4c9e111fb6e33a347a6.pnj');
+    width:inherit;
+    min-height: 20em;
+    display:block;
+
+    background-size: 6em;
+
+    box-shadow: inset 0 0 25em rgba(0, 0, 0, 0.57);
+    text-align: justify;
+    
+    background-repeat: repeat;
+  }
+
+  .poemtextgreen{
+    padding: 1em 15% 1em 15%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    line-height: 150%;
+    color: limegreen;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+  }
+
+  .poemtextblue{
+    padding: 1em 15% 1em 15%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: cyan;
+    line-height: 150%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-stretch: condensed;
+    font-weight:bold;
+  }
+
+  .poemtextwhite{
+    padding: 1em 15% 1em 15%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: white;
+    line-height: 150%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-stretch: condensed;
+    font-weight:bold;
+  }
+
+
+ 

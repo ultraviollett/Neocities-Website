@@ -1,0 +1,175 @@
+
+
+.twitchtable{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+
+}
+
+.twitchtable div{
+  padding-right: 30px;
+}
+
+
+
+.twitchside{
+  position:relative;
+  padding: 7px !important; 
+  border-left: 1px solid lightgrey;
+  font-size: small;
+  background-color: rgba(0, 0, 0, 0.864);
+  color:white;
+  border: 1px solid rgba(135, 135, 135, 0.502);
+  border-radius: 3px;
+}
+
+.twitch>p, .twitchside>p{
+  display: block;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  padding: 0.7vh 5px 0.7vh 5px;
+  margin:unset
+}
+
+
+.twitch>p:hover, .twitchside>p:hover{
+  background-color: rgba(130, 130, 130, 0.1);
+  border-radius: 5px;
+}
+
+.twitch b:nth-of-type(1), .twitchside b:nth-of-type(1){
+  color:green;
+}
+
+.twitch :nth-child(2n) b, .twitchside :nth-child(2n) b{
+  color:chocolate;
+}
+
+.twitch :nth-child(3n+0) b, .twitchside :nth-child(3n+0) b{
+  color: purple;
+}
+
+.twitch :nth-child(4n-1) b, .twitchside :nth-child(4n-1) b{
+  color:blue;
+}
+
+.twitch :nth-child(6n+2) b, .twitchside :nth-child(6n+2) b{
+  color:blueviolet;
+}
+
+.twitch b:hover, .twitchside b:hover{
+background-color: rgba(136, 136, 136, 0.2);
+border-radius: 5px;
+}
+
+.twitch .user1, .twitchside .user1{
+  color:rgb(0, 162, 162) !important;
+}
+
+.twitchgrey{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size:93%;
+  opacity: 40%;
+  background-color: rgba(255, 255, 255, 0.051) !important;
+}
+
+
+.twitch img, .twitchside img{
+  height: 23px;
+  vertical-align: middle
+}
+
+
+.twitch{
+  margin:auto;
+  display:block;
+  float:none;
+  width:20em;
+  padding: 1em 1em 1em 1em; 
+  font-size:small;
+
+}
+
+.twitchcolumn{
+  column-count: 3;
+  width: auto;
+  max-width: 50em;
+}
+
+.twitchdark{
+  margin:auto;
+  display:block;
+  float:none;
+  width:20em;
+  padding: 1em 1em 1em 1em; 
+  border: 1px solid rgba(135, 135, 135, 0.502);
+  border-radius: 3px;
+  font-size:small;
+  background-color: rgba(0, 0, 0, 0.864);
+  color:white;
+
+}
+
+.twitch>p, .twitchdark>p{
+  display: block;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  padding: 0.7vh 5px 0.7vh 5px;
+  margin:unset
+}
+
+
+.twitch>p:hover, .twitchdark>p:hover{
+  background-color: rgba(130, 130, 130, 0.1);
+  border-radius: 5px;
+}
+
+.twitch :nth-of-type(n) b, .twitchdark :nth-child(n) b{
+  color:green;
+}
+
+.twitch :nth-child(2n) b, .twitchdark :nth-child(2n) b{
+  color:chocolate;
+}
+
+.twitch :nth-child(3n+0) b, .twitchdark :nth-child(3n+0) b{
+  color: purple;
+}
+
+.twitch :nth-child(4n-1) b, .twitchdark :nth-child(4n-1) b{
+  color:blue;
+}
+
+.twitch :nth-child(6n+2) b, .twitchdark :nth-child(6n+2) b{
+  color:blueviolet;
+}
+
+.twitch b:hover, .twitchdark b:hover{
+background-color: rgba(136, 136, 136, 0.2);
+border-radius: 5px;
+}
+
+.twitch .user1, .twitchdark .user1{
+  font-weight: bold;
+  color:rgb(0, 162, 162);
+}
+
+.twitch .user1:hover, .twitchdark .user1:hover{
+  background-color: rgba(136, 136, 136, 0.2);
+  border-radius: 5px;
+  }
+
+
+
+.twitchgrey{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size:93%;
+  opacity: 40%;
+  background-color: rgba(255, 255, 255, 0.051) !important;
+
+}
+
+
+.twitch img, .twitchdark img{
+  height: 23px;
+  vertical-align: middle
+}
+

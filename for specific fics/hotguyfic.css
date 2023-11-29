@@ -1,0 +1,33 @@
+.email{
+    display: block;
+    margin: auto;
+    width: 70%;
+    border: 1px black solid;
+
+    padding: 10px;
+}
+
+.trailoff{
+    border-bottom: none;
+}
+
+.header{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    border-bottom: 1px black solid;
+    padding: 4px 0px 4px 0px;
+
+}
+
+.timesent{
+    text-align: right;
+    margin-right: 0%;
+    margin-left: auto;
+    font-size: smaller;
+}
+
+.sentto, .ccto{
+    border-bottom: 1px black solid;
+    font-size: smaller;
+    padding: 4px 0px 4px 0px;
+}
