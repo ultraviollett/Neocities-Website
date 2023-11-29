@@ -12,20 +12,20 @@ function mcchoice() {
 
         case "Minecraft Button":
         document.getElementById("classchange").className = "buttonbg";
-        //document.getElementById("paste").className = "buttontext";
-        document.getElementById("paste").style.fontSize = "large";
+        document.getElementById("paste").className = "buttontext";
+
         break;
 
         case "Minecraft End Poem":
-        //document.getElementById("classchange").className = "poembg";
-        //document.getElementById("paste").className = "poemtextwhite";
-        document.getElementById("paste").style.fontSize = "small";
+        document.getElementById("classchange").className = "poembg";
+        document.getElementById("paste").className = "poemtextwhite";
+  
         break;
 
         case "Minecraft Book":
-        //document.getElementById("classchange").className = "mcbook";
-        //document.getElementById("paste").className = "";
-        document.getElementById("paste").style.fontSize = "x-small";
+        document.getElementById("classchange").className = "mcbook";
+        document.getElementById("paste").className = "";
+
         break;
     }
     return mcchoice2;
