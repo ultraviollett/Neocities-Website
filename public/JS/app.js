@@ -8,12 +8,6 @@ function mcchoice() {
     var mcchoice = document.getElementById("mcchoiceid");  
     var mcchoice2 = mcchoice.options[mcchoice.selectedIndex].value;
 
-    if (mcchoice2 != "--"){
-        document.getElementById("paste").style.fontSize = "large";
-    }else{
-        document.getElementById("paste").style.fontSize = "x-small";
-    }
-
     switch(mcchoice2){
 
         case "Minecraft Button":
