@@ -21,7 +21,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\ao3generatorwebpage\\generatorscript.js"
+            "program": "${workspaceFolder}\\ao3generatorwebpage\\app.js"
         }
     ]
 }
