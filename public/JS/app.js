@@ -1,40 +1,38 @@
-var mcchoice;
+var mcchoice2;
 var fullthing;
 var mctext;
 
 console.log("test js");
 
 function mcchoice() { 
-    var mcchoice2 = document.getElementById('mychoiceid');
-    var mcchoice = mylist.options[mylist.selectedIndex].text;
-    console.log("test button: "+mcchoice2);
+    var mcchoice = document.getElementById("mcchoiceid");  
+    var mcchoice2 = mcchoice.options[mcchoice.selectedIndex].value;
 
-    switch(mcchoice){
+    switch(mcchoice2){
 
         case "Minecraft Button":
-        document.getElementById("mctype").innerHTML = "button";  
-        document.getElementById("classchange").className = "buttonbg";
-        document.getElementById("paste").className = "buttontext";
+        //document.getElementById("classchange").className = "buttonbg";
+        //document.getElementById("paste").className = "buttontext";
+        document.getElementById("paste").style.fontSize = "large";
         break;
 
         case "Minecraft End Poem":
-        document.getElementById("mctype").innerHTML = "poem";  
-        document.getElementById("classchange").className = "poembg";
-        document.getElementById("paste").className = "poemtextwhite";
+        //document.getElementById("classchange").className = "poembg";
+        //document.getElementById("paste").className = "poemtextwhite";
+        document.getElementById("paste").style.fontSize = "small";
         break;
 
         case "Minecraft Book":
-        document.getElementById("mctype").innerHTML = "book";  
-        document.getElementById("classchange").className = "mcbook";
-        document.getElementById("paste").className = "";
+        //document.getElementById("classchange").className = "mcbook";
+        //document.getElementById("paste").className = "";
+        document.getElementById("paste").style.fontSize = "x-small";
         break;
     }
-    return mcchoice;
+    return mcchoice2;
 
 } 
 
 function mcform() {
-    console.log("mcform");
     var mctext = document.getElementById("mctext").value;
     document.getElementById("paste").innerHTML = mctext;
     return mctext
