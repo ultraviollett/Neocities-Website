@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AO3 Workskin Generator</title>
+    <link rel="stylesheet" href="CSS/simplemsg.css">
+    <link rel="stylesheet" href="CSS/webpage.css">
+  </head>
+    <body>
+<button class="nav" onclick="window.location.href = 'index.html';">back</button>
+<p>
+
+
+<h3>Input text:</h3>
+<textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
+</textarea>
+<h3>pick colour:</h3>
+<form>
+<select id = "mcchoiceid" onchange = "mcchoice()">  
+    <option>Left</option>
+    <option>Right</option> 
+</select>
+</form>
+</p>
+
+<br>
+<button onclick="add(mcform())">Add</button>
+<br><br>
+
+<div class="ao3sim">
+
+<div id="msgdiv" class="textdiv"></div>
+
+</div>
+<br>
+<button onclick="generateHTML()">Generate HTML</button>
+<br><br>
+
+<textarea class="largeinput" type="text" id = "fullthing"></textarea>
+
+<script src="JS/simplemsg.js"></script> 
+<script src="JS/gen.js"></script> 
+</body>
+</html>

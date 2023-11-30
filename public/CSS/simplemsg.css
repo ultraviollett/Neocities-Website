@@ -1,0 +1,33 @@
+.textdiv{
+    max-width: 25cm;
+    margin: auto;
+}
+
+.texting{
+    display: block;
+    border: 2px solid rgba(0, 0, 0, 0.53);
+    width: 60%;
+    padding: 6px 25px 6px 25px;
+    border-radius: 15px;
+    margin: 10px auto;
+    width: fit-content;
+    max-width: 5cm;
+    white-space: normal;
+    overflow: hidden;
+
+  }
+
+  .left{
+    align-items: left;
+    border-bottom-left-radius: 0;
+    margin-left: 15%;
+    margin-right: 40%;
+
+  }
+
+  .right{
+    align-items: right;
+    border-bottom-right-radius: 0;
+    margin-right: 15%;
+    margin-left: 40%;
+  }
