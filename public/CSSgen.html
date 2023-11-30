@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AO3 Workskin Generator</title>
+    <link rel="stylesheet" href="CSS/webpage.css">
+  </head>
+   <body>
+      <button class="nav" onclick="window.location.href = 'index.html';">back</button>
+      <p>
+    
+
+            <h3>Check all that you have used:</h3>
+            <div>
+              <input type="checkbox" onclick="mcbutton()" />
+              <label for="mcbutton">Minecraft Button</label>
+            </div>
+            <div>
+                <input type="checkbox" value="mcbook" />
+                <label for="mcbook">Minecraft Book</label>
+            </div>
+            <div>
+              <input type="checkbox" value="mcpoem" />
+              <label for="mcpoem">Minecraft End Poem</label>
+            </div>
+            <div>
+              <input type="checkbox" value="msg" />
+              <label for="msg">Messaging</label>
+            </div>
+            <div>
+              <input type="checkbox" value="twt" />
+              <label for="twt">Twitter</label>
+            </div>
+            <br>
+<hr>          
+
+<div id="mcbuttonCSS">
+    <p>.buttonbg{<br>
+        display: block;<br>
+        height: 5vw;<br>
+        width: 80vw;<br>
+        max-width: 15cm;<br>
+        max-height: 0.94cm;<br>
+        background-image: url('https://images.squidge.org/images/2023/11/30/button.png');<br>
+        text-align:center;<br>
+        color: white;<br>
+        background-position: center;<br>
+        background-repeat:no-repeat;<br>
+        background-size: 100% 100%;<br>
+        padding-bottom: auto;<br>
+        display: table;<br>
+        margin:scroll;<br>
+        font-size: 17px;<br>
+        }<br>
+        <br>
+        .buttonbg:hover{<br>
+        background-image: url(&quot;https://images.squidge.org/images/2023/11/30/buttonpressed.png&quot;);<br>
+        }<br>
+        <br>
+        .buttontext{<br>
+        padding: 0px;<br>
+        margin: 5px;<br>
+        font-family: &quot;Verdana&quot;;<br>
+        font-size: larger;<br>
+        font-stretch:extra-expanded;<br>
+        }</p>
+</div>
+            <script src="JS/CSSgen.js"></script> 
+        <script src="JS/gen.js"></script> 
+    </body>
+</html>

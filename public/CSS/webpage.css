@@ -15,6 +15,12 @@ body{
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+
+hr{
+  border-top: 2px solid var(--darkval);
+  width:85%;
+}
+
 /*General Button Cases*/
 button{
   color: white;
@@ -70,11 +76,10 @@ button:hover{
 
 .largeinput{
   min-height: 4cm;
-  overflow-y:visible;
-  overflow-x: hidden;
-  height: auto;
-  max-width: 70%;
-  width: 70%;
+  overflow-y:hidden;
+  margin: 5px auto;
+  max-width: 90%;
+  width: 90%;
   font: 1em sans-serif;
   box-sizing: border-box;
 
@@ -84,3 +89,6 @@ button:hover{
   
 }
 
+.reveal{
+  display:none;
+}
