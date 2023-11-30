@@ -2,6 +2,9 @@ var mcchoice2;
 var fullthing;
 var mctext;
 
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+
 console.log("test js");
 
 function mcchoice() { 
@@ -13,8 +16,7 @@ function add(){
     switch(mcchoice()){
 
         case "White Text":
-        const para = document.createElement("p");
-        const node = document.createTextNode("This is new.");
+
         para.appendChild(node);
             
         const element = document.getElementById("poemdiv");
