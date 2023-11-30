@@ -11,31 +11,37 @@
     <body>
       <a href="index.html">back</a>
       <p>
-            <h3>Pick an option:</h3>
-<form>
-<select id = "mcchoiceid" onchange = "mcchoice()">  
-    <option>White Text</option>
-    <option>Green Text</option>  
-    <option>Blue Text</option>  
-    <option>Black Text</option>    
-</select>  
-</form>
-</p>
+
+
 <h3>Input text:</h3>
 <textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
 </textarea>
+<h3>pick colour:</h3>
+<form>
+<select id = "mcchoiceid" onchange = "mcchoice()">  
+    <option>White Text</option>
+    <option>Green Text</option> 
+    <option>Cyan Text</option>
+    <option>Red Text</option>
+    <option>Orange Text</option>   
+    <option>Yellow Text</option>       
+    <option>Purple Text</option>   
+    <option>Pink Text</option> 
+</select>
+</form>
+</p>
+
 <br>
-<button onclick="add()">Add</button>
-<br>
+<button onclick="add(mcform())">Add</button>
+<br><br>
  
-<div class="poembg" id="poemdiv"> <p ></p></div>
-
+<div class="poembg" id="poemdiv"></div>
+<br>
 <button onclick="generateHTML()">Generate HTML</button>
-<br><br><br>
-
+<br><br>
 
 <textarea class="largeinput" type="text" id = "fullthing"></textarea>
-<button onclick="copy()">Copy</button>
-        <script src="JS/mcpoem.js"></script> 
-    </body>
+
+<script src="JS/mcpoem.js"></script> 
+</body>
 </html>

@@ -15,8 +15,8 @@ body{
 }
 
 .largeinput{
-  min-height: 2cm;
-  overflow-y:auto;
+  min-height: 4cm;
+  overflow-y:visible;
   overflow-x: hidden;
   height: auto;
   max-width: 70%;

@@ -127,35 +127,23 @@
       
       background-repeat: repeat;
     }
-  
-    .poemtextgreen{
+    
+    .poemtext{
       padding: 1em 15% 1em 15%;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
       line-height: 150%;
-      color: limegreen;
+      color: white;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-weight: bold;
     }
-  
-    .poemtextblue{
-      padding: 1em 15% 1em 15%;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-      color: cyan;
-      line-height: 150%;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-stretch: condensed;
-      font-weight:bold;
-    }
-  
-    .poemtextwhite{
-      padding: 1em 15% 1em 15%;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-      color: white;
-      line-height: 150%;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-stretch: condensed;
-      font-weight:bold;
-    }
+    .poemtextgreen{color: limegreen;}
+    .poemtextcyan{color: cyan; }
+    
+    .poemtextred{ color: red;}
+    .poemtextorange{ color:orange;}
+    .poemtextyellow{ color: yellow;}
+    .poemtextpurple{ color: rgb(162, 35, 162);}
+    .poemtextpink{ color: pink;}
   
   
    
