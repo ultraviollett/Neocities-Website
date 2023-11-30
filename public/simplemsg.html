@@ -11,28 +11,27 @@
 <button class="nav" onclick="window.location.href = 'index.html';">back</button>
 <p>
 
+<div class="note">
+  NOTES:
+  <li>There is currently no option to add names. That will be added in other messaging text I will add</li>
+  <li>Refresh the page to start over</li>
+</div>
 
 <h3>Input text:</h3>
 <textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
 </textarea>
-<h3>pick colour:</h3>
-<form>
-<select id = "mcchoiceid" onchange = "mcchoice()">  
-    <option>Left</option>
-    <option>Right</option> 
-</select>
-</form>
-</p>
-
 <br>
+<fieldset>
+<legend>pick side:</legend>
+<div><input type="radio" onchange = "leftchoice()" id="left" name="contact"/><label for="left">Left</label>
+<input type="radio" onchange = "rightchoice()" id="right" name="contact"/><label for="right">Right</label> </div>
+</fieldset>
+
 <button onclick="add(mcform())">Add</button>
 <br><br>
 
-<div class="ao3sim">
-
 <div id="msgdiv" class="textdiv"></div>
 
-</div>
 <br>
 <button onclick="generateHTML()">Generate HTML</button>
 <br><br>

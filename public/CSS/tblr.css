@@ -1,0 +1,136 @@
+.tungle {
+    max-width: 500px;
+    font-family: Gibson,Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif;
+    display: table;
+    margin: auto;
+    color: #444444;
+  }
+  
+.tunglebody {
+    background-color: #ffffff;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: .1em;
+    border-color: #dddddd;
+    float: left;
+    max-width: 100%;
+    position: relative;
+    padding: 15px 0 0;
+  }
+  
+.tungleurl {
+    position: relative;
+    top: -.2em;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 50px;
+    margin-left: 20px;
+    line-height: 20px;
+    height: 20px;
+  }
+  
+.tungletext {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 20px;
+    line-height: 21px;
+    font-size: 14px;
+    width: 92%;
+    word-wrap: break-word;
+  }
+  
+.tungletext a {
+    color: #444444;
+  }
+  
+.tungleh {
+    display: inline-block;
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 47px;
+    width: 92%;
+    word-wrap: break-word;
+  }
+  
+  #workskin .tungletags {
+    display: inline-block;
+    width: 92%;
+    font-size: 13px;
+    color: #8f8f8f;
+    margin-top: 15px;
+    line-height: 20px;
+    position: relative;
+    margin-left: 20px;
+  }
+
+.tungletag {
+    margin-left: 12px;
+  }
+  
+.tungletag:first-of-type {
+    margin-left: 0px;
+  }
+  
+.tunglenotes {
+    font-size: 14px;
+    font-weight: bold;
+    color: #8f8f8f;
+    line-height: 45px;
+    position: relative;
+    margin-left: 20px;
+  }
+  
+.tungleicons {
+    height: 45px;
+    width: auto;
+    float: right;
+    margin-right: 10px;
+  }
+  
+  #workskin .tungleask {
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+    padding: 15px 14px 18px;
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 20px;
+    line-height: 21px;
+    font-size: 14px;
+    width: 80%;
+    word-wrap: break-word;
+  }
+  
+  #workskin .tungleasktip {
+    display: inline;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #f2f2f2;
+    right: -8px;
+    top: 10px;
+  }
+  
+  #workskin .tungleaskicon {
+    display: inline-block;
+    float: right;
+    height: 37px;
+    width: 37px;
+    margin-top: 15px;
+    border-radius: 2px;
+    margin-right: 15px;
+  }
+  
+  #workskin .tungleasker {
+    color: #a6a6a6;
+    font-size: 13px;
+    display: inline-block;
+    width: 100%;
+    line-height: 21px;
+    margin-bottom: 7px;
+  }

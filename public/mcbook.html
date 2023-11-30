@@ -8,10 +8,19 @@
     <link rel="stylesheet" href="CSS/mcbook.css">
   </head>
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
-    <body>
-      <button class="nav" onclick="window.location.href = 'index.html';">back</button>
-      <p>
-            <h3>Write Text then click generate:</h3>
+<body>
+<button class="nav" onclick="window.location.href = 'index.html';">back</button>
+
+<div class="note">
+NOTES:
+<li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/39524436/chapters/125098090">here</a>! I am the creator</li>
+<li>Because of the way the box under 'Input Text:' operates, I can't 
+  get it to except normal paragraph breaks. You can use HTML inside it,
+  so if you want to start a new paragraph type '&lt;br&gt;'</li> 
+</li>
+</div>
+      
+<h3>Input Text:</h3>
 </p>
 <textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
 </textarea>

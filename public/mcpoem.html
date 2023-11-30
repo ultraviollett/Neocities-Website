@@ -11,12 +11,19 @@
     <body>
       <button class="nav" onclick="window.location.href = 'index.html';">back</button>
       <p>
-
+<div class="note">
+<p>NOTES:</p>
+<li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/39524436/chapters/98981022#workskin">here</a>! I am the creator</li>
+<li>I am planning to make it so you can pick any colour with a colour picker to add to the text,
+  if you want to do so currently, there are instructions on the AO3 page linked above
+</li>
+<li>Refresh the page to start over</li>
+</div>
 
 <h3>Input text:</h3>
 <textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
 </textarea>
-<h3>pick colour:</h3>
+<h3>Pick Colour:</h3>
 <form>
 <select id = "mcchoiceid" onchange = "mcchoice()">  
     <option>White Text</option>
@@ -29,6 +36,11 @@
     <option>Pink Text</option> 
 </select>
 </form>
+<fieldset>
+  <legend>pick side:</legend>
+  <div><input type="radio" onchange = "leftchoice()" id="White Text" name="contact"/><label for="White Text">White Text</label>
+  <input type="radio" onchange = "rightchoice()" id="Green Text" name="contact"/><label for="Green Text">Green Text</label> </div>
+  </fieldset>
 </p>
 
 <br>
@@ -41,9 +53,10 @@
 <br>
 <button onclick="generateHTML()">Generate HTML</button>
 <br><br>
-
+<div id="textbox">hi
 <textarea class="largeinput" type="text" id = "fullthing"></textarea>
-
+</div>
+<button onclick="copyText()">Copy Text</button>
 <script src="JS/mcpoem.js"></script> 
 </body>
 </html>

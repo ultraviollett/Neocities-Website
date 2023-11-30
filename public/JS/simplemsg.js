@@ -1,8 +1,8 @@
-var mcchoice2;
 var childtext=[];
 var fullthing;
 childcount = 0;
 var mctext;
+var isright;
 
 
 function mcchoice() { 
@@ -18,6 +18,8 @@ function mcform() {
     return mctext
 }
 
+function leftchoice(){ isright = false;}
+function rightchoice(){ isright = true;}
 
   function add(mctext){
     const para = document.createElement("div");
@@ -28,16 +30,12 @@ function mcform() {
 
     const element = document.getElementById("msgdiv");
 
-    switch(mcchoice()){
-        default:
+    if (isright){
         childtext[childcount] = '<div class="right texting">'+mctext+"</div>";
         para.className = "right texting";
-        break;
-
-        case "Left":
+    }else{
         childtext[childcount] = '<div class="left texting">'+mctext+"</div>";
         para.className = "left texting";
-        break;
 
     }
     

@@ -4,6 +4,7 @@
   --middleval: #55828b;
   --darkval: #3b6064;
   --darkestval: #364958;
+  --highlight: #c69b6f;
 }
 
 
@@ -60,7 +61,7 @@ button:hover{
 
 .ao3sim{
   display: block;
-
+  height:max-content;
   background-color: white;
   padding: 10px 10%;
   font-family: 'Times New Roman', Times, serif;
@@ -89,6 +90,22 @@ button:hover{
   
 }
 
-.reveal{
-  display:none;
+fieldset{
+  border: none;
+}
+
+.note{
+  background-color: var(--highlight);
+  border: 2px solid var(--lightval);
+  border-radius: 3px;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 15px;
+  
+  margin: 10px 20px;
+  width: fit-content;
+}
+
+.note>li, .note>p{
+  margin-bottom: 10px;
 }
