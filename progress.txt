@@ -1,0 +1,28 @@
+--current goals--
+
+general:[GEN]
+-add general css to make site nice-looking [PRETTIFY]
+-add page for copying workskin CSS
+-add instruction manual
+-add links to ao3 works about the workskin 
+
+add HTML generators: [ADD]
+-add tumblr [TBLR]
+-add twitter [TWT]
+-add messaging [MSG]
+-add twitchchat [TWCH]
+-add mc messaging
+
+other (less important):
+-add 'copy text' button to HTML/CSS [COPY]
+-add colour picker for various things (ie mcpoem, twitchchat) [COLOURPICK]
+
+--far off goals--
+
+-add form for suggestions and asking for help
+
+
+add HTML generators: [ADD]
+-add youtube thumbnails
+-add reddit
+-add 4chan

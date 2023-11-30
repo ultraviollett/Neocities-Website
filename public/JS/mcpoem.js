@@ -1,77 +1,90 @@
 var mcchoice2;
+var childtext=[];
 var fullthing;
+childcount = 0;
 var mctext;
 
-const para = document.createElement("p");
-const node = document.createTextNode("This is new.");
-
-console.log("test js");
 
 function mcchoice() { 
     var mcchoice = document.getElementById("mcchoiceid");  
     var mcchoice2 = mcchoice.options[mcchoice.selectedIndex].value;
     return mcchoice2;
 }
-function add(){
-    switch(mcchoice()){
 
-        case "White Text":
 
-        para.appendChild(node);
-            
-        const element = document.getElementById("poemdiv");
-        element.appendChild(para);
-
-        break;
-
-        case "Minecraft End Poem":
-        document.getElementById("classchange").className = "poembg";
-        document.getElementById("paste").className = "poemtextwhite";
-  
-        break;
-
-        case "Minecraft Book":
-        document.getElementById("classchange").className = "mcbook";
-        document.getElementById("paste").className = "";
-
-        break;
-    }
-
-    
-
-} 
 
 function mcform() {
     var mctext = document.getElementById("mctext").value;
-    document.getElementById("paste").innerHTML = mctext;
     return mctext
+}
 
 
-  }
+  function add(mctext){
+    const para = document.createElement("p");
+    const node = document.createTextNode(mctext);
+    
 
-function generateHTML(){
-    console.log("generate HTML");
-    var fullthing = "";
+    para.appendChild(node);
+
+    const element = document.getElementById("poemdiv");
 
     switch(mcchoice()){
-        case "Minecraft Button":
-        fullthing = '<div class="buttonbg"><p class="buttontext">';
-        break;
-
-        case "Minecraft End Poem":
-        fullthing = '<div class="poembg"><p class="poemtextwhite">';
-        break;
-
-        case "Minecraft Book":
-        fullthing = '<div class="mcbook"><p>';
-        break;        
-
         default:
-        fullthing = '<div><p>';
+        childtext[childcount] = '<p class="poemtext">'+mctext+"</p>";
+        para.className = "poemtext";
         break;
+
+        case "Green Text":
+        childtext[childcount] = '<p class="poemtextgreen poemtext">'+mctext+"</p>";
+        para.className = "poemtextgreen poemtext";
+        break;
+
+        case "Cyan Text":
+        childtext[childcount] = '<p class="poemtextblue poemtext">'+mctext+"</p>";
+        para.className = "poemtextcyan poemtext";
+        break;
+
+        case "Red Text":
+        childtext[childcount] = '<p class="poemtextred poemtext">'+mctext+"</p>";
+        para.className = "poemtextred poemtext";
+        break;
+
+        case "Orange Text":
+        childtext[childcount] = '<p class="poemtextorange poemtext">'+mctext+"</p>";
+        para.className = "poemtextorange poemtext";
+        break;
+
+        case "Yellow Text":
+        childtext[childcount] = '<p class="poemtextyellow poemtext">'+mctext+"</p>";
+        para.className = "poemtextyellow poemtext";
+        break;
+
+        case "Purple Text" :
+        childtext[childcount] = '<p class="poemtextpurple poemtext">'+mctext+"</p>";
+        para.className = "poemtextpurple poemtext";
+        break;
+
+        case "Pink Text":
+        childtext[childcount] = '<p class="poemtextpink poemtext">'+mctext+"</p>";
+        para.className = "poemtextpink poemtext";
+        break;
+
+    }
+    
+    childcount += 1;
+    childtext.push("");
+    element.appendChild(para);
+
     }
 
-    var fullthing = fullthing.concat(mcform()+"</p></div>");
+
+function generateHTML(){
+    fullthing="";
+    for (let i=0; i < childtext.length; i++){
+        fullthing = fullthing+childtext[i];
+    }
+
+    var fullthing = '<div class="poembg">'+fullthing+"</div>";
 
     document.getElementById("fullthing").value = fullthing;
     return fullthing;
