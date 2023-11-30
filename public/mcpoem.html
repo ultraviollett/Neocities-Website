@@ -14,19 +14,21 @@
             <h3>Pick an option:</h3>
 <form>
 <select id = "mcchoiceid" onchange = "mcchoice()">  
-    <option>--</option>
-    <option>Minecraft Button</option>  
-    <option>Minecraft End Poem</option>  
-    <option>Minecraft Book</option>    
+    <option>White Text</option>
+    <option>Green Text</option>  
+    <option>Blue Text</option>  
+    <option>Black Text</option>    
 </select>  
 </form>
 </p>
 <h3>Input text:</h3>
 <textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
 </textarea>
-
+<br>
+<button onclick="add()">Add</button>
+<br>
  
-<div class="mcbook" id="classchange"> <p id="paste" ></p></div>
+<div class="poembg" id="poemdiv"> <p ></p></div>
 
 <button onclick="generateHTML()">Generate HTML</button>
 <br><br><br>
@@ -34,6 +36,6 @@
 
 <textarea class="largeinput" type="text" id = "fullthing"></textarea>
 <button onclick="copy()">Copy</button>
-        <script src="JS/app.js"></script> 
+        <script src="JS/mcpoem.js"></script> 
     </body>
 </html>

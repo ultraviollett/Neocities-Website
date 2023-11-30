@@ -7,12 +7,18 @@ console.log("test js");
 function mcchoice() { 
     var mcchoice = document.getElementById("mcchoiceid");  
     var mcchoice2 = mcchoice.options[mcchoice.selectedIndex].value;
+    return mcchoice2;
+}
+function add(){
+    switch(mcchoice()){
 
-    switch(mcchoice2){
-
-        case "Minecraft Button":
-        document.getElementById("classchange").className = "buttonbg";
-        document.getElementById("paste").className = "buttontext";
+        case "White Text":
+        const para = document.createElement("p");
+        const node = document.createTextNode("This is new.");
+        para.appendChild(node);
+            
+        const element = document.getElementById("poemdiv");
+        element.appendChild(para);
 
         break;
 
@@ -29,7 +35,7 @@ function mcchoice() {
         break;
     }
 
-    return mcchoice2;
+    
 
 } 
 
