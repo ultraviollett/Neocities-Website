@@ -1,0 +1,32 @@
+
+
+  
+    .buttonbg{
+      display: block;
+      width: 70%;
+      background-image: url('https://64.media.tumblr.com/c5663c79c435e0b27c1f88d8ec87ee78/ecb05f32086a896c-3c/s640x960/bdcb471565b0b2db728fbc6e57fde00a7c1ff430.png');
+      text-align:center;
+      border-color: black;
+      border-width: 2em;
+      color: white;
+      background-position: center;
+      background-repeat:no-repeat;
+      background-size: 100% 100%;
+      padding-bottom: 0.5em;
+      padding-top: 0.5em;
+      display: table;
+      margin:scroll;
+      font-size: 17px;
+    }
+  
+    .buttonbg:hover{
+     background-image: url("https://64.media.tumblr.com/d9c2eeb62a08eb66ee61e0e53d68ac00/ecb05f32086a896c-12/s640x960/dc45f552659a2ced0d79951f40c8b9d00df845d9.png");
+    }
+  
+    .buttontext{
+      padding-left: 2em;
+      padding-right: 2em;
+      font-family: "Verdana";
+      font-size: larger;
+      font-stretch:extra-expanded;
+    }

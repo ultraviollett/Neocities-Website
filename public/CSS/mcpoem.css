@@ -1,0 +1,34 @@
+
+
+  /*FOR THE MINECRAFT POEMS */
+    .poembg{
+
+      background-image: url('https://64.media.tumblr.com/df08e5844615ba879c478f8ab4c3cf88/ca2facd6a58b90de-23/s400x600/6f414adcc9da23c62366b4c9e111fb6e33a347a6.pnj');
+      width:inherit;
+      min-height: 20em;
+      display:block;
+  
+      background-size: 6em;
+  
+      box-shadow: inset 0 0 25em rgba(0, 0, 0, 0.57);
+      text-align: justify;
+      
+      background-repeat: repeat;
+    }
+    
+    .poemtext{
+      padding: 1em 15% 1em 15%;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      line-height: 150%;
+      color: white;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+    }
+    .poemtextgreen{color: limegreen;}
+    .poemtextcyan{color: cyan; }
+    
+    .poemtextred{ color: red;}
+    .poemtextorange{ color:orange;}
+    .poemtextyellow{ color: yellow;}
+    .poemtextpurple{ color: rgb(162, 35, 162);}
+    .poemtextpink{ color: pink;}

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AO3 Workskin Generator</title>
     <link rel="stylesheet" href="CSS/webpage.css">
-    <link rel="stylesheet" href="CSS/generator.css">
+    <link rel="stylesheet" href="CSS/mcbutton.css">
   </head>
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
     <body>
-      <a href="index.html">back</a>
+      <button class="nav" onclick="window.location.href = 'index.html';">back</button>
       <p>
             <h3>Write Text then click generate:</h3>
 </p>
@@ -17,7 +17,9 @@
 </textarea>
 <br><br>
  
+<div class="ao3sim">
 <div class="buttonbg"> <p id="paste" class="buttontext" ></p></div>
+</div>
 <br><br>
 <button onclick="generateHTML()">Generate HTML</button>
 <br><br>

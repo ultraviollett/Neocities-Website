@@ -1,0 +1,19 @@
+.mcbook{
+  display: block;
+  background-image: url("img/bookbg.png");
+  text-align:center;
+  background-position: center;
+  background-repeat:no-repeat;
+  margin: auto;
+  background-size:cover;
+  padding: 40px;
+
+  overflow-y: auto;
+
+  width: 60vw + 30px;
+  height: 78vw;
+  max-width: 400px;
+  max-height: 500px;
+
+  color: black;
+}
