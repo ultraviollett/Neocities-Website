@@ -5,20 +5,11 @@ function autoResize() {
     this.style.height = 'auto';
     this.style.height = this.scrollHeight + 'px';
 }
+//https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard 
+//read above over
 
-function copyText() {
-     
-    /* Select text area by id*/
-    var Text = document.getElementById("textbox");
-
-    /* Select the text inside text area. */
-    Text.select();
-
-    /* Copy selected text into clipboard */
-    navigator.clipboard.writeText(Text.value);
-
-    /* Set the copied text as text for 
-    div with id clipboard */
-    document.getElementById("clipboard")
-        .innerHTML = Text.value;
+const btn_copy = document.getElementById('copy')
+const txt_data = document.getElementById('data')copy.onclick = () => {
+  const value = txt_data.value
+  navigator.clipboard.writeText(value)
 }

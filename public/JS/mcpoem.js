@@ -89,9 +89,3 @@ function generateHTML(){
     document.getElementById("fullthing").value = fullthing;
     return fullthing;
 }
-
-function copy() {
-    let textarea = document.getElementById("textarea");
-    textarea.select();
-    document.execCommand("copy");
-  }
