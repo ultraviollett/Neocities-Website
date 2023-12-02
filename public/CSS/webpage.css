@@ -78,12 +78,10 @@ button:hover{
 .largeinput{
   min-height: 4cm;
   overflow-y:hidden;
-  margin: 5px auto;
-  max-width: 90%;
+  margin: 5px auto;;
   width: 90%;
-
   box-sizing: border-box;
-
+  padding: 5px;
   /* Match form field borders */
   border: 2px solid var(--middleval);
   vertical-align: text-top;

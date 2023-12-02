@@ -6,6 +6,7 @@
     <title>AO3 Workskin Generator</title>
     <link rel="stylesheet" href="CSS/webpage.css">
     <link rel="stylesheet" href="CSS/twt.css">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
   </head>
     <body>
 <button class="nav" onclick="window.location.href = 'index.html';">back</button>
@@ -17,33 +18,49 @@
 
   <li>Refresh the page to start over</li>
 </div>
+
+
 <br><br>
-<h3>Input text:</h3>
-<textarea id="icon" oninput="icon()">URL of icon</textarea>
+<form id="twtstyle">
+<fieldset>
+  <div>
+  <input type="radio" name="stylename" id="default" name="contact"/><label for="default">Default of AO3</label>
+  <input type="radio" name="stylename" id="white" name="contact"/><label for="white">White</label>
+  <input type="radio" name="stylename" id="black" name="contact"/><label for="black">Black</label>
+  <input type="radio" name="stylename" id="minimal" name="contact"/><label for="minimal">Minimal</label>
+  </div>
+</fieldset>
+</form>
+
+
+
+  <br><br>
+<textarea type="url" id="icon" oninput="icon()">https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg</textarea>
 <br>
 <textarea id="username" oninput="username()">Name</textarea>
 <textarea id="twturl" oninput="twturl()">URL</textarea>
 <br>
-<textarea type="text" id="tweet" class="largeinput" oninput="tweet()">Tweet
+<textarea type="text" id="tweet" class="largeinput" oninput="tweet()" placeholder="Add body of tweet here">
 </textarea>
 <br>
-Time (optional):  <input type="time" id="time" oninput="time()">
-Date (optional):  <input type="date" id="date" oninput="date()">
+Time:  <input type="time" id="time" oninput="time()">
+Date:  <input type="date" id="date" oninput="date()">
 <br><br>
+Replies:  <input type="number" id="reply" oninput="reply()"><br>
 Retweets:  <input type="number" id="retweet" oninput="retweet()"><br>
-Quote Tweets:  <input type="number" id="qtweet" oninput="qtweet()"><br>
 Likes:  <input type="number" id="like" oninput="like()">
 <br>
-<button class="add" onclick="add(username(),twturl(),tweet())">Add</button>
-<br><br>
+
+<button id="add">Add</button>
+<br>
 
 <div id="twtdiv"></div>
 
 <br>
-<button onclick="generateHTML()">Generate HTML</button>
+<button id="generateHTML">Generate HTML</button>
 <br><br>
 
-<textarea class="largeinput" type="text" id = "fullthing"></textarea>
+<div class="largeinput" id = "textoutput"></div>
 
 <script src="JS/twt.js"></script> 
 <script src="JS/gen.js"></script> 
