@@ -141,9 +141,13 @@ function newtweet(previous){
         x = x + '<div class="twt-timestamp"> '+date()+'</div>';
     }
  
-    x = x + '<hr class="twt-sep"> <div class="twt-stat1"> <img src="https://i.imgur.com/dJg9v1v.png"> <strong>'+reply()+'</strong></p><p> ⮂   <strong>'+retweet()+' </strong> </p><p><strong> ♥   '+like()+'</strong> </p><p><span class="twtsharebutton">↥</span> </p> </div> </div>';
-    
-    return (x);
+    x = x + '<hr class="twt-sep"> <div class="twt-stat1"> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+reply()+'</strong></p><p> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+retweet()+' </strong> </p><p><strong> <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">   '+like()+'</strong> </p><p><span class="twtsharebutton">↥</span> </p> </div> </div>';
+/*        <div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png">2</div>
+        <div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/UeOnwXk.png">2</div>
+        <div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">2</div>
+        */    
+   
+        return (x);
 }
 
 function newreply(previous){
