@@ -81,7 +81,7 @@ button:hover{
   margin: 5px auto;
   max-width: 90%;
   width: 90%;
-  font: 1em sans-serif;
+
   box-sizing: border-box;
 
   /* Match form field borders */
@@ -108,4 +108,12 @@ fieldset{
 
 .note>li, .note>p{
   margin-bottom: 10px;
+}
+
+
+.columnify{
+  columns: 150px 2;
+  column-width: 100px;
+  margin-left: 0px;
+  margin-right: auto;
 }

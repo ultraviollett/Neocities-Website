@@ -23,24 +23,20 @@
 <h3>Input text:</h3>
 <textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
 </textarea>
+<br><br>
 <h3>Pick Colour:</h3>
-<form>
-<select id = "mcchoiceid" onchange = "mcchoice()">  
-    <option>White Text</option>
-    <option>Green Text</option> 
-    <option>Cyan Text</option>
-    <option>Red Text</option>
-    <option>Orange Text</option>   
-    <option>Yellow Text</option>       
-    <option>Purple Text</option>   
-    <option>Pink Text</option> 
-</select>
-</form>
+<div class="columnify">
 <fieldset>
-  <legend>pick side:</legend>
-  <div><input type="radio" onchange = "leftchoice()" id="White Text" name="contact"/><label for="White Text">White Text</label>
-  <input type="radio" onchange = "rightchoice()" id="Green Text" name="contact"/><label for="Green Text">Green Text</label> </div>
+  <div><input type="radio" onchange = "white()" id="White Text" name="contact"/><label for="White Text">White Text</label>
+  <div><input type="radio" onchange = "green()" id="Green Text" name="contact"/><label for="Green Text">Green Text</label> </div>
+  <div><input type="radio" onchange = "cyan()" id="Cyan Text" name="contact"/><label for="Cyan Text">Cyan Text</label> </div>
+  <div><input type="radio" onchange = "red()" id="Red Text" name="contact"/><label for="Red Text">Red Text</label> </div>
+  <div><input type="radio" onchange = "orange()" id="Orange Text" name="contact"/><label for="Orange Text">Orange Text</label> </div>
+  <div><input type="radio" onchange = "yellow()" id="Yellow Text" name="contact"/><label for="Yellow Text">Yellow Text</label> </div>
+  <div><input type="radio" onchange = "purple()" id="Purple Text" name="contact"/><label for="Purple Text">Purple Text</label> </div>
+  <div><input type="radio" onchange = "pink()" id="Pink Text" name="contact"/><label for="Pink Text">Pink Text</label> </div>
   </fieldset>
+</div>
 </p>
 
 <br>
@@ -50,17 +46,15 @@
 <div class="ao3sim">
 <div class="poembg" id="poemdiv"></div>
 </div>
+
 <br>
 <button onclick="generateHTML()">Generate HTML</button>
 <br><br>
-<div id="textbox">hi
+
+<div id="textbox">
 <textarea class="largeinput" type="text" id = "fullthing"></textarea>
 </div>
 <button onclick="copyText()" id="copy">Copy Text</button>
-
-
-<button id='copy'>copy</button>
-<textarea id='data'>un bel di vedremo</textarea>
 
 <script src="gen.js"></script>
 <script src="JS/mcpoem.js"></script> 

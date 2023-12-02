@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AO3 Workskin Generator</title>
+    <link rel="stylesheet" href="CSS/webpage.css">
+    <link rel="stylesheet" href="CSS/twt.css">
+  </head>
+    <body>
+<button class="nav" onclick="window.location.href = 'index.html';">back</button>
+<p>
+
+<div class="note">
+  NOTES:
+  <li>This workskin exists on AO3 <a href="">here</a>! The creator is </li>
+
+  <li>Refresh the page to start over</li>
+</div>
+<br><br>
+<h3>Input text:</h3>
+<textarea id="icon" oninput="icon()">URL of icon</textarea>
+<br>
+<textarea id="username" oninput="username()">Name</textarea>
+<textarea id="twturl" oninput="twturl()">URL</textarea>
+<br>
+<textarea type="text" id="tweet" class="largeinput" oninput="tweet()">Tweet
+</textarea>
+<br>
+Time (optional):  <input type="time" id="time" oninput="time()">
+Date (optional):  <input type="date" id="date" oninput="date()">
+<br><br>
+Retweets:  <input type="number" id="retweet" oninput="retweet()"><br>
+Quote Tweets:  <input type="number" id="qtweet" oninput="qtweet()"><br>
+Likes:  <input type="number" id="like" oninput="like()">
+<br>
+<button class="add" onclick="add(username(),twturl(),tweet())">Add</button>
+<br><br>
+
+<div id="twtdiv"></div>
+
+<br>
+<button onclick="generateHTML()">Generate HTML</button>
+<br><br>
+
+<textarea class="largeinput" type="text" id = "fullthing"></textarea>
+
+<script src="JS/twt.js"></script> 
+<script src="JS/gen.js"></script> 
+</body>
+</html>

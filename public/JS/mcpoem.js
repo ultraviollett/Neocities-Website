@@ -1,16 +1,8 @@
-var mcchoice2;
 var childtext=[];
 var fullthing;
 childcount = 0;
 var mctext;
-
-
-function mcchoice() { 
-    var mcchoice = document.getElementById("mcchoiceid");  
-    var mcchoice2 = mcchoice.options[mcchoice.selectedIndex].value;
-    return mcchoice2;
-}
-
+var colour;
 
 
 function mcform() {
@@ -18,8 +10,15 @@ function mcform() {
     return mctext
 }
 
+function green(){colour = "Green Text"}
+function cyan(){colour = "Cyan Text"}
+function red(){colour = "Red Text"}
+function orange(){colour = "Orange Text"}
+function yellow(){colour = "Yellow Text"}
+function purple(){colour = "Purple Text"}
+function pink(){colour = "Pink Text"}
 
-  function add(mctext){
+function add(mctext){
     const para = document.createElement("p");
     const node = document.createTextNode(mctext);
     
@@ -28,7 +27,7 @@ function mcform() {
 
     const element = document.getElementById("poemdiv");
 
-    switch(mcchoice()){
+    switch(colour){
         default:
         childtext[childcount] = '<p class="poemtext">'+mctext+"</p>";
         para.className = "poemtext";
