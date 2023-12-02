@@ -141,7 +141,7 @@ function newtweet(previous){
         x = x + '<div class="twt-timestamp"> '+date()+'</div>';
     }
  
-    x = x + '<hr class="twt-sep"> <div class="twt-stat1"> 🗨   <strong>'+reply()+'</strong></p><p> ⮂   <strong>'+retweet()+' </strong> </p><p><strong> ♥   '+like()+'</strong> </p><p><span class="twtsharebutton">↥</span> </p> </div> </div>';
+    x = x + '<hr class="twt-sep"> <div class="twt-stat1"> <img src="https://i.imgur.com/dJg9v1v.png"> <strong>'+reply()+'</strong></p><p> ⮂   <strong>'+retweet()+' </strong> </p><p><strong> ♥   '+like()+'</strong> </p><p><span class="twtsharebutton">↥</span> </p> </div> </div>';
     
     return (x);
 }
