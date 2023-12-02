@@ -18,21 +18,23 @@
 
   <li>Refresh the page to start over</li>
   <li>Image URL, time, date, replies, retweets, likes are all optional to add!</li>
+  <li>Please don't host images on Tumblr or Discord. Use <a href="https://images.squidge.org">Squidge Images</a> (specific for fandom),
+     or other sites like <a href="https://imgur.com/">Imgur</a> </li>
 </div>
-<br><br>
-
+<br>
+<img src="https://i.imgur.com/dJg9v1v.png">
 
 <form id="twtstyle">
 <fieldset>
   <div>
-  <input type="radio" name="stylename" onchange="defaultstyle()" id="default"/><label for="default">AO3 default</label>
-  <input type="radio" name="stylename" onchange="white()" id="white"/><label for="white">White</label>
-  <input type="radio" name="stylename" onchange="black()" id="black"/><label for="black">Black</label>
-  <input type="radio" name="stylename" onchange="minimal()" id="minimal"><label for="minimal">Minimal</label>
+  <input type="radio" name="stylename" onchange="defaultstyle()" id="default"/>&nbsp;<label for="default">&nbsp;AO3 default</label>
+  <input type="radio" name="stylename" onchange="white()" id="white"/>&nbsp;<label for="white">&nbsp;White</label>
+  <input type="radio" name="stylename" onchange="black()" id="black"/>&nbsp;<label for="black">&nbsp;Black</label>
+  <input type="radio" name="stylename" onchange="minimal()" id="minimal">&nbsp;<label for="minimal">&nbsp;Minimal</label>
   </div>
 </fieldset>
 </form>
-<br><br>
+
 
 <select id="twttype" class="nicedropdown" onchange="twttype()">
   <option val="tweet">Tweet</option>

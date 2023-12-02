@@ -25,15 +25,16 @@ function roundnum(x){
 
 function twttype(){
     if (!tweetop && $("#twttype").val() == 'Reply to tweet'){
-        document.getElementById("replynotweet").style.display = "block";
+        document.getElementById("replynotweet").style.display = "";
     }else{
         document.getElementById("replynotweet").style.display = "none"
     }
 
     if($("#twttype").val() == 'Reply to tweet'){
         document.getElementById("time").style.display = "none"
+    }else{
+        document.getElementById("time").style.display = "";
     }
-
 }
 
 //get data from inputs, return text needed for tweet
@@ -45,18 +46,7 @@ function opurl(){
 
 function icon(){
     let x = document.getElementById("icon").value;
-
-    // switch(x){
-    //     case "Hawks":
-    //         x = "https://s3.amazonaws.com/otw-ao3-icons/icons/16557534/standard.jpg?1668283636";
-    //         break;
-
-    //     case "1":
-    //         x = "https://s3.amazonaws.com/otw-ao3-icons/icons/16557534/standard.jpg?1668283636";
-    //         break;
-    // }
-    x = "pen";
-    $('#textoutput').text("prev");
+    //src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Majedul.jpg" //indian guy staring
     return x;
 }
 
