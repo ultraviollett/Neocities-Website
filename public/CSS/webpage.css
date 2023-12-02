@@ -75,6 +75,11 @@ button:hover{
   display: inline-block;  
 }
 
+textarea{
+  height: 1.5em;
+  margin: 0.5%
+}
+
 .largeinput{
   min-height: 4cm;
   overflow-y:hidden;
@@ -86,6 +91,11 @@ button:hover{
   border: 2px solid var(--middleval);
   vertical-align: text-top;
   
+}
+
+.longinput{
+  width: 61%;
+
 }
 
 fieldset{
@@ -114,4 +124,13 @@ fieldset{
   column-width: 100px;
   margin-left: 0px;
   margin-right: auto;
+}
+
+.distinguisher{
+  display: block;
+  padding: 20px;
+  border: 2px solid var(--darkval);
+  background-color: var(--lightval);
+  border-radius: 5px;
+  margin: 20px 0 20px 0;
 }

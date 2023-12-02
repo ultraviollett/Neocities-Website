@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AO3 Workskin Generator</title>
+    <title>AO3 Twitter Generator</title>
     <link rel="stylesheet" href="CSS/webpage.css">
     <link rel="stylesheet" href="CSS/twt.css">
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -14,42 +14,139 @@
 
 <div class="note">
   NOTES:
-  <li>This workskin exists on AO3 <a href="">here</a>! The creator is </li>
+  <li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/26754208/chapters/65268931#workskin">here</a>! I have added some slight tweaks </li>
 
   <li>Refresh the page to start over</li>
+  <li>Image URL, time, date, replies, retweets, likes are all optional to add!</li>
 </div>
-
-
 <br><br>
+
+
 <form id="twtstyle">
 <fieldset>
   <div>
-  <input type="radio" name="stylename" id="default" name="contact"/><label for="default">Default of AO3</label>
-  <input type="radio" name="stylename" id="white" name="contact"/><label for="white">White</label>
-  <input type="radio" name="stylename" id="black" name="contact"/><label for="black">Black</label>
-  <input type="radio" name="stylename" id="minimal" name="contact"/><label for="minimal">Minimal</label>
+  <input type="radio" name="stylename" onchange="defaultstyle()" id="default"/><label for="default">AO3 default</label>
+  <input type="radio" name="stylename" onchange="white()" id="white"/><label for="white">White</label>
+  <input type="radio" name="stylename" onchange="black()" id="black"/><label for="black">Black</label>
+  <input type="radio" name="stylename" onchange="minimal()" id="minimal"><label for="minimal">Minimal</label>
   </div>
 </fieldset>
 </form>
+<br><br>
 
+<select id="twttype" class="nicedropdown" onchange="twttype()">
+  <option val="tweet">Tweet</option>
+  <option val="replytweet">Reply to tweet</option>
+</select>
+<br><br>
 
-
-  <br><br>
-<textarea type="url" id="icon" oninput="icon()">https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg</textarea>
+<form id="extra">
+  <fieldset>
+    <input type="checkbox" id="image"/><label for="image"> Add images?</label><br>
+    <input type="checkbox" id="poll"/><label for="poll"> Add poll?</label><br>
+    <input type="checkbox" id="quotetweetopt"/><label for="quotetweetopt"> Add quoted tweet?</label><br>
+  </fieldset>
+  </form>
 <br>
-<textarea id="username" oninput="username()">Name</textarea>
-<textarea id="twturl" oninput="twturl()">URL</textarea>
+<div id="replynotweet">
+<textarea type="url" class="longinput" id="opurl" oninput="opurl()" placeholder="OP's @"></textarea>
+</div>
+
+
+<textarea type="url" class="longinput" id="icon" oninput="icon()" placeholder="icon URL"></textarea><br>
+
+<textarea type="text" id="username" oninput="username()">Name</textarea>
+<textarea type="text" id="twturl" oninput="twturl()">URL</textarea>
 <br>
+
 <textarea type="text" id="tweet" class="largeinput" oninput="tweet()" placeholder="Add body of tweet here">
 </textarea>
 <br>
-Time:  <input type="time" id="time" oninput="time()">
-Date:  <input type="date" id="date" oninput="date()">
-<br><br>
-Replies:  <input type="number" id="reply" oninput="reply()"><br>
-Retweets:  <input type="number" id="retweet" oninput="retweet()"><br>
-Likes:  <input type="number" id="like" oninput="like()">
+
+
+<div id="imageURLs">
+  <br>
+  Add image URLs: <br>
+  <textarea type="url" class="longinput" id="image1" placeholder="insert image URL"></textarea><br>
+  <textarea type="url" class="longinput" id="image2" placeholder="insert image URL (optional)"></textarea><br>
+  <textarea type="url" class="longinput" id="image3" placeholder="insert image URL (optional)"></textarea><br>
+  <textarea type="url" class="longinput" id="image4" placeholder="insert image URL (optional)"></textarea>
+  <br><br>
+</div>
+
+
+<div id="polloptions">
+  <br>
+  Add poll options: <br>
+  <textarea type="text" id="poll1" placeholder="first poll option"></textarea><br>
+  <textarea type="text" id="poll2" placeholder="second poll option"></textarea><br>
+  <textarea type="text" id="poll3" placeholder="third (optional)"></textarea><br>
+  <textarea type="text" id="poll4" placeholder="fourth (optional)"></textarea>
+  <br><br>
+</div>
+
+
+
+
+<div id="quotetweet" class="distinguisher">
+
+<form id="qextra">
+  <fieldset>
+    <input type="checkbox" onchange="qimage()" id="qimage"/><label for="qimage">Add images?</label><br>
+    <input type="checkbox" onchange="qpoll()" id="qpoll"/><label for="qpoll">Add poll?</label><br>
+  </fieldset>
+  </form>
+  <br>
+
+  <textarea type="url" class="longinput" id="qicon" oninput="qicon()" placeholder="insert icon URL"></textarea>
 <br>
+
+<textarea type="text"  id="qusername" oninput="qusername()">Name</textarea>
+<textarea type="text" id="qtwturl" oninput="qtwturl()">URL</textarea>
+<br>
+<input type="date" id="qdate" oninput="date()">
+<br>
+
+<textarea type="text" id="qtweet" class="largeinput" oninput="tweet()" placeholder="Add body of tweet here">
+</textarea>
+<br>
+
+
+<div id="qimageURLs">
+  <br>
+  Add image URLs: <br>
+  <textarea type="url" class="longinput" id="qimage1" placeholder="insert image URL"></textarea><br>
+  <textarea type="url" class="longinput" id="qimage2" placeholder="insert image URL (optional)"></textarea><br>
+  <textarea type="url" class="longinput" id="qimage3" placeholder="insert image URL (optional)"></textarea><br>
+  <textarea type="url" class="longinput" id="qimage4" placeholder="insert image URL (optional)"></textarea>
+  <br><br>
+</div>
+
+
+<div id="qpolloptions">
+  <br>
+  Add poll options: <br>
+  <textarea type="text" id="qpoll1" placeholder="first poll option"></textarea><br>
+  <textarea type="text" id="qpoll2" placeholder="second poll option"></textarea><br>
+  <textarea type="text" id="qpoll3" placeholder="third (optional)"></textarea><br>
+  <textarea type="text" id="qpoll4" placeholder="fourth (optional)"></textarea>
+  <br><br>
+</div>
+
+
+</div>
+
+<!--END OF QUOTE TWEET-->
+
+<input type="time" id="time" oninput="time()">
+<input type="date" id="date" oninput="date()">
+<br><br>
+
+
+<input type="number" id="reply" oninput="reply()" placeholder="# of replies"><br>
+<input type="number" id="retweet" oninput="retweet()" placeholder="# of retweets"><br>
+<input type="number" id="like" oninput="like()" placeholder="# of likes">
+<br><br>
 
 <button id="add">Add</button>
 <br>
