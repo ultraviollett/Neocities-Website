@@ -9,6 +9,9 @@ general:[GEN]
 add HTML generators: [ADD]
 -add tumblr [TBLR]
 -add twitter [TWT]
+    -add up to four images allowed
+    -add poll time left
+    -add poll results options
 -add messaging [MSG]
 -add twitchchat [TWCH]
 -add mc messaging

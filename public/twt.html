@@ -14,15 +14,16 @@
 
 <div class="note">
   NOTES:
-  <li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/26754208/chapters/65268931#workskin">here</a>! I have added some slight tweaks </li>
+  <li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/26754208/chapters/65268931#workskin">here</a>!
+  I have also added some slight tweaks/different features, with code taken from <a href="https://archiveofourown.org/works/47803507#index">here.</a> </li>
 
   <li>Refresh the page to start over</li>
-  <li>Image URL, time, date, replies, retweets, likes are all optional to add!</li>
+  <li>Image URL, @, time, date, replies, retweets, likes are all optional to add!</li>
   <li>Please don't host images on Tumblr or Discord. Use <a href="https://images.squidge.org">Squidge Images</a> (specific for fandom),
      or other sites like <a href="https://imgur.com/">Imgur</a> </li>
+  <li>If you make a mistake, you don't have to reload the page, you can edit it later as HTML</li>
 </div>
 <br>
-
 
 
 
@@ -60,7 +61,7 @@
 <textarea type="url" class="longinput" id="icon" oninput="icon()" placeholder="icon URL"></textarea><br>
 
 <textarea type="text" id="username" oninput="username()">Name</textarea>
-<textarea type="text" id="twturl" oninput="twturl()">URL</textarea>
+<textarea type="text" id="twturl" oninput="twturl()" placeholder="@"></textarea>
 <br>
 
 <textarea type="text" id="tweet" class="largeinput" oninput="tweet()" placeholder="Add body of tweet here">
@@ -70,7 +71,6 @@
 
 <div id="imageURLs">
   <br>
-  Add image URLs: <br>
   <textarea type="url" class="longinput" id="image1" placeholder="insert image URL"></textarea><br>
   <textarea type="url" class="longinput" id="image2" placeholder="insert image URL (optional)"></textarea><br>
   
@@ -87,11 +87,12 @@
 
 <div id="polloptions">
   <br>
-  Add poll options: <br>
   <textarea type="text" id="poll1" placeholder="first poll option"></textarea><br>
   <textarea type="text" id="poll2" placeholder="second poll option"></textarea><br>
   <textarea type="text" id="poll3" placeholder="third (optional)"></textarea><br>
-  <textarea type="text" id="poll4" placeholder="fourth (optional)"></textarea>
+  <textarea type="text" id="poll4" placeholder="fourth (optional)"></textarea><br>
+  <input type="number" id="votes" oninput="votes()" placeholder="# of votes">
+<!--<input type="number" id="timeleft" oninput="timeleft()" placeholder="time left">-->
   <br><br>
 </div>
 
@@ -102,8 +103,8 @@
 
 <form id="qextra">
   <fieldset>
-    <input type="checkbox" onchange="qimage()" id="qimage"/><label for="qimage">Add images?</label><br>
-    <input type="checkbox" onchange="qpoll()" id="qpoll"/><label for="qpoll">Add poll?</label><br>
+    <input type="checkbox" onchange="qimage()" id="qimage"/><label for="qimage">Add images for quoted tweet?</label><br>
+    <input type="checkbox" onchange="qpoll()" id="qpoll"/><label for="qpoll">Add poll for quoted tweet?</label><br>
   </fieldset>
   </form>
   <br>
@@ -112,12 +113,12 @@
 <br>
 
 <textarea type="text"  id="qusername" oninput="qusername()">Name</textarea>
-<textarea type="text" id="qtwturl" oninput="qtwturl()">URL</textarea>
+<textarea type="text" id="qtwturl" oninput="qtwturl()" placeholder="@"></textarea>
 <br>
-<input type="date" id="qdate" oninput="date()">
+<input type="date" id="qdate">
 <br>
 
-<textarea type="text" id="qtweet" class="largeinput" oninput="tweet()" placeholder="Add body of tweet here">
+<textarea type="text" id="qtweet" class="largeinput" oninput="tweet()" placeholder="Add body of quoted tweet here">
 </textarea>
 <br>
 
@@ -140,6 +141,7 @@
   <textarea type="text" id="qpoll2" placeholder="second poll option"></textarea><br>
   <textarea type="text" id="qpoll3" placeholder="third (optional)"></textarea><br>
   <textarea type="text" id="qpoll4" placeholder="fourth (optional)"></textarea>
+  <input type="number" id="qvotes" placeholder="# of votes">
   <br><br>
 </div>
 
