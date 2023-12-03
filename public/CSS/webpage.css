@@ -94,8 +94,10 @@ textarea{
 }
 
 .longinput{
-  min-width: 8cm;
-
+  width: 20em;
+  border: 2px solid var(--middleval);
+  height: 25px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 fieldset{
