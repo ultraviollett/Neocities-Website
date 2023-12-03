@@ -129,14 +129,35 @@
   margin-bottom: 1em;
 
 }
-
- .twt-image {
-  float: center;
-  max-width: 100%;
+.twt-image{
+  width: 100%;
   border: 1px solid #c7c7c7;
   border-radius: 10px;
   margin-bottom: 1em;
+  column-gap: 0;
+  overflow: hidden;
 }
+.twt-image>div{
+  height: 4cm;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.imagesmulti img, .twt-image img{
+  object-fit: contain;
+  max-height: 120%;
+  vertical-align: bottom;
+}
+
+.imagesmulti{
+  columns: 2;
+}
+
+.thirdimage{
+  width: 200% !important;
+}
+
 
  .twt-replybox {
   margin-top: 1em;

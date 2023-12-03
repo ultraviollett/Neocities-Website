@@ -99,7 +99,27 @@ function like(){
     return x;   
 }
 
+//now onto the even more optional items, ie images and polls
 
+//images
+
+function images(x){
+    if($("#image1").val() && $("#image2").val()){ 
+        //if there are two images
+        x = x + '<div class="twt-image imagesmulti"> <div style = "background-image: url(';
+        x = x + " ' "+$("#image1").val()+"'";
+        x = x + ')"></div><div style = "background-image: url('
+        x = x + " ' "+$("#image2").val()+"'";
+        x = x + ')"></div> </div> '; 
+
+    }else if($("#image1").val()){
+        //if only one image is there
+        x = x + '<div class="twt-image"> <div style = "background-image: url(';
+        x = x + " ' "+$("#image1").val()+"'";
+        x = x + ')"></div></div>';
+    }
+    return x
+}
 
 //function to compile the entire tweet, including previous
 
@@ -123,11 +143,13 @@ function newtweet(previous){
 
     x = x + '"><div class="twt-header">';
          
-    if (icon() == "pen"){ 
+    if (icon()){ 
     x = x + '<div class="twt-icon-container"> <img class="twt-icon" src="'+icon()+'"> </div>';
     }
     
     x = x + ' <div class="twt-id"> <span class="twt-name"> '+username()+'</span> <br/> <span class="twt-handle">@'+twturl()+'</span> </div> </div> <div class="twt-content"> '+tweet()+' </div>';
+
+    x = images(x);
 
     //if ($('input[id="quotetweetopt"]:checked').val()){
       //  x = x + "WQUOTE";
@@ -142,10 +164,7 @@ function newtweet(previous){
     }
  
     x = x + '<hr class="twt-sep"> <div class="twt-stat1"> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+reply()+'</strong></p><p> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+retweet()+' </strong> </p><p><strong> <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">   '+like()+'</strong> </p><p><span class="twtsharebutton">↥</span> </p> </div> </div>';
-/*        <div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png">2</div>
-        <div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/UeOnwXk.png">2</div>
-        <div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">2</div>
-        */    
+ 
    
         return (x);
 }
@@ -184,6 +203,9 @@ function newreply(previous){
     }
     
     x = x + '<div class="twt-replycontent">'+tweet()+'</div>';
+
+    x = images(x);
+
     x = x + '<div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png">'+reply()+'</div>';
     x = x + '<div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/UeOnwXk.png">'+retweet()+'</div>';
     x = x + '<div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">'+like()+'</div> </div> </div> </div>';
@@ -233,12 +255,12 @@ function quotetweet(){
 
 $(function() {
     $('#add').on('click', function() {
-        var x = "test";
-        // if ( $("#twttype").val() == 'Reply to tweet'){
-        //     x = newreply(prev);
-        // }else{
-        x = newtweet(" ");
-        // }
+        var x;
+        if ( $("#twttype").val() == 'Reply to tweet'){
+            x = newreply(prev);
+        }else{
+        x = newtweet(prev);
+        }
 
         $('#twtdiv').html(x);
         prev = x;
