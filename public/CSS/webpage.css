@@ -94,7 +94,7 @@ textarea{
 }
 
 .longinput{
-  width: 61%;
+  min-width: 8cm;
 
 }
 
