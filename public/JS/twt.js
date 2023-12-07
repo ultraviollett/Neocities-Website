@@ -42,8 +42,31 @@ function opurl(){
 }
 
 function icon(){
-    let x = document.getElementById("icon").value;
-    //src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Majedul.jpg" //indian guy staring
+    let x;
+    if (document.getElementById("icon").value){
+        x = document.getElementById("icon").value;
+    }
+    if($("#iconchoose").val() != "or pick icon here"){
+
+    switch ($("#iconchoose").val()){
+
+        case "Steve Minecraft":
+            x = "https://images.squidge.org/images/2023/12/07/stevemc.jpeg";
+            break;
+
+        case "Alex Minecraft":
+            x = "https://images.squidge.org/images/2023/12/07/alexminecraftface.png";
+            break;
+
+        case "Walter White Breaking Bad":
+            x = "https://images.squidge.org/images/2023/12/07/walterwhite.jpeg";
+            break;
+
+        case "Hatsune Miku Vocaloid":
+            x = "https://images.squidge.org/images/2023/12/07/hatsunemiku.png";
+            break;
+    }
+    }
     return x;
 }
 
@@ -242,7 +265,7 @@ function newtweet(previous){
         x = x + '<div class="twt-timestamp"> '+date()+'</div>';
     }
  
-    x = x + '<hr class="twt-sep"> <div class="twt-stat1"> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+reply()+'</strong></p><p> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+retweet()+' </strong> </p><p><strong> <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">   '+like()+'</strong> </p></div> </div>';
+    x = x + '<hr class="twt-sep"><div class="twt-stat1"> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+reply()+'</strong></p><p> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+retweet()+' </strong> </p><p><strong> <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">   '+like()+'</strong> </p></div> </div>';
  
    
         return (x);

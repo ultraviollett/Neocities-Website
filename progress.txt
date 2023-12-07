@@ -27,5 +27,6 @@ other (less important):
 
 add HTML generators: [ADD]
 -add youtube thumbnails
--add reddit
+-add reddit 
 -add 4chan
+-add discord https://archiveofourown.org/works/26534413/chapters/74599071#workskin 

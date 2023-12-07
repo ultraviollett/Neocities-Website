@@ -145,11 +145,6 @@
   background-size: cover;
 
 }
-.imagesmulti img, .twt-image img{
-  object-fit: contain;
-  max-height: 120%;
-  vertical-align: bottom;
-}
 
 .imagesmulti{
   columns: 2;
