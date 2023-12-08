@@ -39,7 +39,7 @@ function add(mctext){
         break;
 
         case "Cyan Text":
-        childtext[childcount] = '<p class="poemtextblue poemtext">'+mctext+"</p>";
+        childtext[childcount] = '<p class="poemtextcyan poemtext">'+mctext+"</p>";
         para.className = "poemtextcyan poemtext";
         break;
 

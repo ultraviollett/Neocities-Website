@@ -1,6 +1,7 @@
 document.getElementById("simplemsgCSS").style.display = "none";
 document.getElementById("mcbuttonCSS").style.display = "none";
 document.getElementById("mcbookCSS").style.display = "none";
+
 document.getElementById("mcpoemCSS").style.display = "none";
 document.getElementById("twtCSS").style.display = "none";
 
@@ -24,7 +25,7 @@ function simplemsg(){
   }
 
 function mcbook(){
-  let x = document.getElementById("simplemsgCSS");
+  let x = document.getElementById("mcbookCSS");
   if (x.style.display === "none") {
       x.style.display = "block";
   } else {
@@ -33,7 +34,7 @@ function mcbook(){
 } 
 
 function mcpoem(){
-  let x = document.getElementById("simplemsgCSS");
+  let x = document.getElementById("mcpoemCSS");
   if (x.style.display === "none") {
       x.style.display = "block";
   } else {
@@ -42,7 +43,7 @@ function mcpoem(){
 } 
 
 function twt(){
-  let x = document.getElementById("simplemsgCSS");
+  let x = document.getElementById("twtCSS");
   if (x.style.display === "none") {
       x.style.display = "block";
   } else {
