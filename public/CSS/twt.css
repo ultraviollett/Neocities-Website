@@ -1,6 +1,7 @@
 
  .twt {
-  width: 400px;
+  width: 100vw;
+  max-width: 10cm;
   margin: 0em auto;
   padding: 10px 10px 5px 10px;
   border: 1px solid rgb(102, 120, 135,0.5);
@@ -19,6 +20,7 @@
   color: white;
 }
 
+/*makes sure that the starting tweet has a top border*/
 .twtstart{
   border-top:1px solid rgb(102, 120, 135,0.5);
 }
@@ -33,7 +35,7 @@
   background-color: antiquewhite;
   display: block;
   margin-bottom: auto;
-
+  padding: 0px;
   overflow: hidden;
   margin-bottom: 1em;
 }
@@ -47,8 +49,8 @@
 
  .twt-icon {
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 3.5em;
+  height: 3.5em;
 }
 
  .twt-iconquote {
@@ -98,6 +100,7 @@
  .twt-timestamp {
   color: #657786;
   font-size: small;
+  margin-left: 20px;
 }
 
  hr.twt-sep,
@@ -109,13 +112,13 @@
 }
 
  .twt-stat {
-  margin: auto 10px;
-  padding: 0;
+
+  margin: 0 15px;
+  padding-top: 5px;
   text-align: center;
   color: #657786;
-  font-size: 0.9em;
+  font-size: small;
   columns: 3;
-
 }
 
  .twt-quotebox {
@@ -159,17 +162,17 @@
 }
 
  .twt-icon-replycontainer {
-  width: 60px;
-  display: inline-block;
+  float: left;
+  width: 3.5em;
+
   vertical-align: top;
 }
 
  .twt-replycontainer {
-  display: inline-block;
+  float: none;
+  padding-left: 5px;
   background-color: aquamarine;
   overflow: hidden;
-  padding-right: auto;
-  margin-right: 0px;
 }
 
 .twt-replying-to{
@@ -177,9 +180,10 @@
 }
 
 .twt-reply-date{
-  margin-left: auto;
-  margin-left: 0;
-
+  text-align: right;
+  background-color: beige;
+  margin: 2px;
+  
 }
 
  .twt-replycontent {
@@ -187,11 +191,10 @@
 }
 
  .twt-stat-reply {
-  margin-left: 40px;
+  margin-left: 2em;
 }
 
  .twt-social {
-  float: left;
   margin-right: 2em;
   margin-bottom: 1em;
 }

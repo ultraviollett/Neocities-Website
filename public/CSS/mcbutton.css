@@ -1,7 +1,7 @@
 
 
   
-    .buttonbg{
+.buttonbg{
       display: block;
       height: 5vw;
       width: 80vw;
@@ -17,16 +17,16 @@
       display: table;
       margin:scroll;
       font-size: 17px;
-    }
+}
   
-    .buttonbg:hover{
+.buttonbg:hover{
      background-image: url("https://images.squidge.org/images/2023/11/30/buttonpressed.png");
-    }
+}
   
-    .buttontext{
+.buttontext{
       padding: 0px;
       margin: 5px;
       font-family: "Verdana";
       font-size: larger;
       font-stretch:extra-expanded;
-    }
+}
