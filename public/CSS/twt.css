@@ -1,8 +1,6 @@
 
  .twt {
-  float: center;
-  max-width: 200px;
-  min-width: 300px;
+  width: 400px;
   margin: 0em auto;
   padding: 10px 10px 5px 10px;
   border: 1px solid rgb(102, 120, 135,0.5);
@@ -21,7 +19,6 @@
   color: white;
 }
 
-/*to be put on the last tweet and first tweet in the line so they can have rounded edges*/
 .twtstart{
   border-top:1px solid rgb(102, 120, 135,0.5);
 }
@@ -32,18 +29,26 @@
 }
 
  .twt-header {
+  display: block;
+  background-color: antiquewhite;
+  display: block;
+  margin-bottom: auto;
+
   overflow: hidden;
   margin-bottom: 1em;
 }
 
  .twt-icon-container {
-  float: left;
+  display:inline-block;
+  background-color: #657786;
+
+
 }
 
  .twt-icon {
   border-radius: 50%;
-  width: 3.5em;
-  height: 3.5em;
+  width: 60px;
+  height: 60px;
 }
 
  .twt-iconquote {
@@ -52,13 +57,16 @@
 }
 
  .twt-id {
+  background-color: lightblue;
+  display: inline-block;
+  vertical-align: top;
   font-size: 1em;
-  padding-left: 1em;
-  overflow: hidden;
-}
+  padding-left: 4px;
+ }
 
  .twt-name {
   font-weight: bold;
+
 }
 
  .twt-name:hover {
@@ -67,6 +75,8 @@
 }
 
  .twt-handle {
+  font-size: small;
+  font-weight: normal;
   color: #657786;
 }
 
@@ -87,7 +97,7 @@
 
  .twt-timestamp {
   color: #657786;
-  font-size: 1em;
+  font-size: small;
 }
 
  hr.twt-sep,
@@ -98,16 +108,7 @@
   background-color: #657786;
 }
 
- hr.twt-sep-reply {
-  margin-left: -20px;
-  padding-right: 40px;
-}
-
-
- .twt-stat1 {
-  float: center;
-
-
+ .twt-stat {
   margin: auto 10px;
   padding: 0;
   text-align: center;
@@ -115,11 +116,6 @@
   font-size: 0.9em;
   columns: 3;
 
-}
-
-.twtsharebutton{
-  float:right;
-  padding-right: 45%;
 }
 
  .twt-quotebox {
@@ -156,26 +152,42 @@
 
 
  .twt-replybox {
-  margin-top: 1em;
+  display: block;
+
+  background-color: aliceblue;
+  
 }
 
  .twt-icon-replycontainer {
-  float: left;
+  width: 60px;
+  display: inline-block;
+  vertical-align: top;
 }
 
  .twt-replycontainer {
-  padding-left: 1em;
+  display: inline-block;
+  background-color: aquamarine;
   overflow: hidden;
+  padding-right: auto;
+  margin-right: 0px;
+}
+
+.twt-replying-to{
+  background-color:bisque;
+}
+
+.twt-reply-date{
+  margin-left: auto;
+  margin-left: 0;
+
 }
 
  .twt-replycontent {
   margin-top: 1em;
 }
 
- .twt-stat2 {
-  color: #657786;
-  font-size: 0.9em;
-  margin-top: 1em;
+ .twt-stat-reply {
+  margin-left: 40px;
 }
 
  .twt-social {
