@@ -133,6 +133,7 @@
  .twt-stat {
   display: flex;
   justify-content: space-around;
+
   color: #657786;
   font-size: small;
   margin: 0px auto 10px auto;
