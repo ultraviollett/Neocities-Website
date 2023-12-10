@@ -84,7 +84,8 @@ textarea{
   min-height: 4cm;
   overflow-y:hidden;
   margin: 5px auto;;
-  width: 90%;
+  width: 80vw;
+  max-width: 15cm;
   box-sizing: border-box;
   padding: 5px;
   /* Match form field borders */
@@ -94,7 +95,8 @@ textarea{
 }
 
 .longinput{
-  width: 20em;
+  width: 80vw;
+  max-width: 15cm;
   border: 2px solid var(--middleval);
   height: 25px;
   font-family: 'Courier New', Courier, monospace;

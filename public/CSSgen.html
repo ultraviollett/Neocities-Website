@@ -69,25 +69,34 @@
 </div>
 
 <div id="mcbookCSS">
-  <p>.mcbook{<br>
+  <p>.screenreader {<br>
+    position: absolute;<br>
+    height: 1px;<br>
+    padding: 0;<br>
+    margin: -1px;<br>
+    overflow: hidden;<br>
+    clip: rect(0, 0, 0, 0);<br>
+    white-space: nowrap;<br>
+    border: 0;<br>
+   }</p>
+   
+   <p>.mcbook {<br>
+    background-image: url(&quot;https://images.squidge.org/images/2023/08/22/Book_and_Quill_Writing_webp.png&quot;);<br>
     display: block;<br>
-    background-image: url(&quot;img/bookbg.png&quot;);<br>
-    text-align:center;<br>
+    text-align: center;<br>
     background-position: center;<br>
-    background-repeat:no-repeat;<br>
+    background-repeat: no-repeat;<br>
     margin: auto;<br>
-    background-size:cover;<br>
-    padding: 40px;</p>
-   
-   <p> overflow-y: auto;</p>
-   
-   <p> width: 60vw + 30px;<br>
-    height: 78vw;<br>
-    max-width: 400px;<br>
-    max-height: 500px;</p>
-   
-   <p> color: black;<br>
+    background-size: 100% 100%;<br>
+    padding: 1em 3em 5em 3em;<br>
+    overflow-y: auto;<br>
+    width: 60vw;<br>
+    height: 74vw;<br>
+    max-width: 250px;<br>
+    max-height: 308px;<br>
+    color: black;<br>
    }<br>
+   </p>
    </p>
   <br><br>
 </div>

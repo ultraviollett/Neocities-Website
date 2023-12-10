@@ -10,7 +10,7 @@ function mcform() {
 function generateHTML(){
     var fullthing = "";      
 
-    var fullthing = '<div class="mcbook"><p>'+mcform()+"</p></div>";
+    var fullthing = '<div class="mcbook"><p><span class="screenreader">A Minecraft book with text that reads: </span>'+mcform()+"</p></div>";
 
     document.getElementById("fullthing").value = fullthing;
     return fullthing;
