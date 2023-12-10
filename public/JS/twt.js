@@ -70,12 +70,10 @@ function icon(){
             x = "https://images.squidge.org/images/2023/12/09/herobrinemc.webp";
             break;
 
-
         case "Sunflowers Van Gogh":
             x = "https://images.squidge.org/images/2023/12/09/sunflowersvinentvangogh.jpeg";
             break;
         
-
         case "Mona Lisa":
             x = "https://images.squidge.org/images/2023/12/09/monalisa.webp";
             break;
@@ -83,7 +81,6 @@ function icon(){
         case "Hong Kong Night":
             x = "https://images.squidge.org/images/2023/12/09/hongkongnight.jpeg";
             break;
-
 
         case "Railroad":
             x = "https://images.squidge.org/images/2023/12/09/railroad.jpeg";
@@ -99,9 +96,10 @@ function icon(){
 
         case "Einstein with Tongue":
             x = "https://images.squidge.org/images/2023/12/09/einstein-with-tongue.png";
-            break;
+
     }
     }
+
     return x;
 }
 
