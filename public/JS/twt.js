@@ -65,6 +65,41 @@ function icon(){
         case "Hatsune Miku Vocaloid":
             x = "https://images.squidge.org/images/2023/12/07/hatsunemiku.png";
             break;
+
+        case "Herobrine Minecraft":
+            x = "https://images.squidge.org/images/2023/12/09/herobrinemc.webp";
+            break;
+
+
+        case "Sunflowers Van Gogh":
+            x = "https://images.squidge.org/images/2023/12/09/sunflowersvinentvangogh.jpeg";
+            break;
+        
+
+        case "Mona Lisa":
+            x = "https://images.squidge.org/images/2023/12/09/monalisa.webp";
+            break;
+
+        case "Hong Kong Night":
+            x = "https://images.squidge.org/images/2023/12/09/hongkongnight.jpeg";
+            break;
+
+
+        case "Railroad":
+            x = "https://images.squidge.org/images/2023/12/09/railroad.jpeg";
+            break;
+
+        case "Shark Sandcastle":
+            x = "https://images.squidge.org/images/2023/12/09/sharksandcastle.jpeg";
+            break;
+
+        case "Highway Drive":
+            x = "https://images.squidge.org/images/2023/12/09/ukdrive.jpeg";
+            break;
+
+        case "Einstein with Tongue":
+            x = "https://images.squidge.org/images/2023/12/09/einstein-with-tongue.png";
+            break;
     }
     }
     return x;
