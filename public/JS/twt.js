@@ -103,6 +103,68 @@ function icon(){
     return x;
 }
 
+function qicon(){
+    let x;
+    if (document.getElementById("qicon").value){
+        x = document.getElementById("qicon").value;
+    }
+    if($("#qiconchoose").val() != "or pick icon here"){
+
+    switch ($("#qiconchoose").val()){
+
+        case "Steve Minecraft":
+            x = "https://images.squidge.org/images/2023/12/07/stevemc.jpeg";
+            break;
+
+        case "Alex Minecraft":
+            x = "https://images.squidge.org/images/2023/12/07/alexminecraftface.png";
+            break;
+
+        case "Walter White Breaking Bad":
+            x = "https://images.squidge.org/images/2023/12/07/walterwhite.jpeg";
+            break;
+
+        case "Hatsune Miku Vocaloid":
+            x = "https://images.squidge.org/images/2023/12/07/hatsunemiku.png";
+            break;
+
+        case "Herobrine Minecraft":
+            x = "https://images.squidge.org/images/2023/12/09/herobrinemc.webp";
+            break;
+
+        case "Sunflowers Van Gogh":
+            x = "https://images.squidge.org/images/2023/12/09/sunflowersvinentvangogh.jpeg";
+            break;
+        
+        case "Mona Lisa":
+            x = "https://images.squidge.org/images/2023/12/09/monalisa.webp";
+            break;
+
+        case "Hong Kong Night":
+            x = "https://images.squidge.org/images/2023/12/09/hongkongnight.jpeg";
+            break;
+
+        case "Railroad":
+            x = "https://images.squidge.org/images/2023/12/09/railroad.jpeg";
+            break;
+
+        case "Shark Sandcastle":
+            x = "https://images.squidge.org/images/2023/12/09/sharksandcastle.jpeg";
+            break;
+
+        case "Highway Drive":
+            x = "https://images.squidge.org/images/2023/12/09/ukdrive.jpeg";
+            break;
+
+        case "Einstein with Tongue":
+            x = "https://images.squidge.org/images/2023/12/09/einstein-with-tongue.png";
+
+    }
+    }
+
+    return x;
+}
+
 function username(){
     let x = document.getElementById("username").value;
     return x;
@@ -215,8 +277,8 @@ function poll(x,p1="",p2="",p3="",p4="",votes=""){
 function quotetweet(x){
 
     x = x + '<div class="twt-quotebox"><span class="screenreader">Quote Tweet: </span><div class="twt-header"> ';
-    if($("#qicon").val()){
-        x = x + '<div class="twt-icon-container"> <img class="twt-iconquote" src="'+$("#qicon").val()+'"> </div> ';
+    if(qicon()){
+        x = x + '<div class="twt-icon-container"> <img class="twt-iconquote" src="'+qicon()+'"> </div> ';
     }
     x = x + ' <div class="twt-id twt-quote-id"> <span class="twt-name"> '+$("#qusername").val()+'</span>';
     
