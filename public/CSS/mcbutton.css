@@ -12,7 +12,7 @@
   
 .buttonbg{
       display: block;
-      height: 5vw;
+      height: 9vw;
       width: 80vw;
       max-width: 15cm;
       max-height: 0.94cm;
@@ -26,6 +26,11 @@
       padding-bottom: auto;
 
 
+}
+
+.buttonbg p{
+      margin: 0px auto;
+      line-height: 1;
 }
   
 .buttonbg:hover{

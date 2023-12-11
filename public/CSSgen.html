@@ -195,7 +195,268 @@
 
 
 <div id="twtCSS">
-  not available atm
+  <p>.noworkskin{<br>
+    display:none;<br>
+    }</p>
+    
+    <p>.screenreader {<br>
+     position: absolute;<br>
+     height: 1px;<br>
+     padding: 0;<br>
+     margin: -1px;<br>
+     overflow: hidden;<br>
+     clip: rect(0, 0, 0, 0);<br>
+     white-space: nowrap;<br>
+     border: 0;<br>
+    }</p>
+    
+    <p> .twt {<br>
+     width: 85vw;<br>
+     max-width: 12cm;<br>
+     margin: 0em auto;<br>
+     padding: 10px 10px 1px 10px;<br>
+     border: 1.5px solid rgb(102, 120, 135,0.5);<br>
+     border-top:0;<br>
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Ubuntu, &quot;Helvetica Neue&quot;, sans-serif;</p>
+    
+    <p>}</p>
+    
+    <p>.twt p{<br>
+     margin: 0px auto;<br>
+    }</p>
+    
+    <p>/*different twitter colours*/<br>
+    .twtwhite{<br>
+     background-color: white;<br>
+     color: black;<br>
+    }</p>
+    
+    <p>.twtblack{<br>
+     background-color: black;<br>
+     color: white;<br>
+    }</p>
+    
+    <p>/*makes sure that the starting tweet has a top border*/<br>
+    .twtstart{<br>
+     border-top:1.5px solid rgb(102, 120, 135,0.5);<br>
+    }</p>
+    
+    <p>/*another twitter style, put here so it can overtake the .twtstart and .twtend*/<br>
+    .twtminimal{<br>
+     border: none;<br>
+    }</p>
+    
+    <p> .twt-header {<br>
+     display: block;<br>
+     display: block;<br>
+     margin-bottom: auto;<br>
+     padding: 0px;<br>
+     overflow: hidden;<br>
+     margin-bottom: 5px;<br>
+    }</p>
+    
+    <p> .twt-icon-container {<br>
+     display:inline-block;<br>
+     padding: 0px;</p>
+    
+    <p>
+    }</p>
+    
+    <p>.twt-id {<br>
+     display: inline;<br>
+     vertical-align: top;<br>
+     font-size: 1em;<br>
+     padding-left: 20px;<br>
+     }</p>
+    
+    <p>
+     .twt-icon {<br>
+     display:inline-block;<br>
+     border-radius: 50%;<br>
+     width: 60px;<br>
+     height: 60px;<br>
+    }</p>
+    
+    <p> .twt-iconquote {</p>
+    
+    <p> border-radius: 50%;<br>
+     width: 30px;<br>
+     height: 30px;<br>
+    }</p>
+    
+    <p>
+     .twt-name {<br>
+     font-weight: bold;</p>
+    
+    <p>}</p>
+    
+    <p> .twt-name:hover {<br>
+     text-decoration: underline;<br>
+     cursor: pointer;<br>
+    }</p>
+    
+    <p> .twt-handle {<br>
+     font-size: small;<br>
+     font-weight: normal;<br>
+     color: #657786;<br>
+    }</p>
+    
+    <p> .twt-handle:hover {<br>
+     cursor: pointer;<br>
+    }</p>
+    
+    <p> .twt-content {<br>
+     font-size: 1.3em;<br>
+    }</p>
+    
+    <p> .twt-contentquote {<br>
+     padding-bottom: 1em;<br>
+     font-size: 1em;<br>
+    }</p>
+    
+    <p> .twt-timestamp {<br>
+     color: #657786;<br>
+     font-size: small;<br>
+     margin: 10px;<br>
+     margin-left: 20px;<br>
+    }</p>
+    
+    <p> hr.twt-sep,<br>
+     hr.twt-sep-reply {<br>
+     border: none;<br>
+     height: 1px;<br>
+     width: 100%;<br>
+     background-color: #657786;<br>
+    }</p>
+    
+    <p> .twt-stat {<br>
+     display: flex;<br>
+     justify-content: space-around;</p>
+    
+    <p> color: #657786;<br>
+     font-size: small;<br>
+     margin: 0px auto 10px auto;<br>
+     font-weight: bold;<br>
+    }</p>
+    
+    <p>.twt-stat-reply{<br>
+     margin-left: 4em;<br>
+    }</p>
+    
+    <p>.twt-quote-id{<br>
+     padding-left: 5px;</p>
+    
+    <p>}<br>
+     .twt-quotebox {</p>
+    
+    <p> padding: 15px 20px 0 15px;<br>
+     border: 1px solid #c7c7c7;<br>
+     border-radius: 10px;<br>
+     margin-bottom: 1em;</p>
+    
+    <p>}</p>
+    
+    <p>.twt-image>img{<br>
+     width: 90%;<br>
+     display: block;<br>
+     background-color: #c7c7c7;<br>
+     border: 1px solid #c7c7c7;<br>
+     border-radius: 10px;</p>
+    
+    <p> margin: 1em auto;<br>
+     overflow: hidden;<br>
+     line-height: 0;<br>
+    }</p>
+    
+    <p>.twt-replybox{<br>
+     display: table;<br>
+     width: 85vw;<br>
+     max-width: 12cm;</p>
+    
+    <p>}</p>
+    
+    <p>
+     .twt-icon-replycontainer {<br>
+     display: table-cell;<br>
+     width: 60px;<br>
+     vertical-align: top;<br>
+    }</p>
+    
+    <p> .twt-replycontainer {<br>
+     display: table-cell;<br>
+     padding-left: 20px;<br>
+     overflow: hidden;<br>
+    }</p>
+    
+    <p>.twt-replying-to{<br>
+     color: #657786;<br>
+     font-size: smaller;<br>
+    }</p>
+    
+    <p>.twt-timestamp-reply{<br>
+     text-align: right;<br>
+     margin-right: 0px;<br>
+     margin-left: auto;<br>
+    }</p>
+    
+    <p> .twt-replycontent {<br>
+     margin: 10px 0;<br>
+    }</p>
+    
+    <p>
+     .twt-social {<br>
+     margin-right: 2em;<br>
+     margin-bottom: 1em;<br>
+    }</p>
+    
+    <p> .twt-socialimg {<br>
+     height: 13px;<br>
+     margin-right: 3px;<br>
+    }</p>
+    
+    <p> .twt-hl {<br>
+     color: #1DA1F2;<br>
+    }</p>
+    
+    <p> .twt-hl:hover {<br>
+     text-decoration: underline;<br>
+     cursor: pointer;<br>
+    }</p>
+    
+    <p>/*Polls*/</p>
+    
+    <p>
+    .twt .twtpoll {<br>
+     height: 29px;<br>
+     width: 90%;<br>
+     float: middle;<br>
+     margin: 0 auto 5px auto;<br>
+     border: 1px solid;<br>
+     border-radius: 15px;<br>
+     text-align: center;<br>
+     overflow: hidden;<br>
+     border-color: #209AED;<br>
+    }</p>
+    
+    <p>.twt .twtpoll p{<br>
+     line-height: 1;<br>
+    }</p>
+    
+    <p>.twt .twtpolltext {<br>
+     display: inline-block;<br>
+     font-weight: bold;<br>
+     position: relative;<br>
+     font-size: 13px;<br>
+     color: #209AED;<br>
+    }</p>
+    
+    <p>.twt .pollvotes {<br>
+     margin-bottom: 5px;<br>
+     margin-left: 3em;<br>
+     margin-right: 10px;<br>
+     font-size: 12px;<br>
+     display: inline-block;<br>
+    }</p>
   <br><br>
 </div>
 

@@ -81,9 +81,9 @@ textarea{
 }
 
 .largeinput{
-  min-height: 4cm;
+  min-height: 3cm;
   overflow-y:hidden;
-  margin: 5px auto;;
+  margin: 5px auto;
   width: 80vw;
   max-width: 15cm;
   box-sizing: border-box;
@@ -95,11 +95,16 @@ textarea{
 }
 
 .longinput{
+  min-height: 2em;
+  overflow-y:hidden;
+  margin: 5px auto;
   width: 80vw;
   max-width: 15cm;
+  box-sizing: border-box;
+  padding: 5px;
+  /* Match form field borders */
   border: 2px solid var(--middleval);
-  height: 25px;
-  font-family: 'Courier New', Courier, monospace;
+  vertical-align: text-top;
 }
 
 fieldset{

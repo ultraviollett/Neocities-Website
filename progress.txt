@@ -30,3 +30,15 @@ add HTML generators: [ADD]
 -add reddit 
 -add 4chan
 -add discord https://archiveofourown.org/works/26534413/chapters/74599071#workskin 
+
+
+workskin tips (to be compiled later, probably in an ao3 work):
+-use vscode, download microsoft
+-can use flex defaults
+-DONT USE FLOAT
+-cant use grid, can use tables
+-ao3 has default margins and line breaks
+-use vw and max-width to achieve a nice looking workskin on all devices
+-IF U HAVE A WHITE BACKGROUND PLEASE SET FONT COLOUR / AND OPPOSITE
+-ao3 WILL add paragraphs to things you dont want it to
+-USE SQUIDGE TO HOST IMAGES

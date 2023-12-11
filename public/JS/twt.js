@@ -7,7 +7,7 @@ document.getElementById("quotetweet").style.display = "none";
 document.getElementById("qimageURLs").style.display = "none";
 document.getElementById("qpolloptions").style.display = "none";
 
-var prev = " "; //holds entire HTML before next is added
+var prev = ""; //holds entire HTML before next is added
 var childcount = 0; //stores the number of tweets, so you know when to add twtstart
 var tweetop = ""; //automatically reply to op
 
@@ -153,42 +153,44 @@ function like(){
 
 //images
 
-function images(x,i1="",i2=""){
-    if(i1 && i2){ 
+function images(x,i1="",alt=""){
+    if(i1){ 
         //if there are two images
-        x = x + '<div class="twt-image imagesmulti"> <div style = "background-image: url(';
-        x = x + " ' "+i1+"'";
-        x = x + ')"></div><div style = "background-image: url('
-        x = x + " ' "+i2+"'";
-        x = x + ')"></div> </div> '; 
+        x = x + '<p class="twt-image"><img class="twt-image" src=';
+        x = x + " ' "+i1+"'"; 
 
-    }else if(i1){
+    }if(alt){
         //if only one image is there
-        x = x + '<div class="twt-image"> <div style = "background-image: url(';
-        x = x + " ' "+i1+"'";
-        x = x + ')"></div></div>';
+        x = x + 'alt = "'+alt+'"'
     }
+    x = x + "></p>"
     return x
 }
+
+/*
+      <p class="twt-image"><img class="twt-image"
+       src="CSS/img/eiffeltower.png" alt="ALT TEXT"></p>
+
+*/
 
 //polls
 
 function poll(x,p1="",p2="",p3="",p4="",votes=""){
     let ispoll = false;
     if(p1){
-        x = x + ' <div class="twtpoll"><span class="twtpolltext">'+p1+'</span></div>'
+        x = x + '<span class="screenreader">Poll:</span><div class="twtpoll"><span class="screenreader">First option: </span><span class="twtpolltext">'+p1+'</span></div>'
         ispoll = true;
     }
     if(p2){
-        x = x + ' <div class="twtpoll"><span class="twtpolltext">'+p2+'</span></div>'
+        x = x + ' <div class="twtpoll"><span class="screenreader">Second option: </span><span class="twtpolltext">'+p2+'</span></div>'
         ispoll = true;
     }
     if(p3){
-        x = x + ' <div class="twtpoll"><span class="twtpolltext">'+p3+'</span></div>'
+        x = x + ' <div class="twtpoll"><span class="screenreader">Third option: </span><span class="twtpolltext">'+p3+'</span></div>'
         ispoll = true;
     }
     if(p4){
-        x = x + ' <div class="twtpoll"><span class="twtpolltext">'+p4+'</span></div>'
+        x = x + ' <div class="twtpoll"><span class="screenreader">Fourth option: </span><span class="twtpolltext">'+p4+'</span></div>'
         ispoll = true;
     }
     if (ispoll && votes){
@@ -198,51 +200,52 @@ function poll(x,p1="",p2="",p3="",p4="",votes=""){
     return x;
 }
 
+/*
+      <span class="screenreader">Poll:</span>
+          <div class="twtpoll"><span class="screenreader">First option: </span><span class="twtpolltext">OPTION1</span></div>
+          <div class="twtpoll"><span class="screenreader">Second option: </span><span class="twtpolltext">OPTION2</span></div>
+          <div class="twtpoll"><span class="screenreader">Third option: </span><span class="twtpolltext">OPTION3</span></div>
+          <div class="twtpoll"><span class="screenreader">Fourth option: </span><span class="twtpolltext">OPTION4</span></div>
+      <span class="pollvotes">324 votes</span>
+*/
+
 //quotetweet
 
 
 function quotetweet(x){
 
-    x = x + '<div class="twt-quotebox"> <div class="twt-header"> ';
+    x = x + '<div class="twt-quotebox"><span class="screenreader">Quote Tweet: </span><div class="twt-header"> ';
     if($("#qicon").val()){
         x = x + '<div class="twt-icon-container"> <img class="twt-iconquote" src="'+$("#qicon").val()+'"> </div> ';
     }
-    x = x + ' <div class="twt-id"> <span class="twt-name"> '+$("#qusername").val()+'</span> <br/>';
+    x = x + ' <div class="twt-id twt-quote-id"> <span class="twt-name"> '+$("#qusername").val()+'</span>';
     
     if(twturl()){
-    x = x + '<span class="twt-handle">@'+twturl();
+    x = x + '<span class="twt-handle"> @'+twturl();
     }
     if($("#qdate").val()){
         x = x + " · "+ $("#qdate").val();
     }
-    x = x +'</span> </div> </div> <div class="twt-contentquote"> '+$("#qtweet").val()+' </div>';
+    x = x +'</span> </div> </div> <div class="twt-contentquote">'+$("#qtweet").val();
 
-    x = images(x,$("#qimage1").val(),$("#qimage2").val());
+    x = images(x,$("#qimage1").val(),$("#qalt").val());
     x = poll(x,$("#qpoll1").val(),$("#qpoll2").val(),$("#qpoll3").val(),$("#qpoll4").val(),$("#qvotes").val());
     
-    x = x + '</div>';
+    x = x + '</div></div>';
 
     return x;
 /* 
-    <div class="twt-quotebox"> <div class="twt-header"> 
-    <div class="twt-icon-container"> <img class="twt-iconquote" src="'+icon()+'"> </div>
-
-<div class="twt-id">
-<span class="twt-name">barry</span> 
-<span class="twt-handle">@donkey · Sept 5</span>
-            </div>
-        </div>
-        
-        <div class="twt-contentquote">i'm donkey!</div>
-    
-    </div>
-    
-    <div class="twt-timestamp">8:14 AM · Oct 2, 2020</div>
-    
-    <hr class="twt-sep"><div class="twt-stat1"><strong>23.3K
-    </strong> Retweets &nbsp;&nbsp; <strong>924</strong> 
-    Quote Tweets &nbsp;&nbsp; <strong>72.1K</strong> Likes
-    </div>    
+        <div class="twt-quotebox"><span class="screenreader">Quote Tweet: </span>
+      <div class="twt-header"> 
+        <div class="twt-icon-container"> <img class="twt-iconquote" src="https://images.squidge.org/images/2023/12/07/alexminecraftface.png">
+         </div> 
+          <div class="twt-id twt-quote-id"> <span class="twt-name"> quoteNAME</span>
+          <span class="twt-handle"> @quoteURL</span> 
+          </div> </div> <div class="twt-contentquote">QUOTE TWEET CONTENT
+[image]
+[poll]
+          </div>
+        </div>  
     
 */
 }
@@ -271,16 +274,16 @@ function newtweet(previous){
     x = x + '"><div class="twt-header">';
          
     if (icon()){ 
-    x = x + '<div class="twt-icon-container"> <img class="twt-icon" src="'+icon()+'"> </div>';
+    x = x + '<div class="twt-icon-container hidden"> <img class="twt-icon" src="'+icon()+'"> </div>';
     }
     
-    x = x + ' <div class="twt-id"> <span class="twt-name"> '+username();
+    x = x + ' <div class="twt-id"> <span class="twt-name"> '+username()+'</span>';
 
     if(twturl()){
-        x = x + '<span class="twt-handle">@'+twturl();
+        x = x + '<span class="twt-handle"> @'+twturl()+'</span>';
     }
 
-    x = x +'</span> <br/></div> </div> <div class="twt-content"> '+tweet()+' </div>';
+    x = x +'<br/></div> </div> <div class="twt-content"><span class="screenreader">Tweet: </span>'+tweet()+'</div>';
 
     x = images(x,$("#image1").val(),$("#image2").val());
 
@@ -298,11 +301,31 @@ function newtweet(previous){
         x = x + '<div class="twt-timestamp"> '+date()+'</div>';
     }
  
-    x = x + '<hr class="twt-sep"><div class="twt-stat"> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+reply()+'</strong></p><p> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+retweet()+' </strong> </p><p><strong> <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">   '+like()+'</strong> </p></div> </div>';
+    x = x + '<hr class="twt-sep"><div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply()+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet()+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like()+'<span class="screenreader"> likes</span></p></div></div>';
  
    
         return (x);
 }
+
+/*
+<div class="twt twtstart twtwhite ">
+  <hr class="noworkskin">
+  <div class="twt-header">
+    <div class="twt-icon-container hidden">
+       <img class="twt-icon" src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg"> 
+      </div> 
+      <div class="twt-id"> <span class="twt-name">NAME<span class="twt-handle"> @URL</span> <br/>
+      </div>
+    </div> 
+    <div class="twt-content"><span class="screenreader">Tweet: </span> TyWEET CONTENT 
+
+        <div class="twt-timestamp"> 03:45 · 2023-12-11</div>
+        </div>
+<hr class="twt-sep">
+<div class="twt-stat"> 
+  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply()+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet()+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like()+'<span class="screenreader"> likes</span></p></div></div>
+
+*/
 
 function newreply(previous){
     var x = previous + '<div class="twt ';
@@ -320,12 +343,12 @@ function newreply(previous){
         x = x + ' twtminimal ';
     }
 
-    x = x + '"> <div class="twt-replybox">';
+    x = x + ' twt-replybox">';
 
     if (icon()){
-        x = x + '<div class="twt-icon-replycontainer"> <img class="twt-icon" src="'+icon()+'"> </div>';
+        x = x + '<div class="twt-icon-replycontainer hidden"> <img class="twt-icon" src="'+icon()+'"> </div>';
     }
-    x = x + '<div class="twt-replycontainer"> <span class="twt-name">'+username()+'</span>';
+    x = x + '<div class="twt-replycontainer"><div> <span class="twt-name">'+username()+'</span>';
     
     if(twturl()){
         x = x + '<span class="twt-handle">@'+twturl();
@@ -335,25 +358,48 @@ function newreply(previous){
         x = x + ' · '+date() + '</span>';
     }
 
+    x = x + "</div>";
+
     if(opurl()){
-        x = x + '<span class="twt-handle"> Replying to</span> <span class="twt-hl">@'+opurl()+'</span>';
+        x = x + '<div class="twt-replying-to"> Replying to <span class="twt-hl">@'+opurl()+'</span></div>';
     }else if (tweetop){
-        x = x + '<span class="twt-handle"> Replying to</span> <span class="twt-hl">@'+tweetop+'</span>';
+        x = x + '<div class="twt-replying-to"> Replying to <span class="twt-hl">@'+tweetop+'</span></div>';
     }
     
-    x = x + '<div class="twt-replycontent">'+tweet()+'</div>';
+    x = x + '<div class="twt-replycontent"><span class="screenreader">Reply: </span>'+tweet();
 
-    x = images(x,$("#image1").val(),$("#image2").val());
+    x = images(x,$("#image1").val(),$("#qalt").val());
     x = poll(x,$("#poll1").val(),$("#poll2").val(),$("#poll3").val(),$("#poll4").val(),$("#votes").val());
 
-    //x = x + '<div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png">'+reply()+'</div>';
-    //x = x + '<div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/UeOnwXk.png">'+retweet()+'</div>';
-    //x = x + '<div class="twt-social"><img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">'+like()+'</div> </div> </div> </div>';
-    x = x + '<div class="twt-stat"> <p><img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+reply()+'</strong></p><p> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>'+retweet()+' </strong> </p><p><strong> <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png">   '+like()+'</strong> </p></div> </div>';
+    x = x + '<div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply()+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet()+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like()+'<span class="screenreader"> likes</span></p></div></div></div>';
+    
     return(x);
 
 }
+/*
+<div class="twt twtwhite twt-replybox">
 
+  <div class="twt-icon-replycontainer">
+  <img class="twt-icon" src="https://images.squidge.org/images/2023/12/07/alexminecraftface.png">
+  </div><div class="twt-replycontainer">
+      <div><span class="twt-name">replyNAME</span><span class="twt-handle"> @replyURL · 2023-11-27</span>
+  </div>
+  <div class="twt-replying-to"> Replying to <span class="twt-hl">@opURL</span></div>
+  
+  <div class="twt-replycontent"><span class="screenreader">Reply: </span> REPLY TWEET
+
+
+
+  </div> 
+  <div class="twt-stat"> 
+    <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> 234<span class="screenreader"> replies</span></p>
+    <p><img class="twt-socialimg" src="https://images.squidge.org/images/2023/12/09/retweets.png"> 324K<span class="screenreader"> retweets</span></p>
+     <p><img class="twt-socialimg" src="https://images.squidge.org/images/2023/12/09/likes.png"> 234K<span class="screenreader"> likes</span></p>
+  </div> 
+</div> 
+</div>
+<br>
+*/
 
 
 //functions using jquery that generate the HTML to be used in the page and also put in the textbox
