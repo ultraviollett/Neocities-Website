@@ -1,35 +1,32 @@
 .textdiv{
-    max-width: 15cm;
-    margin: auto;
+  width: 90vw;
+  max-width: 15cm;
+  margin: auto;
 }
 
 .texting{
     display: block;
     border: 2px solid rgba(0, 0, 0, 0.53);
-    width: 60%;
+    width: 50vw;
+    max-width: 5cm;
+    width: fit-content;
     padding: 3px 15px 3px 15px;
     border-radius: 15px;
     margin: 2px auto;
-    width: fit-content;
-    max-width: 5cm;
     white-space: normal;
     overflow: hidden;
 
   }
 
   .left{
-    align-items: left;
     border-bottom-left-radius: 0;
-    margin-left: 15%;
-    margin-right: 40%;
+    margin-right: auto;
+    margin-left: 0;
 
   }
 
   .right{
-    align-items: right;
-    float: right;
-    align-items: right;
     border-bottom-right-radius: 0;
-    margin-right: 15%;
-    margin-left: 40%;
+    margin-right: 0;
+    margin-left: auto;
   }

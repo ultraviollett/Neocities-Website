@@ -13,8 +13,7 @@
 .buttonbg{
       display: block;
       height: 9vw;
-      width: 80vw;
-      max-width: 15cm;
+      width: 90vw;
       max-height: 0.94cm;
       background-color: grey;
       background-image: url('https://images.squidge.org/images/2023/11/30/button.png');
@@ -23,52 +22,24 @@
       background-position: center;
       background-repeat:no-repeat;
       background-size: 100% 100%;
-      padding-bottom: auto;
-
+      max-width: 15cm;
+      margin: 0 auto 0 auto;
+      overflow: hidden;
 
 }
 
-.buttonbg p{
-      margin: 0px auto;
-      line-height: 1;
-}
-  
 .buttonbg:hover{
      background-image: url("https://images.squidge.org/images/2023/11/30/buttonpressed.png");
 }
   
 .buttontext{
-      padding: 0px;
-      margin: 5px;
-      font-family: "Verdana";
-      font-size: larger;
-      font-stretch:extra-expanded;
-}
-
-.buttonbg {
-      display: table;
-      height: 5vw;
-      width: 90vw;
-      max-width: 17cm;
-      max-height: 0.6cm;
-      background-image: url('https://images.squidge.org/images/2023/11/30/button.png');
-      text-align: center;
-      color: white;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      margin: 0 auto 0 auto;
-      background-color: grey;
-    }
-    
-.buttonbg:hover {
-      background-image: url("https://images.squidge.org/images/2023/11/30/buttonpressed.png");
-    }
-    
-.buttontext {
-      padding: 0px;
+      display:inline-block;
+      background-color: rgb(37, 37, 65);
       font-family: "Verdana";
       font-size: large;
-      font-stretch: extra-expanded;
-      vertical-align: top;
+      font-stretch:extra-expanded;
+      line-height: 0;
+      vertical-align: middle;
+
+
 }
