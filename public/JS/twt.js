@@ -221,11 +221,12 @@ function images(x,i1="",alt=""){
         x = x + '<p class="twt-image"><img class="twt-image" src=';
         x = x + " ' "+i1+"'"; 
 
-    }if(alt){
-        //if only one image is there
-        x = x + 'alt = "'+alt+'"'
-    }
+        if(alt){
+            //if only one image is there
+            x = x + 'alt = "'+alt+'"'
+        }
     x = x + "></p>"
+    }
     return x
 }
 
@@ -345,7 +346,7 @@ function newtweet(previous){
         x = x + '<span class="twt-handle"> @'+twturl()+'</span>';
     }
 
-    x = x +'<br/></div> </div> <div class="twt-content"><span class="screenreader">Tweet: </span>'+tweet()+'</div>';
+    x = x +'<br/></div> </div> <div class="twt-content"><span class="screenreader">Tweet: </span> '+tweet()+' </div>';
 
     x = images(x,$("#image1").val(),$("#image2").val());
 
