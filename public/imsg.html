@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AO3 Workskin Generator</title>
+    <link rel="stylesheet" href="CSS/imsg.css">
+    <link rel="stylesheet" href="CSS/webpage.css">
+  </head>
+    <body>
+<button class="nav" onclick="window.location.href = 'index.html';">back</button>
+<p>
+
+<div class="note">
+  NOTES:
+  <li>There is currently no option to add names. That will be added in other messaging text I will add</li>
+  <li>Refresh the page to start over</li>
+</div>
+
+<dl class="imessage border">
+
+  <h1 class="contact">Numerius Negidius</h1>
+  
+	<h4 class="time"><b>Today</b>, 11:45 AM</h4>
+
+	<div class="out">
+		<dt>Aulus</dt>
+		<dd>Look what they're selling at the forum</dd>
+    <dd class="pic"><img src="https://raw.githubusercontent.com/Azdaema/AO3-Skin_Messaging/master/gladius.jpg"</dd>
+		<dd>Do you want me to get you one??</dd>
+	</div>
+
+	<div class="in">
+		<dt>Numerius</dt>
+		<dd>YES</dd>
+		<dd class="emoji">💖</dd>
+		<dd>youre the best</dd>
+	</div>
+
+  <h4 class="time"><b>Today</b>, 3:21 PM</h4>
+  
+	<div class="in">
+		<dt>Numerius</dt>
+		<dd>okay listen but what if we MADE OUR OWN</dd>
+		<dd class="richlink">
+			<a href="https://www.youtube.com/watch?v=DdRrXZoQ8wo">
+				<iframe src="https://www.youtube.com/embed/DdRrXZoQ8wo" frameborder="0"></iframe>
+				<p class="caption"><b>Forging a Roman Gladius Sword</b> youtube.com</p>
+			</a>
+		</dd>
+	</div>
+  
+	<div class="out">
+		<dt>Aulus</dt>
+		<dd>I mean I already bought them</dd>
+    <dd>so</dd>
+		<dt class="read"><b>Read</b> 5:55</dt>
+	</div>
+  
+	<div class="in">
+		<dt>Numerius</dt>
+		<dd>nvm then</dd>
+		<dd class="typing">
+			<div></div>
+			<div></div>
+			<div></div>
+		</dd>
+	</div>
+  
+	<div class="footer">
+		<kbd class="typebar"></kbd>
+	</div>
+	
+</dl>
+
+<dl class="imessage grouptext">
+
+  <div class="out">
+  <dt>Ciri</dt>
+  <dd>Who's picking me up today?</dd>
+  </div>
+  
+  <div class="in">
+  <dt>Yennefer</dt>
+  <dd>its tuesday</dd>
+  <dd>so jaskier</dd>
+  </div>
+  
+  <div class="in">
+  <dt>Jaskier</dt>
+  <dd>no its geralts turn</dd>
+  <dd>i swear its his turn</dd>
+  </div>
+  
+  <div class="in">
+  <dt>Geralt</dt>
+  <dd>no, Yen is right: it's your turn</dd>
+  <dd>it's tuesday</dd>
+  <dd>Tuesday is always your turn</dd>
+  </div>
+  
+  <div class="in">
+  <dt>Jaskier</dt>
+  <dd>shit</dd>
+  </div>
+  
+  <div class="in">
+  <dt>Yennefer</dt>
+  <dd>told you</dd>
+  </div>
+  
+  <div class="in">
+  <dt>Jaskier</dt>
+  <dd>Ciri i'm so sorry</dd>
+  <dd>I'll be there as soon as I can</dd>
+  </div>
+  
+  <div class="out">
+  <dt>Ciri</dt>
+  <dd>Can I just go over to Dara's today?</dd>
+  </div>
+  
+  </dl>
+
+
+
+<textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
+</textarea>
+<br>
+<fieldset>
+<legend>pick side:</legend>
+<div><input type="radio" onchange = "leftchoice()" id="left" name="contact"/><label for="left">Left</label>
+<input type="radio" onchange = "rightchoice()" id="right" name="contact"/><label for="right">Right</label> </div>
+</fieldset>
+
+<button onclick="add(mcform())">Add</button>
+<br><br>
+
+<div id="msgdiv" class="textdiv"></div>
+
+<br>
+<button onclick="generateHTML()">Generate HTML</button>
+<br><br>
+
+<textarea class="largeinput" type="text" id = "fullthing"></textarea>
+
+<script src="JS/simplemsg.js"></script> 
+<script src="JS/gen.js"></script> 
+</body>
+</html>
