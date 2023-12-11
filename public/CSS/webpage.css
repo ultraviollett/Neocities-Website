@@ -17,6 +17,10 @@ body{
 }
 
 
+h1{
+  text-align: center;
+}
+
 hr{
   border-top: 2px solid var(--darkval);
   width:85%;
@@ -50,8 +54,10 @@ button:hover{
 
 /*For stack of buttons leading to somewhere like in index*/
 .buttonlineup{
-  width: fit-content;
-  margin: 5px auto 5px 5%;
+  width: 90vw;
+  max-width: 17cm;
+  margin: 5px auto 5px auto;
+
 }
 
 .workskin{
@@ -117,7 +123,7 @@ fieldset{
   border-radius: 3px;
   font-family: monospace;
   font-weight: bold;
-  padding: 15px;
+  padding: 1em 2em;
   
   margin: 10px 20px;
   width: fit-content;

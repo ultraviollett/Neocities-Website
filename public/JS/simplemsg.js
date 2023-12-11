@@ -31,10 +31,10 @@ function rightchoice(){ isright = true;}
     const element = document.getElementById("msgdiv");
 
     if (isright){
-        childtext[childcount] = '<div class="right texting">'+mctext+"</div>";
+        childtext[childcount] = '<div class="right texting" align="right">'+mctext+"</div>";
         para.className = "right texting";
     }else{
-        childtext[childcount] = '<div class="left texting">'+mctext+"</div>";
+        childtext[childcount] = '<div class="left texting" align="left">'+mctext+"</div>";
         para.className = "left texting";
 
     }
