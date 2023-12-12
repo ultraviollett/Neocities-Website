@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AO3 Workskin Generator</title>
+    <title>iMessage Generator</title>
     <link rel="stylesheet" href="CSS/imsg.css">
     <link rel="stylesheet" href="CSS/webpage.css">
   </head>
@@ -13,9 +13,40 @@
 
 <div class="note">
   NOTES:
-  <li>There is currently no option to add names. That will be added in other messaging text I will add</li>
+  <li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/22703617/chapters/54261724">here</a>!
+  I have also added a few tweaks <- change if not true</li>
+  
   <li>Refresh the page to start over</li>
 </div>
+
+
+<fieldset>
+<legend>Whose texting?:</legend>
+<div>
+<input type="radio" id="you" name="contact"/><label for="you">You</label>
+<input type="radio" id="other" onchange="other()" name="contact"/><label for="other">Someone else</label>
+</div>
+</fieldset>
+
+<div id="messengernamediv">
+<textarea type="text" id="messengername" oninput="name()" placeholder="Insert name here"></textarea>
+</div>
+
+<textarea type="text" id="messagetext" class="largeinput" placeholder="Insert text of message">
+</textarea>
+<br>
+
+
+<button onclick="add(mcform())">Add</button>
+<br><br>
+
+<div id="msgdiv" class="textdiv"></div>
+
+<br>
+<button onclick="generateHTML()">Generate HTML</button>
+<br><br>
+
+<textarea class="largeinput" type="text" id = "fullthing"></textarea>
 
 <dl class="imessage border">
 
@@ -121,28 +152,6 @@
   </div>
   
   </dl>
-
-
-
-<textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
-</textarea>
-<br>
-<fieldset>
-<legend>pick side:</legend>
-<div><input type="radio" onchange = "leftchoice()" id="left" name="contact"/><label for="left">Left</label>
-<input type="radio" onchange = "rightchoice()" id="right" name="contact"/><label for="right">Right</label> </div>
-</fieldset>
-
-<button onclick="add(mcform())">Add</button>
-<br><br>
-
-<div id="msgdiv" class="textdiv"></div>
-
-<br>
-<button onclick="generateHTML()">Generate HTML</button>
-<br><br>
-
-<textarea class="largeinput" type="text" id = "fullthing"></textarea>
 
 <script src="JS/simplemsg.js"></script> 
 <script src="JS/gen.js"></script> 
