@@ -20,26 +20,72 @@
   
   <li>Refresh the page to start over</li>
 </div>
+<select id="groupdmtype" class="nicedropdown" onchange="groupdmtype()">
+  <option val="dm">DM</option>
+  <option val="gc">Groupchat</option>
+</select>
+<br>
+<br>
+  <div>
+  <input type="checkbox" id="gcnamechoose"  name="contact"/><label for="gcname">Add <span id="gc">groupchat's</span><span id="dm">contact's</span> name for header?</label><br>
+  <input type="checkbox" id="textbarchoose" name="contact"/><label for="textbar">Add textbar?</label>
+  </div>
+  </fieldset>
+<div id="messengeegcname">
+<div id="gcname">
+<br>
+<textarea type="text" id="gcname" placeholder="Insert groupchat name"></textarea>
+</div>
 
+<div id="messengeename">
+<br>
+<textarea type="text" id="messengeename" placeholder="Insert contact name"></textarea>
+</div>
+</div>
+<div id="textbar">
+<br>
+<textarea type="text" id="textbar" placeholder="Insert textbar text"></textarea>
+<br>
+</div>
 
-<fieldset onchange="messengernamechoose()" id="messengernamechoose">
+<br>
+<fieldset onchange="messengerchoose()" id="messengerchoose">
 <legend>Whose texting?:</legend>
 <div>
 <input type="radio" id="you" name="contact"/><label for="you">You</label>
-<input type="radio" id="other" name="contact"/><label for="other">Someone else</label>
+<span id="messengee"><input type="radio" id="messengee" name="contact"/><label for="messengee">Your contact</label></span>
+<span id="other"><input type="radio" id="other" name="contact"/><label for="other">Someone else</label></span>
+
 </div>
 </fieldset>
-
+<div id="contactnamediv"><div id="contactnamedivdiv">
+  <textarea type="text" id="contactname" class="longinput" placeholder="Insert contact's name for alt text"></textarea>
+  </div></div>
 <div id="messengernamediv">
-<textarea type="text" id="messengername" oninput="name()" placeholder="Insert name here"></textarea>
+<textarea type="text" id="messengername" placeholder="Insert name here"></textarea>
 </div>
 
+<select id="messagetype" class="nicedropdown" onchange="messagetype()">
+  <option val="Message">Message</option>
+  <option val="image">Image</option>
+  <option val="youtube">Youtube</option>
+  <option val="link">Link</option>
+  <option val="textingdots">Texting Dots</option>
+</select>
+<br>
+<div id="messagetextdiv">
 <textarea type="text" id="messagetext" class="largeinput" placeholder="Insert text of message">
 </textarea>
+</div>
+
+<div id="linktextdiv">
+  <textarea type="url" id="linktext" class="longinput" placeholder="Insert text of message">
+  </textarea>
+</div>
 <br>
 
 
-<button onclick="add(mcform())">Add</button>
+<button id="add">Add</button>
 <br><br>
 
 <div id="msgdiv" class="textdiv"></div>
@@ -49,6 +95,9 @@
 <br><br>
 
 <textarea class="largeinput" type="text" id = "fullthing"></textarea>
+<br><br>
+
+
 
 <dl class="imessage border">
 
