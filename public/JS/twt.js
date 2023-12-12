@@ -434,7 +434,7 @@ function newreply(previous){
     x = images(x,$("#image1").val(),$("#qalt").val());
     x = poll(x,$("#poll1").val(),$("#poll2").val(),$("#poll3").val(),$("#poll4").val(),$("#votes").val());
 
-    x = x + '<div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply()+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet()+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like()+'<span class="screenreader"> likes</span></p></div></div></div>';
+    x = x + '<div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply()+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet()+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like()+'<span class="screenreader"> likes</span></p></div></div></div></div>';
     
     return(x);
 

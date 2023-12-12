@@ -1,5 +1,6 @@
 :root{
   --lightestval: #c9e4ca;
+  --lighterval: #b7d6bb;
   --lightval: #87bba2;
   --middleval: #55828b;
   --darkval: #3b6064;
@@ -17,7 +18,7 @@ body{
 }
 
 
-h1{
+h1, h2{
   text-align: center;
 }
 
@@ -149,3 +150,61 @@ fieldset{
   border-radius: 5px;
   margin: 20px 0 20px 0;
 }
+
+a:hover{
+  text-decoration:double;
+}
+
+
+/*
+Mostly for tutorial.html, to make it easier to read when on desktop
+*/
+.easytoread{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 90vw;
+  max-width: 13cm;
+  background-color: var(--lighterval);
+  padding: 3em;
+  border-radius: 15px;
+
+}
+
+.easytoread p{
+  margin: 0.5em 0
+}
+
+/*
+Mostly for tutorial.html, to make it easier to read when on desktop
+*/
+
+.tableofcontents{
+  width: fit-content;
+  background: rgb(135,187,162);
+  background: linear-gradient(162deg, rgba(135,187,162,1) 0%, rgba(135,187,168,1) 48%, rgba(135,187,174,1) 100%); 
+  
+  padding: 10px 0 ;
+  border: 4px solid var(--middleval);
+  border-radius: 10px;
+}
+.tableofcontents p{
+  margin: 0;
+  line-height: 0;
+
+}
+.tableofcontents a, .tableofcontents h3{
+
+  display: block;
+  text-decoration: none;
+  padding: 1em 20px;
+  margin: 0;
+  line-height: 0;
+}
+
+.tableofcontents a:hover{
+display: block;
+color:#03009d;
+background-color: #579c8e;
+}
+

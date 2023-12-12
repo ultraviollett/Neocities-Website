@@ -6,6 +6,8 @@
     <title>iMessage Generator</title>
     <link rel="stylesheet" href="CSS/imsg.css">
     <link rel="stylesheet" href="CSS/webpage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      
   </head>
     <body>
 <button class="nav" onclick="window.location.href = 'index.html';">back</button>
@@ -20,11 +22,11 @@
 </div>
 
 
-<fieldset>
+<fieldset onchange="messengernamechoose()" id="messengernamechoose">
 <legend>Whose texting?:</legend>
 <div>
 <input type="radio" id="you" name="contact"/><label for="you">You</label>
-<input type="radio" id="other" onchange="other()" name="contact"/><label for="other">Someone else</label>
+<input type="radio" id="other" name="contact"/><label for="other">Someone else</label>
 </div>
 </fieldset>
 
@@ -153,7 +155,7 @@
   
   </dl>
 
-<script src="JS/simplemsg.js"></script> 
+<script src="JS/imsg.js"></script> 
 <script src="JS/gen.js"></script> 
 </body>
 </html>
