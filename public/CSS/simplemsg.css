@@ -4,35 +4,33 @@
   margin: auto;
 }
 
-.texting{
+.textdiv p{
     display: block;
     border: 1.5px solid;
+    line-height: 1;
+
+    max-width: 5.5cm;
     width: 50vw;
-    max-width: 7cm;
     width: fit-content;
+
     padding: 3px 15px 3px 15px;
     border-radius: 15px;
     margin: 0.5em auto;
     white-space: normal;
-    overflow: hidden;
-
+    overflow:visible;
+    word-break:break-all;
   }
 
-  .left{
+.textdiv .left{
     border-bottom-left-radius: 0;
     margin-right: auto;
     margin-left: 0;
 
-  }
+}
 
-  .right{
+.textdiv .right{
     border-bottom-right-radius: 0;
     margin-right: 0;
     margin-left: auto;
     text-align: left;
-  }
-
-  .textdiv p{
-    line-height: 1;
-    margin: 0 auto;
-  }
+}

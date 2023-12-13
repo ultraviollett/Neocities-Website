@@ -5,20 +5,20 @@ x-add general css to make site nice-looking [PRETTIFY]
 x-add page for copying workskin CSS
 x-add instruction manual
 x-add links to ao3 works about the workskin
--add jquery to simplemsg and mcpoem 
--change ALL variables to follow best practice
--add more comments explaining code 
-
-
+x-add jquery to simplemsg and mcpoem 
+x-change ALL variables to follow best practice
+x-add more comments explaining code 
+x-add defaults to all checkboxes/radio
+x-add form for suggestions and asking for help
 
 
 add HTML generators: [ADD]
 -add tumblr [TBLR]
--add twitter [TWT]
+x-add twitter [TWT]
     -add up to four images allowed
     -add poll time left
     -add poll results options
--add messaging [MSG]
+x-add messaging [MSG]
 -add twitchchat [TWCH]
 -add mc messaging
 
@@ -27,8 +27,8 @@ other (less important):
 -add colour picker for various things (ie mcpoem, twitchchat) [COLOURPICK]
 
 --far off goals--
+-add tip jar
 
--add form for suggestions and asking for help
 
 
 add HTML generators: [ADD]

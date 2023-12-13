@@ -34,16 +34,16 @@
 <form id="twtstyle">
 <fieldset>
   <div>
-  <input type="radio" name="stylename" onchange="defaultstyle()" id="default"/>&nbsp;<label for="default">&nbsp;AO3 default</label>
-  <input type="radio" name="stylename" onchange="white()" id="white"/>&nbsp;<label for="white">&nbsp;White</label>
-  <input type="radio" name="stylename" onchange="black()" id="black"/>&nbsp;<label for="black">&nbsp;Black</label>
-  <input type="radio" name="stylename" onchange="minimal()" id="minimal">&nbsp;<label for="minimal">&nbsp;Minimal</label>
+  <input type="radio" name="stylename" id="default" checked />&nbsp;<label for="default">&nbsp;AO3 default</label>
+  <input type="radio" name="stylename" id="white"/>&nbsp;<label for="white">&nbsp;White</label>
+  <input type="radio" name="stylename" id="black"/>&nbsp;<label for="black">&nbsp;Black</label>
+  <input type="radio" name="stylename" id="minimal">&nbsp;<label for="minimal">&nbsp;Minimal</label>
   </div>
 </fieldset>
 </form>
 
 
-<select id="twttype" class="nicedropdown" onchange="twttype()">
+<select id="twttype" class="nicedropdown">
   <option val="tweet">Tweet</option>
   <option val="replytweet">Reply to tweet</option>
 </select>
@@ -58,14 +58,14 @@
   </form>
 <br>
 <div id="replynotweet">
-<textarea type="url" class="longinput" id="opurl" oninput="opurl()" placeholder="OP's @"></textarea>
+<textarea type="url" class="longinput" id="opurl" placeholder="OP's @"></textarea>
 </div>
 
 
-<textarea type="url" class="longinput" id="icon" oninput="icon()" placeholder="icon URL"></textarea><br>
+<textarea type="url" class="longinput" id="icon" placeholder="icon URL"></textarea><br>
 
 
-<select id="iconchoose" class="nicedropdown" onchange="icon()">
+<select id="iconchoose" class="nicedropdown">
   <option>or pick icon here</option>
 
   <option>Steve Minecraft</option>
@@ -92,11 +92,11 @@
 <br><br>
 
 
-<textarea type="text" id="username" oninput="username()">Name</textarea>
-<textarea type="text" id="twturl" oninput="twturl()" placeholder="@"></textarea>
+<textarea type="text" id="username" >Name</textarea>
+<textarea type="text" id="twturl" placeholder="@"></textarea>
 <br>
 
-<textarea type="text" id="tweet" class="largeinput" oninput="tweet()" placeholder="Add body of tweet here">
+<textarea type="text" id="tweet" class="largeinput" placeholder="Add body of tweet here">
 </textarea>
 <br>
 
@@ -117,7 +117,7 @@
   <textarea type="text" id="poll2" placeholder="second poll option"></textarea><br>
   <textarea type="text" id="poll3" placeholder="third (optional)"></textarea><br>
   <textarea type="text" id="poll4" placeholder="fourth (optional)"></textarea><br>
-  <input type="number" id="votes" oninput="votes()" placeholder="# of votes">
+  <input type="number" id="votes" placeholder="# of votes">
 <!--<input type="number" id="timeleft" oninput="timeleft()" placeholder="time left">-->
   <br><br>
 </div>
@@ -129,15 +129,15 @@
 
 <form id="qextra">
   <fieldset>
-    <input type="checkbox" onchange="qimage()" id="qimage"/><label for="qimage">Add images for quoted tweet?</label><br>
-    <input type="checkbox" onchange="qpoll()" id="qpoll"/><label for="qpoll">Add poll for quoted tweet?</label><br>
+    <input type="checkbox" id="qimage"/><label for="qimage">Add images for quoted tweet?</label><br>
+    <input type="checkbox" id="qpoll"/><label for="qpoll">Add poll for quoted tweet?</label><br>
   </fieldset>
   </form>
   <br>
 
-  <textarea type="url" class="longinput" id="qicon" oninput="qicon()" placeholder="insert icon URL"></textarea>
+  <textarea type="url" class="longinput" id="qicon" placeholder="insert icon URL"></textarea>
 
-  <select id="qiconchoose" class="nicedropdown" onchange="qicon()">
+  <select id="qiconchoose" class="nicedropdown">
     <option>or pick icon here</option>
   
     <option>Steve Minecraft</option>
@@ -160,13 +160,13 @@
 <br><br>
 
 
-<textarea type="text"  id="qusername" oninput="qusername()">Name</textarea>
-<textarea type="text" id="qtwturl" oninput="qtwturl()" placeholder="@"></textarea>
+<textarea type="text"  id="qusername" >Name</textarea>
+<textarea type="text" id="qtwturl" placeholder="@"></textarea>
 <br>
 <input type="date" id="qdate">
 <br>
 
-<textarea type="text" id="qtweet" class="largeinput" oninput="tweet()" placeholder="Add body of quoted tweet here">
+<textarea type="text" id="qtweet" class="largeinput" placeholder="Add body of quoted tweet here">
 </textarea>
 <br>
 
@@ -196,14 +196,14 @@
 
 <!--END OF QUOTE TWEET-->
 
-<input type="time" id="time" oninput="time()">
-<input type="date" id="date" oninput="date()">
+<input type="time" id="time">
+<input type="date" id="date">
 <br><br>
 
 
-<input type="number" id="reply" oninput="reply()" placeholder="# of replies"><br>
-<input type="number" id="retweet" oninput="retweet()" placeholder="# of retweets"><br>
-<input type="number" id="like" oninput="like()" placeholder="# of likes">
+<input type="number" id="reply" placeholder="# of replies"><br>
+<input type="number" id="retweet" placeholder="# of retweets"><br>
+<input type="number" id="like" placeholder="# of likes">
 <br><br>
 
 <button id="add">Add</button>
@@ -215,7 +215,7 @@
 <button id="generateHTML">Generate HTML</button>
 <br><br>
 
-<div class="largeinput" id = "textoutput"></div>
+<div class="largeinput" id = "HTMLoutput"></div>
 
 <script src="JS/twt.js"></script> 
 <script src="JS/gen.js"></script> 

@@ -1,65 +1,64 @@
 
 
-document.getElementById("gc").style.display = "none";
+document.getElementById("gc").style.display = "none";//default is DM
 
-document.getElementById("messengeegcname").style.display = "none";
-
-document.getElementById("gcnamediv").style.display = "none";
+document.getElementById("headernamediv").style.display = "none"; //holds both header names for gc and dm
+document.getElementById("headergcnamediv").style.display = "none";//gc name is hidden by default
 document.getElementById("textbardiv").style.display = "none";
 
-document.getElementById("other").style.display = "none";
+document.getElementById("gccontact").style.display = "none";
 
-document.getElementById("messengernamediv").style.display = "none";
-document.getElementById("contactnamediv").style.display = "none";
+document.getElementById("gccontactnamediv").style.display = "none";
+document.getElementById("dmcontactnamediv").style.display = "none";
 
 document.getElementById("linktextdiv").style.display = "none";
 
 document.getElementById("timestampdiv").style.display = "none";
-document.getElementById("vidnamediv").style.display = "none";
+document.getElementById("richlinkdiv").style.display = "none";
 document.getElementById("alttextdiv").style.display = "none";
 document.getElementById("readreceiptdiv").style.display = "none";
 
-var prevName = "";
-var prevInOut = "";
-var prev = "";
-childCount = 0;
+var prevName = ""; //stores value of prev name to compare it to current
+var prevInOut = ""; //stores val of prev in/out to compare it to current
+var prev = ""; //holds code (minus surrounding div) to be added to
+childCount = 0; //counts how many times add is clicked
 
 
-function groupdmtype(){
+function switchGroupChatDM(){
     if ( $("#groupdmtype").val() == 'DM' ){
         document.getElementById("dm").style.display = "";
         document.getElementById("gc").style.display = "none";
-        document.getElementById("messengee").style.display = "";
-        document.getElementById("other").style.display = "none";
-        document.getElementById("messengernamediv").style.display = "none";
+        document.getElementById("dmcontact").style.display = "";
+        document.getElementById("gccontact").style.display = "none";
+        document.getElementById("gccontactnamediv").style.display = "none";
 
-        document.getElementById("gcnamediv").style.display = "none";
-        document.getElementById("messengeenamediv").style.display = "";
+        document.getElementById("headergcnamediv").style.display = "none";
+        document.getElementById("headerdmnamediv").style.display = "";
 
 
     }else{
         document.getElementById("gc").style.display = "";
         document.getElementById("dm").style.display = "none";
-        document.getElementById("messengee").style.display = "none";
-        document.getElementById("other").style.display = "";
+        document.getElementById("dmcontact").style.display = "none";
+        document.getElementById("gccontact").style.display = "";
         
-        document.getElementById("gcnamediv").style.display = "";
-        document.getElementById("messengeenamediv").style.display = "none";
-        document.getElementById("contactnamediv").style.display = "none";
+        document.getElementById("headergcnamediv").style.display = "";
+        document.getElementById("headerdmnamediv").style.display = "none";
+        document.getElementById("dmcontactnamediv").style.display = "none";
 }}
 
-function messengerchoose(){
+function chooseMessenger(){
     if ( $('input[id="you"]:checked').val() ){
-        document.getElementById("messengernamediv").style.display = "none";
-        document.getElementById("contactnamediv").style.display = "none";
+        document.getElementById("gccontactnamediv").style.display = "none";
+        document.getElementById("dmcontactnamediv").style.display = "none";
 
-    }else if( $('input[id="messengee"]:checked').val() ){
-        document.getElementById("messengernamediv").style.display = "none";
-        document.getElementById("contactnamediv").style.display = "";
+    }else if( $('input[id="dmcontact"]:checked').val() ){
+        document.getElementById("gccontactnamediv").style.display = "none";
+        document.getElementById("dmcontactnamediv").style.display = "";
 
     }else{
-        document.getElementById("messengernamediv").style.display = "";
-        document.getElementById("contactnamediv").style.display = "none";
+        document.getElementById("gccontactnamediv").style.display = "";
+        document.getElementById("dmcontactnamediv").style.display = "none";
 }}
 
 
@@ -70,7 +69,7 @@ function chooseMessageType(){
             document.getElementById("messagetextdiv").style.display = "";
             document.getElementById("timestampdiv").style.display = "none";
             document.getElementById("readreceiptchoosediv").style.display = "";
-            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "none";
             break;
 
@@ -79,7 +78,7 @@ function chooseMessageType(){
             document.getElementById("messagetextdiv").style.display = "none";
             document.getElementById("timestampdiv").style.display = "none";
             document.getElementById("readreceiptchoosediv").style.display = "none";
-            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "none";
             break;
         
@@ -88,7 +87,7 @@ function chooseMessageType(){
             document.getElementById("messagetextdiv").style.display = "none";
             document.getElementById("timestampdiv").style.display = "";
             document.getElementById("readreceiptchoosediv").style.display = "none";
-            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "none";
             break;
         
@@ -97,7 +96,7 @@ function chooseMessageType(){
             document.getElementById("messagetextdiv").style.display = "none";
             document.getElementById("timestampdiv").style.display = "none";
             document.getElementById("readreceiptchoosediv").style.display = "";
-            document.getElementById("vidnamediv").style.display = "";
+            document.getElementById("richlinkdiv").style.display = "";
             document.getElementById("alttextdiv").style.display = "none";
             break;
 
@@ -106,7 +105,7 @@ function chooseMessageType(){
             document.getElementById("messagetextdiv").style.display = "none";
             document.getElementById("timestampdiv").style.display = "none";
             document.getElementById("readreceiptchoosediv").style.display = "";
-            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "";
             break;
 
@@ -115,7 +114,7 @@ function chooseMessageType(){
             document.getElementById("messagetextdiv").style.display = "none";
             document.getElementById("timestampdiv").style.display = "none";
             document.getElementById("readreceiptchoosediv").style.display = "";
-            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "none";
             break;           
 
@@ -129,11 +128,11 @@ function findName(){
     if ( $('input[id="you"]:checked').val() ){
         x = "You";
     } else if ($("#groupdmtype").val() == 'Groupchat'){
-        x = $("#messengername").val();
-    } else if( $("#messengeename").val() ){
-        x = $("#messengeename").val();
-    }else if( $("#contactname").val() ){
-        x = $("#contactname").val();
+        x = $("#gccontactname").val();
+    } else if( $("#dmcontactname").val() ){
+        x = $("#dmcontactname").val();
+    }else if( $("#dmcontactnamealt").val() ){
+        x = $("#dmcontactnamealt").val();
     }else{
         x = "Contact";
     }
@@ -144,15 +143,16 @@ function findName(){
 function addSurroundingDiv(x){ //adds surrounding div depending on whats been selected
     var start = '<dl class="imessage ';
     if ( $("#groupdmtype").val() == 'Groupchat' ){
+        //add div class if you pick gc
         start = start + 'grouptext ';
     }
-    start = start + '">';
-    if ( $('input[id="gcnamechoose"]:checked').val() ){
+    start = start + '">'; 
+    if ( $('input[id="gcnamechoose"]:checked').val() ){ //adds header
         start = start + '<h1 class="contact">';
         if( $("#gcname").val() ){
             start = start + $("#gcname").val();
-        }else if(  $("#messengeename").val() ){
-            start = start +  $("#messengeename").val();
+        }else if(  $("#dmcontactname").val() ){
+            start = start +  $("#dmcontactname").val();
         }
         start = start + '</h1>';
     }
@@ -173,11 +173,13 @@ function addSurroundingDiv(x){ //adds surrounding div depending on whats been se
 
 }
 
-function switchName(x){ //finds out if text is on left or right side. Left is in, right is out
+function switchName(x){ 
+    //finds out if someone different is texting.
+    //then uses new name and figures out if text is in or out
     var currentInOut;
     var isChange = false;
 
-    if ( $('input[id="messengee"]:checked').val() ||  $('input[id="other"]:checked').val() ){
+    if ( $('input[id="dmcontact"]:checked').val() ||  $('input[id="gccontact"]:checked').val() ){
         currentInOut = 'in';
     }else{ currentInOut = 'out'; }
 
@@ -208,14 +210,15 @@ function switchName(x){ //finds out if text is on left or right side. Left is in
 }
 
 function addNewText(x){
-
-    x = x + '<dd>' + $("#messagetext").val() + '</dd>';//adds text of message
+    //adds text of message
+    x = x + '<dd>' + $("#messagetext").val() + '</dd>';
 
     return x;
 
 }
 
 function addTimestamp(x){
+    //finds what info has been inputted for the timestamp and adds it
     x = x + '<h4 class="time">';
     switch ( $("#timechoose").val() ){
         case "The Date":
@@ -239,16 +242,18 @@ function addTimestamp(x){
 }
 
 
-function image(x){
+function addImage(x){
+    //adds image
     x = x + '<dd class="pic"><img src="'+$("#linktext").val()+'" alt="'+ $("#alttext").val() +'"></dd>';
 }
 
-function richlink(x){
+function addRichLink(x){
+    //adds rich link
     x = x + '<dd class="richlink"><a href="'+$("#linktext").val()+'">';
     x = x + '<iframe src="'+$("#linktext").val()+'" frameborder="0"></iframe>';
     
-    if( $("#vidname").val() ){
-        x = x + '<p class="caption"><b>'+$("#vidname").val()+'</b></p>';
+    if( $("#richlink").val() ){
+        x = x + '<p class="caption"><b>'+$("#richlink").val()+'</b></p>';
     }
     x = x + '</a></dd>';
 
@@ -263,11 +268,11 @@ function richlink(x){
 </dd>
  */
 
-function link(x){
+function addLink(x){
     x = x + '<dd><a href="' + $("#linktext").val() + '"></dd>'
 }
 
-function typingdots(x){
+function addTypingDots(x){
     x = x + '<dd class="typing"> <div></div> <div></div> <div></div> </dd></div>'
     return x;
 
@@ -298,16 +303,16 @@ $(function() {
             x = addTimestamp(prev);
 
         }else if ( $("#messagetype").val() == 'Image'){
-            x = image(x);
+            x = addImage(x);
 
         }else if ( $("#messagetype").val() == 'Rich Link'){
-            x = richlink(x);
+            x = addRichLink(x);
 
         }else if ( $("#messagetype").val() == 'Link'){
-            x = link(x);
+            x = addLink(x);
 
         }else if ( $("#messagetype").val() == 'Typing Dots'){
-            x = typingdots(x);
+            x = addTypingDots(x);
 
         }else{
             x = x + "link";
@@ -320,13 +325,14 @@ $(function() {
     });
 
     $('#generateHTML').on('click', function() {
-        $('#fullthing').text(prev);
+        let x = addSurroundingDiv(prev);
+        $('#fullthing').text(x);
     });
 
 
     $("#gcnamechoose").on("click", function() {
-        $("#messengeegcname").toggle();
-        $("#contactnamedivdiv").toggle();
+        $("#headernamediv").toggle();
+        $("#dmcontactnamedivdiv").toggle();
     });
 
     $("#textbarchoose").on("click", function() {

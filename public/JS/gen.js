@@ -1,3 +1,6 @@
+ //makes sure all checkboxes are off by default
+document.getElementsByTagName('input').checked = "false";
+
 textarea = document.querySelector("#autoresizing");
 textarea.addEventListener('input', autoResize, false);
 

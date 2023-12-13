@@ -23,7 +23,7 @@
   
   <li>Refresh the page to start over</li>
 </div>
-<select id="groupdmtype" class="nicedropdown" onchange="groupdmtype()">
+<select id="groupdmtype" class="nicedropdown" onchange="switchGroupChatDM()">
   <option val="dm">DM</option>
   <option val="gc">Groupchat</option>
 </select>
@@ -34,15 +34,15 @@
   <input type="checkbox" id="textbarchoose" name="contact"/><label for="textbar">Add textbar?</label>
   </div>
   </fieldset>
-<div id="messengeegcname">
-<div id="gcnamediv">
+<div id="headernamediv">
+<div id="headergcnamediv">
 <br>
 <textarea type="text" id="gcname" placeholder="Insert groupchat name"></textarea>
 </div>
 
-<div id="messengeenamediv">
+<div id="headerdmnamediv">
 <br>
-<textarea type="text" id="messengeename" placeholder="Insert contact name"></textarea>
+<textarea type="text" id="dmcontactname" placeholder="Insert contact name"></textarea>
 </div>
 </div>
 <div id="textbardiv">
@@ -52,20 +52,20 @@
 </div>
 
 <br>
-<fieldset onchange="messengerchoose()" id="messengerchoose">
+<fieldset onchange="chooseMessenger()" id="messengerchoose">
 <legend>Whose texting?:</legend>
 <div>
-<input type="radio" id="you" name="contact"/><label for="you">You</label>
-<span id="messengee"><input type="radio" id="messengee" name="contact"/><label for="messengee">Your contact</label></span>
-<span id="other"><input type="radio" id="other" name="contact"/><label for="other">Someone else</label></span>
+<input type="radio" id="you" name="contact" checked/><label for="you">You</label>
+<span id="dmcontact"><input type="radio" id="dmcontact" name="contact"/><label for="dmcontact">Your contact</label></span>
+<span id="gccontact"><input type="radio" id="gccontact" name="contact"/><label for="gccontact">Someone else</label></span>
 
 </div>
 </fieldset>
-<div id="contactnamediv"><div id="contactnamedivdiv">
-  <textarea type="text" id="contactname" class="longinput" placeholder="Insert contact's name for alt text"></textarea>
+<div id="dmcontactnamedivdiv"><div id="dmcontactnamediv">
+  <textarea type="text" id="dmcontactnamealt" class="longinput" placeholder="Insert contact's name for alt text"></textarea>
   </div></div>
-<div id="messengernamediv">
-<textarea type="text" id="messengername" placeholder="Insert name here"></textarea>
+<div id="gccontactnamediv">
+<textarea type="text" id="gccontactname" placeholder="Insert name here"></textarea>
 </div>
 
 <select id="messagetype" class="nicedropdown" onchange="chooseMessageType()">
@@ -85,8 +85,8 @@
 <div id="linktextdiv">
   <textarea type="url" id="linktext" class="longinput" placeholder="Insert URL needed"></textarea>
 </div>
-<div id="vidnamediv">
-  <textarea type="url" id="vidname" class="longinput" placeholder="Insert link title"></textarea>
+<div id="richlinkdiv">
+  <textarea type="url" id="richlink" class="longinput" placeholder="Insert link title"></textarea>
 </div>
 
 <div id="alttextdiv">
