@@ -1,24 +1,12 @@
-var fullthing;
-var mctext;
-
-function mcform() {
-    var mctext = document.getElementById("mctext").value;
-    document.getElementById("paste").innerHTML = mctext;
-    return mctext
+function addText() {
+    //updates whenever text is updated, adds text to inside button
+    let x = document.getElementById("buttontext").value;
+    document.getElementById("paste").innerHTML = x;
+    return x;
 }
 
 function generateHTML(){
-    var fullthing = "";      
-
-    var fullthing = '<div class="buttonbg"><span class="screenreader">A minecraft button that reads: </span><p class="buttontext">'+mcform()+"</p></div>";
-
-    document.getElementById("fullthing").value = fullthing;
-    return fullthing;
+    //adds text in text input to some divs and outputs it as text
+    let x = '<div class="buttonbg"><span class="screenreader">A minecraft button that reads: </span><p class="buttontext">'+addText()+"</p></div>";
+    document.getElementById("HTMLoutput").value = x;
 }
-
-
-function copy() {
-    let textarea = document.getElementById("textarea");
-    textarea.select();
-    document.execCommand("copy");
-  }

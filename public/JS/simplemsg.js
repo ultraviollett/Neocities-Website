@@ -1,65 +1,42 @@
-var childtext=[];
-var fullthing;
-childcount = 0;
-var mctext;
-var isright;
+var prev = "";
 
-
-function mcchoice() { 
-    var mcchoice = document.getElementById("mcchoiceid");  
-    var mcchoice2 = mcchoice.options[mcchoice.selectedIndex].value;
-    return mcchoice2;
+function addSurroundingDiv(x){
+    x = '<div class="textdiv>"'+x+'</div>';
+    return x;
 }
 
-
-
-function mcform() {
-    var mctext = document.getElementById("mctext").value;
-    return mctext
+function addNewMessage(x){
+    let leftOrRight = "left";
+    if( $('input[id="rightchoose"]:checked').val() ){
+        leftOrRight = "right";
+    }
+    let msgText = $("#msgtext").val();
+    x = x + '<div class="'+leftOrRight+' texting" align="'+leftOrRight+'">'+msgText+"</div>";
+    return x;
 }
 
-function leftchoice(){ isright = false;}
-function rightchoice(){ isright = true;}
+$(function() {
 
-  function add(mctext){
-    const para = document.createElement("div");
-    const node = document.createTextNode(mctext);
+    $('#add').on('click', function() {
+        //compiles the whole code together as is currently
+        
+        let x = addNewMessage(prev);
+
+        prev = x;
+
+        x = addSurroundingDiv(x);
+
+        $('#outputdiv').html(x);
+    });
+
+    $('#generateHTML').on('click', function() {
+        //generates the html as text to be copied
+        let x;
+        x = addSurroundingDiv(prev);
+
+        $('#HTMLoutput').text(x);
     
-
-    para.appendChild(node);
-
-    const element = document.getElementById("msgdiv");
-
-    if (isright){
-        childtext[childcount] = '<div class="right texting" align="right">'+mctext+"</div>";
-        para.className = "right texting";
-    }else{
-        childtext[childcount] = '<div class="left texting" align="left">'+mctext+"</div>";
-        para.className = "left texting";
-
-    }
-    
-    childcount += 1;
-    childtext.push("");
-    element.appendChild(para);
-
-    }
+    });
 
 
-function generateHTML(){
-    fullthing="";
-    for (let i=0; i < childtext.length; i++){
-        fullthing = fullthing+childtext[i];
-    }
-
-    var fullthing = '<div class="textdiv">'+fullthing+"</div>";
-
-    document.getElementById("fullthing").value = fullthing;
-    return fullthing;
-}
-
-function copy() {
-    let textarea = document.getElementById("textarea");
-    textarea.select();
-    document.execCommand("copy");
-  }
+});

@@ -19,10 +19,10 @@ document.getElementById("vidnamediv").style.display = "none";
 document.getElementById("alttextdiv").style.display = "none";
 document.getElementById("readreceiptdiv").style.display = "none";
 
-var prevname = "";
-var previnout = "";
+var prevName = "";
+var prevInOut = "";
 var prev = "";
-childcount = 0;
+childCount = 0;
 
 
 function groupdmtype(){
@@ -63,7 +63,7 @@ function messengerchoose(){
 }}
 
 
-function messagetype(){
+function chooseMessageType(){
     switch ( $("#messagetype").val() ){
         case "Message":
             document.getElementById("linktextdiv").style.display = "none";
@@ -123,7 +123,7 @@ function messagetype(){
     }
 }
 
-function namefind(){
+function findName(){
     //I am trying to dig out of the hole I made myself with three different slots for names
     var x;
     if ( $('input[id="you"]:checked').val() ){
@@ -141,7 +141,7 @@ function namefind(){
 }
 
 
-function surroundingdiv(x){ //adds surrounding div depending on whats been selected
+function addSurroundingDiv(x){ //adds surrounding div depending on whats been selected
     var start = '<dl class="imessage ';
     if ( $("#groupdmtype").val() == 'Groupchat' ){
         start = start + 'grouptext ';
@@ -173,41 +173,41 @@ function surroundingdiv(x){ //adds surrounding div depending on whats been selec
 
 }
 
-function switchname(x){ //finds out if text is on left or right side. Left is in, right is out
-    var currentinout;
-    var change = false;
+function switchName(x){ //finds out if text is on left or right side. Left is in, right is out
+    var currentInOut;
+    var isChange = false;
 
     if ( $('input[id="messengee"]:checked').val() ||  $('input[id="other"]:checked').val() ){
-        currentinout = 'in';
-    }else{ currentinout = 'out'; }
+        currentInOut = 'in';
+    }else{ currentInOut = 'out'; }
 
-    if (currentinout != previnout){ change = true; }
+    if (currentInOut != prevInOut){ isChange = true; }
 
-    var currentname = namefind();
+    var currentName = findName();
 
-    if( !currentname && currentinout == "in"){
-        currentname = "Contact";
-    }else if (!currentname){
-        currentname = "You";
+    if( !currentName && currentInOut == "in"){
+        currentName = "Contact";
+    }else if (!currentName){
+        currentName = "You";
     }
-    if (currentname != prevname){ change = true}
+    if (currentName != prevName){ isChange = true}
 
-    if (childcount == 0){
-        x = x + '<div class="'+currentinout+'"><dt>'+currentname+'</dt>'
+    if (childCount == 0){
+        x = x + '<div class="'+currentInOut+'"><dt>'+currentName+'</dt>'
 
-    }else if (change){
-        x = x + '</div><div class="'+currentinout+'"><dt>'+currentname+'</dt>'
+    }else if (isChange){
+        x = x + '</div><div class="'+currentInOut+'"><dt>'+currentName+'</dt>'
     }
 
-    childcount += 1;
-    previnout = currentinout;
-    prevname = currentname;
+    childCount += 1;
+    prevInOut = currentInOut;
+    prevName = currentName;
 
     return x;
 
 }
 
-function newtext(x){
+function addNewText(x){
 
     x = x + '<dd>' + $("#messagetext").val() + '</dd>';//adds text of message
 
@@ -215,7 +215,7 @@ function newtext(x){
 
 }
 
-function timestamp(x){
+function addTimestamp(x){
     x = x + '<h4 class="time">';
     switch ( $("#timechoose").val() ){
         case "The Date":
@@ -289,13 +289,13 @@ $(function() {
         //compiles the whole code together as is currently
         
         var x;
-        x = switchname(prev);
+        x = switchName(prev);
         
         if ( $("#messagetype").val() == 'Message'){
-            x = newtext(x);
+            x = addNewText(x);
     
         }else if ( $("#messagetype").val() == 'Timestamp'){
-            x = timestamp(prev);
+            x = addTimestamp(prev);
 
         }else if ( $("#messagetype").val() == 'Image'){
             x = image(x);
@@ -314,7 +314,7 @@ $(function() {
         }
         prev = x;
 
-        x = surroundingdiv(x);
+        x = addSurroundingDiv(x);
 
         $('#outputdiv').html(x);
     });

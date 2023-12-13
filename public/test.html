@@ -3,71 +3,40 @@
     Test!!!
     </head>
 <body>
+
     
-<link rel="stylesheet" href="CSS/twt.css">
-<a href="https://archiveofourown.org/works/26754208/chapters/65268931#workskin">LINK TO OG</a>
-<button class="nav" onclick="window.location.href = 'index.html';">back</button>
-<p>
-<br><br>
-
-
-<div class="twt twtblacktwtstart ">
-    <div class="twt-header">
-        <div class="twt-icon-container">
-             <img class="twt-icon" src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg">
-        </div>
-    <div class="twt-id"> 
-        <span class="twt-name"> Steve<span class="twt-handle"> <br>@Steve</span> <br/>
+<form id="choosecolorform">
+  <fieldset>
+    <legend>Select a language</legend>
+    <div>
+      <input
+        type="radio"
+        id = "white"
+        name="color"
+        value="white"
+        checked
+      />
+      <label for="white">White</label>
     </div>
- </div> 
- 
- <div class="twt-content"> I'm steve miencraft. Just found some weird glowing fungi. I'm going to touch it. I hear noises and can't see whoops </div>
- <div class="twt-timestamp"> 19:22 · 2023-11-27</div>
-    <hr class="twt-sep">
-    <div class="twt-stat"> 
-        <p><img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>234</strong></p>
-        <p><img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>324K </strong>
-         </p>
-         <p><strong> <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png"> 234K</strong></p>
+    <div>
+      <input type="radio" id="cyan" name="color" value="cyan" />
+      <label for="cyan">Cyan</label>
     </div>
- </div>
+  </fieldset>
+</form>
+<button id="checkRadioBtn">Check radio selection</button>
 
-<div class="twt twt-replybox">
+<div id="outputdiv"></div>
 
-        <div class="twt-icon-replycontainer">
-        <img class="twt-icon" src="https://images.squidge.org/images/2023/12/07/alexminecraftface.png">
-        </div><div class="twt-replycontainer">
-            <div><span class="twt-name">Alex</span><span class="twt-handle"> @miencraft1 </span>
-        </div>
-        <div class="twt-replying-to"> Replying to <span class="twt-hl">@steve</span></div>
-        <div class="twt-replycontent">WHAT ARE YOU DOING</div> </div> 
-        <div class="twt-stat">
-            <p><img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>345</strong></p>
-            <p> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>35M </strong> </p>
-            <p><strong> <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png"> 2K</strong> </p>
-       
-    </div>
-</div>
-<br>
+<script>
 
-<div class="twt twtstart ">
-    <div class="twt-header">
-        <div class="twt-icon-container">
-             <img class="twt-icon" src="https://images.squidge.org/images/2023/12/07/hatsunemiku.png">
-             </div> 
-             <div class="twt-id">
-                 <span class="twt-name"> Name</span> <br/>
-            </div> 
-        </div> <div class="twt-content"> hi there </div>
-        <div class="twtpoll"><span class="twtpolltext">324</span></div>
-        <div class="twtpoll"><span class="twtpolltext">234</span></div>
-        <div class="twtpoll"><span class="twtpolltext">342</span></div> 
-        <div class="twtpoll"><span class="twtpolltext">234</span></div>
-        <span class="pollvotes">23K votes</span><hr class="twt-sep">
-        <div class="twt-stat"> <p><img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong>455K</strong></p>
-            <p> <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png"> <strong> </strong> </p><p><strong> <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png"> </strong> </p></div> </div>
-
-<br>
-<img src="https://pbs.twimg.com/media/FFTTUqvVcAEtIl9.jpg" width="400cm">
+    const checkRadioBtn = $('#checkRadioBtn');
+    
+    checkRadioBtn.click(() => {
+      var x = $("input[type='radio'][name=color]:checked",'#choosecolorform').val();
+      $('#outputdiv').text(x);
+    });
+    
+</script>
 </body>
 </html>

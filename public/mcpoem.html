@@ -6,6 +6,8 @@
     <title>AO3 Workskin Generator</title>
     <link rel="stylesheet" href="CSS/mcpoem.css">
     <link rel="stylesheet" href="CSS/webpage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
   </head>
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
     <body>
@@ -20,42 +22,61 @@
 <li>Refresh the page to start over</li>
 </div>
 
-<div class="poembg"><p class="poemtextgreen poemtext">Congrats on defeating the dragon!</p><p class="poemtext">No... problem?</p><p class="poemtext">Who are you?</p><p class="poemtextcyan poemtext">Don't worry about it</p></div>
+<div class="mcpoemdiv">
+  <p class="green">Congrats on defeating the dragon!</p>
+  <p>No... problem?</p><p>Who are you?</p>
+  <p class="cyan">Don't worry about it</p>
+</div>
 
 
 <h3>Input text:</h3>
-<textarea type="text" id="mctext" class="largeinput" oninput="mcform()">
+<textarea type="text" id="poemtext" class="largeinput">
 </textarea>
 <br><br>
+
 <h3>Pick Colour:</h3>
 <div class="columnify">
-<fieldset>
-  <div><input type="radio" onchange = "white()" id="White Text" name="contact"/><label for="White Text">White Text</label>
-  <div><input type="radio" onchange = "green()" id="Green Text" name="contact"/><label for="Green Text">Green Text</label> </div>
-  <div><input type="radio" onchange = "cyan()" id="Cyan Text" name="contact"/><label for="Cyan Text">Cyan Text</label> </div>
-  <div><input type="radio" onchange = "red()" id="Red Text" name="contact"/><label for="Red Text">Red Text</label> </div>
-  <div><input type="radio" onchange = "orange()" id="Orange Text" name="contact"/><label for="Orange Text">Orange Text</label> </div>
-  <div><input type="radio" onchange = "yellow()" id="Yellow Text" name="contact"/><label for="Yellow Text">Yellow Text</label> </div>
-  <div><input type="radio" onchange = "purple()" id="Purple Text" name="contact"/><label for="Purple Text">Purple Text</label> </div>
-  <div><input type="radio" onchange = "pink()" id="Pink Text" name="contact"/><label for="Pink Text">Pink Text</label> </div>
+
+<form id="choosecolorform"></form>
+<fieldset  onchange="revealColorPickDiv()">
+  <div><input type="radio" id="white" name="color" value="white" checked/><label for="white">white</label>
+  <div><input type="radio" id="green" name="color" value="green" /><label for="green">green</label> </div>
+  <div><input type="radio" id="cyan" name="color" value="cyan" /><label for="cyan">cyan</label> </div>
+  <div><input type="radio" id="red" name="color" value="red" /><label for="red">red</label> </div>
+  <div><input type="radio" id="orange" name="color" value="orange" /><label for="orange">orange</label> </div>
+  <div><input type="radio" id="yellow" name="color" value="yellow" /><label for="yellow">yellow</label> </div>
+  <div><input type="radio" id="purple" name="color" value="purple" /><label for="purple">purple</label> </div>
+  <!--
+    <div><input type="radio" id="colorpick" name="color" value="colorpick" /><label for="colorpick">Custom Colour</label> </div>
+  
+  When colorpick is checked, the color input appears. Unfortunately haven't
+  figured out how to use it yet so its commented out
+  -->
   </fieldset>
+</form>
+
 </div>
+
 </p>
 
+<div id="colorpickdiv">
+  <input type="color">
+</div>
+
 <br>
-<button onclick="add(mcform())">Add</button>
+<button id="add">Add</button>
 <br><br>
 
 
-<div class="poembg" id="poemdiv"></div>
+<div id="outputdiv"></div>
 
 
 <br>
-<button onclick="generateHTML()">Generate HTML</button>
+<button id="generateHTML">Generate HTML</button>
 <br><br>
 
 <div id="textbox">
-<textarea class="largeinput" type="text" id = "fullthing"></textarea>
+<textarea class="largeinput" type="text" id = "HTMLoutput"></textarea>
 </div>
 <button onclick="copyText()" id="copy">Copy Text</button>
 
