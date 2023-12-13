@@ -65,6 +65,11 @@ button:hover{
   width: 100%;
 }
 
+ol>li{
+  font-size: large;
+  margin: 8px 0;
+}
+
 
 .ao3sim{
   display: block;
@@ -77,14 +82,27 @@ button:hover{
 
 
 
-.dropdown {  
+input, select{  
   position: relative;  
   display: inline-block;  
+  color: var(--darkval);
+  border: 2px solid var(--middleval);
 }
 
 textarea{
   height: 1.5em;
-  margin: 0.5%
+  margin: 0.5%;
+  border: 2px solid var(--middleval);
+  min-height: 2em;
+  overflow-y:hidden;
+  margin: 5px auto;
+  width: 50vw;
+  min-width: 4cm;
+  max-width: 6cm;
+  box-sizing: border-box;
+  padding: 5px;
+  /* Match form field borders */
+  vertical-align: text-top;
 }
 
 .largeinput{
@@ -151,8 +169,15 @@ fieldset{
   margin: 20px 0 20px 0;
 }
 
+a{
+
+text-decoration: none;
+color:#006258a0;
+font-weight: bold;
+}
+
 a:hover{
-  text-decoration:double;
+  text-decoration: underline;
 }
 
 
@@ -163,10 +188,10 @@ Mostly for tutorial.html, to make it easier to read when on desktop
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 90vw;
+  width: 80vw;
   max-width: 13cm;
   background-color: var(--lighterval);
-  padding: 3em;
+  padding: 3em 5vw;
   border-radius: 15px;
 
 }
@@ -194,12 +219,12 @@ Mostly for tutorial.html, to make it easier to read when on desktop
 
 }
 .tableofcontents a, .tableofcontents h3{
-
+  color:#174061;
   display: block;
   text-decoration: none;
   padding: 1em 20px;
   margin: 0;
-  line-height: 0;
+  line-height: 1;
 }
 
 .tableofcontents a:hover{

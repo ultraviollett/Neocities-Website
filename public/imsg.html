@@ -15,8 +15,11 @@
 
 <div class="note">
   NOTES:
-  <li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/22703617/chapters/54261724">here</a>!
-  I have also added a few tweaks <- change if not true</li>
+  <li>
+    This workskin exists on AO3 <a href="https://archiveofourown.org/works/22703617/chapters/54261724">here</a>!
+    To get the full functionality go the Ao3 Work, I haven't included a few things in here, like emojis, green messages,
+    and borders around the whole thing.
+</li>
   
   <li>Refresh the page to start over</li>
 </div>
@@ -32,17 +35,17 @@
   </div>
   </fieldset>
 <div id="messengeegcname">
-<div id="gcname">
+<div id="gcnamediv">
 <br>
 <textarea type="text" id="gcname" placeholder="Insert groupchat name"></textarea>
 </div>
 
-<div id="messengeename">
+<div id="messengeenamediv">
 <br>
 <textarea type="text" id="messengeename" placeholder="Insert contact name"></textarea>
 </div>
 </div>
-<div id="textbar">
+<div id="textbardiv">
 <br>
 <textarea type="text" id="textbar" placeholder="Insert textbar text"></textarea>
 <br>
@@ -66,11 +69,12 @@
 </div>
 
 <select id="messagetype" class="nicedropdown" onchange="messagetype()">
-  <option val="Message">Message</option>
+  <option val="message">Message</option>
+  <option val="timestamp">Timestamp</option>
   <option val="image">Image</option>
-  <option val="youtube">Youtube</option>
+  <option val="richlink">Rich Link</option>
   <option val="link">Link</option>
-  <option val="textingdots">Texting Dots</option>
+  <option val="typingdots">Typing Dots</option>
 </select>
 <br>
 <div id="messagetextdiv">
@@ -79,19 +83,62 @@
 </div>
 
 <div id="linktextdiv">
-  <textarea type="url" id="linktext" class="longinput" placeholder="Insert text of message">
-  </textarea>
+  <textarea type="url" id="linktext" class="longinput" placeholder="Insert URL needed"></textarea>
+</div>
+<div id="vidnamediv">
+  <textarea type="url" id="vidname" class="longinput" placeholder="Insert link title"></textarea>
+</div>
+
+<div id="alttextdiv">
+  <textarea type="url" id="alttext" class="longinput" placeholder="Insert alt text"></textarea>
 </div>
 <br>
+
+<div id="timestampdiv">
+  <select id="timechoose" class="nicedropdown">
+    <option>The Date</option>
+    <option>Today</option>
+    <option>Yesterday</option>
+    <option>Last Week</option>
+    <option>Last Month</option>
+    <option>Last Year</option>
+  </select>
+  
+<input type="date" id="date">
+<input type="time" id="time">
+<br><br>
+</div>
+
+<div id="readreceiptchoosediv">
+  <input type="checkbox" id="readreceiptchoose" name="contact"/><label for="readreceiptchoose">Add read receipt?</label>
+  <br>   <br>
+</div>
+
+
+
+<div id="readreceiptdiv">
+  <select id="timereadchoose" class="nicedropdown">
+    <option>The Date</option>
+    <option>Today</option>
+    <option>Yesterday</option>
+    <option>Last Week</option>
+    <option>Last Month</option>
+    <option>Last Year</option>
+  </select>
+  
+  <span id="datereadspan"><input type="dateread" id="date"></span>
+  <input type="time" id="timeread" oninput="time()">
+<br>
+</div>
 
 
 <button id="add">Add</button>
 <br><br>
 
-<div id="msgdiv" class="textdiv"></div>
+<div id="outputdiv"></div>
 
 <br>
-<button onclick="generateHTML()">Generate HTML</button>
+<button id="generateHTML">Generate HTML</button>
 <br><br>
 
 <textarea class="largeinput" type="text" id = "fullthing"></textarea>
@@ -99,7 +146,7 @@
 
 
 
-<dl class="imessage border">
+<dl class="imessage">
 
   <h1 class="contact">Numerius Negidius</h1>
   
@@ -139,6 +186,7 @@
 		<dt class="read"><b>Read</b> 5:55</dt>
 	</div>
   
+  
 	<div class="in">
 		<dt>Numerius</dt>
 		<dd>nvm then</dd>
@@ -148,10 +196,17 @@
 			<div></div>
 		</dd>
 	</div>
-  
-	<div class="footer">
-		<kbd class="typebar"></kbd>
+
+  <div class="in">
+		<dt>Numerius</dt>
+		<dd class="typing">
+			<div></div>
+			<div></div>
+			<div></div>
+		</dd>
 	</div>
+  
+	<div class="footer"><kbd class="typebar"></kbd></div>
 	
 </dl>
 
@@ -203,6 +258,21 @@
   </div>
   
   </dl>
+<br><br>
+
+  <dl class="imessage border">
+    <h1 class="contact">Your platonic best friend</h1>
+    
+    <h4 class="time">
+    <b>Today</b>, 8:21 PM</h4>
+    
+    <div class="out">
+    <dt>Friend</dt>
+    <dd>I'm leaving for my date now, wish me luck!</dd>
+    </div>
+    
+    <div class="footer"><span class="typebar">I'm in love with you</span></div>
+    </dl>
 
 <script src="JS/imsg.js"></script> 
 <script src="JS/gen.js"></script> 

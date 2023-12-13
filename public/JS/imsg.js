@@ -4,8 +4,8 @@ document.getElementById("gc").style.display = "none";
 
 document.getElementById("messengeegcname").style.display = "none";
 
-document.getElementById("gcname").style.display = "none";
-document.getElementById("textbar").style.display = "none";
+document.getElementById("gcnamediv").style.display = "none";
+document.getElementById("textbardiv").style.display = "none";
 
 document.getElementById("other").style.display = "none";
 
@@ -14,7 +14,16 @@ document.getElementById("contactnamediv").style.display = "none";
 
 document.getElementById("linktextdiv").style.display = "none";
 
-var currentname = "";
+document.getElementById("timestampdiv").style.display = "none";
+document.getElementById("vidnamediv").style.display = "none";
+document.getElementById("alttextdiv").style.display = "none";
+document.getElementById("readreceiptdiv").style.display = "none";
+
+var prevname = "";
+var previnout = "";
+var prev = "";
+childcount = 0;
+
 
 function groupdmtype(){
     if ( $("#groupdmtype").val() == 'DM' ){
@@ -24,8 +33,8 @@ function groupdmtype(){
         document.getElementById("other").style.display = "none";
         document.getElementById("messengernamediv").style.display = "none";
 
-        document.getElementById("gcname").style.display = "none";
-        document.getElementById("messengeename").style.display = "";
+        document.getElementById("gcnamediv").style.display = "none";
+        document.getElementById("messengeenamediv").style.display = "";
 
 
     }else{
@@ -34,8 +43,8 @@ function groupdmtype(){
         document.getElementById("messengee").style.display = "none";
         document.getElementById("other").style.display = "";
         
-        document.getElementById("gcname").style.display = "";
-        document.getElementById("messengeename").style.display = "none";
+        document.getElementById("gcnamediv").style.display = "";
+        document.getElementById("messengeenamediv").style.display = "none";
         document.getElementById("contactnamediv").style.display = "none";
 }}
 
@@ -59,35 +68,260 @@ function messagetype(){
         case "Message":
             document.getElementById("linktextdiv").style.display = "none";
             document.getElementById("messagetextdiv").style.display = "";
+            document.getElementById("timestampdiv").style.display = "none";
+            document.getElementById("readreceiptchoosediv").style.display = "";
+            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("alttextdiv").style.display = "none";
             break;
 
-        case "Texting Dots":
+        case "Typing Dots":
             document.getElementById("linktextdiv").style.display = "none";
             document.getElementById("messagetextdiv").style.display = "none";
+            document.getElementById("timestampdiv").style.display = "none";
+            document.getElementById("readreceiptchoosediv").style.display = "none";
+            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("alttextdiv").style.display = "none";
             break;
         
+        case "Timestamp":
+            document.getElementById("linktextdiv").style.display = "none";
+            document.getElementById("messagetextdiv").style.display = "none";
+            document.getElementById("timestampdiv").style.display = "";
+            document.getElementById("readreceiptchoosediv").style.display = "none";
+            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("alttextdiv").style.display = "none";
+            break;
+        
+        case "Rich Link":
+            document.getElementById("linktextdiv").style.display = "";
+            document.getElementById("messagetextdiv").style.display = "none";
+            document.getElementById("timestampdiv").style.display = "none";
+            document.getElementById("readreceiptchoosediv").style.display = "";
+            document.getElementById("vidnamediv").style.display = "";
+            document.getElementById("alttextdiv").style.display = "none";
+            break;
+
+        case "Image":
+            document.getElementById("linktextdiv").style.display = "";
+            document.getElementById("messagetextdiv").style.display = "none";
+            document.getElementById("timestampdiv").style.display = "none";
+            document.getElementById("readreceiptchoosediv").style.display = "";
+            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("alttextdiv").style.display = "";
+            break;
+
         default:
             document.getElementById("linktextdiv").style.display = "";
             document.getElementById("messagetextdiv").style.display = "none";
+            document.getElementById("timestampdiv").style.display = "none";
+            document.getElementById("readreceiptchoosediv").style.display = "";
+            document.getElementById("vidnamediv").style.display = "none";
+            document.getElementById("alttextdiv").style.display = "none";
             break;           
 
     
     }
 }
 
+function namefind(){
+    //I am trying to dig out of the hole I made myself with three different slots for names
+    var x;
+    if ( $('input[id="you"]:checked').val() ){
+        x = "You";
+    } else if ($("#groupdmtype").val() == 'Groupchat'){
+        x = $("#messengername").val();
+    } else if( $("#messengeename").val() ){
+        x = $("#messengeename").val();
+    }else if( $("#contactname").val() ){
+        x = $("#contactname").val();
+    }else{
+        x = "Contact";
+    }
+    return x;
+}
 
-function add(){
+
+function surroundingdiv(x){ //adds surrounding div depending on whats been selected
+    var start = '<dl class="imessage ';
+    if ( $("#groupdmtype").val() == 'Groupchat' ){
+        start = start + 'grouptext ';
+    }
+    start = start + '">';
+    if ( $('input[id="gcnamechoose"]:checked').val() ){
+        start = start + '<h1 class="contact">';
+        if( $("#gcname").val() ){
+            start = start + $("#gcname").val();
+        }else if(  $("#messengeename").val() ){
+            start = start +  $("#messengeename").val();
+        }
+        start = start + '</h1>';
+    }
+
+    var end = "";
+    if( $('input[id="textbarchoose"]:checked').val() && $("#textbar").val()){
+        end = '<div class="footer"><span class="typebar">'+$("#textbar").val()+'</span></div>';
+    }else if( $('input[id="textbarchoose"]:checked').val() ){
+        end = '<div class="footer"><kbd class="typebar"></kbd></div>';
+    }
+    
+    end = end + '</div></dl>';
+
+
+    
+    x = start + x + end;
+    return x;
 
 }
+
+function switchname(x){ //finds out if text is on left or right side. Left is in, right is out
+    var currentinout;
+    var change = false;
+
+    if ( $('input[id="messengee"]:checked').val() ||  $('input[id="other"]:checked').val() ){
+        currentinout = 'in';
+    }else{ currentinout = 'out'; }
+
+    if (currentinout != previnout){ change = true; }
+
+    var currentname = namefind();
+
+    if( !currentname && currentinout == "in"){
+        currentname = "Contact";
+    }else if (!currentname){
+        currentname = "You";
+    }
+    if (currentname != prevname){ change = true}
+
+    if (childcount == 0){
+        x = x + '<div class="'+currentinout+'"><dt>'+currentname+'</dt>'
+
+    }else if (change){
+        x = x + '</div><div class="'+currentinout+'"><dt>'+currentname+'</dt>'
+    }
+
+    childcount += 1;
+    previnout = currentinout;
+    prevname = currentname;
+
+    return x;
+
+}
+
+function newtext(x){
+
+    x = x + '<dd>' + $("#messagetext").val() + '</dd>';//adds text of message
+
+    return x;
+
+}
+
+function timestamp(x){
+    x = x + '<h4 class="time">';
+    switch ( $("#timechoose").val() ){
+        case "The Date":
+            x = x + document.getElementById("date").value;
+            break;
+
+        default:
+            x = x + '<h4 class="time"><b>'+ $("#timechoose").val()+'</b>';
+            if ( document.getElementById("date").value ){
+                x = x + ", "+ document.getElementById("date").value;
+            }
+            break;
+    }
+    if ( document.getElementById("time").value ){
+        x = x + ", "+ document.getElementById("time").value;
+
+    }
+    x = x + '</h4>';
+    return x;
+
+}
+
+
+function image(x){
+    x = x + '<dd class="pic"><img src="'+$("#linktext").val()+'" alt="'+ $("#alttext").val() +'"></dd>';
+}
+
+function richlink(x){
+    x = x + '<dd class="richlink"><a href="'+$("#linktext").val()+'">';
+    x = x + '<iframe src="'+$("#linktext").val()+'" frameborder="0"></iframe>';
+    
+    if( $("#vidname").val() ){
+        x = x + '<p class="caption"><b>'+$("#vidname").val()+'</b></p>';
+    }
+    x = x + '</a></dd>';
+
+    return x;
+}
+/*
+<dd class="richlink">
+	<a href="https://www.youtube.com/watch?v=DdRrXZoQ8wo">
+		<iframe src="https://www.youtube.com/embed/DdRrXZoQ8wo" frameborder="0"></iframe>
+		<p class="caption"><b>Forging a Roman Gladius Sword</b> youtube.com </p>
+        </a>
+</dd>
+ */
+
+function link(x){
+    x = x + '<dd><a href="' + $("#linktext").val() + '"></dd>'
+}
+
+function typingdots(x){
+    x = x + '<dd class="typing"> <div></div> <div></div> <div></div> </dd></div>'
+    return x;
+
+}
+/*
+   <div class="in">
+		<dt>Numerius</dt>
+		<dd class="typing">
+			<div></div>
+			<div></div>
+			<div></div>
+		</dd>
+	</div>
+ */
 
 $(function() {
 
     $('#add').on('click', function() {
+        //compiles the whole code together as is currently
+        
+        var x;
+        x = switchname(prev);
+        
+        if ( $("#messagetype").val() == 'Message'){
+            x = newtext(x);
     
+        }else if ( $("#messagetype").val() == 'Timestamp'){
+            x = timestamp(prev);
+
+        }else if ( $("#messagetype").val() == 'Image'){
+            x = image(x);
+
+        }else if ( $("#messagetype").val() == 'Rich Link'){
+            x = richlink(x);
+
+        }else if ( $("#messagetype").val() == 'Link'){
+            x = link(x);
+
+        }else if ( $("#messagetype").val() == 'Typing Dots'){
+            x = typingdots(x);
+
+        }else{
+            x = x + "link";
+        }
+        prev = x;
+
+        x = surroundingdiv(x);
+
+        $('#outputdiv').html(x);
     });
 
-
-
+    $('#generateHTML').on('click', function() {
+        $('#fullthing').text(prev);
+    });
 
 
     $("#gcnamechoose").on("click", function() {
@@ -96,8 +330,11 @@ $(function() {
     });
 
     $("#textbarchoose").on("click", function() {
-        $("#textbar").toggle();
+        $("#textbardiv").toggle();
     });
 
+    $("#readreceiptchoose").on("click", function() {
+        $("#readreceiptdiv").toggle();
+    });
 
 });
