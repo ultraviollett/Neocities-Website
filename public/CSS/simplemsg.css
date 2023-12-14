@@ -18,7 +18,7 @@
     margin: 0.5em auto;
     white-space: normal;
     overflow:visible;
-    word-break:break-all;
+    word-break:normal;
   }
 
 .textdiv .left{
