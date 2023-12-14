@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AO3 Twitter Generator</title>
+    <title>WW Twitter Generator</title>
     <link rel="stylesheet" href="CSS/webpage.css">
     <link rel="stylesheet" href="CSS/twt.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -19,7 +19,9 @@
   I have also added some slight tweaks/different features, with code taken from <a href="https://archiveofourown.org/works/47803507#index">here.</a> </li>
 
   <li>Refresh the page to start over</li>
-  <li>Image URL, @, time, date, replies, retweets, likes are all optional to add!</li>
+  <li>
+    Required input / text will be marked with a thicker red left border
+  </li>
   <li>Please don't host images on Tumblr or Discord. Use <a href="https://images.squidge.org">Squidge Images</a> (specific for fandom),
      or other sites like <a href="https://imgur.com/">Imgur</a> </li>
   <li>If you make a mistake, you don't have to reload the page, you can edit it later as HTML</li>
@@ -92,18 +94,18 @@
 <br><br>
 
 
-<textarea type="text" id="username" >Name</textarea>
+<textarea type="text" id="username" class="required" >Name</textarea>
 <textarea type="text" id="twturl" placeholder="@"></textarea>
 <br>
 
-<textarea type="text" id="tweet" class="largeinput" placeholder="Add body of tweet here">
+<textarea type="text" id="tweet" class="largeinput required" placeholder="Add body of tweet here">
 </textarea>
 <br>
 
 
 <div id="imageURLs">
   <br>
-  <textarea type="url" class="longinput" id="image1" placeholder="insert image URL"></textarea><br>
+  <textarea type="url" class="longinput required" id="image1"  placeholder="insert image URL"></textarea><br>
   <textarea type="text" class="largeinput" id="alt" placeholder="insert alt text for image (optional)"></textarea><br>
 
 
@@ -113,10 +115,10 @@
 
 <div id="polloptions">
   <br>
-  <textarea type="text" id="poll1" placeholder="first poll option"></textarea><br>
-  <textarea type="text" id="poll2" placeholder="second poll option"></textarea><br>
-  <textarea type="text" id="poll3" placeholder="third (optional)"></textarea><br>
-  <textarea type="text" id="poll4" placeholder="fourth (optional)"></textarea><br>
+  <textarea type="text" id="poll1"  class="required" placeholder="first poll option"></textarea><br>
+  <textarea type="text" id="poll2"  class="required" placeholder="second poll option"></textarea><br>
+  <textarea type="text" id="poll3" placeholder="third poll option"></textarea><br>
+  <textarea type="text" id="poll4" placeholder="fourth poll option"></textarea><br>
   <input type="number" id="votes" placeholder="# of votes">
 <!--<input type="number" id="timeleft" oninput="timeleft()" placeholder="time left">-->
   <br><br>
@@ -160,13 +162,13 @@
 <br><br>
 
 
-<textarea type="text"  id="qusername" >Name</textarea>
+<textarea type="text"  id="qusername" class="required">Name</textarea>
 <textarea type="text" id="qtwturl" placeholder="@"></textarea>
 <br>
 <input type="date" id="qdate">
 <br>
 
-<textarea type="text" id="qtweet" class="largeinput" placeholder="Add body of quoted tweet here">
+<textarea type="text" id="qtweet" class="largeinput required" placeholder="Add body of quoted tweet here">
 </textarea>
 <br>
 
@@ -174,7 +176,7 @@
 <div id="qimageURLs">
   <br>
   Add image URLs: <br>
-  <textarea type="url" class="longinput" id="qimage1" placeholder="insert image URL"></textarea><br>
+  <textarea type="url" class="longinput required" id="qimage1" placeholder="insert image URL"></textarea><br>
   <textarea type="text" class="largeinput" id="qalt" placeholder="insert alt text for image (optional)"></textarea><br>
   <br><br>
 </div>
@@ -183,10 +185,10 @@
 <div id="qpolloptions">
   <br>
   Add poll options: <br>
-  <textarea type="text" id="qpoll1" placeholder="first poll option"></textarea><br>
-  <textarea type="text" id="qpoll2" placeholder="second poll option"></textarea><br>
-  <textarea type="text" id="qpoll3" placeholder="third (optional)"></textarea><br>
-  <textarea type="text" id="qpoll4" placeholder="fourth (optional)"></textarea>
+  <textarea type="text" id="qpoll1"  class="required" placeholder="first poll option"></textarea><br>
+  <textarea type="text" id="qpoll2"  class="required" placeholder="second poll option"></textarea><br>
+  <textarea type="text" id="qpoll3" placeholder="third poll option"></textarea><br>
+  <textarea type="text" id="qpoll4" placeholder="fourth poll option"></textarea>
   <br><input type="number" id="qvotes" placeholder="# of votes">
   <br><br>
 </div>

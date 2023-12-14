@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/webpage.css">
-    <title>Tutorial</title>
+    <link rel="stylesheet" href="CSS/tutorial.css">
+    <title>WW Tutorial</title>
   </head>
   
     <body>
@@ -30,34 +31,81 @@
 <p>
   <a href="#links">Useful links</a>
 </p>
+
 </div>
+<br><br>
 
-
-
+<hr>
 
 <h2 id="definitions">Definitions</h2>
 
 
 <p>
-  <strong>HTML — </strong>aka "HyperText Markup Language", code used to create webpages.
-We can move and style this text by using CSS.
+  <strong>HTML — </strong><br>
+  aka "HyperText Markup Language", code used to create webpages. 
+  You put text inside tags that makes it behave a certain way, 
+  like adding a paragraph, making the text bold, or creating a list.
 </p>
 
+<div class="codedemo">
+  <div class="header"><p>HTML</p></div>
+  <div  class="HTMLcoding" >
+    <p> &lt;p&gt;I can be <span class="highlight">&lt;b&gt;</span> bold <span class="highlight">&lt;/b&gt;</span> ...
+      or <span class="highlight">&lt;i&gt;</span>italics! <span class="highlight">&lt;/i&gt;</span>&lt;/p&gt; </p>
+  </div>
+  <div class="header"><p>TEXT</p></div>
+  <div class="text"><p>I can be <b>bold</b>...or <i>italics!</i></p> </div>
+
+</div>
+<br>
 <p>
-  <strong>CSS — </strong> aka "Cascading Style Sheets", code meant to add style and structure to a webpage. 
-  Without CSS, webpages would different sizes of text and some inputs. There wouldn't 
-  be any colour and very limited formatting.
+  <strong>CSS — </strong><br>
+   aka "Cascading Style Sheets", code that adds style and structure to a webpage.
+   It's usually put in a separate file, and then you use HTML tags to add it to the text.
+
 </p>
+<div class="codedemo">
+  <div class="header"><p>CSS</p></div>
+  <div  class="CSScoding" >
+    <p> .pinkbox{ background-color: pink;<Br>
+      padding: 5px;}
+  </div>
+  <div class="header"><p>HTML</p></div>
+  <div  class="HTMLcoding" >
+    <p> &lt;p&gt; I am in a &lt;div <span class="highlight">class = "pinkbox"</span>&gt; pink box! &lt;/div&gt; &lt;/p&gt; </p>
+  </div>
+</div>
+
+<div class="codedemo appendcodedemo">
+  <div class="header"><p>WITHOUT CSS</p></div>
+  <div class="text"><p>Wow, there's a <div>pink box!</div> </p></div>
+  <div class="header"><p>TEXT WITH CSS</p></div>
+  <div class="text"><p>Wow, there's a <div class="pinkbox">pink box!</div> </p></div>
+
+</div>
+<br>
 <p>
-<strong>Ao3 Workskin — </strong> Ao3 allows you to add CSS to your work with 'workskins'. You create a workskin on Ao3,
-then add it to your fic, and the HTML in your fic will be able to reference the CSS in the workskin to use.
+<strong>Ao3 Workskin — </strong><br>
+ Ao3 allows you to add CSS to your work with 'workskins'. 
+ Like the example above, you need the workskin to add more than just basics.
+ One of the more popular things to do with workskins is to use it to mimic 
+ different things - like emails, messages, and social media sites.
+ it can add a lot of immersion and make your fic look a lot cooler,
+ especially if its a chat fic or socmed fic.
 </p>
 
 I have links for different resources below that explain different
  things easier, but these are the basics.
-<br><br>
+</p>
+<br>
+<div class="buttonhorizontal">
+  <button>More on HTML</button>
+  <button>More on CSS</button>
+  <button>More on Workskins</button>
+</div>
 
 
+<hr>
 
 <h2 id="usingworkshop">How do I use the workskin workshop?</h2>
 <ol>
@@ -73,7 +121,7 @@ I have links for different resources below that explain different
 Good job! It should all be working. If you notice anything off, or need any help, send me a <a href="contactform.html">message</a>.
 </li>
 </ol>
-
+<hr>
  <h2 id="ownworkskin">How do I create my own workskin?</h2>
 I'm so glad you're interested! Making workskins has always been really fun for me, and I hope it'll be for you too!
 <br>I reccomend downloading VScode and the microsoft live preview extension, so you can 
@@ -92,6 +140,16 @@ paragraphs have line breaks and margins of whatever. do this to make it go away 
 <br>
 -ao3 also automatically adds paragraphs after divs, so remember that
 
+<div class="buttonhorizontal">
+  <button>Ao3 Formatting Intro</button>
+  <button>VSCode download</button>
+  <button>VSCode HTML/CSS intro</button>
+  <button>Microsoft Live Preview</button>
+
+</div>
+
+<hr>
+
  <h2 id="owngenerator">How would I make my own workskin generator?</h2>
  
 PLEASE GOD JOIN ME<br> If you do, PLEASE let me know and I'll link it
@@ -103,7 +161,14 @@ PLEASE GOD JOIN ME<br> If you do, PLEASE let me know and I'll link it
  
 Everything for this neocities is available on my github, (here).
  Make a pull request with your generator added and credit yourself!
+ <div class="buttonhorizontal">
+  <button>Neocities Guide</button>
+  <button>Javascript Intro</button>
+  <button>Jquery Docs</button>
+  <button>My Github</button>
 
+</div>
+ <hr>
 <h2 id="links">Useful Links</h2>
 <p>
   I've linked a lot above, but here are more that are super helpful:</p>

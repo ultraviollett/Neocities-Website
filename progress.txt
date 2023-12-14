@@ -1,6 +1,4 @@
---current goals--
-
-general:[GEN]
+completed:
 x-add general css to make site nice-looking [PRETTIFY]
 x-add page for copying workskin CSS
 x-add instruction manual
@@ -10,7 +8,17 @@ x-change ALL variables to follow best practice
 x-add more comments explaining code 
 x-add defaults to all checkboxes/radio
 x-add form for suggestions and asking for help
+x-add messaging
+x-add demonstration to definitions
 
+
+
+--current goals--
+
+general:[GEN]
+-add 'copy text' button to HTML/CSS
+-switch CSS to under all workskins
+-finish tutorial page, CHECK WITH PEOPLE IT MAKES SENSE
 
 add HTML generators: [ADD]
 -add tumblr [TBLR]
@@ -18,24 +26,20 @@ x-add twitter [TWT]
     -add up to four images allowed
     -add poll time left
     -add poll results options
-x-add messaging [MSG]
+
 -add twitchchat [TWCH]
 -add mc messaging
-
-other (less important):
--add 'copy text' button to HTML/CSS [COPY]
--add colour picker for various things (ie mcpoem, twitchchat) [COLOURPICK]
-
---far off goals--
--add tip jar
-
-
-
-add HTML generators: [ADD]
 -add youtube thumbnails
 -add reddit 
 -add 4chan
 -add discord https://archiveofourown.org/works/26534413/chapters/74599071#workskin 
+
+
+other (less important):
+-add colour picker for various things (ie mcpoem, twitchchat) [COLOURPICK]
+
+--far off goals--
+-add tip jar
 
 
 workskin tips (to be compiled later, probably in an ao3 work):

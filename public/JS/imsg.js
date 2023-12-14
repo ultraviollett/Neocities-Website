@@ -11,8 +11,9 @@ document.getElementById("gccontact").style.display = "none";
 document.getElementById("gccontactnamediv").style.display = "none";
 document.getElementById("dmcontactnamediv").style.display = "none";
 
+//all the various text inputs, default is message
 document.getElementById("linktextdiv").style.display = "none";
-
+document.getElementById("textforlinktextdiv").style.display = "none";
 document.getElementById("timestampdiv").style.display = "none";
 document.getElementById("richlinkdiv").style.display = "none";
 document.getElementById("alttextdiv").style.display = "none";
@@ -71,6 +72,7 @@ function chooseMessageType(){
             document.getElementById("readreceiptchoosediv").style.display = "";
             document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "none";
+            document.getElementById("textforlinktextdiv").style.display = "none";
             break;
 
         case "Typing Dots":
@@ -80,6 +82,7 @@ function chooseMessageType(){
             document.getElementById("readreceiptchoosediv").style.display = "none";
             document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "none";
+            document.getElementById("textforlinktextdiv").style.display = "none";
             break;
         
         case "Timestamp":
@@ -89,6 +92,7 @@ function chooseMessageType(){
             document.getElementById("readreceiptchoosediv").style.display = "none";
             document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "none";
+            document.getElementById("textforlinktextdiv").style.display = "none";
             break;
         
         case "Rich Link":
@@ -98,6 +102,7 @@ function chooseMessageType(){
             document.getElementById("readreceiptchoosediv").style.display = "";
             document.getElementById("richlinkdiv").style.display = "";
             document.getElementById("alttextdiv").style.display = "none";
+            document.getElementById("textforlinktextdiv").style.display = "none";
             break;
 
         case "Image":
@@ -107,6 +112,7 @@ function chooseMessageType(){
             document.getElementById("readreceiptchoosediv").style.display = "";
             document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "";
+            document.getElementById("textforlinktextdiv").style.display = "none";
             break;
 
         default:
@@ -116,6 +122,7 @@ function chooseMessageType(){
             document.getElementById("readreceiptchoosediv").style.display = "";
             document.getElementById("richlinkdiv").style.display = "none";
             document.getElementById("alttextdiv").style.display = "none";
+            document.getElementById("textforlinktextdiv").style.display = "";
             break;           
 
     
@@ -226,7 +233,7 @@ function addTimestamp(x){
             break;
 
         default:
-            x = x + '<h4 class="time"><b>'+ $("#timechoose").val()+'</b>';
+            x = x + '<b>'+ $("#timechoose").val()+'</b>';
             if ( document.getElementById("date").value ){
                 x = x + ", "+ document.getElementById("date").value;
             }
@@ -245,6 +252,7 @@ function addTimestamp(x){
 function addImage(x){
     //adds image
     x = x + '<dd class="pic"><img src="'+$("#linktext").val()+'" alt="'+ $("#alttext").val() +'"></dd>';
+    return x;
 }
 
 function addRichLink(x){
@@ -269,7 +277,16 @@ function addRichLink(x){
  */
 
 function addLink(x){
-    x = x + '<dd><a href="' + $("#linktext").val() + '"></dd>'
+    x = x + '<dd><a href="' + $("#linktext").val() + '">';
+    if ( $("#textforlinktext").val() ){
+        x = x + $("#textforlinktext").val();
+    }else{
+        x = x + $("#linktext").val();
+    }
+    
+    x = x + '</dd>';
+
+    return x;
 }
 
 function addTypingDots(x){
@@ -277,6 +294,7 @@ function addTypingDots(x){
     return x;
 
 }
+
 /*
    <div class="in">
 		<dt>Numerius</dt>
@@ -288,6 +306,33 @@ function addTypingDots(x){
 	</div>
  */
 
+function addReadReceipt(){
+    let x = '<dt class="read"><b>Read</b> ';
+
+    switch ( $("#timereadchoose").val() ){
+        case "The Date":
+            x = x + document.getElementById("dateread").value;
+            break;
+
+        default:
+            x = x + $("#timereadchoose").val();
+            if ( document.getElementById("dateread").value ){
+                x = x + ", "+ document.getElementById("dateread").value;
+            }
+            break;
+    }
+    if ( document.getElementById("timeread").value ){
+        x = x + ", "+ document.getElementById("timeread").value;
+
+    }
+    x = x + '</dt>';
+    return x;
+}
+/*
+<dt class="read"><b>Read</b> 5:55</dt>
+*/
+
+
 $(function() {
 
     $('#add').on('click', function() {
@@ -296,10 +341,7 @@ $(function() {
         var x;
         x = switchName(prev);
         
-        if ( $("#messagetype").val() == 'Message'){
-            x = addNewText(x);
-    
-        }else if ( $("#messagetype").val() == 'Timestamp'){
+        if ( $("#messagetype").val() == 'Timestamp'){
             x = addTimestamp(prev);
 
         }else if ( $("#messagetype").val() == 'Image'){
@@ -313,15 +355,30 @@ $(function() {
 
         }else if ( $("#messagetype").val() == 'Typing Dots'){
             x = addTypingDots(x);
-
         }else{
-            x = x + "link";
+            x = addNewText(x);
         }
+
+        if( $('input[id="readreceiptchoose"]:checked').val() ){
+            x = x + addReadReceipt();
+        }
+
         prev = x;
 
         x = addSurroundingDiv(x);
 
         $('#outputdiv').html(x);
+
+        //now to clear out everythings loll
+        $('#messagetext').val('');
+        $('#linktext').val('');
+
+        $('#richlink').val('');
+        $('#alttext').val('');
+        $('#textforlinktext').val('');
+        $('#date').val('');
+        $('#time').val('');
+
     });
 
     $('#generateHTML').on('click', function() {

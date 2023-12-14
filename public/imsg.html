@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMessage Generator</title>
+    <title>WW iMessage Generator</title>
     <link rel="stylesheet" href="CSS/imsg.css">
     <link rel="stylesheet" href="CSS/webpage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -17,8 +17,16 @@
   NOTES:
   <li>
     This workskin exists on AO3 <a href="https://archiveofourown.org/works/22703617/chapters/54261724">here</a>!
-    To get the full functionality go the Ao3 Work, I haven't included a few things in here, like emojis, green messages,
-    and borders around the whole thing.
+    To get the full functionality go the Ao3 Work, I haven't included a
+     few things in here, like emojis, green messages,
+    and rich links, which are insanely cool
+</li>
+<li>
+  I reccommend only adding one option with the read receipts. I've kept the option to add
+  the day, date, and time all together but its way too big to look like a proper read receipt.
+</li>
+<li>
+  Required input / text will be marked with a thicker red left border
 </li>
   
   <li>Refresh the page to start over</li>
@@ -37,12 +45,12 @@
 <div id="headernamediv">
 <div id="headergcnamediv">
 <br>
-<textarea type="text" id="gcname" placeholder="Insert groupchat name"></textarea>
+<textarea type="text" id="gcname" class="required" placeholder="Insert groupchat name"></textarea>
 </div>
 
 <div id="headerdmnamediv">
 <br>
-<textarea type="text" id="dmcontactname" placeholder="Insert contact name"></textarea>
+<textarea type="text" id="dmcontactname"  class="required" placeholder="Insert contact name"></textarea>
 </div>
 </div>
 <div id="textbardiv">
@@ -72,25 +80,29 @@
   <option val="message">Message</option>
   <option val="timestamp">Timestamp</option>
   <option val="image">Image</option>
-  <option val="richlink">Rich Link</option>
-  <option val="link">Link</option>
+  <!--<option val="richlink">Rich Link</option>
+  Rich text is cool but I don't know how to deal with embeds
+  -->
+    <option val="link">Link</option>
   <option val="typingdots">Typing Dots</option>
 </select>
 <br>
 <div id="messagetextdiv">
-<textarea type="text" id="messagetext" class="largeinput" placeholder="Insert text of message">
+<textarea type="text" id="messagetext" class="largeinput required" placeholder="Insert text of message">
 </textarea>
 </div>
 
 <div id="linktextdiv">
-  <textarea type="url" id="linktext" class="longinput" placeholder="Insert URL needed"></textarea>
+  <textarea type="url" id="linktext" class="longinput required" placeholder="Insert URL needed"></textarea>
 </div>
 <div id="richlinkdiv">
   <textarea type="url" id="richlink" class="longinput" placeholder="Insert link title"></textarea>
 </div>
-
 <div id="alttextdiv">
-  <textarea type="url" id="alttext" class="longinput" placeholder="Insert alt text"></textarea>
+  <textarea type="text" id="alttext" class="longinput" placeholder="Insert alt text"></textarea>
+</div>
+<div id="textforlinktextdiv">
+  <textarea type="text" id="textforlinktext" class="longinput" placeholder="Insert link's text"></textarea>
 </div>
 <br>
 
@@ -126,7 +138,7 @@
     <option>Last Year</option>
   </select>
   
-  <span id="datereadspan"><input type="dateread" id="date"></span>
+  <span id="datereadspan"><input type="date" id="dateread"></span>
   <input type="time" id="timeread" oninput="time()">
 <br>
 </div>

@@ -411,3 +411,10 @@
 .imessage.sms .typebar:empty::after {
 	content: "Text Message";
 }
+
+/*saurry messed up links look because of my formatting, changing it back*/
+.imessage a{
+	font-weight: normal;
+	text-decoration: underline;
+	color:  #0070E0;
+}
