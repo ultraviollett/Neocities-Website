@@ -86,7 +86,7 @@ to make it easier to read when on desktop
 .buttonhorizontal{
     margin: 15px auto;
     width: 100%;
-    cursor: pointer;
+    
     display: flex;
     gap: 5px;
     flex-flow: row wrap;
@@ -98,6 +98,7 @@ to make it easier to read when on desktop
     padding-top: 2px;
     padding-bottom: 2px;
     display: block;
+    cursor: pointer;
     padding: auto;
     flex-grow: 1;
     
