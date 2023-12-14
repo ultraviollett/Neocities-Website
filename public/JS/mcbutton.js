@@ -6,3 +6,5 @@ function addText() {
     let fullThing = '<div class="mcbuttondiv"><span class="screenreader">A minecraft button that reads: </span><p>'+x+"</p></div>";
     document.getElementById("HTMLoutput").value = fullThing;
 }
+
+//textarea is CSStocopy

@@ -14,7 +14,8 @@ function addNewMessage(x){
         leftOrRight = "right";
     }
     let msgText = $("#msgtext").val();
-    x = x + '<p class="'+leftOrRight+'" align="'+leftOrRight+'">'+msgText+"</p>";
+    x = x + '<p class="'+leftOrRight+'" align="'+leftOrRight+'">';
+    x = x + '<span class="screenreader">'+leftOrRight+' text:</span>'+msgText+"</p>";
     return x;
 }
 
