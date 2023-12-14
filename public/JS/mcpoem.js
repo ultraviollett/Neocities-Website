@@ -46,15 +46,7 @@ $(function() {
         x = addSurroundingDiv(x);
         
         $('#outputdiv').html(x);
-
-    });
-
-    $('#generateHTML').on('click', function() {
-        //generates the html as text to be copied
-        let x;
-        x = addSurroundingDiv(prev);
-
         $('#HTMLoutput').text(x);
-    
+
     });
 });

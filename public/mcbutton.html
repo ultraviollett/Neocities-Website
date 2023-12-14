@@ -6,6 +6,8 @@
     <title>WW Button Generator</title>
     <link rel="stylesheet" href="CSS/webpage.css">
     <link rel="stylesheet" href="CSS/mcbutton.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
   </head>
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
     <body>
@@ -31,12 +33,12 @@
 
 <div class="mcbuttondiv"><p id="paste"></p></div>
 
-<br><br>
-<button onclick="generateHTML()">Generate HTML</button>
-<br><br>
-
+<br>
+<button id="copybutton" >Copy HTML</button><br> 
 
 <textarea class="largeinput" type="text" id = "HTMLoutput"></textarea>
-        <script src="JS/mcbutton.js"></script> 
+<br> 
+<script src="JS/mcbutton.js"></script> 
+<script src="JS/gen.js"></script> 
     </body>
 </html>

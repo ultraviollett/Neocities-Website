@@ -6,6 +6,8 @@
     <title>WW Book Generator</title>
     <link rel="stylesheet" href="CSS/webpage.css">
     <link rel="stylesheet" href="CSS/mcbook.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
   </head>
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
 <body>
@@ -31,12 +33,14 @@ NOTES:
 <div class="mcbook"> <p id="paste" ></p></div>
 
 
-<br><br>
-<button onclick="generateHTML()">Generate HTML</button>
-<br><br>
+<br>
 
+<button id="copybutton" >Copy HTML</button> <br>
+<textarea class="largeinput" type="text" id = "HTMLoutput" val=""></textarea>
+<br>
 
-<textarea class="largeinput" type="text" id = "HTMLoutput"></textarea>
-        <script src="JS/mcbook.js"></script> 
-    </body>
+<script src="JS/mcbook.js"></script> 
+<script src="JS/gen.js"></script> 
+
+</body>
 </html>

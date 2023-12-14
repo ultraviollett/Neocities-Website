@@ -1,20 +1,16 @@
  //makes sure all checkboxes are off by default
 document.getElementsByTagName('input').checked = "false";
 
-textarea = document.querySelector("#autoresizing");
-textarea.addEventListener('input', autoResize, false);
+//add back function that increases textareas vert to fit text
 
-function autoResize() {
-    this.style.height = 'auto';
-    this.style.height = this.scrollHeight + 'px';
-}
 //https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard 
 //read above over
+$(function() {
+    $('#copybutton').on('click', function() {
+      tocopy = $("#HTMLoutput").val()
+      navigator.clipboard.writeText(tocopy);
+      $("#copybutton").text("Copied!");
+  });
+  
+});
 
-const btn_copy = document.getElementById('copy')
-const txt_data = document.getElementById('data')
-
-copy.onclick = () => {
-  const value = txt_data.value
-  navigator.clipboard.writeText(value)
-}

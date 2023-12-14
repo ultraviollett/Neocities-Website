@@ -27,6 +27,12 @@ hr{
   width:85%;
 }
 
+/*general input ig??*/
+
+input .copyfrom{
+  text-wrap: wrap;
+}
+
 /*General Button Cases*/
 button{
   color: white;
@@ -42,7 +48,6 @@ button:hover{
   background-color: var(--middleval);
   border: 2px solid white;
 }
-
 
 /*For buttons to navigate back to start, at top of page*/
 .nav{

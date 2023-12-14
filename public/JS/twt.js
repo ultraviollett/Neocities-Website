@@ -201,7 +201,6 @@ function addQuoteTweet(){
 */
 }
 
-
 //function to compile the entire tweet, including previous
 function addNewTweet(previous){
    
@@ -383,6 +382,7 @@ $(function() {
         }
 
         $('#twtdiv').html(x);
+        $('#HTMLoutput').text(x);
 
         //now erase all that is needed
         $('#tweet').val('');
@@ -414,10 +414,6 @@ $(function() {
 
         prev = x;
     });
-    
-    $('#generateHTML').on('click', function() {
-        $('#HTMLoutput').text(prev);
-    });
 
 
 //opens up options for extra features
@@ -442,5 +438,5 @@ $(function() {
         $("#qpolloptions").toggle();//reveals polls
     });
 
-    
+
 });

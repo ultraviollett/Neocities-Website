@@ -368,6 +368,7 @@ $(function() {
         x = addSurroundingDiv(x);
 
         $('#outputdiv').html(x);
+        $('#HTMLoutput').text(x);
 
         //now to clear out everythings loll
         $('#messagetext').val('');
@@ -379,11 +380,6 @@ $(function() {
         $('#date').val('');
         $('#time').val('');
 
-    });
-
-    $('#generateHTML').on('click', function() {
-        let x = addSurroundingDiv(prev);
-        $('#fullthing').text(x);
     });
 
 
