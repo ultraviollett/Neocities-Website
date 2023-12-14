@@ -25,10 +25,10 @@ function roundNum(x){
 }
 
 
-function findIcon(iconurl = "", iconChoose = ""){
+function findIcon(iconURLText = "", iconChoose = ""){
     //gets the url of the chosen icon
     let x;
-    if (iconurl){
+    if (iconURLText){
         x = document.getElementById("icon").value;
     }
     if(iconChoose != "or pick icon here"){
@@ -112,13 +112,14 @@ function addImages(i1="",alt=""){
     x = x + "></p>"
     }
     return x
-}
+
 
 /*
       <p class="twt-image"><img class="twt-image"
        src="CSS/img/eiffeltower.png" alt="ALT TEXT"></p>
 
 */
+}
 
 //polls
 function addPoll(p1="",p2="",p3="",p4="",votes=""){
@@ -145,7 +146,6 @@ function addPoll(p1="",p2="",p3="",p4="",votes=""){
         x = x + '<span class="pollvotes">'+votenum+' votes</span>';
     }
     return x;
-}
 
 /*
       <span class="screenreader">Poll:</span>
@@ -156,9 +156,9 @@ function addPoll(p1="",p2="",p3="",p4="",votes=""){
       <span class="pollvotes">324 votes</span>
 */
 
+}
+
 //quotetweet
-
-
 function addQuoteTweet(){
 
     let x = '<div class="twt-quotebox"><span class="screenreader">Quote Tweet: </span><div class="twt-header"> ';
@@ -203,7 +203,6 @@ function addQuoteTweet(){
 
 
 //function to compile the entire tweet, including previous
-
 function addNewTweet(previous){
    
     //add starting div
@@ -263,8 +262,6 @@ function addNewTweet(previous){
  
    
         return (x);
-}
-
 /*
 <div class="twt twtstart twtwhite ">
   <hr class="noworkskin">
@@ -284,7 +281,9 @@ function addNewTweet(previous){
   <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply()+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet()+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like()+'<span class="screenreader"> likes</span></p></div></div>
 
 */
+}
 
+//compiles new reply
 function addNewReply(previous){
     var x = previous + '<div class="twt ';
 
@@ -347,8 +346,6 @@ function addNewReply(previous){
     x = x + '<div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like+'<span class="screenreader"> likes</span></p></div></div></div></div>';
     
     return(x);
-
-}
 /*
 <div class="twt twtwhite twt-replybox">
 
@@ -373,10 +370,9 @@ function addNewReply(previous){
 </div>
 <br>
 */
-
+}
 
 //functions using jquery that generate the HTML to be used in the page and also put in the textbox
-
 $(function() {
     $('#add').on('click', function() {
         let x;

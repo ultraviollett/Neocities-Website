@@ -5,7 +5,7 @@
   --middleval: #55828b;
   --darkval: #3b6064;
   --darkestval: #364958;
-  --highlight: #c69b6f;
+  --highlight: #e1e0ce;
 }
 
 
@@ -63,11 +63,6 @@ button:hover{
 
 .workskin{
   width: 100%;
-}
-
-ol>li{
-  font-size: large;
-  margin: 8px 0;
 }
 
 
@@ -147,7 +142,7 @@ fieldset{
   background-color: var(--highlight);
   border: 2px solid var(--lightval);
   border-radius: 3px;
-  font-family: monospace;
+  font-family:'Courier New', Courier, monospace;
   font-weight: bold;
   padding: 1em 2em;
   
@@ -177,14 +172,16 @@ fieldset{
 }
 
 a{
-
-text-decoration: none;
-color:#006258a0;
+text-decoration: underline;
+color:#045a7aa0;
 font-weight: bold;
 }
 
 a:hover{
-  text-decoration: underline;
+  background-color: #fcff5275;
+  padding: 2px 3px;
+  margin: -2px -3px;
+  border-radius: 4px;
 }
 
 

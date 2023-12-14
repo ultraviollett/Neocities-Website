@@ -2,7 +2,7 @@ var prev = ""; //holds code (minus surrounding div) to be added to
 
 function addSurroundingDiv(x){
     //adds div that wraps around the message.
-    x = '<div class="textdiv">'+x+'</div>';
+    x = '<div class="simplemsg">'+x+'</div>';
     return x;
 }
 
