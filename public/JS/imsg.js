@@ -23,7 +23,7 @@ var prevName = ""; //stores value of prev name to compare it to current
 var prevInOut = ""; //stores val of prev in/out to compare it to current
 var prev = ""; //holds code (minus surrounding div) to be added to
 childCount = 0; //counts how many times add is clicked
-
+var isChange = false; //switches name
 
 function switchGroupChatDM(){
     if ( $("#groupdmtype").val() == 'DM' ){
@@ -184,7 +184,7 @@ function switchName(x){
     //finds out if someone different is texting.
     //then uses new name and figures out if text is in or out
     var currentInOut;
-    var isChange = false;
+    
 
     if ( $('input[id="dmcontact"]:checked').val() ||  $('input[id="gccontact"]:checked').val() ){
         currentInOut = 'in';
@@ -207,7 +207,7 @@ function switchName(x){
     }else if (isChange){
         x = x + '</div><div class="'+currentInOut+'"><dt>'+currentName+'</dt>'
     }
-
+    isChange = false;
     childCount += 1;
     prevInOut = currentInOut;
     prevName = currentName;
@@ -292,9 +292,6 @@ function addLink(x){
 function addTypingDots(x){
     x = x + '<dd class="typing"> <div></div> <div></div> <div></div> </dd></div>'
     return x;
-
-}
-
 /*
    <div class="in">
 		<dt>Numerius</dt>
@@ -305,6 +302,7 @@ function addTypingDots(x){
 		</dd>
 	</div>
  */
+}
 
 function addReadReceipt(){
     let x = '<dt class="read"><b>Read</b> ';
@@ -327,10 +325,11 @@ function addReadReceipt(){
     }
     x = x + '</dt>';
     return x;
-}
+
 /*
 <dt class="read"><b>Read</b> 5:55</dt>
 */
+}
 
 
 $(function() {
@@ -343,6 +342,7 @@ $(function() {
         
         if ( $("#messagetype").val() == 'Timestamp'){
             x = addTimestamp(prev);
+            isChange = true;
 
         }else if ( $("#messagetype").val() == 'Image'){
             x = addImage(x);
