@@ -190,3 +190,56 @@ a:hover{
 }
 
 
+.autoresizing{
+  display: block;
+  overflow: hidden;
+  resize: none;
+}
+
+.copybox{
+  display: block;
+  width: fit-content;
+  max-width: 15cm;
+  font-family: 'Courier New', Courier, monospace;
+  padding:0;
+
+}
+
+.copybox>textarea{
+  margin:0;
+  background-color: unset;
+  border: none;
+  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+
+  padding: 15px;
+  
+}
+
+.copybox>button{
+  display: block;
+  width:100%;
+  width: calc(100% + 4px);
+  margin: 0 -2px 0 -2px;
+  font-size: small;
+  }
+
+.CSSbox{
+  background-color: #00223c;
+  border: 2px solid;
+  border-top: none;
+}
+
+.CSSbox>textarea{
+  color: white;
+  font-size: xx-small;
+  height: 4cm;
+}
+
+.HTMLbox{
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgba(128, 128, 128, 0.373);
+  border-top: none;
+}
+.HTMLbox>textarea{
+  height: 5cm;
+}

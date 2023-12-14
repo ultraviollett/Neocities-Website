@@ -1,34 +1,53 @@
-<html>
-    <head>
-    WW Test!!!
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-      
-    </head>
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>
+WW TEST
+    </title>
+    <style>
+        #autoresizing {
+            display: block;
+            overflow: hidden;
+            resize: none;
+        }
+    </style>
+</head>
+ 
 <body>
-  <br>
   <button class="nav" onclick="window.location.href = 'index.html';">back</button>
-<br>
-    
- <!-- The text field -->
-
- <textarea>NOT THIS</textarea>
- <textarea id="HTMLoutput">THIS ONE</textarea>
-
- <!-- The button used to copy the text -->
- <button id="copybutton" >Copy text</button> 
- <div id="copyconfirm"></div>
-
-<script>
-  //document.getElementById("HTMLoutput").value = "My value";
-
-  $('#copybutton').on('click', () => {
-    tocopy = $("#HTMLoutput").val()
-    navigator.clipboard.writeText(tocopy);
-    $("#copyconfirm").text("copied");
-  });
-  
-
-
-</script>
+  <br>
+  <h1 style="color: green">
+        GeeksforGeeks
+    </h1>
+ 
+    <b>
+        Creating a textarea with
+        auto-resize in JavaScript
+    </b>
+ 
+    <p>
+        The textarea below will resize
+        automatically accounting for
+        cut, paste and typing text.
+    </p>
+ 
+    <textarea class="autoresizing">
+            Try cutting, pasting
+            or typing here
+        </textarea>
+ 
+    <script type="text/javascript">
+        textarea = document.querySelector(".autoresizing");
+        textarea.addEventListener('input', autoResize, false);
+ 
+        function autoResize() {
+            this.style.height = 'auto';
+            this.style.height = this.scrollHeight + 'px';
+        }
+    </script>
 </body>
+ 
 </html>
+

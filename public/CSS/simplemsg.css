@@ -19,16 +19,22 @@
     white-space: normal;
     overflow:visible;
     word-break:normal;
-  }
-
-.simplemsg .left{
     border-bottom-left-radius: 0;
     margin-right: auto;
     margin-left: 0;
-
-}
+  }
+  
+  .simplemsg .left{
+    border-bottom-left-radius: 0;
+      border-bottom-right-radius: 15px;
+      margin-right: 0;
+      margin-left: auto;
+      text-align: left;
+  }
+  
 
 .simplemsg .right{
+  border-bottom-left-radius: 15px;
     border-bottom-right-radius: 0;
     margin-right: 0;
     margin-left: auto;

@@ -10,13 +10,12 @@ x-add defaults to all checkboxes/radio
 x-add form for suggestions and asking for help
 x-add messaging
 x-add demonstration to definitions
-
+x-add 'copy text' button to HTML/CSS
 
 
 --current goals--
 
 general:[GEN]
--add 'copy text' button to HTML/CSS
 -switch CSS to under all workskins
 -finish tutorial page, CHECK WITH PEOPLE IT MAKES SENSE
 
