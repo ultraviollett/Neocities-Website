@@ -23,14 +23,14 @@ function findColor(){
 
 function addSurroundingDiv(x){ 
     //adds surrounding div to current code
-    return '<div class="mcpoemdiv">'+x+'</div>';
+    return '<p class="screenreader">A Minecraft Poem with the following text: </p> <div class="mcpoemdiv">'+x+'</div>';
 
 }
 
 function addNewText(x){
     let color = findColor(); //find color picked
     let text = $("#poemtext").val(); //get text from poemtext box
-    x = x + '<p class="'+color+'">'+text+'</p>';
+    x = x + '<p class="'+color+'"><span class="screenreader">'+color+' text: </span>'+text+'</p>';
     return x;
 }
 
