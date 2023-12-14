@@ -6,37 +6,28 @@
   <button class="nav" onclick="window.location.href = 'index.html';">back</button>
 
     
-<form id="choosecolorform">
-  <fieldset>
-    <legend>Select a language</legend>
-    <div>
-      <input
-        type="radio"
-        id = "white"
-        name="color"
-        value="white"
-        checked
-      />
-      <label for="white">White</label>
-    </div>
-    <div>
-      <input type="radio" id="cyan" name="color" value="cyan" />
-      <label for="cyan">Cyan</label>
-    </div>
-  </fieldset>
-</form>
-<button id="checkRadioBtn">Check radio selection</button>
+ <!-- The text field -->
+ <input type="text" value="Hello World" id="myInput">
 
-<div id="outputdiv"></div>
+ <!-- The button used to copy the text -->
+ <button onclick="myFunction()">Copy text</button> 
+ 
 
 <script>
-
-    const checkRadioBtn = $('#checkRadioBtn');
-    
-    checkRadioBtn.click(() => {
-      var x = $("input[type='radio'][name=color]:checked",'#choosecolorform').val();
-      $('#outputdiv').text(x);
-    });
+  function myFunction() {
+    // Get the text field
+    var copyText = document.getElementById("myInput");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+  
+    // Alert the copied text
+    alert("Copied the text: " + copyText.value);
+  } ;
     
 </script>
 </body>
