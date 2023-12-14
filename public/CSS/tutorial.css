@@ -21,7 +21,7 @@ to make it easier to read when on desktop
   .easytoread hr{
     border: 5px solid var(--lightestval);
     margin: 1em -5vw 2em -5vw;
-    width: 120%;
+    width: 500%;
   }
   /*
  to make it easier to read when on desktop
