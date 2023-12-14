@@ -7,6 +7,6 @@ function addText() {
 
 function generateHTML(){
     //adds text in text input to some divs and outputs it as text
-    let x = '<div class="buttonbg"><span class="screenreader">A minecraft button that reads: </span><p class="buttontext">'+addText()+"</p></div>";
+    let x = '<div class="mcbuttondiv"><span class="screenreader">A minecraft button that reads: </span><p>'+addText()+"</p></div>";
     document.getElementById("HTMLoutput").value = x;
 }

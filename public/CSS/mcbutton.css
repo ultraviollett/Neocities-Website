@@ -10,36 +10,38 @@
       border: 0;
     }
   
-.buttonbg{
-      display: block;
+.mcbuttondiv{
+      display: flex;
+      background-image: url('https://images.squidge.org/images/2023/11/30/button.png');
+      background-color: grey;
+
       height: 9vw;
       width: 90vw;
-      max-height: 0.94cm;
-      background-color: grey;
-      background-image: url('https://images.squidge.org/images/2023/11/30/button.png');
-      text-align:center;
-      color: white;
-      background-position: center;
+      max-height: 1.3cm;
+      max-width: 13cm;
+      position: relative;
+  
       background-repeat:no-repeat;
       background-size: 100% 100%;
-      max-width: 15cm;
+ 
       margin: 0 auto 0 auto;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
+      text-align:center;
+      color: white;
+      line-height: 1;
 
 }
 
-.buttonbg:hover{
+.mcbuttondiv:hover{
      background-image: url("https://images.squidge.org/images/2023/11/30/buttonpressed.png");
 }
   
-.buttontext{
-      display:inline-block;
-      background-color: rgb(37, 37, 65);
+.mcbuttondiv>p{  
       font-family: "Verdana";
-      font-size: large;
+      font-size: larger;
       font-stretch:extra-expanded;
-      line-height: 0;
-      vertical-align: middle;
-
-
+      line-height: 1;
+      margin: auto;
 }

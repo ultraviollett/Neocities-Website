@@ -167,7 +167,7 @@ function addQuoteTweet(){
     let iconChoose = $("#qiconchoose").val();
 
     if(findIcon(iconURLtext, iconChoose)){
-        x = x + '<div class="twt-icon-container"> <img class="twt-iconquote" src="'+findIcon(iconURLtext, iconChoose)+'"> </div> ';
+        x = x + '<div class="twt-icon-container" hidden> <img class="twt-iconquote" src="'+findIcon(iconURLtext, iconChoose)+'"> </div> ';
     }
     x = x + ' <div class="twt-id twt-quote-id"> <span class="twt-name"> '+$("#qusername").val()+'</span>';
     
