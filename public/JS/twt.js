@@ -373,6 +373,13 @@ function addNewReply(previous){
 
 //functions using jquery that generate the HTML to be used in the page and also put in the textbox
 $(function() {
+
+    fetch("CSS/twt.txt").then(res => res.text()).then(text => {
+        const contentDiv = document.getElementById("CSStocopy");
+        contentDiv.textContent = text;
+    });
+
+
     $('#add').on('click', function() {
         let x;
         if ( $("#twttype").val() == 'Reply to tweet'){

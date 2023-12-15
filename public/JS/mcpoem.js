@@ -2,6 +2,9 @@
 document.getElementById("colorpickdiv").style.display = "none";
 
 var prev = "";//holds code (minus surrounding div) to be added to
+//were adding a default example
+var DEFAULT_TEXT = '';
+
 
 function revealColorPickDiv(){
     //not in use as I need to edit the CSS to add custom colours,
@@ -44,9 +47,19 @@ $(function() {
         prev = x;
 
         x = addSurroundingDiv(x);
-        
+        $('#outputdiv').html("");
         $('#outputdiv').html(x);
         $('#HTMLoutput').text(x);
 
+        $("#poemtext").val("");
+
     });
+
+
+
+    fetch("CSS/mcpoem.txt").then(res => res.text()).then(text => {
+        const contentDiv = document.getElementById("CSStocopy");
+        contentDiv.textContent = text;
+    });
+
 });

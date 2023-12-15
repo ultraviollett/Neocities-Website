@@ -19,8 +19,10 @@ x-switch CSS to under all workskins
 
 general:[GEN]
 -stylize everything better
-
+-move css copy paste to text files then display them with js
 -finish tutorial page, CHECK WITH PEOPLE IT MAKES SENSE
+-in twt.html make it so choosing url from dropdown changes text in icon url box
+
 
 add HTML generators: [ADD]
 -add tumblr [TBLR]

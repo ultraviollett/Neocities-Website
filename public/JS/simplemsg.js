@@ -20,6 +20,10 @@ function addNewMessage(x){
 }
 
 $(function() {
+    fetch("CSS/simplemsg.txt").then(res => res.text()).then(text => {
+        const contentDiv = document.getElementById("CSStocopy");
+        contentDiv.textContent = text;
+      });
 
     $('#add').on('click', function() {
         //compiles the whole code together as is currently

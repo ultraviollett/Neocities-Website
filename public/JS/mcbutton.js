@@ -8,3 +8,10 @@ function addText() {
 }
 
 //textarea is CSStocopy
+$(function() {
+
+    fetch("CSS/mcbutton.txt").then(res => res.text()).then(text => {
+        const contentDiv = document.getElementById("CSStocopy");
+        contentDiv.textContent = text;
+      });
+});

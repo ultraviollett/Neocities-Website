@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WW Button Generator</title>
@@ -8,32 +8,33 @@
     <link rel="stylesheet" href="CSS/mcbutton.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     
-  </head>
-  <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input -->
-    <body>
-      <button class="nav" onclick="window.location.href = 'index.html';">back</button>
-      <p>
+</head>
+<body>
 
 <div class="note">
-  NOTES:
-  <li>This workskin exists on AO3 
-    <a href="https://archiveofourown.org/works/39524436/chapters/98931363#workskin">here</a>!
-     I am the creator</li>
-  
-  </div>
+  <button class="nav" onclick="window.location.href = 'index.html';">back</button>
 
-  <div class="mcbuttondiv"><p>Hover over me!</p></div>
-            
-</p>
+  <p>NOTES:</p>
+  <li>This workskin exists on AO3 
+  <a href="https://archiveofourown.org/works/39524436/chapters/98931363#workskin">here</a>!
+  I am the creator</li>
+  <li>The button isn't built for more than a line of text</li>
+  
+</div>
+<div class="easytoread easytoreadstart">
 <h3>Input text:</h3>
 <textarea type="text" id="buttontext" class="largeinput" oninput="addText()">
 </textarea>
-<br><br>
- 
-
-<div class="mcbuttondiv"><p id="paste"></p></div>
+</div>
+<br>
+<div class="mcbuttondiv">
+  <p id="paste">
+  Hover over me!
+  </p>
+</div>
 
 <br>
+<div class="easytoread">
 
 <div id="outputdiv"></div>
 <br>
@@ -44,60 +45,13 @@ Your HTML will appear here
 </textarea>
 </div>
 <br>
-
 <div class="CSSbox copybox">
-  
+
 <button id="copyCSSbutton" class="autoresizing" >Copy CSS</button>
+<!--I've added some JS so this textarea grabs the text from mcbutton.txt-->
 <textarea class="largeinput" type="text" id = "CSStocopy">
-
-.screenreader {
-position: absolute;
-height: 1px;
-padding: 0;
-margin: -1px;
-overflow: hidden;
-clip: rect(0, 0, 0, 0);
-white-space: nowrap;
-border: 0;
-}
-
-.mcbuttondiv{
-display: flex;
-background-image: url('https://images.squidge.org/images/2023/11/30/button.png');
-background-color: grey;
-
-height: 9vw;
-width: 90vw;
-max-height: 1.3cm;
-max-width: 13cm;
-position: relative;
-
-background-repeat:no-repeat;
-background-size: 100% 100%;
-
-margin: 0 auto 0 auto;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-text-align:center;
-color: white;
-line-height: 1;
-
-}
-
-.mcbuttondiv:hover{
-background-image: url("https://images.squidge.org/images/2023/11/30/buttonpressed.png");
-}
-
-.mcbuttondiv>p{  
-font-family: "Verdana";
-font-size: larger;
-font-stretch:extra-expanded;
-line-height: 1;
-margin: auto;
-}
-
 </textarea>
+</div>
 </div>
 
 <br>

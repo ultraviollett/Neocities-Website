@@ -10,16 +10,22 @@
 
 
 body{
-  background-color: var(--lightestval);
-  width: 95vw;
+ /* background-color: var(--lightestval);*/
+ background-color: var(--darkestval);
+ color: white;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
 h1, h2{
   text-align: center;
+}
+
+h3{
+  margin-bottom: 0.2em;
 }
 
 hr{
@@ -52,15 +58,15 @@ button:hover{
 /*For buttons to navigate back to start, at top of page*/
 .nav{
   color: white;
-  background-color: var(--darkestval);
   font-weight: bold;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+  margin: 2px;
 }
 
 /*For stack of buttons leading to somewhere like in index*/
 .buttonlineup{
-  width: 90vw;
+  width: 100%;
+  
   max-width: 17cm;
   margin: 5px auto 5px auto;
 
@@ -70,6 +76,9 @@ button:hover{
   width: 100%;
 }
 
+.whitetext{
+  color:white;
+}
 
 .ao3sim{
   display: block;
@@ -91,11 +100,10 @@ input, select{
 
 textarea{
   height: 1.5em;
-  margin: 0.5%;
   border: 2px solid var(--middleval);
   min-height: 2em;
   overflow-y:hidden;
-  margin: 5px auto;
+  margin: 2px auto 2px 5px;
   width: 50vw;
   min-width: 4cm;
   max-width: 6cm;
@@ -108,8 +116,7 @@ textarea{
 .largeinput{
   min-height: 3cm;
   overflow-y:hidden;
-  margin: 5px auto;
-  width: 80vw;
+  width: 90%;
   max-width: 15cm;
   box-sizing: border-box;
   padding: 5px;
@@ -122,8 +129,7 @@ textarea{
 .longinput{
   min-height: 2em;
   overflow-y:hidden;
-  margin: 5px auto;
-  width: 80vw;
+  width: 90%;
   max-width: 15cm;
   box-sizing: border-box;
   padding: 5px;
@@ -146,17 +152,18 @@ fieldset{
 .note{
   background-color: var(--highlight);
   border: 2px solid var(--lightval);
-  border-radius: 3px;
+  color: black;
+  border-top: none;
   font-family:'Courier New', Courier, monospace;
   font-weight: bold;
-  padding: 1em 2em;
+  padding: 0 2em 1em 2em;
   
-  margin: 10px 20px;
+  margin: 0 20px 2em 20px;
   width: fit-content;
 }
 
 .note>li, .note>p{
-  margin-bottom: 10px;
+  margin-bottom: 0.5em;
 }
 
 
@@ -168,7 +175,8 @@ fieldset{
 }
 
 .distinguisher{
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   border: 2px solid var(--darkval);
   background-color: var(--lightval);
@@ -190,18 +198,84 @@ a:hover{
 }
 
 
-.autoresizing{
+/*
+to make it easier to read when on desktop
+*/
+.easytoread{
+  display: flex;
+  flex-direction: column;
+  margin: 15px auto;
+  width: 80vw;
+  max-width: 15cm;
+  background-color: var(--lighterval);
+  color: black;
+  padding: 1em 5vw;
+  border-top: 8px solid var(--darkval);
+  border-bottom: 8px solid var(--darkval);
+}
+.easytoread::before{
   display: block;
-  overflow: hidden;
-  resize: none;
+  content: ".";
+  color: rgb(0,0,0,0);
+  height: 8px;
+  background-color: var(--lightval);
+  margin: -1em -5vw 1em -5vw;
+}
+.easytoread::after{
+  display: block;
+  content: ".";
+  color: rgb(0,0,0,0);
+  height: 8px;
+  background-color: var(--lightval);
+  margin: 1em -5vw -1em -5vw;
+}
+
+.easytoread:last-of-type::after, .easytoreadend::after{
+  display: none;
+}
+
+.easytoread:first-of-type::before, .easytoreadstart::before{
+  display: none;
+}
+
+.easytoread:first-of-type, .easytoreadstart{
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  margin-top: 0;
+  padding-top: 1em;
+  border-top: none;
+
+}
+
+.easytoread:last-of-type, .easytoreadend{
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding-bottom: 2em;
+  border-bottom: none;
+
+}
+.easytoread p{
+  margin: 0.5em 0;
+  line-height: 1.4;
+}
+
+.easytoread .nicedropdown{
+  display: inline-block;
+  width: fit-content;
+  margin: auto auto auto 5px;
+  padding: 1px 3em 1px 1em;
+}
+.easytoread input{
+  width: fit-content;
+  margin: auto auto auto 5px;
 }
 
 .copybox{
   display: block;
-  width: fit-content;
   max-width: 15cm;
   font-family: 'Courier New', Courier, monospace;
   padding:0;
+  margin: auto 0;
 
 }
 
@@ -242,4 +316,12 @@ a:hover{
 }
 .HTMLbox>textarea{
   height: 5cm;
+}
+
+.snuggleup{
+  margin-top: 0;
+}
+
+.snuggledown{
+  margin-bottom: 2px;
 }

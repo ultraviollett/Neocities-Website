@@ -284,7 +284,7 @@ function addLink(x){
         x = x + $("#linktext").val();
     }
     
-    x = x + '</dd>';
+    x = x + '</a></dd>';
 
     return x;
 }
@@ -333,6 +333,10 @@ function addReadReceipt(){
 
 
 $(function() {
+    fetch("CSS/imsg.txt").then(res => res.text()).then(text => {
+        const contentDiv = document.getElementById("CSStocopy");
+        contentDiv.textContent = text;
+      });
 
     $('#add').on('click', function() {
         //compiles the whole code together as is currently

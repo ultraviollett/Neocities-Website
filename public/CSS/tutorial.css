@@ -1,41 +1,11 @@
-/*
-to make it easier to read when on desktop
-*/
-.easytoread{
-    display: flex;
-    flex-direction: column;
+.tableofcontentsdiv{
+    display: block;
+    background-color: unset;
     margin: 6px auto;
     width: 80vw;
     max-width: 15cm;
-    background-color: var(--lighterval);
-    padding: 3px 5vw;
-}
-.easytoread:nth-of-type(1){
-    display: block;
-    background-color: unset;
     padding: 0;
-    width: 80vw;
-    max-width: 15cm;
-
-}
-
-.easytoread:nth-of-type(2){
-    border-radius: 15px 15px 0 0;
-    margin-top: 0;
-    padding-top: 3em;
-
-}
-
-.easytoread:last-of-type{
-    border-radius: 0 0 15px 15px;
-    padding-bottom: 2em;
-
-}
-.easytoread p{
-    margin: 0.5em 0;
-    line-height: 1.4;
-}
-
+  }
 
 .tableofcontents{
     box-shadow: inset 2px -28px 21px -21px #154e34;

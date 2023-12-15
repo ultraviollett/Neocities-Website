@@ -6,3 +6,11 @@ function addText() {
     document.getElementById("HTMLoutput").value = fullThing;
 
 }
+
+$(function() {
+
+fetch("CSS/mcbook.txt").then(res => res.text()).then(text => {
+    const contentDiv = document.getElementById("CSStocopy");
+    contentDiv.textContent = text;
+  });
+});
