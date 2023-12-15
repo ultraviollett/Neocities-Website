@@ -12,17 +12,16 @@ x-add messaging
 x-add demonstration to definitions
 x-add 'copy text' button to HTML/CSS
 x-switch CSS to under all workskins
-
+x-move css copy paste to text files then display them with js
 
 
 --current goals--
 
-general:[GEN]
+general:
 -stylize everything better
--move css copy paste to text files then display them with js
 -finish tutorial page, CHECK WITH PEOPLE IT MAKES SENSE
--in twt.html make it so choosing url from dropdown changes text in icon url box
-
+-CHEKC EVERY SKIN WORKS
+-ensure all fields that need to go blank after hitting add do so
 
 add HTML generators: [ADD]
 -add tumblr [TBLR]

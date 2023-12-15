@@ -2,10 +2,10 @@ document.getElementById("imageURLs").style.display = "none";
 document.getElementById("polloptions").style.display = "none";
 document.getElementById("replynotweet").style.display = "none";
 
-//for quote tweets
-document.getElementById("quotetweet").style.display = "none";
-document.getElementById("qimageURLs").style.display = "none";
-document.getElementById("qpolloptions").style.display = "none";
+// //for quote tweets
+// document.getElementById("quotetweet").style.display = "none";
+// document.getElementById("qimageURLs").style.display = "none";
+// document.getElementById("qpolloptions").style.display = "none";
 
 var prev = ""; //holds entire HTML before next is added
 var childCount = 0; //stores the number of tweets, so you know when to add twtstart
@@ -25,68 +25,77 @@ function roundNum(x){
 }
 
 
-function findIcon(iconURLText = "", iconChoose = ""){
+function findIcon(iconURLText = ""){
     //gets the url of the chosen icon
-    let x;
-    if (iconURLText){
-        x = document.getElementById("icon").value;
-    }
-    if(iconChoose != "or pick icon here"){
-
-    switch (iconChoose){
-
-        case "Steve Minecraft":
-            x = "https://images.squidge.org/images/2023/12/07/stevemc.jpeg";
-            break;
-
-        case "Alex Minecraft":
-            x = "https://images.squidge.org/images/2023/12/07/alexminecraftface.png";
-            break;
-
-        case "Walter White Breaking Bad":
-            x = "https://images.squidge.org/images/2023/12/07/walterwhite.jpeg";
-            break;
-
-        case "Hatsune Miku Vocaloid":
-            x = "https://images.squidge.org/images/2023/12/07/hatsunemiku.png";
-            break;
-
-        case "Herobrine Minecraft":
-            x = "https://images.squidge.org/images/2023/12/09/herobrinemc.webp";
-            break;
-
-        case "Sunflowers Van Gogh":
-            x = "https://images.squidge.org/images/2023/12/09/sunflowersvinentvangogh.jpeg";
-            break;
-        
-        case "Mona Lisa":
-            x = "https://images.squidge.org/images/2023/12/09/monalisa.webp";
-            break;
-
-        case "Hong Kong Night":
-            x = "https://images.squidge.org/images/2023/12/09/hongkongnight.jpeg";
-            break;
-
-        case "Railroad":
-            x = "https://images.squidge.org/images/2023/12/09/railroad.jpeg";
-            break;
-
-        case "Shark Sandcastle":
-            x = "https://images.squidge.org/images/2023/12/09/sharksandcastle.jpeg";
-            break;
-
-        case "Highway Drive":
-            x = "https://images.squidge.org/images/2023/12/09/ukdrive.jpeg";
-            break;
-
-        case "Einstein with Tongue":
-            x = "https://images.squidge.org/images/2023/12/09/einstein-with-tongue.png";
-
-    }
-    }
-
+    let x = iconURLText;
     return x;
 }
+
+function pasteIconURL(idToPaste="", iconChoose=""){
+//when an icon is chosen from the dropdown box, it will paste it in the URL input
+
+// switch (iconChoose){
+
+//     case "Steve Minecraft":
+//         x = "https://images.squidge.org/images/2023/12/07/stevemc.jpeg";
+//         break;
+
+//     case "Alex Minecraft":
+//         x = "https://images.squidge.org/images/2023/12/07/alexminecraftface.png";
+//         break;
+
+//     case "Walter White Breaking Bad":
+//         x = "https://images.squidge.org/images/2023/12/07/walterwhite.jpeg";
+//         break;
+
+//     case "Hatsune Miku Vocaloid":
+//         x = "https://images.squidge.org/images/2023/12/07/hatsunemiku.png";
+//         break;
+
+//     case "Herobrine Minecraft":
+//         x = "https://images.squidge.org/images/2023/12/09/herobrinemc.webp";
+//         break;
+
+//     case "Sunflowers Van Gogh":
+//         x = "https://images.squidge.org/images/2023/12/09/sunflowersvinentvangogh.jpeg";
+//         break;
+    
+//     case "Mona Lisa":
+//         x = "https://images.squidge.org/images/2023/12/09/monalisa.webp";
+//         break;
+
+//     case "Hong Kong Night":
+//         x = "https://images.squidge.org/images/2023/12/09/hongkongnight.jpeg";
+//         break;
+
+//     case "Railroad":
+//         x = "https://images.squidge.org/images/2023/12/09/railroad.jpeg";
+//         break;
+
+//     case "Shark Sandcastle":
+//         x = "https://images.squidge.org/images/2023/12/09/sharksandcastle.jpeg";
+//         break;
+
+//     case "Highway Drive":
+//         x = "https://images.squidge.org/images/2023/12/09/ukdrive.jpeg";
+//         break;
+
+//     case "Einstein with Tongue":
+//         x = "https://images.squidge.org/images/2023/12/09/einstein-with-tongue.png";
+//         break;
+//     case "X3 face":
+//         x = "https://images.squidge.org/images/2023/12/09/x3face.png";
+//         break;
+
+//     default:
+//         x = "";
+//     }
+//     let x = "hello world";
+//     idToPaste = $("#icon");
+    $('#HTMLoutput').text(x);
+    
+}  
+
 
 function findTWTURL(){
     //grabs twturl from the twturl input, but also stores the value so can be used in 'replying to'
@@ -164,10 +173,9 @@ function addQuoteTweet(){
     let x = '<div class="twt-quotebox"><span class="screenreader">Quote Tweet: </span><div class="twt-header"> ';
     
     let iconURLtext = document.getElementById("qicon").value ;
-    let iconChoose = $("#qiconchoose").val();
 
-    if(findIcon(iconURLtext, iconChoose)){
-        x = x + '<div class="twt-icon-container" hidden> <img class="twt-iconquote" src="'+findIcon(iconURLtext, iconChoose)+'"> </div> ';
+    if(findIcon(iconURLtext)){
+        x = x + '<div class="twt-icon-container" hidden> <img class="twt-iconquote" src="'+findIcon(iconURLtext)+'"> </div> ';
     }
     x = x + ' <div class="twt-id twt-quote-id"> <span class="twt-name"> '+$("#qusername").val()+'</span>';
     
@@ -223,9 +231,9 @@ function addNewTweet(previous){
     x = x + '"><div class="twt-header">';
     
     let iconURLtext = document.getElementById("icon").value ;
-    let iconChoose = $("#iconchoose").val();
-    if ( findIcon(iconURLtext,iconChoose) ){ 
-    x = x + '<div class="twt-icon-container hidden"> <img class="twt-icon" src="'+findIcon(iconURLtext,iconChoose)+'"> </div>';
+
+    if ( findIcon(iconURLtext) ){ 
+    x = x + '<div class="twt-icon-container hidden"> <img class="twt-icon" src="'+findIcon(iconURLtext)+'"> </div>';
     }
     let username = document.getElementById("username").value;
     x = x + ' <div class="twt-id"> <span class="twt-name"> '+username+'</span>';
@@ -302,10 +310,9 @@ function addNewReply(previous){
     x = x + ' twt-replybox">';
     
     let iconURLtext = document.getElementById("icon").value ;
-    let iconChoose = $("#iconchoose").val();
 
-    if (findIcon(iconURLtext,iconChoose)){
-        x = x + '<div class="twt-icon-replycontainer hidden"> <img class="twt-icon" src="'+findIcon(iconURLtext,iconChoose)+'"> </div>';
+    if (findIcon(iconURLtext)){
+        x = x + '<div class="twt-icon-replycontainer hidden"> <img class="twt-icon" src="'+findIcon(iconURLtext)+'"> </div>';
     }
     x = x + '<div class="twt-replycontainer"><div> <span class="twt-name">'+username()+'</span>';
     
@@ -397,7 +404,7 @@ $(function() {
         $('#retweet').val('');
         $('#like').val('');
         $('#image1').val('');
-        $('#image2').val('');
+        $('#alt').val('');
         $('#poll1').val('');
         $('#poll2').val('');
         $('#poll3').val('');
@@ -411,7 +418,7 @@ $(function() {
         $('#qtweet').val('');
         $('#qtweet').val('');
         $('#qimage1').val('');
-        $('#qimage2').val('');
+        $('#qalt').val('');
         $('#qdate').val('');
         $('#qpoll1').val('');
         $('#qpoll2').val('');
@@ -425,24 +432,48 @@ $(function() {
 
 //opens up options for extra features
     $("#image").on("click", function() {
-        $("#imageURLs").toggle();//reveals images
+        if( $('input[id="image"]:checked').val() ){
+            document.getElementById("imageURLs").style.display = "";
+        }else{
+            document.getElementById("imageURLs").style.display = "none";
+        }
     });
 
+    
+
     $("#poll").on("click", function() {
-        $("#polloptions").toggle();//reveals polls
+        if( $('input[id="poll"]:checked').val() ){
+            document.getElementById("polloptions").style.display = "";
+        }else{
+            document.getElementById("polloptions").style.display = "none";
+        }
     });
 
     $("#quotetweetopt").on("click", function() {
-        $("#quotetweet").toggle();//reveals polls
+        if( $('input[id="quotetweetopt"]:checked').val() ){
+            document.getElementById("quotetweet").style.display = "";
+        }else{
+            document.getElementById("quotetweet").style.display = "none";
+        }
     });
 
 //opens up options for extra features f quote tweets
     $("#qimage").on("click", function() {
+        if( $('input[id="qimage"]:checked').val() ){
+            document.getElementById("qimageURLs").style.display = "";
+        }else{
+            document.getElementById("qimageURLs").style.display = "none";
+        }
+
         $("#qimageURLs").toggle();//reveals images
     });
 
     $("#qpoll").on("click", function() {
-        $("#qpolloptions").toggle();//reveals polls
+        if( $('input[id="qpoll"]:checked').val() ){
+            document.getElementById("qpolloptions").style.display = "";
+        }else{
+            document.getElementById("qpolloptions").style.display = "none";
+        }
     });
 
 

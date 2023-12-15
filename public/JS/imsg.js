@@ -388,16 +388,34 @@ $(function() {
 
 
     $("#gcnamechoose").on("click", function() {
-        $("#headernamediv").toggle();
-        $("#dmcontactnamedivdiv").toggle();
+
+        if( $('input[id="gcnamechoose"]:checked').val() ){
+            document.getElementById("headernamediv").style.display = "";
+            document.getElementById("dmcontactnamedivdiv").style.display = "none";
+        }else{
+            document.getElementById("dmcontactnamedivdiv").style.display = "";
+            document.getElementById("headernamediv").style.display = "none";
+        }
+
+        //$("#headernamediv").toggle();
+        //$("#dmcontactnamedivdiv").toggle();
     });
 
     $("#textbarchoose").on("click", function() {
-        $("#textbardiv").toggle();
+        if( $('input[id="textbarchoose"]:checked').val() ){
+            document.getElementById("textbardiv").style.display = "";
+        }else{
+             document.getElementById("textbardiv").style.display = "none";
+        }
     });
 
     $("#readreceiptchoose").on("click", function() {
-        $("#readreceiptdiv").toggle();
+        if( $('input[id="readreceiptchoose"]:checked').val() ){
+            document.getElementById("readreceiptdiv").style.display = "";
+        }else{
+             document.getElementById("readreceiptdiv").style.display = "none";
+        }
+
     });
 
 });

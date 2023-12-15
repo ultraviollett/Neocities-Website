@@ -25,22 +25,27 @@
 
 <div class="easytoread easytoreadstart">
 
-<h3>Input text:</h3>
-<textarea type="text" id="poemtext" class="largeinput">
+<h3>Input Text:</h3>
+<textarea type="text" id="poemtext" class="largeinput" placeholder="write text here, then click add to add a paragraph to your end poem">
 </textarea>
 
 <h3>Pick Colour:</h3>
-<div class="columnify">
+
 <form id="choosecolorform">
 <fieldset  onchange="revealColorPickDiv()">
-  <div><input type="radio" id="white" name="color" value="white" checked/><label for="white">white</label>
-  <div><input type="radio" id="green" name="color" value="green" /><label for="green">green</label> </div>
-  <div><input type="radio" id="cyan" name="color" value="cyan" /><label for="cyan">cyan</label> </div>
-  <div><input type="radio" id="red" name="color" value="red" /><label for="red">red</label> </div>
-  <div><input type="radio" id="orange" name="color" value="orange" /><label for="orange">orange</label> </div>
-  <div><input type="radio" id="yellow" name="color" value="yellow" /><label for="yellow">yellow</label> </div>
-  <div><input type="radio" id="purple" name="color" value="purple" /><label for="purple">purple</label> </div>
-  <div><input type="radio" id="pink" name="color" value="pink" /><label for="pink">pink</label> </div>
+  <div class="columnify">
+  <div>
+  <p class="important"><input type="radio" id="white" name="color" value="white" checked/><label for="white"> white</label>
+  <p class="important"><input type="radio" id="green" name="color" value="green" /><label for="green"> green</label> </p>
+  <p class="important"><input type="radio" id="cyan" name="color" value="cyan" /><label for="cyan"> cyan</label> </p>
+  <p><input type="radio" id="red" name="color" value="red" /><label for="red"> red</label> </p>
+</div><div>
+  <p><input type="radio" id="orange" name="color" value="orange" /><label for="orange"> orange</label> </p>
+  <p><input type="radio" id="yellow" name="color" value="yellow" /><label for="yellow"> yellow</label> </p>
+  <p><input type="radio" id="purple" name="color" value="purple" /><label for="purple"> purple</label> </p>
+  <p><input type="radio" id="pink" name="color" value="pink" /><label for="pink"> pink</label> </p>
+</div>
+</div>
   <!--
     <div><input type="radio" id="colorpick" name="color" value="colorpick" /><label for="colorpick">Custom Colour</label> </div>
   
@@ -50,20 +55,15 @@
   </fieldset>
 </form>
 
-</div>
-
-</p>
-
 <div id="colorpickdiv">
   <input type="color">
 </div>
 
-<br>
 <button id="add">Add</button>
 
 </div>
-<br>
 
+<br>
 <div id="outputdiv">
 
 <p class="screenreader">A Minecraft Poem with the following text:</p>

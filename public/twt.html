@@ -66,7 +66,7 @@
 
 <textarea type="url" class="longinput snuggledown" id="icon" placeholder="icon URL"></textarea>
 
-<select id="iconchoose" class="nicedropdown snuggleup">
+<select id="iconchoose" class="nicedropdown snuggleup" onchange="pasteIconURL( $('#icon'),$('#iconchoose').val())">
   <option>or pick icon here</option>
 
   <option>Steve Minecraft</option>
@@ -90,7 +90,7 @@
 
 <br>
 
-<textarea type="text" id="username" class="required" placeholder="Name"></textarea>
+<textarea type="text" id="username" class="required" placeholder="Add username here"></textarea>
 <textarea type="text" id="twturl" placeholder="@"></textarea>
 <textarea type="text" id="tweet" class="largeinput required" placeholder="Add body of tweet here">
 </textarea>
@@ -129,7 +129,7 @@
 
   <textarea type="url" class="longinput" id="qicon" placeholder="insert icon URL"></textarea>
 
-  <select id="qiconchoose" class="nicedropdown">
+  <select id="qiconchoose" class="nicedropdown" onchange="pasteIconURL( $('#qicon'), $('#qiconchoose').val())">
     <option>or pick icon here</option>
   
     <option>Steve Minecraft</option>
@@ -225,7 +225,7 @@
   </div>
 </div>
 
-<script src="JS/twt.js"></script> 
 <script src="JS/gen.js"></script>   
+<script src="JS/twt.js"></script> 
 </body>
 </html>

@@ -54,10 +54,11 @@
   
 /*make buttons look nice*/
 .buttonhorizontal{
+    display: flex;
+    justify-content: center;
     margin: 15px auto;
     width: 100%;
-    
-    display: flex;
+
     gap: 5px;
     flex-flow: row wrap;
 
@@ -67,6 +68,8 @@
     font-size: small;
     padding-top: 2px;
     padding-bottom: 2px;
+    margin: 0;
+
     display: block;
     cursor: pointer;
     padding: auto;
