@@ -18,6 +18,7 @@ x-move css copy paste to text files then display them with js
 --current goals--
 
 general:
+-fix twitter icon problems
 -stylize everything better
 -finish tutorial page, CHECK WITH PEOPLE IT MAKES SENSE
 -CHEKC EVERY SKIN WORKS

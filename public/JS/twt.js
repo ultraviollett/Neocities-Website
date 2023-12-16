@@ -2,10 +2,10 @@ document.getElementById("imageURLs").style.display = "none";
 document.getElementById("polloptions").style.display = "none";
 document.getElementById("replynotweet").style.display = "none";
 
-// //for quote tweets
-// document.getElementById("quotetweet").style.display = "none";
-// document.getElementById("qimageURLs").style.display = "none";
-// document.getElementById("qpolloptions").style.display = "none";
+//for quote tweets
+document.getElementById("quotetweet").style.display = "none";
+document.getElementById("qimageURLs").style.display = "none";
+document.getElementById("qpolloptions").style.display = "none";
 
 var prev = ""; //holds entire HTML before next is added
 var childCount = 0; //stores the number of tweets, so you know when to add twtstart
@@ -33,66 +33,66 @@ function findIcon(iconURLText = ""){
 
 function pasteIconURL(idToPaste="", iconChoose=""){
 //when an icon is chosen from the dropdown box, it will paste it in the URL input
+    let x;
 
-// switch (iconChoose){
+    switch (iconChoose){
 
-//     case "Steve Minecraft":
-//         x = "https://images.squidge.org/images/2023/12/07/stevemc.jpeg";
-//         break;
+        case "Steve Minecraft":
+            x = "https://images.squidge.org/images/2023/12/07/stevemc.jpeg";
+            break;
 
-//     case "Alex Minecraft":
-//         x = "https://images.squidge.org/images/2023/12/07/alexminecraftface.png";
-//         break;
+        case "Alex Minecraft":
+            x = "https://images.squidge.org/images/2023/12/07/alexminecraftface.png";
+            break;
 
-//     case "Walter White Breaking Bad":
-//         x = "https://images.squidge.org/images/2023/12/07/walterwhite.jpeg";
-//         break;
+        case "Walter White Breaking Bad":
+            x = "https://images.squidge.org/images/2023/12/07/walterwhite.jpeg";
+            break;
 
-//     case "Hatsune Miku Vocaloid":
-//         x = "https://images.squidge.org/images/2023/12/07/hatsunemiku.png";
-//         break;
+        case "Hatsune Miku Vocaloid":
+            x = "https://images.squidge.org/images/2023/12/07/hatsunemiku.png";
+            break;
 
-//     case "Herobrine Minecraft":
-//         x = "https://images.squidge.org/images/2023/12/09/herobrinemc.webp";
-//         break;
+        case "Herobrine Minecraft":
+            x = "https://images.squidge.org/images/2023/12/09/herobrinemc.webp";
+            break;
 
-//     case "Sunflowers Van Gogh":
-//         x = "https://images.squidge.org/images/2023/12/09/sunflowersvinentvangogh.jpeg";
-//         break;
-    
-//     case "Mona Lisa":
-//         x = "https://images.squidge.org/images/2023/12/09/monalisa.webp";
-//         break;
+        case "Sunflowers Van Gogh":
+            x = "https://images.squidge.org/images/2023/12/09/sunflowersvinentvangogh.jpeg";
+            break;
+        
+        case "Mona Lisa":
+            x = "https://images.squidge.org/images/2023/12/09/monalisa.webp";
+            break;
 
-//     case "Hong Kong Night":
-//         x = "https://images.squidge.org/images/2023/12/09/hongkongnight.jpeg";
-//         break;
+        case "Hong Kong Night":
+            x = "https://images.squidge.org/images/2023/12/09/hongkongnight.jpeg";
+            break;
 
-//     case "Railroad":
-//         x = "https://images.squidge.org/images/2023/12/09/railroad.jpeg";
-//         break;
+        case "Railroad":
+            x = "https://images.squidge.org/images/2023/12/09/railroad.jpeg";
+            break;
 
-//     case "Shark Sandcastle":
-//         x = "https://images.squidge.org/images/2023/12/09/sharksandcastle.jpeg";
-//         break;
+        case "Shark Sandcastle":
+            x = "https://images.squidge.org/images/2023/12/09/sharksandcastle.jpeg";
+            break;
 
-//     case "Highway Drive":
-//         x = "https://images.squidge.org/images/2023/12/09/ukdrive.jpeg";
-//         break;
+        case "Highway Drive":
+            x = "https://images.squidge.org/images/2023/12/09/ukdrive.jpeg";
+            break;
 
-//     case "Einstein with Tongue":
-//         x = "https://images.squidge.org/images/2023/12/09/einstein-with-tongue.png";
-//         break;
-//     case "X3 face":
-//         x = "https://images.squidge.org/images/2023/12/09/x3face.png";
-//         break;
+        case "Einstein with Tongue":
+            x = "https://images.squidge.org/images/2023/12/09/einstein-with-tongue.png";
+            break;
+        case "X3 face":
+            x = "https://images.squidge.org/images/2023/12/09/x3face.png";
+            break;
 
-//     default:
-//         x = "";
-//     }
-//     let x = "hello world";
-//     idToPaste = $("#icon");
-    $('#HTMLoutput').text(x);
+        default:
+            x = "";
+        }
+
+    idToPaste.value = x;
     
 }  
 

@@ -66,7 +66,7 @@
 
 <textarea type="url" class="longinput snuggledown" id="icon" placeholder="icon URL"></textarea>
 
-<select id="iconchoose" class="nicedropdown snuggleup" onchange="pasteIconURL( $('#icon'),$('#iconchoose').val())">
+<select id="iconchoose" class="nicedropdown snuggleup" onchange="pasteIconURL(document.getElementById('icon'),$('#iconchoose').val())">
   <option>or pick icon here</option>
 
   <option>Steve Minecraft</option>
@@ -129,7 +129,7 @@
 
   <textarea type="url" class="longinput" id="qicon" placeholder="insert icon URL"></textarea>
 
-  <select id="qiconchoose" class="nicedropdown" onchange="pasteIconURL( $('#qicon'), $('#qiconchoose').val())">
+  <select id="qiconchoose" class="nicedropdown" onchange="pasteIconURL( document.getElementById('qicon'), $('#qiconchoose').val())">
     <option>or pick icon here</option>
   
     <option>Steve Minecraft</option>
