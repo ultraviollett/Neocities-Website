@@ -342,7 +342,7 @@ function addNewReply(previous){
     x = x + addPoll($("#poll1").val(),$("#poll2").val(),$("#poll3").val(),$("#poll4").val(),$("#votes").val());
     
     if ($('input[id="quotetweetopt"]:checked').val()){
-        x = addQuoteTweet(x);
+        x = x + addQuoteTweet(x);
     }
 
     //pull variables for stats and round them
