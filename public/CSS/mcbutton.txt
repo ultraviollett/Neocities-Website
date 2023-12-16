@@ -25,8 +25,6 @@
       background-size: 100% 100%;
  
       margin: 0 auto 0 auto;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
       text-align:center;
       color: white;
