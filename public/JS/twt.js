@@ -1,6 +1,6 @@
 document.getElementById("imageURLs").style.display = "none";
 document.getElementById("polloptions").style.display = "none";
-document.getElementById("replynotweet").style.display = "none";
+document.getElementById("opurldiv").style.display = "none";
 
 //for quote tweets
 document.getElementById("quotetweet").style.display = "none";
@@ -9,7 +9,7 @@ document.getElementById("qpolloptions").style.display = "none";
 
 var prev = ""; //holds entire HTML before next is added
 var childCount = 0; //stores the number of tweets, so you know when to add twtstart
-var tweetOP = ""; //automatically saves url for 'replying to op'
+
 
 
 function roundNum(x){
@@ -99,8 +99,10 @@ function pasteIconURL(idToPaste="", iconChoose=""){
 
 function findTWTURL(){
     //grabs twturl from the twturl input, but also stores the value so can be used in 'replying to'
-    let x = document.getElementById("twturl").value;
-    if ($("#twttype").val() == 'Tweet'){tweetOP = x;}
+    var x = document.getElementById("twturl").value;
+
+    document.getElementById('opurl').value = x;
+
     return x;
 }
 
@@ -293,8 +295,8 @@ function addNewTweet(previous){
 //compiles new reply
 function addNewReply(previous){
     var x = previous + '<div class="twt ';
-
-    //if this is the first tweet added, add twtstart so it has a top border
+    
+    // //if this is the first tweet added, add twtstart so it has a top border
     if (childCount == 0){ x = x + 'twtstart '; }
     childCount += 1;
 
@@ -314,7 +316,8 @@ function addNewReply(previous){
     if (findIcon(iconURLtext)){
         x = x + '<div class="twt-icon-replycontainer hidden"> <img class="twt-icon" src="'+findIcon(iconURLtext)+'"> </div>';
     }
-    x = x + '<div class="twt-replycontainer"><div> <span class="twt-name">'+username()+'</span>';
+    let username = document.getElementById("username").value;
+    x = x + '<div class="twt-replycontainer"><div> <span class="twt-name">'+username+'</span>';
     
     if(findTWTURL()){
         x = x + '<span class="twt-handle">@'+findTWTURL();
@@ -330,8 +333,6 @@ function addNewReply(previous){
     let opURL = document.getElementById("opurl").value;
     if(opURL){
         x = x + '<div class="twt-replying-to"> Replying to <span class="twt-hl">@'+opURL+'</span></div>';
-    }else if (tweetOP){
-        x = x + '<div class="twt-replying-to"> Replying to <span class="twt-hl">@'+tweetOP+'</span></div>';
     }
 
     let tweetText = document.getElementById("tweet").value;
@@ -350,8 +351,7 @@ function addNewReply(previous){
     let like = roundNum(document.getElementById("like").value);
 
     x = x + '<div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like+'<span class="screenreader"> likes</span></p></div></div></div></div>';
-    
-    return(x);
+    return x;
 /*
 <div class="twt twtwhite twt-replybox">
 
@@ -389,10 +389,10 @@ $(function() {
 
     $('#add').on('click', function() {
         let x;
-        if ( $("#twttype").val() == 'Reply to tweet'){
-            x = addNewReply(prev);
-        }else{
+        if ( $("#twttype").val() == 'Tweet'){
             x = addNewTweet(prev);
+        }else{
+            x = addNewReply(prev);
         }
 
         $('#twtdiv').html(x);
@@ -429,7 +429,13 @@ $(function() {
         prev = x;
     });
 
-
+    $('#twttype').on('change', function() {
+        if( $("#twttype").val() == "Tweet"){
+            document.getElementById("opurldiv").style.display = "none";
+        }else{
+            document.getElementById("opurldiv").style.display = "";
+        }
+    });
 //opens up options for extra features
     $("#image").on("click", function() {
         if( $('input[id="image"]:checked').val() ){
