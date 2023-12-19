@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WW Book Generator</title>
     <link rel="stylesheet" href="CSS/webpage.css">
-    <link rel="stylesheet" href="CSS/mcbook.css">
+    <link rel="stylesheet" href="CSS/mcbook.css" id="ao3-workskin">
+    <link rel="stylesheet" href="CSS/disabledworkskin.css" id="disabled-workskin">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
   </head>
@@ -17,49 +18,65 @@
   <br><br><br>
   <p>NOTES:</p>
 <li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/39524436/chapters/125098090">here</a>! I am the creator</li>
-<li>Because of the way the box under 'Input Text:' operates, it won't notice your 
-  paragraph breaks. Use <a href="https://htmled.it/">this website</a> to convert it
-</li> 
+
 </li>
 </div>
 
-<div class="easytoread easytoreadstart">
+<div class="easy-to-read easy-to-read-start">
 
 <h3>Input Text:</h3>
 
-<textarea type="text" id="booktext" class="largeinput" oninput="addText()"></textarea>
+<textarea type="text" id="input-text" class="large-input" oninput="addText()"></textarea>
+
+
+<div id="toggle-div">
+  <label class="switch">
+  <input type="checkbox" onclick="disableWorkskin()">
+  <span class="slider"></span>
+  </label>
+  <span id="disable-workskin-label">Workskin Enabled</span>
+  </div>
+  </div>
+</div>
+
+
+
+<br>
+
+
+<div id="output-div">
+
+<div class="mcbook">
+<p class="screenreader" align="center">-- Minecraft Book: -- </p>
+<hr>
+<p><pre>
+Dear Diary,
+
+This is an example text to demonstrate this minecraft book.
+
+Once you add text to the 'input text' box, it will appear here.
+
+If you want to add headers, bold, or anything that would need HTML tags, you'll have to remove the &lt;pre&gt; tags, and then add the paragraph breaks back in with HTML
+</pre></p>
+<hr>
+</div>
 
 </div>
 
-<div class="mcbook"> <p id="paste" >
-  Dear Diary,
-  <br><br>
-This is an example text to show how this book looks with words in it.
-Once you add text to the 'input text' box, it will appear here.
-<br>
-Just remember that input box doesn't recognize paragraph breaks, so you 
-should use the link in the notes box if you want to add any.
-</p></div>
-
-
-<br>
-
-
-<div id="outputdiv"></div>
-<div class="easytoread">
-<div class="HTMLbox copybox">
-<button id="copyHTMLbutton"  >Copy HTML</button>
-<textarea class="largeinput autoresizing" type="text" id = "HTMLoutput">
+<div class="easy-to-read">
+<div class="html-box copy-box">
+<button id="copy-html-button"  >Copy HTML</button>
+<textarea class="large-input" type="text" id = "html-output">
 Your HTML will appear here
 </textarea>
 </div>
 <br>
 
-<div class="CSSbox copybox">
+<div class="css-box copy-box">
   
-<button id="copyCSSbutton" class="autoresizing" >Copy CSS</button>
+<button id="copy-css-button">Copy CSS</button>
 <!--I've added some JS so this textarea grabs the text from mcpoem.txt-->
-<textarea class="largeinput" type="text" id = "CSStocopy">
+<textarea class="large-input" type="text" id = "CSS-to-copy">
 </textarea>
 </div>
 </div>

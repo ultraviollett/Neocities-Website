@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WW Twitter Generator</title>
     <link rel="stylesheet" href="CSS/webpage.css">
-    <link rel="stylesheet" href="CSS/twt.css">
+    <link rel="stylesheet" href="CSS/twt.css" id="ao3-workskin">
+    <link rel="stylesheet" href="CSS/disabledworkskin.css" id="disabled-workskin">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       
     </head>
@@ -16,7 +17,11 @@
       <div class="note">
         <br><br><br>
         <p>NOTES:</p>
-
+<li>this workskin is UNDER CONSTRUCTION. while it mostly works well on this webpage, when copying it 
+  onto Ao3 it has a few issues. this is because Ao3 likes to add paragraphs every that aim to piss me off.
+  I am still currently working on it and may overhaul the whole skin, but please feel free to use it, you'll 
+  just have to edit it a bit in Ao3
+</li>
   <li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/26754208/chapters/65268931#workskin">here</a>!
   I have also added some slight tweaks/different features, with code taken from <a href="https://archiveofourown.org/works/47803507#index">here.</a> </li>
 
@@ -31,7 +36,7 @@
   <li>dont use &lt; or &gt; in any textboxes, use their html equivalent, &amp;lt; or &amp;gt;</li>
 </div>
 
-<div class="easytoread easytoreadstart">
+<div class="easy-to-read easy-to-read-start">
 <form id="twtstyle">
 <fieldset>
   <div>
@@ -44,7 +49,7 @@
 </form>
 <br>
 
-<select id="twttype" class="nicedropdown">
+<select id="twttype" class="nice-dropdown">
   <option val="tweet">Tweet</option>
   <option val="replytweet">Reply to tweet</option>
 </select>
@@ -59,14 +64,14 @@
   </form>
 <br>
 <div id="opurldiv">
-<textarea type="url" class="longinput" id="opurl" placeholder="OP's @"></textarea>
+<textarea type="url" class="long-input" id="opurl" placeholder="OP's @"></textarea>
 <br><br>
 </div>
 
 
-<textarea type="url" class="longinput snuggledown" id="icon" placeholder="icon URL"></textarea>
+<textarea type="url" class="long-input snuggledown" id="icon" placeholder="icon URL"></textarea>
 
-<select id="iconchoose" class="nicedropdown snuggleup" onchange="pasteIconURL(document.getElementById('icon'),$('#iconchoose').val())">
+<select id="iconchoose" class="nice-dropdown snuggleup" onchange="pasteIconURL(document.getElementById('icon'),$('#iconchoose').val())">
   <option>or pick icon here</option>
 
   <option>Steve Minecraft</option>
@@ -92,14 +97,14 @@
 
 <textarea type="text" id="username" class="required" placeholder="Add username here"></textarea>
 <textarea type="text" id="twturl" placeholder="@"></textarea>
-<textarea type="text" id="tweet" class="largeinput required" placeholder="Add body of tweet here">
+<textarea type="text" id="tweet" class="large-input required" placeholder="Add body of tweet here">
 </textarea>
 <br>
 
 
 <div id="imageURLs">
-<textarea type="url" class="longinput required" id="image1"  placeholder="insert image URL"></textarea><br>
-<textarea type="text" class="largeinput" id="alt" placeholder="insert alt text for image (optional)"></textarea><br>
+<textarea type="url" class="long-input required" id="image1"  placeholder="insert image URL"></textarea><br>
+<textarea type="text" class="large-input" id="alt" placeholder="insert alt text for image (optional)"></textarea><br>
 <br>
 </div>
 
@@ -127,9 +132,9 @@
   </form>
   <br>
 
-  <textarea type="url" class="longinput" id="qicon" placeholder="insert icon URL"></textarea>
+  <textarea type="url" class="long-input" id="qicon" placeholder="insert icon URL"></textarea>
 
-  <select id="qiconchoose" class="nicedropdown" onchange="pasteIconURL( document.getElementById('qicon'), $('#qiconchoose').val())">
+  <select id="qiconchoose" class="nice-dropdown" onchange="pasteIconURL( document.getElementById('qicon'), $('#qiconchoose').val())">
     <option>or pick icon here</option>
   
     <option>Steve Minecraft</option>
@@ -157,7 +162,7 @@
 <input type="date" id="qdate">
 <br>
 
-<textarea type="text" id="qtweet" class="largeinput required" placeholder="Add body of quoted tweet here">
+<textarea type="text" id="qtweet" class="large-input required" placeholder="Add body of quoted tweet here">
 </textarea>
 <br>
 
@@ -165,8 +170,8 @@
 <div id="qimageURLs">
   <br>
   Add image URLs: <br>
-  <textarea type="url" class="longinput required" id="qimage1" placeholder="insert image URL"></textarea><br>
-  <textarea type="text" class="largeinput" id="qalt" placeholder="insert alt text for image (optional)"></textarea><br>
+  <textarea type="url" class="long-input required" id="qimage1" placeholder="insert image URL"></textarea><br>
+  <textarea type="text" class="large-input" id="qalt" placeholder="insert alt text for image (optional)"></textarea><br>
   <br><br>
 </div>
 
@@ -198,6 +203,16 @@
 <br><br>
 
 <button id="add">Add</button>
+
+<div id="toggle-div">
+  <label class="switch">
+  <input type="checkbox" onclick="disableWorkskin()">
+  <span class="slider"></span>
+  </label>
+  <span id="disable-workskin-label">Workskin Enabled</span>
+  </div>
+  </div>
+  
 </div>
 
 <div id="twtdiv">
@@ -224,20 +239,20 @@
 
 </div>
 
-<div class="easytoread">
+<div class="easy-to-read">
 
-<div class="HTMLbox copybox">
-  <button id="copyHTMLbutton"  >Copy HTML</button>
-  <textarea class="largeinput autoresizing" type="text" id = "HTMLoutput">
+<div class="html-box copy-box">
+  <button id="copy-html-button"  >Copy HTML</button>
+  <textarea class="large-input autoresizing" type="text" id = "html-output">
   Your HTML will appear here
   </textarea>
   </div>
   <br>
   
-  <div class="CSSbox copybox">
+  <div class="css-box copy-box">
     
-  <button id="copyCSSbutton" class="autoresizing" >Copy CSS</button>
-  <textarea class="largeinput" type="text" id = "CSStocopy">
+  <button id="copy-css-button" class="autoresizing" >Copy CSS</button>
+  <textarea class="large-input" type="text" id = "CSS-to-copy">
   </textarea>
   </div>
 </div>

@@ -382,7 +382,7 @@ function addNewReply(previous){
 $(function() {
 
     fetch("CSS/twt.txt").then(res => res.text()).then(text => {
-        const contentDiv = document.getElementById("CSStocopy");
+        const contentDiv = document.getElementById("CSS-to-copy");
         contentDiv.textContent = text;
     });
 
@@ -396,7 +396,7 @@ $(function() {
         }
 
         $('#twtdiv').html(x);
-        $('#HTMLoutput').text(x);
+        $('#html-output').text(x);
 
         //now erase all that is needed
         $('#tweet').val('');

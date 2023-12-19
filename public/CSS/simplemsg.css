@@ -52,3 +52,7 @@
     margin-left: auto;
     text-align: left;
 }
+
+.simplemsg hr{
+  display: none;
+}

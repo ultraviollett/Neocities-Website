@@ -34,6 +34,10 @@
 
 }
 
+.mcbuttondiv hr{
+      display: none;
+}
+
 .mcbuttondiv:hover{
      background-image: url("https://images.squidge.org/images/2023/11/30/buttonpressed.png");
 }
@@ -45,3 +49,4 @@
       line-height: 1;
       margin: auto;
 }
+

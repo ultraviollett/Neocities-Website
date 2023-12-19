@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WW Poem Generator</title>
-    <link rel="stylesheet" href="CSS/mcpoem.css">
+    <link rel="stylesheet" href="CSS/mcpoem.css" id="ao3-workskin">
+    <link rel="stylesheet" href="CSS/disabledworkskin.css" id="disabled-workskin">
     <link rel="stylesheet" href="CSS/webpage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     
@@ -20,30 +21,31 @@
 <li>I am planning to make it so you can pick any colour with a colour picker to add to the text,
   if you want to do so currently, there are instructions on the AO3 page linked above
 </li>
+<li>Use the Disable Workskin button to see how your HTML looks without its workskin</li>
 <li>Refresh the page to start over</li>
 </div>
 
-<div class="easytoread easytoreadstart">
+<div class="easy-to-read easy-to-read-start">
 
 <h3>Input Text:</h3>
-<textarea type="text" id="poemtext" class="largeinput" placeholder="write text here, then click add to add a paragraph to your end poem">
+<textarea type="text" id="input-text" class="large-input" placeholder="write text here, then click add to add a paragraph to your end poem">
 </textarea>
 
 <h3>Pick Colour:</h3>
 
-<form id="choosecolorform">
-<fieldset  onchange="revealColorPickDiv()">
+<form id="choose-color-form">
+<fieldset  onchange="reveal-color-pick-div()">
   <div class="columnify">
   <div>
-  <p class="important"><input type="radio" id="white" name="color" value="white" checked/><label for="white"> white</label>
-  <p class="important"><input type="radio" id="green" name="color" value="green" /><label for="green"> green</label> </p>
-  <p class="important"><input type="radio" id="cyan" name="color" value="cyan" /><label for="cyan"> cyan</label> </p>
-  <p><input type="radio" id="red" name="color" value="red" /><label for="red"> red</label> </p>
+  <p class="important"><input type="radio" id="white" name="color" value="white" checked/><label for="white"> White</label>
+  <p class="important"><input type="radio" id="green" name="color" value="green" /><label for="green"> Green</label> </p>
+  <p class="important"><input type="radio" id="cyan" name="color" value="cyan" /><label for="cyan"> Cyan</label> </p>
+  <p><input type="radio" id="red" name="color" value="red" /><label for="red"> Red</label> </p>
 </div><div>
-  <p><input type="radio" id="orange" name="color" value="orange" /><label for="orange"> orange</label> </p>
-  <p><input type="radio" id="yellow" name="color" value="yellow" /><label for="yellow"> yellow</label> </p>
-  <p><input type="radio" id="purple" name="color" value="purple" /><label for="purple"> purple</label> </p>
-  <p><input type="radio" id="pink" name="color" value="pink" /><label for="pink"> pink</label> </p>
+  <p><input type="radio" id="orange" name="color" value="orange" /><label for="orange"> Orange</label> </p>
+  <p><input type="radio" id="yellow" name="color" value="yellow" /><label for="yellow"> Yellow</label> </p>
+  <p><input type="radio" id="purple" name="color" value="purple" /><label for="purple"> Purple</label> </p>
+  <p><input type="radio" id="pink" name="color" value="pink" /><label for="pink"> Pink</label> </p>
 </div>
 </div>
   <!--
@@ -55,51 +57,68 @@
   </fieldset>
 </form>
 
-<div id="colorpickdiv">
+<div id="color-pick-div">
   <input type="color">
 </div>
 
 <button id="add">Add</button>
 
+
+<div id="toggle-div">
+<label class="switch">
+  <input type="checkbox" onclick="disableWorkskin()">
+  <span class="slider"></span>
+</label>
+<span id="disable-workskin-label">Workskin Enabled</span>
+</div>
 </div>
 
 <br>
-<div id="outputdiv">
 
-<p class="screenreader">A Minecraft Poem with the following text:</p>
+<div id="output-div">
+
 <div class="mcpoemdiv">
+<p class="screenreader" align="center">-- Minecraft End Poem: --</p>
+<hr>
 <p class="green">
 <span class="screenreader">green text:</span>
 Once upon a time there was an example text to showcase
 an end poem generator</p><p class="cyan">
-<span class="screenreader">cyan text: </span>
-That text is this one, player
+<span class="screenreader">cyan text: </span> That text is this one, player
 </p>
-<p class="greenen">
-<span class="screenreader">green text: </span>
-click "add" to start creating your own end poem,
-each time you click "add", a new paragraph will
-be added. It may be easier to edit the text inside
-the HTML if you make a mistake like a spelling error
+<p class="">
+<span class="screenreader">white text: </span>
+click "add" to start creating your own end poem. each time you click "add", a new paragraph will be added. It may be easier to edit the text inside the HTML if you make a mistake like a spelling error
 </p>
+<p class="pink">
+<span class="screenreader">pink text: </span>
+There are fun colors as well!
+</p>
+<p class="pink">
+  <span class="screenreader">pink text: </span>
+ Also, if you add a paragraph inside the input box it won't show up, you have 
+  to add it using 'add'. 
+  </p>
+<hr>
+</div>
 </div>
 
-</div>
+
 <br>
-<div class="easytoread">
-<div class="HTMLbox copybox">
-<button id="copyHTMLbutton"  >Copy HTML</button>
-<textarea class="largeinput autoresizing" type="text" id = "HTMLoutput">
+<div class="easy-to-read">
+
+<div class="html-box copy-box">
+<button id="copy-html-button"  >Copy HTML</button>
+<textarea class="large-input autoresizing" type="text" id = "html-output">
 Your HTML will appear here
 </textarea>
 </div>
 <br>
 
-<div class="CSSbox copybox">
-  
-<button id="copyCSSbutton" class="autoresizing" >Copy CSS</button>
+<div class="css-box copy-box">
+<button id="copy-css-button" class="autoresizing" >Copy CSS</button>
 <!--I've added some JS so this textarea grabs the text from mcpoem.txt-->
-<textarea class="largeinput" type="text" id = "CSStocopy"></textarea>
+<textarea class="large-input" type="text" id = "CSS-to-copy"></textarea>
 
 </div>
 </div>

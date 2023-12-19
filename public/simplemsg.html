@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WW Message Generator</title>
-    <link rel="stylesheet" href="CSS/simplemsg.css">
+    <link rel="stylesheet" href="CSS/simplemsg.css" id="ao3-workskin">
+    <link rel="stylesheet" href="CSS/disabledworkskin.css" id="disabled-workskin">
     <link rel="stylesheet" href="CSS/webpage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     
@@ -22,9 +23,9 @@
 
 
 
-<div class="easytoread easytoreadstart">
+<div class="easy-to-read easy-to-read-start">
 <h3>Input text:</h3>
-<textarea type="text" id="msgtext" class="largeinput">
+<textarea type="text" id="input-text" class="large-input">
 </textarea>
 <br>
 
@@ -37,53 +38,68 @@
 <br>
 <button id="add">Add</button>
 
+<div id="toggle-div">
+  <label class="switch">
+  <input type="checkbox" onclick="disableWorkskin()">
+  <span class="slider"></span>
+  </label>
+  <span id="disable-workskin-label">Workskin Enabled</span>
+  </div>
+  </div>
+  
 </div>
 
 <br>
-<div id="outputdiv">
+<div id="output-div">
+
   <div class="simplemsg">
+    <p class="screenreader" align="center">-- Text Messages: --</p>  
+    <hr>
+
     <p class="right" align="right">
-      <span class="screenreader">right text:</span>
+      <span class="screenreader">right text: </span>
       Wow, what a very nice and unubtrusive workskin!
     </p>
     <p class="left" align="left">
-      <span class="screenreader">left text:</span>
+      <span class="screenreader">left text: </span>
       *unobtrusive
     </p>
     <p class="left" align="left">
-      <span class="screenreader">left text:</span>
+      <span class="screenreader">left text: </span>
       also, notice how because the background is dark
       the font is light. The text will change colour
       depending on what siteskin you havf
     </p>
     <p class="right" align="right">
-      <span class="screenreader">right text:</span>*have
+      <span class="screenreader">right text: </span>*have
     </p>
     <p class="left" align="left">
-      <span class="screenreader">left text:</span>*have
+      <span class="screenreader">left text: </span>*have
     </p>
     <p class="left" align="left">
-      <span class="screenreader">left text:</span>:|
+      <span class="screenreader">left text: </span>:|
     </p>
+    <hr>
   </div>
+
 </div>
-</div>
 
 
 
-<div class="easytoread">
-<div class="HTMLbox copybox">
-  <button id="copyHTMLbutton"  >Copy HTML</button>
-  <textarea class="largeinput autoresizing" type="text" id = "HTMLoutput">
+
+<div class="easy-to-read">
+<div class="html-box copy-box">
+  <button id="copy-html-button"  >Copy HTML</button>
+  <textarea class="large-input autoresizing" type="text" id = "html-output">
   Your HTML will appear here
   </textarea>
   </div>
 
   
-  <div class="CSSbox copybox">
+  <div class="css-box copy-box">
     
-  <button id="copyCSSbutton" class="autoresizing" >Copy CSS</button>
-  <textarea class="largeinput" type="text" id = "CSStocopy">
+  <button id="copy-css-button" class="autoresizing" >Copy CSS</button>
+  <textarea class="large-input" type="text" id = "CSS-to-copy">
   </textarea>
   </div>
 </div>

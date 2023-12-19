@@ -13,9 +13,9 @@
 
 .mcbook{
   display: block;
-  background-image: url("img/bookbg.png");
-  /*background-image: url("https://images.squidge.org/images/2023/08/22/Book_and_Quill_Writing_webp.png");
+  /*background-image: url("img/bookbg.png");
   */
+  background-image: url("https://images.squidge.org/images/2023/08/22/Book_and_Quill_Writing_webp.png");
   text-align:center;
   background-position: center;
   background-repeat:no-repeat;
@@ -31,4 +31,14 @@
   max-height: 308px;
 
   color: black;
+}
+
+.mcbook pre{
+  font: unset;
+  text-wrap: wrap;
+  font-weight: 200;
+}
+
+.mcbook hr{
+  display: none;
 }

@@ -118,7 +118,7 @@ textarea{
   vertical-align: text-top;
 }
 
-.largeinput{
+.large-input{
   min-height: 3cm;
   overflow-y:hidden;
   width: 90%;
@@ -131,7 +131,7 @@ textarea{
   
 }
 
-.longinput{
+.long-input{
   min-height: 2em;
   overflow-y:hidden;
   width: 90%;
@@ -233,7 +233,7 @@ a:hover{
 /*
 to make it easier to read when on desktop
 */
-.easytoread{
+.easy-to-read{
   display: flex;
   flex-direction: column;
   margin: 2em auto;
@@ -245,7 +245,7 @@ to make it easier to read when on desktop
   border-top: 8px solid var(--middleval);
   border-bottom: 8px solid var(--middleval);
 }
-.easytoread::before{
+.easy-to-read::before{
   display: block;
   content: ".";
   color: rgb(0,0,0,0);
@@ -253,7 +253,7 @@ to make it easier to read when on desktop
   background-color: var(--lightval);
   margin: -1em -5vw 1em -5vw;
 }
-.easytoread::after{
+.easy-to-read::after{
   display: block;
   content: ".";
   color: rgb(0,0,0,0);
@@ -262,15 +262,15 @@ to make it easier to read when on desktop
   margin: 1em -5vw -1em -5vw;
 }
 
-.easytoread:last-of-type::after, .easytoreadend::after{
+.easy-to-read:last-of-type::after, .easy-to-readend::after{
   display: none;
 }
 
-.easytoread:first-of-type::before, .easytoreadstart::before{
+.easy-to-read:first-of-type::before, .easy-to-read-start::before{
   display: none;
 }
 
-.easytoread:first-of-type, .easytoreadstart{
+.easy-to-read:first-of-type, .easy-to-read-start{
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   margin-top: 0;
@@ -279,7 +279,7 @@ to make it easier to read when on desktop
 
 }
 
-.easytoread:last-of-type, .easytoreadend{
+.easy-to-read:last-of-type, .easy-to-readend{
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   padding-bottom: 2em;
@@ -287,26 +287,26 @@ to make it easier to read when on desktop
   border-bottom: none;
 
 }
-.easytoread p{
+.easy-to-read p{
   margin: 0.5em 0;
   line-height: 1.4;
 }
 
-.easytoread .nicedropdown{
+.easy-to-read .nice-dropdown{
   display: inline-block;
   width: fit-content;
   margin: auto auto auto 5px;
   padding: 1px 3em 1px 1em;
 }
-.easytoread input{
+.easy-to-read input{
   width: fit-content;
   margin: auto auto auto 5px;
 }
 
-.easytoread button{
+.easy-to-read button{
   margin: 1em;
 }
-.copybox{
+.copy-box{
   display: block;
   max-width: 15cm;
   font-family: 'Courier New', Courier, monospace;
@@ -315,17 +315,17 @@ to make it easier to read when on desktop
 
 }
 
-.copybox>textarea{
+.copy-box>textarea{
   margin:0;
   background-color: unset;
   border: none;
-  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, #000 90%, transparent);
 
   padding: 15px;
   
 }
 
-.copybox>button{
+.copy-box>button{
   display: block;
   width:100%;
   width: calc(100% + 4px);
@@ -333,24 +333,24 @@ to make it easier to read when on desktop
   font-size: small;
   }
 
-.CSSbox{
+.css-box{
   background-color: #00223c;
   border: 2px solid;
   border-top: none;
 }
 
-.CSSbox>textarea{
+.css-box>textarea{
   color: white;
   font-size: xx-small;
   height: 4cm;
 }
 
-.HTMLbox{
+.html-box{
   background-color: rgb(255, 255, 255);
   border: 2px solid rgba(128, 128, 128, 0.373);
   border-top: none;
 }
-.HTMLbox>textarea{
+.html-box>textarea{
   height: 5cm;
 }
 
@@ -360,4 +360,78 @@ to make it easier to read when on desktop
 
 .snuggledown{
   margin-bottom: 2px;
+}
+
+
+
+/*Toggle button*/
+
+#toggle-div{
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+ /* The switch - the box around the slider */
+ .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  border: var(--darkestval) dotted 4px;
+  
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--highlight);
+
+  transition: .1s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  right: 4px;
+  bottom: 4px;
+  border: var(--darkestval) solid 3px;
+
+
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: unset;
+}
+
+
+input:checked + .slider:before {
+
+  -ms-transform: translateX(-18px);
+  transform: translateX(-18px);
+}
+
+#disable-workskin-label{
+  padding: 10px;
+  font-weight: bold;
+  display: block;
+  vertical-align: middle;
+  font-size: 1.2em;
+
 }

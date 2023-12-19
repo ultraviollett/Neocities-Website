@@ -13,16 +13,23 @@ x-add demonstration to definitions
 x-add 'copy text' button to HTML/CSS
 x-switch CSS to under all workskins
 x-move css copy paste to text files then display them with js
+X-CHEKC EVERY SKIN WORKS
+x-add disable workskin toggle to each one
+
 
 
 --current goals--
 
 general:
--fix twitter icon problems
--stylize everything better
+-replace everything w best practices
+-REPLACE TWITTER 
+-add tumblr
+-add note about toggling workskin to each workskin
 -finish tutorial page, CHECK WITH PEOPLE IT MAKES SENSE
--CHEKC EVERY SKIN WORKS
 -ensure all fields that need to go blank after hitting add do so
+-add options to add names for alt text for simplemsg
+-find a way to read it with a common screenreader?
+-check everything before you 'publish' it
 
 add HTML generators: [ADD]
 -add tumblr [TBLR]
@@ -44,6 +51,7 @@ other (less important):
 
 --far off goals--
 -add tip jar
+-stylize everything better
 
 
 workskin tips (to be compiled later, probably in an ao3 work):

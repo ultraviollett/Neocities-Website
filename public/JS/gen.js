@@ -1,13 +1,23 @@
  //makes sure all checkboxes are off by default
 document.getElementsByTagName('input').checked = "false";
 
-//add back function that increases textareas vert to fit text
-textarea = document.querySelector(".autoresizing");
-textarea.addEventListener('input', autoResize, false);
+isDisabled = false; //for workskin
+$("#disabled-workskin").attr("disabled", "disabled"); //starts off disabled
 
-function autoResize() {
-    this.style.height = 'auto';
-    this.style.height = this.scrollHeight + 'px';
+
+
+function disableWorkskin(){
+    if (!isDisabled){
+        $("#ao3-workskin").attr("disabled", "disabled");
+        $("#disabled-workskin").removeAttr("disabled");
+        $("#disable-workskin-label").text("Workskin Disabled")
+        isDisabled = true;
+    }else{
+        $("#ao3-workskin").removeAttr("disabled");
+        $("#disabled-workskin").attr("disabled", "disabled");
+        $("#disable-workskin-label").text("Workskin Enabled")
+        isDisabled = false;
+    }
 }
 
 //https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard 
@@ -15,17 +25,17 @@ function autoResize() {
 
 
 $(function() {
-    $('#copyHTMLbutton').on('click', function() {
-      let tocopy = $("#HTMLoutput").val();
+    $('#copy-html-button').on('click', function() {
+      let tocopy = $("#html-output").val();
       navigator.clipboard.writeText(tocopy);
-      $("#copyHTMLbutton").text("Copied!");
+      $("#copy-html-button").text("Copied!");
 
   });
   
-  $('#copyCSSbutton').on('click', function() {
-    let tocopy = $("#CSStocopy").val();
+  $('#copy-css-button').on('click', function() {
+    let tocopy = $("#CSS-to-copy").val();
     navigator.clipboard.writeText(tocopy);
-    $("#copyCSSbutton").text("Copied!");
+    $("#copy-css-button").text("Copied!");
 });
 
 });
