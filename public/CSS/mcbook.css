@@ -10,7 +10,6 @@
   border: 0;
 }
 
-
 .mcbook{
   display: block;
   /*background-image: url("img/bookbg.png");
@@ -36,6 +35,7 @@
 .mcbook pre{
   font: unset;
   text-wrap: wrap;
+  
   font-weight: 200;
 }
 
