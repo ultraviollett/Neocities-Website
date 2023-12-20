@@ -22,9 +22,6 @@ $('#timestamp-div').hide();
 $('#time-timestamp-div').hide();
 $('#custom-timestamp-div').hide();
 
-//you cant have typing dots from your side
-$("#message-type option[val='typing-dots']").hide();
-
 
 //hide read receipt, will show when checkbox is checked
 $('#read-receipt-div').hide();
@@ -40,7 +37,7 @@ const handleErrors = response => {
     return response;
   }
 
-fetch("CSS/imsg.txt")
+fetch("CSS/imsg.css")
 .then(handleErrors)
 .then(res => res.text())
 .then(text => {
@@ -85,14 +82,12 @@ function addNameForDm(){
 function chooseMessenger(){
     if ( $('input[id="you"]:checked').val() ){
         $("#contact-div").hide();
-        $("#message-type option[val='typing-dots']").hide();
         $("#read-receipt-choose-div-div").show();
 
 
     }else{
         $("#contact-div").show();
         $("#read-receipt-choose-div").hide();
-        $("#message-type option[val='typing-dots']").show();
         $("#read-receipt-choose-div-div").hide();
 
 
@@ -261,7 +256,7 @@ function addNewText(){
 function addTimestamp(){
     //finds what info has been inputted for the timestamp and adds it
 
-    const timestamp =  $("#timestamp-choose").find(":selected").text();
+    const timestamp =  $("#timestamp-choose").find(":selected").val();
     var x;
 
     switch (timestamp){

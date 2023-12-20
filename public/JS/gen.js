@@ -33,7 +33,7 @@ $(function() {
   });
   
   $('#copy-css-button').on('click', function() {
-    let tocopy = $("#CSS-to-copy").val();
+    let tocopy = $("#css-to-copy").val();
     navigator.clipboard.writeText(tocopy);
     $("#copy-css-button").text("Copied!");
 });

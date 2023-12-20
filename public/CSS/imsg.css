@@ -226,13 +226,15 @@
 *		Typing dot-dot-dot
 **************************************************/
 /* weird tail*/
-.imessage .in dd.typing::before,
-.imessage .in dd.typing::after {
+
+.imessage dd.typing::before,
+.imessage dd.typing::after {
 	content: "";
 	position: absolute;
-	border-radius: 100%;
-	background: #e5e5ea;
+	border-radius: 50%;
+	background: inherit;
 	border: none;
+	z-index: 20;
 }
 .imessage .in dd.typing::after {
 	bottom: 0;
@@ -247,8 +249,22 @@
 	height: 0.3125em;
 }
 
+.imessage .out dd.typing::after {
+	bottom: 0;
+	left: 3.25em;
+	width: 0.625em;
+	height: 0.625em;
+}
+.imessage .out dd.typing::before {
+	bottom: -0.2em;
+	left: 4.4em;
+	width: 0.3125em;
+	height: 0.3125em;
+}
+
+
 /* dots */
-.imessage .in dd.typing div {
+.imessage dd.typing div {
 	height: 0.625em;
 	width: 0.625em;
 	border-radius: 100%;
@@ -256,6 +272,12 @@
 	display: inline-block;
 	margin: 0.125em 0;
 }
+
+.imessage .out dd.typing div {
+	background: #0054ae;
+}
+
+
 .imessage .in dd.typing div:nth-child(1) {opacity: 0.4;}
 .imessage .in dd.typing div:nth-child(2) {opacity: 0.7;}
 .imessage .in dd.typing div:nth-child(3) {opacity: 1;}
