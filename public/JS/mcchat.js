@@ -1,49 +1,59 @@
+var prev = ""; //holds all of previous text so you can keep adding to it
+
+$("#colored-text-opt").hide();
 
 
-document.getElementById("color-pick-div").style.display = "none";
-
-var prev = "";//holds code (minus surrounding div) to be added to
-//were adding a default example
-
-/*
-function reveal-color-pick-div(){
-    //not in use as I need to edit the CSS to add custom colours,
-    //ill come back later
-    if( $('input[id="colorpick"]:checked').val() ){
-
-        document.getElementById("color-pick-div").style.display = "";
-    }else{
-        document.getElementById("color-pick-div").style.display = "none";
-    }
-}
-*/
-
-function findColor(){
-    //finds colour of text picked in radio buttons
-    //Its a separate function because I want to add a colorpicker later
-    const x = $("input[type='radio'][name=color]:checked",'#choose-color-form').val();
+function findTextType(){
+    var x = $("input[type='radio'][name=color]:checked",'#choose-type').val();
     return x;
 }
+
 
 function addSurroundingDiv(x){ 
+    const fade = $('input[id="fade"]:checked').val() ? " fade" : "";
     //adds surrounding div to current code
-    return `
-<div class="mcpoemdiv">
-<p class="screenreader" align="center">-- Minecraft End Poem: --</p><hr> ${x} <hr></div>`;
+    var bg = $("select#bg-choose").children("option:selected").val();
+    
 
+    const fullThing = `
+<div class="mcchat ${bg}${fade}">
+<div class="screenreader" align=center><b>-- Minecraft Chat: --</b></div>
+<hr>${x}<hr></div>`;
+    return fullThing;
 }
 
-function addNewText(x){
-    const color = findColor(); //find color picked
+function addNewText(){
+    const type = findTextType(); //find color picked
+    var text = allReplace( $("#input-text").val(), { 
+        '<': '&lt;',
+        '>': '&gt;',
+        '\r?\n' : '<br>',
+        '&lt;span' : "<span",
+        '"&gt;': '">',
+        '&lt;/span&gt;': "</span>"
+    }
+     ); //gets text and replaces any values that confuse html
 
-    const text = $("#input-text").val().replace(/\r?\n/g, '<br />');//get text from input-text box, keeps paragraphs
-
-    x = x + `
-<p class="${color}">
-<span class="screenreader"> ${color} text: </span>
+    const x = `<p><span class="${type}">
 ${text}
-</p>`;
+</span></p>`;
     return x;
+}
+
+
+function compileThing(add=true){
+
+    let x =  $("#input-text").val() && add ? addNewText() : "";
+
+    x = prev + x;
+
+    fullThing = addSurroundingDiv(x);
+
+    $('#output-div').html(fullThing);
+
+    $('#html-output').text(fullThing);
+
+    prev = x;
 }
 
 
@@ -51,23 +61,53 @@ $(function() {
 
     $('#add').on('click', function() {
         //compiles the whole code together as is currently
-        
-        let x = addNewText(prev);
-
-        prev = x;
-
-        x = addSurroundingDiv(x);
-        $('#output-div').html("");
-        $('#output-div').html(x);
-        $('#html-output').text(x);
-
+        compileThing();
+    
         $("#input-text").val("");
+        $('#show-colored-text').prop('checked', false);
+    });
+
+    $('#add-colored-text').on('click', function() {
+        //compiles coloured text
+        const color = $("select#colored-text-choose").children("option:selected").val();
+        const text = $("#input-colored-text").val();
+        var x = $("#input-text").val();
+        x = `${x}<span class="${color}"> ${text} </span>`
+        $("#input-text").val(x);
 
     });
 
+    $('#show-colored-text').on('click', function() {
+        //reveals colored text div when checkmarked
+        if( $('input[id="show-colored-text"]:checked').val() ){
+            $("#colored-text-opt").slideDown();
+        }else{
+            $("#colored-text-opt").slideUp();
+        }
 
+    });
 
-    fetch("CSS/mcpoem.txt").then(res => res.text()).then(text => {
+    $('#fade').on('click', function() {
+        //reveals colored text div when checkmarked
+        if( $('input[id="fade"]:checked').val() ){
+            compileThing(false);
+        }else{
+            compileThing(false);
+        }
+    });
+
+    $('#colored-text-choose').on('click', function() {
+        //compiles the whole code together as is currently
+        
+        var x = $("select#colored-text-choose").children("option:selected").val();
+        $("#display-colored-text").text(x);
+        
+        $('#show-colored-text').prop('checked', false);
+
+    });
+
+    fetch("CSS/mcchat.css").then(res => res.text()).then(text => {
+        //grabs css needed to disaply in css-to-copy
         const contentDiv = document.getElementById("css-to-copy");
         contentDiv.textContent = text;
     });
