@@ -17,11 +17,7 @@
       <div class="note">
         <br><br><br>
         <p>NOTES:</p>
-<li>this workskin is UNDER CONSTRUCTION. while it mostly works well on this webpage, when copying it 
-  onto Ao3 it has a few issues. this is because Ao3 likes to add paragraphs every that aim to piss me off.
-  I am still currently working on it and may overhaul the whole skin, but please feel free to use it, you'll 
-  just have to edit it a bit in Ao3
-</li>
+
   <li>This workskin exists on AO3 <a href="https://archiveofourown.org/works/26754208/chapters/65268931#workskin">here</a>!
   I have also added some slight tweaks/different features, with code taken from <a href="https://archiveofourown.org/works/47803507#index">here.</a> </li>
 
@@ -37,41 +33,37 @@
 </div>
 
 <div class="easy-to-read easy-to-read-start">
-<form id="twtstyle">
+<form id="twt-style">
 <fieldset>
   <div>
-  <input type="radio" name="stylename" id="default" checked />&nbsp;<label for="default">&nbsp;AO3 default</label>
-  <input type="radio" name="stylename" id="white"/>&nbsp;<label for="white">&nbsp;White</label>
-  <input type="radio" name="stylename" id="black"/>&nbsp;<label for="black">&nbsp;Black</label>
-  <input type="radio" name="stylename" id="minimal">&nbsp;<label for="minimal">&nbsp;Minimal</label>
+  <input type="radio" name="stylename" id="default" value = "default" checked />
+  <label for="default">AO3 default</label>
+  <input type="radio" name="stylename" id="light" value="light"/>
+  <label for="light">Light mode</label>
+  <input type="radio" name="stylename" id="dark" value="dark"/>
+  <label for="dark">Dark mode</label>
+  <input type="radio" name="stylename" id="minimal" value="minimal">
+  <label for="minimal">Minimal</label>
   </div>
 </fieldset>
 </form>
 <br>
 
-<select id="twttype" class="nice-dropdown">
+<select id="twt-type" class="nice-dropdown big-text">
   <option val="tweet">Tweet</option>
   <option val="replytweet">Reply to tweet</option>
 </select>
+<p></p>
 
-
-<form id="extra">
-  <fieldset>
-    <input type="checkbox" id="image"/><label for="image"> Add images?</label><br>
-    <input type="checkbox" id="poll"/><label for="poll"> Add poll?</label><br>
-    <input type="checkbox" id="quotetweetopt"/><label for="quotetweetopt"> Add quoted tweet?</label><br>
-  </fieldset>
-  </form>
-<br>
-<div id="opurldiv">
-<textarea type="url" class="long-input" id="opurl" placeholder="OP's @"></textarea>
-<br><br>
+<div id="op-handle-div">
+<textarea type="url" class="long-input" id="input-op-handle" placeholder="OP's @"></textarea>
+<p></p>
 </div>
 
 
-<textarea type="url" class="long-input snuggledown" id="icon" placeholder="icon URL"></textarea>
+<textarea type="url" class="long-input snuggledown" id="input-icon" placeholder="input icon URL"></textarea>
 
-<select id="iconchoose" class="nice-dropdown snuggleup" onchange="pasteIconURL(document.getElementById('icon'),$('#iconchoose').val())">
+<select id="icon-choose" class="nice-dropdown snuggleup" onchange="pasteIconURL(document.getElementById('input-icon'),$('#icon-choose').val())">
   <option>or pick icon here</option>
 
   <option>Steve Minecraft</option>
@@ -95,26 +87,32 @@
 
 <br>
 
-<textarea type="text" id="username" class="required" placeholder="Add username here"></textarea>
-<textarea type="text" id="twturl" placeholder="@"></textarea>
-<textarea type="text" id="tweet" class="large-input required" placeholder="Add body of tweet here">
-</textarea>
+<textarea type="text" id="input-username" class="required" placeholder="Add username here"></textarea>
+<textarea type="text" id="input-handle" placeholder="@"></textarea>
+<textarea type="text" id="input-text" class="large-input required" placeholder="Add body of tweet here"></textarea>
 <br>
 
+<form id="extra">
+  <fieldset>
+    <input type="checkbox" id="show-image"/><label for="show-image"> Add Image?</label><br />
+    <input type="checkbox" id="show-poll"/><label for="show-poll"> Add Poll?</label><br />
+    <input type="checkbox" id="show-quote"/><label for="show-quote"> Add Quoted Tweet?</label>
+  </fieldset>
+  </form>
 
-<div id="imageURLs">
-<textarea type="url" class="long-input required" id="image1"  placeholder="insert image URL"></textarea><br>
-<textarea type="text" class="large-input" id="alt" placeholder="insert alt text for image (optional)"></textarea><br>
+<div id="image-div">
+<textarea type="url" class="long-input required" id="input-image"  placeholder="insert image URL"></textarea><br>
+<textarea type="text" class="large-input" id="input-alt" placeholder="insert alt text for image (optional)"></textarea><br>
 <br>
 </div>
 
 
-<div id="polloptions">
-  <textarea type="text" id="poll1"  class="required" placeholder="first poll option"></textarea><br>
-  <textarea type="text" id="poll2"  class="required" placeholder="second poll option"></textarea><br>
-  <textarea type="text" id="poll3" placeholder="third poll option"></textarea><br>
-  <textarea type="text" id="poll4" placeholder="fourth poll option"></textarea><br>
-  <input type="number" id="votes" placeholder="# of votes">
+<div id="poll-div">
+  <textarea type="text" id="input-poll-1"  class="required" placeholder="first poll option"></textarea><br>
+  <textarea type="text" id="input-poll-2"  class="required" placeholder="second poll option"></textarea><br>
+  <textarea type="text" id="input-poll-3" placeholder="third poll option"></textarea><br>
+  <textarea type="text" id="input-poll-4" placeholder="fourth poll option"></textarea><br>
+  <input type="number" id="input-votes" placeholder="# of votes">
 <!--<input type="number" id="timeleft" oninput="timeleft()" placeholder="time left">-->
   <br>
 </div>
@@ -122,19 +120,14 @@
 
 
 
-<div id="quotetweet" class="distinguisher">
+<div id="quote-tweet-opt">
 
-<form id="qextra">
-  <fieldset>
-    <input type="checkbox" id="qimage"/><label for="qimage">Add images for quoted tweet?</label><br>
-    <input type="checkbox" id="qpoll"/><label for="qpoll">Add poll for quoted tweet?</label><br>
-  </fieldset>
-  </form>
+
   <br>
 
-  <textarea type="url" class="long-input" id="qicon" placeholder="insert icon URL"></textarea>
+  <textarea type="url" class="long-input" id="quote-icon" placeholder="insert icon URL"></textarea>
 
-  <select id="qiconchoose" class="nice-dropdown" onchange="pasteIconURL( document.getElementById('qicon'), $('#qiconchoose').val())">
+  <select id="quote-icon-choose" class="nice-dropdown" onchange="pasteIconURL( document.getElementById('quote-icon'), $('#quote-icon-choose').val())">
     <option>or pick icon here</option>
   
     <option>Steve Minecraft</option>
@@ -157,50 +150,57 @@
 <br><br>
 
 
-<textarea type="text"  id="qusername" class="required">Name</textarea>
-<textarea type="text" id="qtwturl" placeholder="@"></textarea>
-<input type="date" id="qdate">
+<textarea type="text"  id="quote-username" class="required">Name</textarea>
+<textarea type="text" id="quote-handle" placeholder="@"></textarea>
+<input type="date" id="quote-date">
 <br>
 
-<textarea type="text" id="qtweet" class="large-input required" placeholder="Add body of quoted tweet here">
+<textarea type="text" id="quote-tweet" class="large-input required" placeholder="Add body of quoted tweet here">
 </textarea>
 <br>
 
+<form id="quote-extra">
+  <fieldset>
+    <input type="checkbox" id="show-quote-image"/><label for="show-quote-image">Add Image for quoted tweet?</label><br>
+    <input type="checkbox" id="show-quote-poll"/><label for="show-quote-poll">Add Poll for quoted tweet?</label><br>
+  </fieldset>
+  </form>
 
-<div id="qimageURLs">
+<div id="quote-image-div">
   <br>
   Add image URLs: <br>
-  <textarea type="url" class="long-input required" id="qimage1" placeholder="insert image URL"></textarea><br>
-  <textarea type="text" class="large-input" id="qalt" placeholder="insert alt text for image (optional)"></textarea><br>
+  <textarea type="url" class="long-input required" id="quote-input-image" placeholder="insert image URL"></textarea><br>
+  <textarea type="text" class="large-input" id="input-quote-alt" placeholder="insert alt text for image (optional)"></textarea><br>
   <br><br>
 </div>
 
 
-<div id="qpolloptions">
+<div id="quote-poll-div">
   <br>
   Add poll options: <br>
-  <textarea type="text" id="qpoll1"  class="required" placeholder="first poll option"></textarea><br>
-  <textarea type="text" id="qpoll2"  class="required" placeholder="second poll option"></textarea><br>
-  <textarea type="text" id="qpoll3" placeholder="third poll option"></textarea><br>
-  <textarea type="text" id="qpoll4" placeholder="fourth poll option"></textarea>
-  <br><input type="number" id="qvotes" placeholder="# of votes">
-  <br><br>
+  <textarea type="text" id="input-quote-poll-1"  class="required" placeholder="first poll option"></textarea><br>
+  <textarea type="text" id="input-quote-poll-2"  class="required" placeholder="second poll option"></textarea><br>
+  <textarea type="text" id="input-quote-poll-3" placeholder="third poll option"></textarea><br>
+  <textarea type="text" id="input-quote-poll-4" placeholder="fourth poll option"></textarea>
+  <br><input type="number" id="input-quote-votes" placeholder="# of votes">
+
 </div>
 
 
 </div>
 
 <!--END OF QUOTE TWEET-->
+<p></p>
 
-<input type="time" id="time">
-<input type="date" id="date">
-<br>
+<input type="time" id="input-time">
+<input type="date" id="input-date">
 
+<p></p>
 
-<input type="number" id="reply" placeholder="# of replies">
-<input type="number" id="retweet" placeholder="# of retweets">
-<input type="number" id="like" placeholder="# of likes">
-<br><br>
+<input type="number" id="input-reply" placeholder="# of replies">
+<input type="number" id="input-retweet" placeholder="# of retweets">
+<input type="number" id="input-like" placeholder="# of likes">
+<p></p>
 
 <button id="add">Add</button>
 
@@ -215,29 +215,12 @@
   
 </div>
 
-<div id="twtdiv">
-    
-<div class="twt twtstart  twtwhite "><div class="twt-header">
-  <div class="twt-icon-container hidden"> 
-    <img class="twt-icon"
-     src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg"> 
-    </div> <div class="twt-id"> <span class="twt-name"> Steve</span>
-      <span class="twt-handle"> @firstmc</span><br/></div>
-     </div> <div class="twt-content"><span class="screenreader">Tweet: 
-
-     </span> a twitter generator? with the option to add date and time, along with an image, poll, and quotetweet? very cool! I love twitter </div><div class="twt-timestamp"> 02:00 · 2023-12-16</div><hr class="twt-sep"><div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> 16<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> 3<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> 26<span class="screenreader"> likes</span></p></div></div>
-<div class="twt  twtwhite twt-replybox">
-  <div class="twt-icon-replycontainer hidden"> 
-    <img class="twt-icon" 
-    src="https://images.squidge.org/images/2023/12/09/herobrinemc.webp">
-   </div><div class="twt-replycontainer"><div> 
-    <span class="twt-name">herobrine</span><span class="twt-handle">
-      @thirdmc</div><div class="twt-replying-to"> Replying to
-         <span class="twt-hl">@firstmc</span></div><div class="twt-replycontent"><span class="screenreader">Reply: </span>you said you hated twitter like a week ago?<div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> <span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> <span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> 6<span class="screenreader"> likes</span></p></div></div></div></div><div class="twt  twtwhite  twt-replybox"><div class="twt-icon-replycontainer hidden"> <img class="twt-icon" src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg"> </div><div class="twt-replycontainer"><div> <span class="twt-name">steve</span><span class="twt-handle">@firstmc</div><div class="twt-replying-to"> Replying to <span class="twt-hl">@thirdmc</span></div><div class="twt-replycontent"><span class="screenreader">Reply: </span>literally when<div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> <span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> <span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> <span class="screenreader"> likes</span></p></div></div></div></div><div class="twt  twtwhite  twt-replybox"><div class="twt-icon-replycontainer hidden"> <img class="twt-icon" src="https://images.squidge.org/images/2023/12/09/herobrinemc.webp"> </div><div class="twt-replycontainer"><div> <span class="twt-name">herobrine</span><span class="twt-handle">@thirdmc</div><div class="twt-replying-to"> Replying to <span class="twt-hl">@firstmc</span></div><div class="twt-replycontent"><span class="screenreader">Reply: </span>??<div class="twt-quotebox"><span class="screenreader">Quote Tweet: </span><div class="twt-header"> <div class="twt-icon-container" hidden> <img class="twt-iconquote" src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg"> </div>  <div class="twt-id twt-quote-id"> <span class="twt-name"> steve</span><span class="twt-handle"> @thirdmc</span> </div> </div> <div class="twt-contentquote">I hate twitter</div></div><div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> <span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> <span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> <span class="screenreader"> likes</span></p></div></div></div></div>
 
 
-
+<div id="output-div">
 </div>
+
+
 
 <div class="easy-to-read">
 
@@ -252,10 +235,765 @@
   <div class="css-box copy-box">
     
   <button id="copy-css-button" class="autoresizing" >Copy CSS</button>
-  <textarea class="large-input" type="text" id = "CSS-to-copy">
+  <textarea class="large-input" type="text" id = "css-to-copy">
   </textarea>
   </div>
 </div>
+
+
+
+<h2>Simple Tweet</h2>
+
+
+<div class="twtdiv light">
+  <hr>
+<div class="twt">
+
+    <span class="screenreader">-- Tweet: -- </span>
+    <div class="header">
+        <div>
+        <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+        width="50" height="50" class="hidden" hidden alt=""></p>
+        </div>
+        <div class="name-handle-div">
+            <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+            <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+        </div>
+    </div>
+    
+    <div class="text">
+        <p> Wow, what a very nice and accessible workskin. What should I tweet today?
+        </p>
+        <div class="timestamp"><p><span class="screenreader">Posted</span> 02:00 · 2023-12-16</p></div>
+    </div>
+    
+    <table><tr>
+        <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+        <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+        <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+    </tr></table>
+    <hr>
+    </div>
+</div>
+<br>
+<br>
+
+
+
+<h2>Tweets of different styles</h2>
+
+
+<div class="twtdiv">
+    <div class="twt">
+    <hr>
+    <span class="screenreader">-- Tweet: -- </span>
+    <div class="header">
+        <div>
+        <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+        width="50" height="50"  class="hidden" hidden alt=""></p>
+        </div>
+        <div class="name-handle-div">
+            <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+            <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+        </div>
+    </div>
+    
+    <div class="text">
+        <p> This is the 'Ao3 default' style. Try using some siteskins like reversi (located in the footer of the Ao3 
+            website) to see how it changes! 
+        </p>
+        <div class="timestamp"><p><span class="screenreader">Posted</span> 02:00 · 2023-12-16</p></div>
+    </div>
+    
+    <table><tr>
+        <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+        <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+        <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+    </tr></table>
+    <hr>
+    </div>
+</div>
+<br>
+<br>
+
+<div class="twtdiv dark">
+    <div class="twt">
+    <hr>
+    <span class="screenreader">-- Tweet: -- </span>
+    <div class="header">
+        <div>
+        <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+        width="50" height="50"  class="hidden" hidden alt=""></p>
+        </div>
+        <div class="name-handle-div">
+            <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+            <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+        </div>
+    </div>
+    
+    <div class="text">
+        <p> This is the dark mode style, makes it easy on the eyes 
+        </p>
+        <div class="timestamp"><p><span class="screenreader">Posted</span> 02:00 · 2023-12-16</p></div>
+    </div>
+    
+    <table><tr>
+        <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+        <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+        <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+    </tr></table>
+    <hr>
+    </div>
+</div>
+</div>
+<br>
+<br>
+
+<div class="twtdiv minimal">
+<hr>
+<div class="twt">
+        <span class="screenreader">-- Tweet: -- </span>
+        <div class="header">
+            <div>
+            <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+            width="50" height="50"  class="hidden" hidden alt=""></p>
+            </div>
+            <div class="name-handle-div">
+                <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+                <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+            </div>
+        </div>
+        
+        <div class="text">
+            <p> Lastly, a minimal style, this is the least intrusive option.
+            </p>
+            <div class="timestamp"><p><span class="screenreader">Posted</span> 02:00 · 2023-12-16</p></div>
+        </div>
+        
+        <table><tr>
+            <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+            <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+            <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+        </tr></table>
+        <hr>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+
+
+
+<h2>Tweet with reply</h2>
+
+<div class="twtdiv  light">
+<hr>
+<div class="twt">
+    <span class="screenreader">-- Tweet: -- </span>
+    <div class="header">
+        <div>
+        <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+        width="50" height="50"  class="hidden" hidden alt=""></p>
+        </div>
+        <div class="name-handle-div">
+            <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+            <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+        </div>
+    </div>
+    
+    <div class="text">
+        <p> The regular tweet and the reply tweet are both quite similar, only the formatting is different, 
+            and they use almost all of the same classes.
+        </p>
+        <div class="timestamp"><p><span class="screenreader">Posted</span> 02:00 · 2023-12-16</p></div>
+    </div>
+    
+    <table><tr>
+        <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+        <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+        <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+    </tr></table>
+    <hr>
+    </div>
+
+
+    
+<div class="twt reply-twt">
+    <span class="screenreader">-- Reply Tweet: -- </span>
+<div class="icon-div">
+    <p><img  src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg" width="50px" class="hidden" hidden alt=""></p>
+</div>
+
+<div class="reply-body">
+<div class="header"> 
+<p><span class="name"><span class="screenreader">Name: </span><b>steve</b></span><span class="handle"> @thefirstmc  · <span class="screenreader">Posted</span> 20h <span class="screenreader">ago</span></span></p>
+
+</div>
+<div class="text">
+<p>
+The reply tweet is seperated into two columns thanks to display: table. The div that holds the icon is set to 
+a specified min-width and max-width, and the div that holds the body of the tweet's width is set to 
+auto. 
+</p><p>
+the divider for the regular tweet is a pseudo element of the stats div, and its disabled 
+in the reply tweet
+</p>
+
+</div>
+<table><tr>
+    <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+    <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+    <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+</tr></table>
+</div>
+<hr>
+</div>
+</div>
+<br>
+<Br>
+
+    
+
+<h2>Tweet with reply - stripped</h2>
+
+<div class="twtdiv  light">
+<hr>
+<div class="twt">
+    <span class="screenreader">-- Tweet: -- </span>
+    <div class="header">
+        <div>
+        <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+        width="50" height="50"  class="hidden" hidden alt=""></p>
+        </div>
+        <div class="name-handle-div">
+            <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+        </div>
+    </div>
+    
+    <div class="text">
+        <p> Adding the date, time, handle, the stats, and even icon are all optional. Pretty cool, right?
+            the only thing you need is your username and some text.
+        </p>
+    </div>
+    <table><tr>
+        <td class="reply"><p></p></td>
+        <td class="retweet"><p></td>
+        <td class="like"><p></p></td>
+    </tr></table>
+    <hr>
+</div>
+
+
+    
+<div class="twt reply-twt">
+    <span class="screenreader">-- Reply Tweet: -- </span>
+<div class="icon-div">
+   </div>
+
+<div class="reply-body">
+<div class="header"> 
+<p><span class="name"><span class="screenreader">Name: </span><b>hero</b></span></p>
+
+</div>
+<div class="text">
+<p>
+The reply tweet keeps a bit of its left-margin to distinguish it.
+
+</div>
+<table><tr>
+    <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+    <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+    <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+</tr></table>
+</div>
+<hr>
+</div>
+</div>
+<br>
+<Br>
+
+
+
+<h2>Adding Images and Polls</h2>
+
+<div class="twtdiv light">
+<div class="twt  ">
+<hr>
+
+<div class="header">
+    <div>
+    <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+    width="50" height="50"  class="hidden" hidden alt=""></p>
+    </div>
+    <div class="name-handle-div">
+        <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+        <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+    </div>
+</div>
+
+
+<div class="text">
+You can add both images and polls quite easily. Don't forget to add alt text to the image!
+<p class="twt-image">
+    <img src= ' https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg' 
+    width="400" alt="Hawks from BNHA looking sexy">
+    </p>
+
+    
+        <div class="poll"><p class="screenreader">-- Poll: --</p>
+            <ul>
+            <li><span class="screenreader">Option: </span> Hawks</li>
+            <li><span class="screenreader">Option: </span>Keigo Takami</li>
+            <li><span class="screenreader">Option: </span>Dabi's summer fling</li>
+            </ul>
+            <p class="poll-info">4 votes · 23 hours left</p>
+                </div>
+    
+    <div class="timestamp"><p><span class="screenreader">Posted</span> 03:45 · 2023-12-18 </p></div>
+</div>  
+    <table><tr>
+        <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+        <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+        <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+    </tr></table>
+<hr>
+</div>
+</div>
+<br>
+<br>
+
+
+<div class="twtdiv light">
+  <hr>
+    <div class="twt">
+    
+        <span class="screenreader">-- Tweet: -- </span>
+        <div class="header">
+            <div>
+            <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+            width="50" height="50"  class="hidden" hidden alt=""></p>
+            </div>
+            <div class="name-handle-div">
+                <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+                <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+            </div>
+        </div>
+        
+        <div class="text">
+            <p>Another poll, by itself this time </p>
+    
+        
+            <div class="poll"><p class="screenreader">-- Poll: --</p>
+                <ul>
+                <li><span class="screenreader">Option: </span>Option one</li>
+                <li><span class="screenreader">Option: </span>Option two</li>
+                <li><span class="screenreader">Option: </span>Option three</li>
+                </ul>
+                <p class="poll-info">268 votes · 23 hours left</p>
+                </div>
+                
+            <div class="timestamp"><p><span class="screenreader">Posted</span> 02:00 · 2023-12-16</p></div>
+        </div>
+        
+        <table><tr>
+            <td class="reply"><p><span class="screenreader">[Replies: </span> 234 <span class="screenreader">]</span></p></td>
+            <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32K <span class="screenreader">]</span></p></td>
+            <td class="like"><p><span class="screenreader">[Likes: </span> 454M <span class="screenreader">]</span></p></td>
+        </tr></table>
+        <hr>
+        </div>
+    </div>
+    <br>
+    <br>
+
+
+
+
+
+<h2>Tweet with answered poll</h2>
+
+<div class="twtdiv light">
+    <div class="twt">
+    <hr>
+        <span class="screenreader">-- Tweet: -- </span>
+        <div class="header">
+            <div>
+            <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+            width="50" height="50"  class="hidden" hidden alt=""></p>
+            </div>
+            <div class="name-handle-div">
+                <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+                <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+            </div>
+        </div>
+        
+        <div class="text">
+            <p>This poll has been answered! This is a bit trickier for me to automate, as I have to make a new
+                CSS class for each poll option (because of its percent-age and which result won).  </p>
+            <p>In this poll, you've voted for option two, and the poll is finished, with option one winning.
+            Take a look at this without the workskin, I've made it so you still now which poll won as well as what 
+            you voted for.
+            </p>
+        
+                <div class="poll answered"><p class="screenreader">-- Poll: --</p>
+                    <ul>
+                    <li class="percent--1-winner"><span class="screenreader"><b>50% voted for the winning option: </span> Option one</b></li>
+                    <li class="percent--2"><span class="screenreader">20% voted for option: </span>Option two <img src="https://images.squidge.org/images/2023/12/16/pollcheckmark.png" width="15" class="hidden" hidden alt=""><span class="screenreader">- You voted for this option</span></li>
+                    <li class="percent--3"><span class="screenreader">30% voted for option: </span>Option three</li>
+                    </ul>
+                    <p class="poll-info">4 votes · final results</p>
+                        </div>
+        </div>
+        <table><tr>
+            <td class="reply"><p><span class="screenreader">[Replies: </span> 234 <span class="screenreader">]</span></p></td>
+            <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32K <span class="screenreader">]</span></p></td>
+            <td class="like"><p><span class="screenreader">[Likes: </span> 454M <span class="screenreader">]</span></p></td>
+        </tr></table>
+        <hr>
+</div>
+</div>
+</div>
+<br>
+<br>
+
+<div class="twtdiv light">
+    <div class="twt">
+    <hr>
+        <span class="screenreader">-- Tweet: -- </span>
+        <div class="header">
+            <div>
+            <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+            width="50" height="50"  class="hidden" hidden alt=""></p>
+            </div>
+            <div class="name-handle-div">
+                <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+                <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+            </div>
+        </div>
+        
+        <div class="text">
+            <p>This poll has been answered (option two again), but it's not finished, so there's no winner yet
+            
+            </p>
+        
+                <div class="poll answered"><p class="screenreader">-- Poll: --</p>
+                    <ul>
+                        <li class="percent--1"><span class="screenreader">50% voted for option: </span> Option one</li>
+                        <li class="percent--2"><span class="screenreader">20% voted for option: </span>Option two <img src="https://images.squidge.org/images/2023/12/16/pollcheckmark.png" width="15" class="hidden" hidden alt=""><span class="screenreader">- You voted for this option</span></li>
+                        <li class="percent--3"><span class="screenreader">30% voted for option: </span>Option three</li>
+                        </ul>
+                    <p class="poll-info">4 votes · 2h left</p>
+                        </div>
+        </div>
+        <table><tr>
+            <td class="reply"><p><span class="screenreader">[Replies: </span> 234 <span class="screenreader">]</span></p></td>
+            <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32K <span class="screenreader">]</span></p></td>
+            <td class="like"><p><span class="screenreader">[Likes: </span> 454M <span class="screenreader">]</span></p></td>
+        </tr></table>
+        <hr>
+</div>
+</div>
+</div>
+<br>
+<br>
+
+<div class="twtdiv light">
+    <div class="twt">
+    <hr>
+        <span class="screenreader">-- Tweet: -- </span>
+        <div class="header">
+            <div>
+            <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+            width="50" height="50"  class="hidden" hidden alt=""></p>
+            </div>
+            <div class="name-handle-div">
+                <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+                <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+            </div>
+        </div>
+        
+        <div class="text">
+            <p>
+            Here's one more poll that you haven't voted in, and is also ongoing            
+            </p>
+        
+                <div class="poll answered"><p class="screenreader">-- Poll: --</p>
+                    <ul>
+                        <li class="percent--1"><span class="screenreader">50% voted for option: </span> Option one</li>
+                        <li class="percent--2"><span class="screenreader">20% voted for option: </span>Option two</li>
+                        <li class="percent--3"><span class="screenreader">30% voted for option: </span>Option three</li>
+                        </ul>
+                    <p class="poll-info">4 votes · 2h left</p>
+                        </div>
+        </div>
+        <table><tr>
+            <td class="reply"><p><span class="screenreader">[Replies: </span> 234 <span class="screenreader">]</span></p></td>
+            <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32K <span class="screenreader">]</span></p></td>
+            <td class="like"><p><span class="screenreader">[Likes: </span> 454M <span class="screenreader">]</span></p></td>
+        </tr></table>
+        <hr>
+</div>
+</div>
+</div>
+<br>
+<br>
+
+
+
+
+
+
+<h2>Quote tweet</h2>
+
+
+<div class="twtdiv light">
+    <div class="twt">
+    <hr>
+        <span class="screenreader">-- Tweet: -- </span>
+        <div class="header">
+            <div>
+            <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+            width="50" height="50"  class="hidden" hidden alt=""></p>
+            </div>
+            <div class="name-handle-div">
+                <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+                <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+            </div>
+        </div>
+        
+        <div class="text">
+            <p>
+            Now for quote tweets. These are also seperated by dividers and a blockquote when the workskin is disabled.         
+            </p>
+
+
+<hr>
+<blockquote>
+<p><span class="screenreader">-- Quote Tweet: -- </span></p>
+<div class="quote-div">
+
+
+<div class="header">
+<div class="icon-div">
+<p><img hidden class="hidden" alt="" width="50px" src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg">
+</p>
+</div>
+
+<div class="name-handle-div">
+<p><span class="name"><span class="screenreader">Name: </span>
+<b>steve</b></span><span class="handle"> @thefirstmc  · 
+<span class="screenreader">Posted</span> 20h <span class="screenreader">ago
+</span></span></p>
+</div>
+</div>
+
+<p>images and polls also work in quote tweets!</p>
+<p class="twt-image">
+<img src= ' https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg' width="400" alt="hawks from BNHA looking sexy">
+</p>
+
+
+<div class="poll"><p class="screenreader">-- Poll: --</p>
+<ul>
+<li><span class="screenreader">Option: </span> Hawks</li>
+<li><span class="screenreader">Option: </span>Keigo Takami</li>
+<li><span class="screenreader">Option: </span>Dabi's summer fling</li>
+</ul>
+<p class="poll-info">4 votes · 23 hours left</p>
+</div> 
+
+</div> 
+</blockquote>
+<hr>   
+
+
+</div>
+    <table><tr>
+        <td class="reply"><p><span class="screenreader">[Replies: </span> 234 <span class="screenreader">]</span></p></td>
+        <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32K <span class="screenreader">]</span></p></td>
+        <td class="like"><p><span class="screenreader">[Likes: </span> 454M <span class="screenreader">]</span></p></td>
+    </tr></table>
+    <hr>
+</div>
+</div>
+</div>
+<br>
+
+
+
+
+<br>
+
+<h2>Tweet with multiple reply</h2>
+
+
+
+<div class="twtdiv  light">
+    <hr>
+    <div class="twt">
+        <span class="screenreader">-- Tweet: -- </span>
+        <div class="header">
+            <div>
+            <p><img src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+            width="50" height="50" class="hidden" hidden alt=""></p>
+            </div>
+            <div class="name-handle-div">
+                <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+                <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+            </div>
+        </div>
+        
+        <div class="text">
+            <p> Let's look at all the things we can add to the reply tweets!
+            </p>
+            <div class="timestamp"><p><span class="screenreader">Posted</span> 02:00 · 2023-12-16</p></div>
+        </div>
+        
+        <table><tr>
+            <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+            <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+            <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+        </tr></table>
+        <hr>
+        </div>
+    
+    
+        
+    <div class="twt reply-twt">
+        <span class="screenreader">-- Reply Tweet: -- </span>
+    <div class="icon-div">
+        <p><img  src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg" width="50px" class="hidden" hidden alt=""></p>
+    </div>
+    
+    <div class="reply-body">
+    <div class="header"> 
+    <p><span class="name"><span class="screenreader">Name: </span><b>steve</b></span><span class="handle"> @thefirstmc  · <span class="screenreader">Posted</span> 20h <span class="screenreader">ago</span></span></p>
+    
+    </div>
+    <div class="text">
+    <p>
+        have an image:
+    </p>
+    <p class="twt-image">
+        <img src= ' https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg' 
+        width="400" alt="Hawks from BNHA looking sexy">
+        </p>
+    
+    </div>
+    <table><tr>
+        <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+        <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+        <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+    </tr></table>
+    </div>
+    <hr>
+    </div>
+
+    
+    <div class="twt reply-twt">
+        <span class="screenreader">-- Reply Tweet: -- </span>
+    <div class="icon-div">
+        <p><img  src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg" width="50px" class="hidden" hidden alt=""></p>
+    </div>
+    
+    <div class="reply-body">
+    <div class="header"> 
+    <p><span class="name"><span class="screenreader">Name: </span><b>steve</b></span><span class="handle"> @thefirstmc  · <span class="screenreader">Posted</span> 20h <span class="screenreader">ago</span></span></p>
+    
+    </div>
+    <div class="text">
+    <p>
+        now a quote tweet, with both an image and a poll. 
+    </p>
+
+   <hr>
+   <blockquote>
+<p><span class="screenreader">-- Quote Tweet: -- </span></p>
+<div class="quote-div">
+
+
+<div class="header">
+<div class="icon-div">
+<p><img hidden class="hidden" alt="" width="50px" src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg">
+</p>
+</div>
+
+<div class="name-handle-div">
+<p><span class="name"><span class="screenreader">Name: </span>
+<b>steve</b></span><span class="handle"> @thefirstmc  · 
+<span class="screenreader">Posted</span> 20h <span class="screenreader">ago
+</span></span></p>
+</div>
+</div>
+
+<p>images and poll coming right up!</p>
+<p class="twt-image">
+<img src= ' https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg' width="400" alt="hawks from BNHA looking sexy">
+</p>
+
+
+<div class="poll"><p class="screenreader">-- Poll: --</p>
+<ul>
+<li><span class="screenreader">Option: </span> Hawks</li>
+<li><span class="screenreader">Option: </span>Keigo Takami</li>
+<li><span class="screenreader">Option: </span>Dabi's summer fling</li>
+</ul>
+<p class="poll-info">4 votes · 23 hours left</p>
+</div> 
+
+</div> 
+</blockquote>
+<hr>   
+
+    </div>
+    <table><tr>
+        <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+        <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+        <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+    </tr></table>
+    </div>
+    <hr>
+    </div>
+
+
+
+<div class="twt reply-twt">
+    <span class="screenreader">-- Reply Tweet: -- </span>
+<div class="icon-div">
+    <p><img  src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg" width="50px" class="hidden" hidden alt=""></p>
+</div>
+
+<div class="reply-body">
+<div class="header"> 
+<p><span class="name"><span class="screenreader">Name: </span><b>steve</b></span><span class="handle"> @thefirstmc  · <span class="screenreader">Posted</span> 20h <span class="screenreader">ago</span></span></p>
+
+</div>
+<div class="text">
+<p>
+    Finally, have an answered poll:
+</p>
+<div class="poll answered"><p class="screenreader">-- Poll: --</p>
+    <ul>
+    <li class="percent--1-winner"><span class="screenreader"><b>Winning Option: </span> Option one</b></li>
+    <li class="percent--2"><span class="screenreader">Option: </span>Option two <img src="https://images.squidge.org/images/2023/12/16/pollcheckmark.png" width="15" class="hidden" hidden alt=""><span class="screenreader">- You voted for this option</span></li>
+    <li class="percent--3"><span class="screenreader">Option: </span>Option three</li>
+    </ul>
+    <p class="poll-info">4 votes · final results</p>
+        </div>
+
+</div>
+<table><tr>
+    <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+    <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+    <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+</tr></table>
+</div>
+<hr>
+</div>
+
+
+
+    </div>
 
 <script src="JS/gen.js"></script>   
 <script src="JS/twt.js"></script> 

@@ -1,53 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
-    <title>
-WW TEST
-    </title>
-    <style>
-        #autoresizing {
-            display: block;
-            overflow: hidden;
-            resize: none;
-        }
-    </style>
-</head>
- 
-<body>
-  <button class="nav" onclick="window.location.href = 'index.html';">back</button>
-  <br>
-  <h1 style="color: green">
-        GeeksforGeeks
-    </h1>
- 
-    <b>
-        Creating a textarea with
-        auto-resize in JavaScript
-    </b>
- 
-    <p>
-        The textarea below will resize
-        automatically accounting for
-        cut, paste and typing text.
-    </p>
- 
-    <textarea class="autoresizing">
- Try cutting, pasting
-or typing here
-        </textarea>
- 
-    <script type="text/javascript">
-        textarea = document.querySelector(".autoresizing");
-        textarea.addEventListener('input', autoResize, false);
- 
-        function autoResize() {
-            this.style.height = 'auto';
-            this.style.height = this.scrollHeight + 'px';
-        }
-    </script>
-</body>
- 
-</html>
+<meta charset="utf-8">
+<title>jQuery Get Selected Option Value</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
 
+function add(){
+    var bg = $("select.bg-choose").children("option:selected").val();
+    $("#output-div").text(bg);
+
+}
+
+</script>
+</head> 
+<body>
+
+    <form>
+        <select class="bg-choose">
+            <option value="nobg">[No Background]</option>
+            <option value="bg1">Plain sky with the sun</option>
+            <option value="bg2">Plain sky with clouds</option>
+            <option value="bg3">Fancy Build</option>
+            <option value="bg4">Urban Build</option>
+            <option value="bg5">L'manhole at night (DreamSMP)</option>
+            
+        </select>
+    </form>
+
+<button id="add" onclick="add()">Add</button>
+
+<div id="output-div">
+</div>
+</body>
+</html>

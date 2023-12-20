@@ -1,14 +1,36 @@
-document.getElementById("imageURLs").style.display = "none";
-document.getElementById("polloptions").style.display = "none";
-document.getElementById("opurldiv").style.display = "none";
-
-//for quote tweets
-document.getElementById("quotetweet").style.display = "none";
-document.getElementById("qimageURLs").style.display = "none";
-document.getElementById("qpolloptions").style.display = "none";
-
 var prev = ""; //holds entire HTML before next is added
 var childCount = 0; //stores the number of tweets, so you know when to add twtstart
+
+
+$(document).ready(function(){
+
+    $("#op-handle-div").hide();
+    $("#quote-tweet-opt").hide();
+
+    $("#image-div").hide();
+    $("#poll-div").hide();
+    
+    
+    //for quote tweets
+
+    $("#quote-image-div").hide();
+    $("#quote-poll-div").hide();
+
+    const contentDiv = document.getElementById("css-to-copy");
+
+    fetch("CSS/tblr.txt").then(res => {
+      if (!res.ok) {
+        return "File coudn't be found. Please go to the ao3 page and find the CSS listed there";
+      }
+      return res.text();
+    }).then(text => {
+      contentDiv.textContent = text;
+    });
+  
+  
+  
+});
+  
 
 
 
@@ -97,79 +119,111 @@ function pasteIconURL(idToPaste="", iconChoose=""){
 }  
 
 
-function findTWTURL(){
-    //grabs twturl from the twturl input, but also stores the value so can be used in 'replying to'
-    var x = document.getElementById("twturl").value;
-
-    document.getElementById('opurl').value = x;
-
-    return x;
-}
-
 //now onto the even more optional items, ie images and polls
 
-//images
-function addImages(i1="",alt=""){
-    let x="";
-    if(i1){ 
-        //if there are two images
-        x = x + '<p class="twt-image"><img class="twt-image" src=';
-        x = x + " ' "+i1+"'"; 
+function addSurroundingDiv(x){
 
-        if(alt){
-            //if only one image is there
-            x = x + 'alt = "'+alt+'"'
-        }
-    x = x + "></p>"
-    }
-    return x
+    let style = $('input[name="stylename"]:checked').val();
+
+
+    fullThing = `<div class="twtdiv ${style}"><hr>
+${x}
+</div> `;
+    return fullThing;
+/*
+
+
+<div class="twtdiv twt-light">
+    <div class="twt">
+    <hr>
+        <span class="screenreader">-- Tweet: -- </span>
+        <div class="header">
+            <div>
+            <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+            width="50" height="50"  class="hidden" hidden alt=""></p>
+            </div>
+            <div class="name-handle-div">
+                <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+                <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+            </div>
+        </div>
+        
+        <div class="text">
+            <p>Another poll, by itself this time </p>
+
+        
+        <table><tr>
+            <td class="reply"><p><span class="screenreader">[Replies: </span> 234 <span class="screenreader">]</span></p></td>
+            <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32K <span class="screenreader">]</span></p></td>
+            <td class="like"><p><span class="screenreader">[Likes: </span> 454M <span class="screenreader">]</span></p></td>
+        </tr></table>
+        <hr>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+
+
+*/
+}
+
+
+//images
+function addImages(img="",alt=""){
+
+    alt = alt ? ` alt="${alt}" ` : ""; //adds alt if provided
+    const x = `<p class="twt-image"><img width="400" src="${img}"${alt}></p>`;
+
+    return x;
 
 
 /*
-      <p class="twt-image"><img class="twt-image"
-       src="CSS/img/eiffeltower.png" alt="ALT TEXT"></p>
+<p class="twt-image">
+    <img src= ' https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg' 
+    width="400" alt="Hawks from BNHA looking sexy">
+    </p>
 
 */
 }
 
 //polls
 function addPoll(p1="",p2="",p3="",p4="",votes=""){
-    let ispoll = false;
-    let x = "";
-    if(p1){
-        x = x + '<span class="screenreader">Poll:</span><div class="twtpoll"><span class="screenreader">First option: </span><span class="twtpolltext">'+p1+'</span></div>'
-        ispoll = true;
-    }
-    if(p2){
-        x = x + ' <div class="twtpoll"><span class="screenreader">Second option: </span><span class="twtpolltext">'+p2+'</span></div>'
-        ispoll = true;
-    }
-    if(p3){
-        x = x + ' <div class="twtpoll"><span class="screenreader">Third option: </span><span class="twtpolltext">'+p3+'</span></div>'
-        ispoll = true;
-    }
-    if(p4){
-        x = x + ' <div class="twtpoll"><span class="screenreader">Fourth option: </span><span class="twtpolltext">'+p4+'</span></div>'
-        ispoll = true;
-    }
-    if (ispoll && votes){
-        let votenum = roundNum(votes);
-        x = x + '<span class="pollvotes">'+votenum+' votes</span>';
-    }
+    
+    p1 = p1 ? `<li><span class="screenreader">Option: </span>${p1}</li>` : "";
+    p2 = p2 ? `<li><span class="screenreader">Option: </span>${p2}</li>` : "";
+    p3 = p3 ? `<li><span class="screenreader">Option: </span>${p3}</li>` : "";
+    p4 = p4 ? `<li><span class="screenreader">Option: </span>${p4}</li>` : "";
+
+    votes = votes ? `<p class="poll-info">${votes} votes</p>` : "";
+
+
+    const x = `<div class="poll"><p class="screenreader">-- Poll: --</p>
+<ul>
+${p1}
+${p2}
+${p3}
+${p4}
+</ul>
+${votes}
+</div>`;
+    
     return x;
 
 /*
-      <span class="screenreader">Poll:</span>
-          <div class="twtpoll"><span class="screenreader">First option: </span><span class="twtpolltext">OPTION1</span></div>
-          <div class="twtpoll"><span class="screenreader">Second option: </span><span class="twtpolltext">OPTION2</span></div>
-          <div class="twtpoll"><span class="screenreader">Third option: </span><span class="twtpolltext">OPTION3</span></div>
-          <div class="twtpoll"><span class="screenreader">Fourth option: </span><span class="twtpolltext">OPTION4</span></div>
-      <span class="pollvotes">324 votes</span>
+<div class="poll"><p class="screenreader">-- Poll: --</p>
+<ul>
+<li><span class="screenreader">Option: </span> Hawks</li>
+<li><span class="screenreader">Option: </span>Keigo Takami</li>
+<li><span class="screenreader">Option: </span>Dabi's summer fling</li>
+</ul>
+<p class="poll-info">4 votes · 23 hours left</p>
+</div>
 */
 
 }
 
-//quotetweet
+//#quote-tweet
 function addQuoteTweet(){
 
     let x = '<div class="twt-quotebox"><span class="screenreader">Quote Tweet: </span><div class="twt-header"> ';
@@ -179,18 +233,18 @@ function addQuoteTweet(){
     if(findIcon(iconURLtext)){
         x = x + '<div class="twt-icon-container" hidden> <img class="twt-iconquote" src="'+findIcon(iconURLtext)+'"> </div> ';
     }
-    x = x + ' <div class="twt-id twt-quote-id"> <span class="twt-name"> '+$("#qusername").val()+'</span>';
+    x = x + ' <div class="twt-id twt-quote-id"> <span class="twt-name"> '+$("#quote-username").val()+'</span>';
     
-    if(findTWTURL()){
-    x = x + '<span class="twt-handle"> @'+findTWTURL();
-    }
-    if($("#qdate").val()){
-        x = x + " · "+ $("#qdate").val();
-    }
-    x = x +'</span> </div> </div> <div class="twt-contentquote">'+$("#qtweet").val();
 
-    x = x + addImages($("#qimage1").val(),$("#qalt").val());
-    x = x + addPoll($("#qpoll1").val(),$("#qpoll2").val(),$("#qpoll3").val(),$("#qpoll4").val(),$("#qvotes").val());
+    x = $("#input-handle").val() ? x + '<span class="twt-handle"> @'+$("#input-handle").val() : x;
+    
+    if($("#quote-date").val()){
+        x = x + " · "+ $("#quote-date").val();
+    }
+    x = x +'</span> </div> </div> <div class="twt-contentquote">'+$("#quote-tweet").val();
+
+    x = x + addImages($("#quote-input-image").val(),$("#quote-alt").val());
+    x = x + addPoll($("#quote-poll1").val(),$("#quote-poll2").val(),$("#quote-poll3").val(),$("#quote-poll4").val(),$("#quote-votes").val());
     
     x = x + '</div></div>';
 
@@ -212,169 +266,167 @@ function addQuoteTweet(){
 }
 
 //function to compile the entire tweet, including previous
-function addNewTweet(previous){
-   
-    //add starting div
-    var x = previous + '<div class="twt ';
- 
-    //if this is the first tweet added, add twtstart so it has a top border
-    if (childCount == 0){ x = x + 'twtstart '; }
-    childCount += 1;
+function addNewTweet(){
 
-    //add correct classes for different styles
-    if ($('input[id="white"]:checked').val()){
-        x = x + ' twtwhite ';
-    }else if($('input[id="black"]:checked').val()){
-        x = x + ' twtblack ';
-    }else if($('input[id="minimal"]:checked').val()){
-        x = x + ' twtminimal ';
-    }
+    const icon = $("#input-icon").val() ? `
+<p>
+<img  src="${ $("#input-icon").val() }" 
+width="50" class="hidden" hidden alt="">
+</p>` : "";
 
-    x = x + '"><div class="twt-header">';
+    const handle = $("#input-handle").val() ? `
+<p class="handle"><span class="screenreader">Handle: </span>@${ $("#input-handle").val() }</p>` : "";
     
-    let iconURLtext = document.getElementById("icon").value ;
+    const dateAndTimeSeparator = $("#input-date").val() && $("#input-time").val() ? " · " : "";
+    const dateTime = $("#input-date").val() || $("#input-time").val() ? `
+    <div class="timestamp"><p><span class="screenreader">Posted</span>${$("#input-time").val()}${dateAndTimeSeparator}${$("#input-date").val()}</p></div>` : "";
 
-    if ( findIcon(iconURLtext) ){ 
-    x = x + '<div class="twt-icon-container hidden"> <img class="twt-icon" src="'+findIcon(iconURLtext)+'"> </div>';
-    }
-    let username = document.getElementById("username").value;
-    x = x + ' <div class="twt-id"> <span class="twt-name"> '+username+'</span>';
+    const poll = $('input[id="show-poll"]:checked').val() ? addPoll( $("#input-poll-1").val(), $("#input-poll-2").val(), $("#input-poll-3").val(), $("#input-poll-4").val(), $("#input-votes").val()) : "";
 
-    if(findTWTURL()){
-        x = x + '<span class="twt-handle"> @'+findTWTURL()+'</span>';
-    }
-    let tweetText = document.getElementById("tweet").value;
-    x = x +'<br/></div> </div> <div class="twt-content"><span class="screenreader">Tweet: </span> '+tweetText+' </div>';
+    const image = $('input[id="show-image"]:checked').val() ? addImages( $("#input-image").val(), $("#input-alt").val() ) : "";
 
-    x = x + addImages($("#image1").val(),$("#image2").val());
+    const text = $("#input-text").val().replace(/\r?\n/g, '<br />');
 
-    x = x + addPoll($("#poll1").val(),$("#poll2").val(),$("#poll3").val(),$("#poll4").val(),$("#votes").val());
+    const tweet = `
+<div class="twt">
+<span class="screenreader">-- Tweet: -- </span>
+<div class="header">
+    <div>${icon}
+    </div>
+    <div class="name-handle-div">
+        <p class="name"><span class="screenreader">Username: </span><b>${$("#input-username").val()}</b></p>${handle}
+    </div>
+</div>
 
-    if ($('input[id="quotetweetopt"]:checked').val()){
-        x = x + addQuoteTweet();
-    }
-    let date = document.getElementById("date").value;
-    let time = document.getElementById("time").value;
-    if (time && date){
-        x = x + '<div class="twt-timestamp"> '+time+' · '+date+'</div>';
-    }else if(time){
-        x = x + '<div class="twt-timestamp"> '+time+'</div>';
-    }else if(date){
-        x = x + '<div class="twt-timestamp"> '+date+'</div>';
-    }
+<div class="text">
+    <p>${text}</p>
+    ${poll}
+    ${image}
+    ${dateTime}
+</div>
 
-    let retweet = roundNum(document.getElementById("retweet").value);
-    let reply = roundNum(document.getElementById("reply").value);
-    let like = roundNum(document.getElementById("like").value);
- 
-    x = x + '<hr class="twt-sep"><div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like+'<span class="screenreader"> likes</span></p></div></div>';
- 
-   
-        return (x);
+<table><tr>
+    <td class="reply"><p><span class="screenreader">[Replies: </span>${$("#input-reply").val()}<span class="screenreader">]</span></p></td>
+    <td class="retweet"><p><span class="screenreader">[Retweets: </span>${$("#input-retweet").val()}<span class="screenreader">]</span></p></td>
+    <td class="like"><p><span class="screenreader">[Likes: </span>${$("#input-like").val()}<span class="screenreader">]</span></p></td>
+</tr></table>
+<hr></div>
+    `;
+        return tweet;
 /*
-<div class="twt twtstart twtwhite ">
-  <hr class="noworkskin">
-  <div class="twt-header">
-    <div class="twt-icon-container hidden">
-       <img class="twt-icon" src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg"> 
-      </div> 
-      <div class="twt-id"> <span class="twt-name">NAME<span class="twt-handle"> @URL</span> <br/>
-      </div>
-    </div> 
-    <div class="twt-content"><span class="screenreader">Tweet: </span> TyWEET CONTENT 
+<div class="twt">
 
-        <div class="twt-timestamp"> 03:45 · 2023-12-11</div>
+    <span class="screenreader">-- Tweet: -- </span>
+    <div class="header">
+        <div>
+        <p><img  src="https://images.squidge.org/images/2023/09/14/00d56b33f5a708454d853fbad6d2e18a.jpeg" 
+        width="50" height="50" class="hidden" hidden alt=""></p>
         </div>
-<hr class="twt-sep">
-<div class="twt-stat"> 
-  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply()+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet()+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like()+'<span class="screenreader"> likes</span></p></div></div>
-
+        <div class="name-handle-div">
+            <p class="name"><span class="screenreader">Username: </span><b>HelloWorld</b></p>
+            <p class="handle"><span class="screenreader">Handle: </span>@twitteruser</p>
+        </div>
+    </div>
+    
+    <div class="text">
+        <p> Wow, what a very nice and accessible workskin. What should I tweet today?
+        </p>
+        <div class="timestamp"><p><span class="screenreader">Posted</span> 02:00 · 2023-12-16</p></div>
+    </div>
+    
+    <table><tr>
+        <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+        <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+        <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+    </tr></table>
+    <hr>
+    </div>
 */
 }
 
 //compiles new reply
-function addNewReply(previous){
-    var x = previous + '<div class="twt ';
+function addNewReply(){
+    const icon = $("#input-icon").val() ? `
+<p>
+<img  src="${ $("#input-icon").val() }" 
+width="50" class="hidden" hidden alt="">
+</p>` : "";
+
+    const handle = $("#input-handle").val() ? `
+<p class="handle"><span class="screenreader">Handle: </span>@${ $("#input-handle").val() }</p>` : "";
     
-    // //if this is the first tweet added, add twtstart so it has a top border
-    if (childCount == 0){ x = x + 'twtstart '; }
-    childCount += 1;
+    const handleAndDateSeparator = handle && $("#input-date").val() ? " · " : "";
 
-     //add correct classes for different styles
-    if ($('input[id="white"]:checked').val()){
-        x = x + ' twtwhite ';
-    }else if($('input[id="black"]:checked').val()){
-        x = x + ' twtblack ';
-    }else if($('input[id="minimal"]:checked').val()){
-        x = x + ' twtminimal ';
-    }
+    const poll = $('input[id="show-poll"]:checked').val() ? addPoll( $("#input-poll-1").val(), $("#input-poll-2").val(), $("#input-poll-3").val(), $("#input-poll-4").val(), $("#input-votes").val()) : "";
 
-    x = x + ' twt-replybox">';
-    
-    let iconURLtext = document.getElementById("icon").value ;
+    const image = $('input[id="show-image"]:checked').val() ? addImages( $("#input-image").val(), $("#input-alt").val() ) : "";
 
-    if (findIcon(iconURLtext)){
-        x = x + '<div class="twt-icon-replycontainer hidden"> <img class="twt-icon" src="'+findIcon(iconURLtext)+'"> </div>';
-    }
-    let username = document.getElementById("username").value;
-    x = x + '<div class="twt-replycontainer"><div> <span class="twt-name">'+username+'</span>';
-    
-    if(findTWTURL()){
-        x = x + '<span class="twt-handle">@'+findTWTURL();
-    }
+    const text = $("#input-text").val().replace(/\r?\n/g, '<br />');
 
-    let date = document.getElementById("date").value;
-    if (date){
-        x = x + ' · '+date + '</span>';
-    }
-
-    x = x + "</div>";
-
-    let opURL = document.getElementById("opurl").value;
-    if(opURL){
-        x = x + '<div class="twt-replying-to"> Replying to <span class="twt-hl">@'+opURL+'</span></div>';
-    }
-
-    let tweetText = document.getElementById("tweet").value;
-    x = x + '<div class="twt-replycontent"><span class="screenreader">Reply: </span>'+tweetText;
-
-    x = x + addImages($("#image1").val(),$("#qalt").val());
-    x = x + addPoll($("#poll1").val(),$("#poll2").val(),$("#poll3").val(),$("#poll4").val(),$("#votes").val());
-    
-    if ($('input[id="quotetweetopt"]:checked').val()){
-        x = x + addQuoteTweet(x);
-    }
-
-    //pull variables for stats and round them
-    let retweet = roundNum(document.getElementById("retweet").value);
-    let reply = roundNum(document.getElementById("reply").value);
-    let like = roundNum(document.getElementById("like").value);
-
-    x = x + '<div class="twt-stat">  <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> '+reply+'<span class="screenreader"> replies</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/retweets.png"> '+retweet+'<span class="screenreader"> retweets</span></p><p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/likes.png"> '+like+'<span class="screenreader"> likes</span></p></div></div></div></div>';
-    return x;
-/*
-<div class="twt twtwhite twt-replybox">
-
-  <div class="twt-icon-replycontainer">
-  <img class="twt-icon" src="https://images.squidge.org/images/2023/12/07/alexminecraftface.png">
-  </div><div class="twt-replycontainer">
-      <div><span class="twt-name">replyNAME</span><span class="twt-handle"> @replyURL · 2023-11-27</span>
-  </div>
-  <div class="twt-replying-to"> Replying to <span class="twt-hl">@opURL</span></div>
-  
-  <div class="twt-replycontent"><span class="screenreader">Reply: </span> REPLY TWEET
-
-
-
-  </div> 
-  <div class="twt-stat"> 
-    <p><img class="twt-socialimg hidden" src="https://images.squidge.org/images/2023/12/09/replies.png"> 234<span class="screenreader"> replies</span></p>
-    <p><img class="twt-socialimg" src="https://images.squidge.org/images/2023/12/09/retweets.png"> 324K<span class="screenreader"> retweets</span></p>
-     <p><img class="twt-socialimg" src="https://images.squidge.org/images/2023/12/09/likes.png"> 234K<span class="screenreader"> likes</span></p>
-  </div> 
-</div> 
+    const tweet = `
+<div class="twt reply-twt">
+<div class="twt reply-twt">
+    <span class="screenreader">-- Reply Tweet: -- </span>
+<div class="icon-div">
+  ${icon}
 </div>
-<br>
+
+<div class="reply-body">
+<div class="header"> 
+<p><span class="name"><span class="screenreader">Name: </span><b>steve</b></span><span class="handle"> @${handle} <span class="screenreader">Posted</span> ${handleAndDateSeparator}${ $("#input-date").val()  }</span></p>
+
+</div>
+<div class="text">
+<p>
+${text}
+${poll}
+${image}
+</p>
+
+</div>
+<table><tr>
+    <td class="reply"><p><span class="screenreader">[Replies: </span>${$("#input-reply").val()}<span class="screenreader">]</span></p></td>
+    <td class="retweet"><p><span class="screenreader">[Retweets: </span>${$("#input-retweet").val()}<span class="screenreader">]</span></p></td>
+    <td class="like"><p><span class="screenreader">[Likes: </span>${$("#input-like").val()}<span class="screenreader">]</span></p></td>
+</tr></table>
+</div>
+<hr>
+</div>
+    `;
+        return tweet;
+/*
+
+    
+<div class="twt reply-twt">
+    <span class="screenreader">-- Reply Tweet: -- </span>
+<div class="icon-div">
+    <p><img  src="https://images.squidge.org/images/2023/12/07/stevemc.jpeg" width="50px" class="hidden" hidden alt=""></p>
+</div>
+
+<div class="reply-body">
+<div class="header"> 
+<p><span class="name"><span class="screenreader">Name: </span><b>steve</b></span><span class="handle"> @thefirstmc  · <span class="screenreader">Posted</span> 20h <span class="screenreader">ago</span></span></p>
+
+</div>
+<div class="text">
+<p>
+The reply tweet is seperated into two columns thanks to display: table. The div that holds the icon is set to 
+a specified min-width and max-width, and the div that holds the body of the tweet's width is set to 
+auto. 
+</p><p>
+the divider for the regular tweet is a pseudo element of the stats div, and its disabled 
+in the reply tweet
+</p>
+
+</div>
+<table><tr>
+    <td class="reply"><p><span class="screenreader">[Replies: </span> 2 <span class="screenreader">]</span></p></td>
+    <td class="retweet"><p><span class="screenreader">[Retweets: </span> 32 <span class="screenreader">]</span></p></td>
+    <td class="like"><p><span class="screenreader">[Likes: </span> 45 <span class="screenreader">]</span></p></td>
+</tr></table>
+</div>
+<hr>
+</div>
 */
 }
 
@@ -382,103 +434,82 @@ function addNewReply(previous){
 $(function() {
 
     fetch("CSS/twt.txt").then(res => res.text()).then(text => {
-        const contentDiv = document.getElementById("CSS-to-copy");
+        const contentDiv = document.getElementById("css-to-copy");
         contentDiv.textContent = text;
     });
 
 
     $('#add').on('click', function() {
-        let x;
-        if ( $("#twttype").val() == 'Tweet'){
-            x = addNewTweet(prev);
-        }else{
-            x = addNewReply(prev);
-        }
 
-        $('#twtdiv').html(x);
-        $('#html-output').text(x);
+        let x;
+        if ( $("#twt-type").val() == 'Tweet'){
+            x = $("#input-username").val() && $("#input-text").val() ? addNewTweet() : "";
+        }else{
+            x = $("#input-username").val() && $("#input-text").val() ? addNewReply() : "";
+        }
+        x = prev + x;
+
+        fullThing = addSurroundingDiv(x);
+        $('#output-div').html(fullThing);
+        $('#html-output').text(fullThing);
 
         //now erase all that is needed
-        $('#tweet').val('');
-        $('#reply').val('');
-        $('#retweet').val('');
-        $('#like').val('');
-        $('#image1').val('');
-        $('#alt').val('');
-        $('#poll1').val('');
-        $('#poll2').val('');
-        $('#poll3').val('');
-        $('#poll4').val('');
-        $('#votes').val('');
+        $('#input-text').val('');
 
-        //now for qtweet erasing
-        $('#qicon').val('');
-        $('#qusername').val('');
-        $('#qtwturl').val('');
-        $('#qtweet').val('');
-        $('#qtweet').val('');
-        $('#qimage1').val('');
-        $('#qalt').val('');
-        $('#qdate').val('');
-        $('#qpoll1').val('');
-        $('#qpoll2').val('');
-        $('#qpoll3').val('');
-        $('#qpoll4').val('');
-        $('#qvotes').val('');
 
         prev = x;
     });
 
-    $('#twttype').on('change', function() {
-        if( $("#twttype").val() == "Tweet"){
-            document.getElementById("opurldiv").style.display = "none";
+    $('#twt-type').on('change', function() {
+        if( $("#twt-type").val() == "Tweet"){
+            $("#op-handle-div").slideUp();
+            $("#input-time").slideDown();
         }else{
-            document.getElementById("opurldiv").style.display = "";
+            $("#op-handle-div").slideDown();
+            $("#input-time").slideUp();
         }
     });
 //opens up options for extra features
-    $("#image").on("click", function() {
-        if( $('input[id="image"]:checked').val() ){
-            document.getElementById("imageURLs").style.display = "";
+    $("#show-image").on("click", function() {
+        if( $('input[id="show-image"]:checked').val() ){
+            $("#image-div").slideDown();
         }else{
-            document.getElementById("imageURLs").style.display = "none";
+            $("#image-div").slideUp();
         }
     });
 
     
 
-    $("#poll").on("click", function() {
-        if( $('input[id="poll"]:checked').val() ){
-            document.getElementById("polloptions").style.display = "";
+    $("#show-poll").on("click", function() {
+        if( $('input[id="show-poll"]:checked').val() ){
+            $("#poll-div").slideDown();
         }else{
-            document.getElementById("polloptions").style.display = "none";
+            $("#poll-div").slideUp();
         }
     });
 
-    $("#quotetweetopt").on("click", function() {
-        if( $('input[id="quotetweetopt"]:checked').val() ){
-            document.getElementById("quotetweet").style.display = "";
+    $("#show-quote").on("click", function() {
+        if( $('input[id="show-quote"]:checked').val() ){
+            $("#quote-tweet-opt").slideDown();
         }else{
-            document.getElementById("quotetweet").style.display = "none";
+            $("#quote-tweet-opt").slideUp();
         }
     });
 
 //opens up options for extra features f quote tweets
-    $("#qimage").on("click", function() {
-        if( $('input[id="qimage"]:checked').val() ){
-            document.getElementById("qimageURLs").style.display = "";
-        }else{
-            document.getElementById("qimageURLs").style.display = "none";
+    $("#show-quote-image").on("click", function() {
+    if( $('input[id="show-quote-image"]:checked').val() ){
+        $("#quote-image-div").slideDown();
+    }else{
+        $("#quote-image-div").slideUp();
         }
-
-        $("#qimageURLs").toggle();//reveals images
     });
 
-    $("#qpoll").on("click", function() {
-        if( $('input[id="qpoll"]:checked').val() ){
-            document.getElementById("qpolloptions").style.display = "";
+    $("#show-quote-poll").on("click", function() {
+        if( $('input[id="show-quote-poll"]:checked').val() ){
+            $("#quote-poll-div").slideDown();
         }else{
-            document.getElementById("qpolloptions").style.display = "none";
+            $("#quote-poll-div").slideUp();
         }
     });
 

@@ -30,17 +30,12 @@ $('#time-read-div').hide();
 
 const contentDiv = document.getElementById("css-to-copy");
 
-const handleErrors = response => {
-    if (!response.ok) {
-        
+  fetch("CSS/tblr.txt").then(res => {
+    if (!res.ok) {
+      return "File coudn't be found. Please go to the ao3 page and find the CSS listed there";
     }
-    return response;
-  }
-
-fetch("CSS/imsg.css")
-.then(handleErrors)
-.then(res => res.text())
-.then(text => {
+    return res.text();
+  }).then(text => {
     contentDiv.textContent = text;
   });
 
