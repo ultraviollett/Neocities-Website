@@ -4,7 +4,15 @@ document.getElementsByTagName('input').checked = "false";
 isDisabled = false; //for workskin
 $("#disabled-workskin").attr("disabled", "disabled"); //starts off disabled
 
-
+function allReplace(str, obj = { '<': '&lt;',  '>': '&gt;', '\r?\n' : '<br>'} ) {
+    /*this replaces things that are inputted that html won't display right. 
+    the default obj replaces <, > and line breaks
+    */
+    for (const x in obj) {
+      str = str.replace(new RegExp(x, 'g'), obj[x]);
+    }
+    return str;
+};
 
 function disableWorkskin(){
     if (!isDisabled){

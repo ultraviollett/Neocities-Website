@@ -321,12 +321,14 @@ to make it easier to read when on desktop
   line-height: 1.4;
 }
 
-.easy-to-read .nice-dropdown{
-  display: inline-block;
-  width: fit-content;
-  margin: auto auto auto 5px;
-  padding: 1px 2em 1px 1px;
+
+.easy-to-read .nice-dropdown  {
+  width: 6cm;
+  max-width: 100%;
+  /* So it doesn't overflow from it's parent */
 }
+
+
 
 .big-text{
 font-size: 1.5em;
@@ -473,10 +475,12 @@ input:checked + .slider:before {
 
 .inline{
   display: flex;
-  margin-right: auto;
   background-color: white;
-  padding: 7px 2em;
+  padding: 7px 1em;
   width: fit-content;
+  flex-wrap: wrap;
+  
+  max-width: 100%;
 
 }
 
@@ -488,8 +492,12 @@ input:checked + .slider:before {
 }
 
 .inline p, .inline input, .inline fieldset{
-margin: auto 5px auto 5px;
+margin: auto 3px auto 3px;
 }
 .inline input[type=number] {
   width: 3em !important;
+}
+
+.nowrap{
+  text-wrap: nowrap;
 }
