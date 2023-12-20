@@ -15,14 +15,16 @@ x-switch CSS to under all workskins
 x-move css copy paste to text files then display them with js
 X-CHEKC EVERY SKIN WORKS
 x-add disable workskin toggle to each one
+x-fix imsg
+x-remove <pre> from mcbook -> plus a lot of others 
 
 
 
 --current goals--
 
 general:
--fix imsg
--remove <pre> from mcbook
+
+
 -REPLACE TWITTER 
 -add tumblr
 -add error message telling ppl to go to Ao3 work when .txt file isnt pulled

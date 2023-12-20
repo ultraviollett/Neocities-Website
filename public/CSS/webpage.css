@@ -327,6 +327,11 @@ to make it easier to read when on desktop
   margin: auto auto auto 5px;
   padding: 1px 2em 1px 1px;
 }
+
+.big-text{
+font-size: 1.5em;
+}
+
 .easy-to-read input{
   width: fit-content;
   margin: auto auto auto 5px;

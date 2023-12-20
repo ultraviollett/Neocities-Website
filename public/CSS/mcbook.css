@@ -32,10 +32,11 @@
   color: black;
 }
 
-.mcbook pre{
+pre{
   font: unset;
   text-wrap: wrap;
-  
+  word-break: break-all;
+  width: 100%;
   font-weight: 200;
 }
 

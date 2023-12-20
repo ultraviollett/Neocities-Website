@@ -87,7 +87,6 @@ function chooseMessenger(){
 
     }else{
         $("#contact-div").show();
-        $("#read-receipt-choose-div").hide();
         $("#read-receipt-choose-div-div").hide();
 
 
