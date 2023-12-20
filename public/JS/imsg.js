@@ -4,6 +4,7 @@ var prev = ""; //holds code (minus surrounding div) to be added to
 childCount = 0; //counts how many times add is clicked
 var isChange = false; //switches name
 
+
 $(document).ready(function(){
 //header-div and textbar-div will be revealed when their checkboxes are checked
 $('#header-div').hide();
@@ -30,7 +31,28 @@ $('#read-receipt-div').hide();
 $('#custom-read-receipt-div').hide();
 $('#time-read-div').hide();
 
+const contentDiv = document.getElementById("css-to-copy");
+
+const handleErrors = response => {
+    if (!response.ok) {
+        
+    }
+    return response;
+  }
+
+fetch("CSS/imsg.txt")
+.then(handleErrors)
+.then(res => res.text())
+.then(text => {
+    contentDiv.textContent = text;
+  });
+
+
+
 });
+
+
+
 
 function switchGroupChatDm(){
     if ( $("#group-dm-type").val() == 'DM' ){
@@ -38,6 +60,8 @@ function switchGroupChatDm(){
         $("#input-header").attr("placeholder","Insert contact's name");
         $('[id$=contact-choose-label]').text("Your contact");
         $("#input-contact").attr("placeholder","Insert name for alt text");
+        $("#input-contact").removeClass("required");
+
 
 
     }else{
@@ -46,6 +70,8 @@ function switchGroupChatDm(){
         $("#input-header").attr("placeholder","Insert groupchat's name");
         $('[id$=contact-choose-label]').text("Someone else");
         $("#input-contact").attr("placeholder","Insert name");
+        $("#input-contact").addClass("required");
+
 }}
 
 function addNameForDm(){
@@ -60,12 +86,15 @@ function chooseMessenger(){
     if ( $('input[id="you"]:checked').val() ){
         $("#contact-div").hide();
         $("#message-type option[val='typing-dots']").hide();
-        $("#read-receipt-choose-div").show();
+        $("#read-receipt-choose-div-div").show();
+
 
     }else{
         $("#contact-div").show();
         $("#read-receipt-choose-div").hide();
         $("#message-type option[val='typing-dots']").show();
+        $("#read-receipt-choose-div-div").hide();
+
 
 }}
 
@@ -106,10 +135,10 @@ function chooseMessageType(){
             $("#link-text-div").show();
             $("#secondary-text-div").show();
             $("#timestamp-div").hide();
-            $("#read-receipt-choose-div").show();
             
             $("#input-link-text").attr("placeholder","Insert Image URL");
             $("#input-secondary-text").attr("placeholder","Insert alt text");
+            $("#read-receipt-choose-div").show();
             break;
 
         case "Link":
@@ -119,10 +148,10 @@ function chooseMessageType(){
             $("#link-text-div").show();
             $("#secondary-text-div").show();
             $("#timestamp-div").hide();
-            $("#read-receipt-choose-div").show();
             
             $("#input-link-text").attr("placeholder","Insert link");
             $("#input-secondary-text").attr("placeholder","Insert text for link");            
+            $("#read-receipt-choose-div").show();;
             break;
 
            
@@ -152,16 +181,21 @@ function chooseMessageType(){
 }
 
 
+
+//now for all the functions for the add button
+
 function addSurroundingDiv(x){ //adds surrounding div depending on whats been selected
     
     //if groupchat has been chosen, this will equal grouptext
-    const groupchat = $("#group-dm-type").val() == 'Groupchat' ? " grouptext" : "";
+    const grouptext = $("#group-dm-type").val() == 'Groupchat' ? " grouptext" : "";
     
-    //if you want to add header, will add one with the name you inputed
+    //if you want to add header, will add one with the name you inputed. If you haven't inputted a name, It will be called either DM or Groupchat
+    
+    const groupchatOrDm = $("#group-dm-type").val() == 'Groupchat'? "Groupchat " : "DM"
+    
+    const headerText = $("#input-header").val() ? `<span class="screenreader">${groupchatOrDm}: </span>${$("#input-header").val()}` : groupchatOrDm ;
 
-    const header = $('input[id="header-choose"]:checked').val() ? `<h1 class="contact">
-<span class="screenreader">Groupchat: </span>${$("#input-header").val() } 
-</h1>`: "";
+    const header = $('input[id="header-choose"]:checked').val() ? `<h1 class="contact">${headerText}</h1>`: `<h1 class="screenreader">${groupchatOrDm}</h1>`;
 
     //if you have text for te
     var textbarText = $("#input-textbar").val() ? `
@@ -175,7 +209,7 @@ ${$("#input-textbar").val()}
 ` : "";
 
 
-    const fullThing = `<dl class="imessage${groupchat}">${header} <hr>
+    const fullThing = `<dl class="imessage${grouptext}">${header} <hr>
 ${x}${textbar}
 <hr></dl>`
 
@@ -197,7 +231,7 @@ function switchName(){
     }
 
     //if the message type is a timestamp, or both inout and name have remained the same, isChange is false
-    isChange = ((currentInOut == prevInOut && currentName == prevName) || $("#message-type").val() == 'Timestamp') ? false : true;
+    isChange = ((currentInOut == prevInOut && currentName == prevName) || $("#message-type").val() == 'Timestamp') ? isChange : true;
 
     //if this is the first message, or if there have been any changes, as well as the message type not being a timestamp, a <dl> for the name will be added
 
@@ -219,30 +253,35 @@ function switchName(){
 
 function addNewText(){
     //adds text of message
-    return `<dd>${ $("#input-text").val()}</dd>`;
+    const x = $("#input-text").val().replace(/\r?\n/g, '<br />');
+    return `<dd>${x}</dd>`;
 
 }
 
 function addTimestamp(){
     //finds what info has been inputted for the timestamp and adds it
 
-    const timestamp =  $("#timestamp-choose").val();
-
+    const timestamp =  $("#timestamp-choose").find(":selected").text();
     var x;
+
     switch (timestamp){
-        case "custom-time-choose]":
+
+        case "[Custom Time]":
             x = $("#time-timestamp").val();
             break;
 
-        case "custom-choose":
+        case "[Custom Text]":
             x = $("#custom-timestamp").val();
             break;
-
+        
         default:
             x = timestamp;
+
     }
 
-    x = `<h4 class="time">${timestamp}</h4>`;
+
+
+    x = `<h4 class="time" align="center">${x}</h4>`;
 
     return x;
 
@@ -298,7 +337,7 @@ ${text}
 function addTypingDots(){
     const x = `
 <dd class="typing">
-<span class="screenreader">typing...</span>
+<span class="screenreader">[typing...]</span>
 <div></div> <div></div> <div></div> </dd>`;
     return x;
 
@@ -350,22 +389,22 @@ Read ${x}<span class="screenreader">]</span>
 
 
 $(function() {
-    fetch("CSS/imsg.txt").then(res => res.text()).then(text => {
-        const contentDiv = document.getElementById("CSS-to-copy");
-        contentDiv.textContent = text;
-      });
+
 
     $('#add').on('click', function() {
         //compiles the whole code together as is currently
         
         var x;
+        
 
         x = switchName();
+        //checks if readreceipt is true and if so grabs it
+        const readReceipt = $('input[id="read-receipt-choose"]:checked').val() ? addReadReceipt() : "";
 
         switch ($("#message-type").val()){
             case "Message":
                 //checks if there is required input to add new text
-                x = $("#input-text").val() ? x + addNewText() : x;
+                x = $("#input-text").val() ? x + addNewText() + readReceipt : x;
                 break;
 
             case "Timestamp":
@@ -375,22 +414,19 @@ $(function() {
 
             case "Image":
                 //ensures there is required input to add image
-                x = $("#input-link-text").val() ? x + addImage() : x;
+                x = $("#input-link-text").val() ? x + addImage() + readReceipt : x;
                 break;
 
             case "Link":
                 //ensures there is required input to add link
-                x = $("#input-link-text").val() ? x + addLink() : x;
+                x = $("#input-link-text").val() ? x + addLink() + readReceipt : x;
                 break;
 
             case "Typing Dots":
                 x = x + addTypingDots();
                 break;
 
-        }
-        //if read receipt checkbox checked, add it. if not, keep x the same
-        const readReceipt = $('input[id="read-receipt-choose"]:checked').val() ? addReadReceipt() : "";
-        x = x + readReceipt;
+        }    
 
         x = prev + x;
         prev = x;
@@ -412,6 +448,8 @@ $(function() {
         $('#time-timestamp').val('');
 
         //read receipt ones
+        $("#read-receipt-choose").prop("checked", false);
+        $("#read-receipt-div").hide()
         $('#custom-read').val('');
         $('#time-read').val('');
 
@@ -425,9 +463,6 @@ $(function() {
         }else{
             $("#header-div").hide();
         }
-
-        //$("#header-name-div").toggle();
-        //$("#dm-contact-name-divdiv").toggle();
     });
 
     $("#textbar-choose").on("click", function() {

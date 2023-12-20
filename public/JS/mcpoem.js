@@ -35,7 +35,9 @@ function addSurroundingDiv(x){
 
 function addNewText(x){
     const color = findColor(); //find color picked
-    const text = $("#input-text").val(); //get text from input-text box
+
+    const text = $("#input-text").val().replace(/\r?\n/g, '<br />');//get text from input-text box, keeps paragraphs
+
     x = x + `
 <p class="${color}">
 <span class="screenreader"> ${color} text: </span>
@@ -66,7 +68,7 @@ $(function() {
 
 
     fetch("CSS/mcpoem.txt").then(res => res.text()).then(text => {
-        const contentDiv = document.getElementById("CSS-to-copy");
+        const contentDiv = document.getElementById("css-to-copy");
         contentDiv.textContent = text;
     });
 

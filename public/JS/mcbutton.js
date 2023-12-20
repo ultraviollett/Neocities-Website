@@ -15,11 +15,11 @@ ${x}
     document.getElementById("html-output").value = fullThing;
 }
 
-//textarea is CSS-to-copy
+//textarea is css-to-copy
 $(function() {
 
     fetch("CSS/mcbutton.txt").then(res => res.text()).then(text => {
-        const contentDiv = document.getElementById("CSS-to-copy");
+        const contentDiv = document.getElementById("css-to-copy");
         contentDiv.textContent = text;
       });
 });

@@ -1,13 +1,16 @@
 function addText() {
     //adds text from input-text in realtime to book on webpage
-    const x = document.getElementById("input-text").value;
+    
+    var x = $('#input-text').val();
+    x = x.replace(/\r?\n/g, '<br />');
+
     document.getElementById("output-div").innerHTML = x;
     const fullThing = 
 `
 <div class="mcbook">
 <p class="screenreader" align="center">-- Minecraft Book: -- </p>
 <hr>
-<p><pre>${x}</pre></p>
+<p>${x}</p>
 <hr>
 </div>
 
@@ -23,7 +26,7 @@ $(function() {
 
 fetch("CSS/mcbook.txt").then(res => res.text()).then(text => {
     
-    const contentDiv = document.getElementById("CSS-to-copy");
+    const contentDiv = document.getElementById("css-to-copy");
     contentDiv.textContent = text;
   });
 });

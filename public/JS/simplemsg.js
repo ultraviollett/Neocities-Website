@@ -16,7 +16,7 @@ function addNewMessage(x){
         //check if right radio is checked
         leftOrRight = "right";
     }
-    const inputText = $("#input-text").val();
+    const inputText = $("#input-text").val().replace(/\r?\n/g, '<br />');;
 
 x =  `${x}
 <p class = "${leftOrRight} " align = "${leftOrRight}">
@@ -28,7 +28,7 @@ ${inputText}
 
 $(function() {
     fetch("CSS/simplemsg.txt").then(res => res.text()).then(text => {
-        const contentDiv = document.getElementById("CSS-to-copy");
+        const contentDiv = document.getElementById("css-to-copy");
         if(contentDiv){
             contentDiv.textContent = text;
         }else{
@@ -48,5 +48,7 @@ $(function() {
 
         $('#output-div').html(x);
         $('#html-output').text(x);
+
+        $("#input-text").val("");
     });
 });
