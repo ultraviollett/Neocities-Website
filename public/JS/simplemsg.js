@@ -29,7 +29,12 @@ ${inputText}
 $(function() {
     fetch("CSS/simplemsg.txt").then(res => res.text()).then(text => {
         const contentDiv = document.getElementById("CSS-to-copy");
-        contentDiv.textContent = text;
+        if(contentDiv){
+            contentDiv.textContent = text;
+        }else{
+
+        }
+        
       });
 
     $('#add').on('click', function() {

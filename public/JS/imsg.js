@@ -1,214 +1,215 @@
-
-
-document.getElementById("gc").style.display = "none";//default is DM
-
-document.getElementById("headernamediv").style.display = "none"; //holds both header names for gc and dm
-document.getElementById("headergcnamediv").style.display = "none";//gc name is hidden by default
-document.getElementById("textbardiv").style.display = "none";
-
-document.getElementById("gccontact").style.display = "none";
-
-document.getElementById("gccontactnamediv").style.display = "none";
-document.getElementById("dmcontactnamediv").style.display = "none";
-
-//all the various text inputs, default is message
-document.getElementById("linktextdiv").style.display = "none";
-document.getElementById("textforlinktextdiv").style.display = "none";
-document.getElementById("timestampdiv").style.display = "none";
-document.getElementById("richlinkdiv").style.display = "none";
-document.getElementById("alttextdiv").style.display = "none";
-document.getElementById("readreceiptdiv").style.display = "none";
-
 var prevName = ""; //stores value of prev name to compare it to current
 var prevInOut = ""; //stores val of prev in/out to compare it to current
 var prev = ""; //holds code (minus surrounding div) to be added to
 childCount = 0; //counts how many times add is clicked
 var isChange = false; //switches name
 
-function switchGroupChatDM(){
-    if ( $("#groupdmtype").val() == 'DM' ){
-        document.getElementById("dm").style.display = "";
-        document.getElementById("gc").style.display = "none";
-        document.getElementById("dmcontact").style.display = "";
-        document.getElementById("gccontact").style.display = "none";
-        document.getElementById("gccontactnamediv").style.display = "none";
+$(document).ready(function(){
+//header-div and textbar-div will be revealed when their checkboxes are checked
+$('#header-div').hide();
+$('#textbar-div').hide();
 
-        document.getElementById("headergcnamediv").style.display = "none";
-        document.getElementById("headerdmnamediv").style.display = "";
+//will be revealed when someone other than 'you' is chosen for messenger-choose
+$("#contact-div").hide();
+
+//all the various text inputs, default is message
+$('#link-text-div').hide();
+
+$('#secondary-text-div').hide();
+$('#timestamp-div').hide();
+
+$('#time-timestamp-div').hide();
+$('#custom-timestamp-div').hide();
+
+//you cant have typing dots from your side
+$("#message-type option[val='typing-dots']").hide();
+
+
+//hide read receipt, will show when checkbox is checked
+$('#read-receipt-div').hide();
+$('#custom-read-receipt-div').hide();
+$('#time-read-div').hide();
+
+});
+
+function switchGroupChatDm(){
+    if ( $("#group-dm-type").val() == 'DM' ){
+        $('[id$=header-choose-label]').text("Add contact's name for header?");
+        $("#input-header").attr("placeholder","Insert contact's name");
+        $('[id$=contact-choose-label]').text("Your contact");
+        $("#input-contact").attr("placeholder","Insert name for alt text");
 
 
     }else{
-        document.getElementById("gc").style.display = "";
-        document.getElementById("dm").style.display = "none";
-        document.getElementById("dmcontact").style.display = "none";
-        document.getElementById("gccontact").style.display = "";
-        
-        document.getElementById("headergcnamediv").style.display = "";
-        document.getElementById("headerdmnamediv").style.display = "none";
-        document.getElementById("dmcontactnamediv").style.display = "none";
+
+        $('[id$=header-choose-label]').text("Add groupchat's name for header?");
+        $("#input-header").attr("placeholder","Insert groupchat's name");
+        $('[id$=contact-choose-label]').text("Someone else");
+        $("#input-contact").attr("placeholder","Insert name");
 }}
+
+function addNameForDm(){
+    if ( $("#group-dm-type").val() == 'DM' ){
+        const x = $("#input-header").val();
+        $("#input-contact").text(x)
+    }
+}
+
 
 function chooseMessenger(){
     if ( $('input[id="you"]:checked').val() ){
-        document.getElementById("gccontactnamediv").style.display = "none";
-        document.getElementById("dmcontactnamediv").style.display = "none";
-
-    }else if( $('input[id="dmcontact"]:checked').val() ){
-        document.getElementById("gccontactnamediv").style.display = "none";
-        document.getElementById("dmcontactnamediv").style.display = "";
+        $("#contact-div").hide();
+        $("#message-type option[val='typing-dots']").hide();
+        $("#read-receipt-choose-div").show();
 
     }else{
-        document.getElementById("gccontactnamediv").style.display = "";
-        document.getElementById("dmcontactnamediv").style.display = "none";
+        $("#contact-div").show();
+        $("#read-receipt-choose-div").hide();
+        $("#message-type option[val='typing-dots']").show();
+
 }}
 
 
 function chooseMessageType(){
-    switch ( $("#messagetype").val() ){
+
+    //resets the read receipt
+    $('#read-receipt-choose').prop('checked', false);
+    $('#read-receipt-div').hide();
+
+    switch ( $("#message-type").val() ){
+
         case "Message":
-            document.getElementById("linktextdiv").style.display = "none";
-            document.getElementById("messagetextdiv").style.display = "";
-            document.getElementById("timestampdiv").style.display = "none";
-            document.getElementById("readreceiptchoosediv").style.display = "";
-            document.getElementById("richlinkdiv").style.display = "none";
-            document.getElementById("alttextdiv").style.display = "none";
-            document.getElementById("textforlinktextdiv").style.display = "none";
+            $("#messenger-choose-div").show();
+
+            $("#input-text-div").show();
+            $("#link-text-div").hide();
+            $("#secondary-text-div").hide();
+            $("#timestamp-div").hide();
+            $("#read-receipt-choose-div").show();
+
             break;
 
-        case "Typing Dots":
-            document.getElementById("linktextdiv").style.display = "none";
-            document.getElementById("messagetextdiv").style.display = "none";
-            document.getElementById("timestampdiv").style.display = "none";
-            document.getElementById("readreceiptchoosediv").style.display = "none";
-            document.getElementById("richlinkdiv").style.display = "none";
-            document.getElementById("alttextdiv").style.display = "none";
-            document.getElementById("textforlinktextdiv").style.display = "none";
-            break;
-        
         case "Timestamp":
-            document.getElementById("linktextdiv").style.display = "none";
-            document.getElementById("messagetextdiv").style.display = "none";
-            document.getElementById("timestampdiv").style.display = "";
-            document.getElementById("readreceiptchoosediv").style.display = "none";
-            document.getElementById("richlinkdiv").style.display = "none";
-            document.getElementById("alttextdiv").style.display = "none";
-            document.getElementById("textforlinktextdiv").style.display = "none";
-            break;
-        
-        case "Rich Link":
-            document.getElementById("linktextdiv").style.display = "";
-            document.getElementById("messagetextdiv").style.display = "none";
-            document.getElementById("timestampdiv").style.display = "none";
-            document.getElementById("readreceiptchoosediv").style.display = "";
-            document.getElementById("richlinkdiv").style.display = "";
-            document.getElementById("alttextdiv").style.display = "none";
-            document.getElementById("textforlinktextdiv").style.display = "none";
+            $("#messenger-choose-div").hide();
+
+            $("#input-text-div").hide();
+            $("#link-text-div").hide();
+            $("#secondary-text-div").hide();
+            $("#timestamp-div").show();
+            $("#read-receipt-choose-div").hide();
             break;
 
         case "Image":
-            document.getElementById("linktextdiv").style.display = "";
-            document.getElementById("messagetextdiv").style.display = "none";
-            document.getElementById("timestampdiv").style.display = "none";
-            document.getElementById("readreceiptchoosediv").style.display = "";
-            document.getElementById("richlinkdiv").style.display = "none";
-            document.getElementById("alttextdiv").style.display = "";
-            document.getElementById("textforlinktextdiv").style.display = "none";
+            $("#messenger-choose-div").show();
+
+            $("#input-text-div").hide();
+            $("#link-text-div").show();
+            $("#secondary-text-div").show();
+            $("#timestamp-div").hide();
+            $("#read-receipt-choose-div").show();
+            
+            $("#input-link-text").attr("placeholder","Insert Image URL");
+            $("#input-secondary-text").attr("placeholder","Insert alt text");
             break;
 
+        case "Link":
+            $("#messenger-choose-div").show();
+
+            $("#input-text-div").hide();
+            $("#link-text-div").show();
+            $("#secondary-text-div").show();
+            $("#timestamp-div").hide();
+            $("#read-receipt-choose-div").show();
+            
+            $("#input-link-text").attr("placeholder","Insert link");
+            $("#input-secondary-text").attr("placeholder","Insert text for link");            
+            break;
+
+           
+        case "Typing Dots":
+            $("#messenger-choose-div").show();
+
+            $("#input-text-div").hide();
+            $("#link-text-div").hide();
+            $("#secondary-text-div").hide();
+            $("#timestamp-div").hide();
+            $("#read-receipt-choose-div").hide();
+            break;
+        
+
         default:
-            document.getElementById("linktextdiv").style.display = "";
-            document.getElementById("messagetextdiv").style.display = "none";
-            document.getElementById("timestampdiv").style.display = "none";
-            document.getElementById("readreceiptchoosediv").style.display = "";
-            document.getElementById("richlinkdiv").style.display = "none";
-            document.getElementById("alttextdiv").style.display = "none";
-            document.getElementById("textforlinktextdiv").style.display = "";
+            $("#messenger-choose-div").show();
+
+            $("#input-text-div").show();
+            $("#link-text-div").hide();
+            $("#secondary-text-div").hide();
+            $("#timestamp-div").hide();
+            $("#read-receipt-choose-div").show();
             break;           
 
     
     }
 }
 
-function findName(){
-    //I am trying to dig out of the hole I made myself with three different slots for names
-    var x;
-    if ( $('input[id="you"]:checked').val() ){
-        x = "You";
-    } else if ($("#groupdmtype").val() == 'Groupchat'){
-        x = $("#gccontactname").val();
-    } else if( $("#dmcontactname").val() ){
-        x = $("#dmcontactname").val();
-    }else if( $("#dmcontactnamealt").val() ){
-        x = $("#dmcontactnamealt").val();
-    }else{
-        x = "Contact";
-    }
-    return x;
-}
-
 
 function addSurroundingDiv(x){ //adds surrounding div depending on whats been selected
-    var start = '<dl class="imessage ';
-    if ( $("#groupdmtype").val() == 'Groupchat' ){
-        //add div class if you pick gc
-        start = start + 'grouptext ';
-    }
-    start = start + '">'; 
-    if ( $('input[id="gcnamechoose"]:checked').val() ){ //adds header
-        start = start + '<h1 class="contact">';
-        if( $("#gcname").val() ){
-            start = start + $("#gcname").val();
-        }else if(  $("#dmcontactname").val() ){
-            start = start +  $("#dmcontactname").val();
-        }
-        start = start + '</h1>';
-    }
-
-    var end = "";
-    if( $('input[id="textbarchoose"]:checked').val() && $("#textbar").val()){
-        end = '<div class="footer"><span class="typebar">'+$("#textbar").val()+'</span></div>';
-    }else if( $('input[id="textbarchoose"]:checked').val() ){
-        end = '<div class="footer"><kbd class="typebar"></kbd></div>';
-    }
     
-    end = end + '</div></dl>';
-
-
+    //if groupchat has been chosen, this will equal grouptext
+    const groupchat = $("#group-dm-type").val() == 'Groupchat' ? " grouptext" : "";
     
-    x = start + x + end;
-    return x;
+    //if you want to add header, will add one with the name you inputed
+
+    const header = $('input[id="header-choose"]:checked').val() ? `<h1 class="contact">
+<span class="screenreader">Groupchat: </span>${$("#input-header").val() } 
+</h1>`: "";
+
+    //if you have text for te
+    var textbarText = $("#input-textbar").val() ? `
+<span class="screenreader">You are typing: </span>
+${$("#input-textbar").val()}
+` : "";
+
+    var textbar = $('input[id="textbar-choose"]:checked').val() ? `
+<br>
+<div class="footer"><span class="typebar">${textbarText}</span></div>
+` : "";
+
+
+    const fullThing = `<dl class="imessage${groupchat}">${header} <hr>
+${x}${textbar}
+<hr></dl>`
+
+    return fullThing;
 
 }
 
-function switchName(x){ 
+function switchName(){ 
     //finds out if someone different is texting.
     //then uses new name and figures out if text is in or out
-    var currentInOut;
-    
 
-    if ( $('input[id="dmcontact"]:checked').val() ||  $('input[id="gccontact"]:checked').val() ){
-        currentInOut = 'in';
-    }else{ currentInOut = 'out'; }
+    const currentInOut = $('input[id="contact-choose"]:checked').val() ? "in" : "out";
 
-    if (currentInOut != prevInOut){ isChange = true; }
-
-    var currentName = findName();
-
-    if( !currentName && currentInOut == "in"){
-        currentName = "Contact";
-    }else if (!currentName){
+    var currentName;
+    if (currentInOut == "in"){
+        currentName = $("#input-contact").val() ? $("#input-contact").val() : "contact";
+    }else{
         currentName = "You";
     }
-    if (currentName != prevName){ isChange = true}
 
-    if (childCount == 0){
-        x = x + '<div class="'+currentInOut+'"><dt>'+currentName+'</dt>'
+    //if the message type is a timestamp, or both inout and name have remained the same, isChange is false
+    isChange = ((currentInOut == prevInOut && currentName == prevName) || $("#message-type").val() == 'Timestamp') ? false : true;
 
-    }else if (isChange){
-        x = x + '</div><div class="'+currentInOut+'"><dt>'+currentName+'</dt>'
-    }
+    //if this is the first message, or if there have been any changes, as well as the message type not being a timestamp, a <dl> for the name will be added
+
+    addSlashDiv = childCount == 0 ? "" : "</div>"
+
+    const x = childCount == 0 || isChange ? `${addSlashDiv}
+<div class = "${currentInOut}">
+<dt><b>${currentName}</b></dt>` : "";
+
     isChange = false;
     childCount += 1;
+
     prevInOut = currentInOut;
     prevName = currentName;
 
@@ -216,82 +217,91 @@ function switchName(x){
 
 }
 
-function addNewText(x){
+function addNewText(){
     //adds text of message
-    x = x + '<dd>' + $("#messagetext").val() + '</dd>';
-
-    return x;
+    return `<dd>${ $("#input-text").val()}</dd>`;
 
 }
 
-function addTimestamp(x){
+function addTimestamp(){
     //finds what info has been inputted for the timestamp and adds it
-    x = x + '<h4 class="time">';
-    switch ( $("#timechoose").val() ){
-        case "The Date":
-            x = x + document.getElementById("date").value;
+
+    const timestamp =  $("#timestamp-choose").val();
+
+    var x;
+    switch (timestamp){
+        case "custom-time-choose]":
+            x = $("#time-timestamp").val();
+            break;
+
+        case "custom-choose":
+            x = $("#custom-timestamp").val();
             break;
 
         default:
-            x = x + '<b>'+ $("#timechoose").val()+'</b>';
-            if ( document.getElementById("date").value ){
-                x = x + ", "+ document.getElementById("date").value;
-            }
-            break;
+            x = timestamp;
     }
-    if ( document.getElementById("time").value ){
-        x = x + ", "+ document.getElementById("time").value;
 
-    }
-    x = x + '</h4>';
+    x = `<h4 class="time">${timestamp}</h4>`;
+
     return x;
 
 }
 
 
-function addImage(x){
+function addImage(){
     //adds image
-    x = x + '<dd class="pic"><img src="'+$("#linktext").val()+'" alt="'+ $("#alttext").val() +'"></dd>';
+    const x = `
+<dd class="pic">
+<img width="400" src="${$("#input-link-text").val()}" alt="${ $("#input-secondary-text").val() }">
+</dd>`;
     return x;
-}
 
+}
+/*
 function addRichLink(x){
     //adds rich link
     x = x + '<dd class="richlink"><a href="'+$("#linktext").val()+'">';
-    x = x + '<iframe src="'+$("#linktext").val()+'" frameborder="0"></iframe>';
+    x = x + '<iframe src="'+$("#link-text").val()+'" frameborder="0"></iframe>';
     
-    if( $("#richlink").val() ){
+    if( $("#rich-link").val() ){
         x = x + '<p class="caption"><b>'+$("#richlink").val()+'</b></p>';
     }
     x = x + '</a></dd>';
 
     return x;
 }
-/*
+    
 <dd class="richlink">
 	<a href="https://www.youtube.com/watch?v=DdRrXZoQ8wo">
 		<iframe src="https://www.youtube.com/embed/DdRrXZoQ8wo" frameborder="0"></iframe>
 		<p class="caption"><b>Forging a Roman Gladius Sword</b> youtube.com </p>
         </a>
 </dd>
- */
 
-function addLink(x){
-    x = x + '<dd><a href="' + $("#linktext").val() + '">';
-    if ( $("#textforlinktext").val() ){
-        x = x + $("#textforlinktext").val();
-    }else{
-        x = x + $("#linktext").val();
-    }
-    
-    x = x + '</a></dd>';
+*/
 
+
+
+function addLink(){
+    //if there is text for the link, that text will be used. If not, the link will be used as text
+    text = $("#input-secondary-text").val() ? $("#input-secondary-text").val() : $("#input-link-text").val();
+
+    const x = `
+<dd><a href=" ${$("#input-link-text").val()} ">
+${text}
+</a></dd>`;
     return x;
+
 }
 
-function addTypingDots(x){
-    x = x + '<dd class="typing"> <div></div> <div></div> <div></div> </dd></div>'
+function addTypingDots(){
+    const x = `
+<dd class="typing">
+<span class="screenreader">typing...</span>
+<div></div> <div></div> <div></div> </dd>`;
     return x;
+
 /*
    <div class="in">
 		<dt>Numerius</dt>
@@ -305,26 +315,33 @@ function addTypingDots(x){
 }
 
 function addReadReceipt(){
-    let x = '<dt class="read"><b>Read</b> ';
+    let x;
+    //this says if the dropdown is an actual time unit, assign it to this constant
+    const timeUnit =  $("#time-read-choose").val();
 
-    switch ( $("#timereadchoose").val() ){
-        case "The Date":
-            x = x + document.getElementById("dateread").value;
+    switch (timeUnit){
+        case "Add Time":
+            x = $("#time-read").val();
+            break;
+
+        case "Add Custom Text":
+            x =$("#custom-read").val();
+            break;
+        
+        case "[Just Read Receipt]":
+            x = "";
             break;
 
         default:
-            x = x + $("#timereadchoose").val();
-            if ( document.getElementById("dateread").value ){
-                x = x + ", "+ document.getElementById("dateread").value;
-            }
-            break;
+            x = timeUnit;
     }
-    if ( document.getElementById("timeread").value ){
-        x = x + ", "+ document.getElementById("timeread").value;
 
-    }
-    x = x + '</dt>';
-    return x;
+
+    return `<dt class="read"><small>
+<span class="screenreader">[</span>
+Read ${x}<span class="screenreader">]</span>
+</small></dt>`;
+
 
 /*
 <dt class="read"><b>Read</b> 5:55</dt>
@@ -334,7 +351,7 @@ function addReadReceipt(){
 
 $(function() {
     fetch("CSS/imsg.txt").then(res => res.text()).then(text => {
-        const contentDiv = document.getElementById("CSStocopy");
+        const contentDiv = document.getElementById("CSS-to-copy");
         contentDiv.textContent = text;
       });
 
@@ -342,78 +359,118 @@ $(function() {
         //compiles the whole code together as is currently
         
         var x;
-        x = switchName(prev);
-        
-        if ( $("#messagetype").val() == 'Timestamp'){
-            x = addTimestamp(prev);
-            isChange = true;
 
-        }else if ( $("#messagetype").val() == 'Image'){
-            x = addImage(x);
+        x = switchName();
 
-        }else if ( $("#messagetype").val() == 'Rich Link'){
-            x = addRichLink(x);
+        switch ($("#message-type").val()){
+            case "Message":
+                //checks if there is required input to add new text
+                x = $("#input-text").val() ? x + addNewText() : x;
+                break;
 
-        }else if ( $("#messagetype").val() == 'Link'){
-            x = addLink(x);
+            case "Timestamp":
+                x = x + addTimestamp();
+                isChange = true;
+                break;
 
-        }else if ( $("#messagetype").val() == 'Typing Dots'){
-            x = addTypingDots(x);
-        }else{
-            x = addNewText(x);
+            case "Image":
+                //ensures there is required input to add image
+                x = $("#input-link-text").val() ? x + addImage() : x;
+                break;
+
+            case "Link":
+                //ensures there is required input to add link
+                x = $("#input-link-text").val() ? x + addLink() : x;
+                break;
+
+            case "Typing Dots":
+                x = x + addTypingDots();
+                break;
+
         }
+        //if read receipt checkbox checked, add it. if not, keep x the same
+        const readReceipt = $('input[id="read-receipt-choose"]:checked').val() ? addReadReceipt() : "";
+        x = x + readReceipt;
 
-        if( $('input[id="readreceiptchoose"]:checked').val() ){
-            x = x + addReadReceipt();
-        }
-
+        x = prev + x;
         prev = x;
 
         x = addSurroundingDiv(x);
 
-        $('#outputdiv').html(x);
-        $('#HTMLoutput').text(x);
+        $('#output-div').html(x);
+        $('#html-output').text(x);
+        
+        
 
         //now to clear out everythings loll
-        $('#messagetext').val('');
-        $('#linktext').val('');
+        $('#input-text').val('');
+        $('#input-link-text').val('');
+        $('#input-secondary-text').val('');
+        
+        //timestamp ones
+        $('#custom-timestamp').val('');
+        $('#time-timestamp').val('');
 
-        $('#richlink').val('');
-        $('#alttext').val('');
-        $('#textforlinktext').val('');
-        $('#date').val('');
-        $('#time').val('');
+        //read receipt ones
+        $('#custom-read').val('');
+        $('#time-read').val('');
 
     });
 
 
-    $("#gcnamechoose").on("click", function() {
+    $("#header-choose").on("click", function() {
 
-        if( $('input[id="gcnamechoose"]:checked').val() ){
-            document.getElementById("headernamediv").style.display = "";
-            document.getElementById("dmcontactnamedivdiv").style.display = "none";
+        if( $('input[id="header-choose"]:checked').val() ){
+            $("#header-div").show();
         }else{
-            document.getElementById("dmcontactnamedivdiv").style.display = "";
-            document.getElementById("headernamediv").style.display = "none";
+            $("#header-div").hide();
         }
 
-        //$("#headernamediv").toggle();
-        //$("#dmcontactnamedivdiv").toggle();
+        //$("#header-name-div").toggle();
+        //$("#dm-contact-name-divdiv").toggle();
     });
 
-    $("#textbarchoose").on("click", function() {
-        if( $('input[id="textbarchoose"]:checked').val() ){
-            document.getElementById("textbardiv").style.display = "";
+    $("#textbar-choose").on("click", function() {
+        if( $('input[id="textbar-choose"]:checked').val() ){
+            document.getElementById("textbar-div").style.display = "";
         }else{
-             document.getElementById("textbardiv").style.display = "none";
+             document.getElementById("textbar-div").style.display = "none";
         }
     });
 
-    $("#readreceiptchoose").on("click", function() {
-        if( $('input[id="readreceiptchoose"]:checked').val() ){
-            document.getElementById("readreceiptdiv").style.display = "";
+    $("#timestamp-choose").on("click", function() {
+        if( $("#timestamp-choose").val() == '[Custom Text]' ){
+            $('#custom-timestamp-div').show();
+            $('#time-timestamp-div').hide();
+        }else if( $("#timestamp-choose").val() == '[Custom Time]' ){
+            $('#custom-timestamp-div').hide();
+            $('#time-timestamp-div').show();
         }else{
-             document.getElementById("readreceiptdiv").style.display = "none";
+            $('#custom-timestamp-div').hide();
+            $('#time-timestamp-div').hide();
+        }
+
+    });
+
+    $("#read-receipt-choose").on("click", function() {
+        if( $('input[id="read-receipt-choose"]:checked').val() ){
+            $('#read-receipt-div').show();
+        }else{
+            $('#read-receipt-div').hide();
+        }
+
+    });
+
+    $("#time-read-choose").on("click", function() {
+        if( $("#time-read-choose").val() == 'Add Custom Text' ){
+            $('#custom-read-receipt-div').show();
+            $('#time-read-div').hide();
+        }else if( $("#time-read-choose").val() == 'Add Time' ){
+            $('#custom-read-receipt-div').hide();
+            $('#time-read-div').show();
+        }else{
+            $('#custom-read-receipt-div').hide();
+            $('#time-read-div').hide();
         }
 
     });

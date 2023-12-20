@@ -37,11 +37,7 @@ hr{
   width:85%;
 }
 
-/*general input ig??*/
 
-input .copyfrom{
-  text-wrap: wrap;
-}
 
 /*General Button Cases*/
 button{
@@ -96,16 +92,29 @@ button:hover{
 
 
 
-input, select{  
-  position: relative;  
+input, select{   
   display: inline-block;  
   color: var(--darkval);
-  border: 2px solid var(--middleval);
+  background-color: unset;
+  padding: 5px;
+  font-family: monospace;
+  border: 3px dotted rgba(0, 0, 0, 0.744);
+  font-weight: bold;
+  font-size: 1.1em;
+  color: black
 }
+
+input:focus, select:focus, textarea:focus{
+  outline: none !important;
+}
+
+
+
+
 
 textarea{
   height: 1.5em;
-  border: 2px solid var(--middleval);
+  border: 3px dotted rgba(0, 0, 0, 0.744);
   min-height: 2em;
   overflow-y:hidden;
   margin: 2px auto 2px 5px;
@@ -116,6 +125,14 @@ textarea{
   padding: 5px;
   /* Match form field borders */
   vertical-align: text-top;
+  background-color: unset;
+  font-weight: bold;
+}
+
+textarea::placeholder{
+  color: rgba(0, 0, 0, 0.722);
+  font-family: monospace;
+  font-size: 1.05em;
 }
 
 .large-input{
@@ -126,9 +143,21 @@ textarea{
   box-sizing: border-box;
   padding: 5px;
   /* Match form field borders */
-  border: 2px solid var(--middleval);
   vertical-align: text-top;
   
+}
+
+.largeish-input{
+
+  min-height: 1.5cm;
+  overflow-y:hidden;
+  width: 90%;
+  max-width: 15cm;
+  box-sizing: border-box;
+  padding: 5px;
+  /* Match form field borders */
+  vertical-align: text-top;
+
 }
 
 .long-input{
@@ -139,9 +168,9 @@ textarea{
   box-sizing: border-box;
   padding: 5px;
   /* Match form field borders */
-  border: 2px solid var(--middleval);
   vertical-align: text-top;
 }
+
 
 fieldset{
   border: none;
@@ -149,7 +178,7 @@ fieldset{
 
 .required{
 
-  border-left: 4px solid rgb(233, 23, 23);
+  border-left: 3px solid rgb(233, 23, 23);
 
 }
 
@@ -296,7 +325,7 @@ to make it easier to read when on desktop
   display: inline-block;
   width: fit-content;
   margin: auto auto auto 5px;
-  padding: 1px 3em 1px 1em;
+  padding: 1px 2em 1px 1px;
 }
 .easy-to-read input{
   width: fit-content;
@@ -304,7 +333,7 @@ to make it easier to read when on desktop
 }
 
 .easy-to-read button{
-  margin: 1em;
+  margin: 1em 0;
 }
 .copy-box{
   display: block;
@@ -434,4 +463,27 @@ input:checked + .slider:before {
   vertical-align: middle;
   font-size: 1.2em;
 
+}
+
+
+.inline{
+  display: flex;
+  margin-right: auto;
+  background-color: white;
+  padding: 7px 2em;
+  width: fit-content;
+
+}
+
+
+.inline textarea{
+  width: 2cm;
+  border-color: #0007;
+}
+
+.inline p, .inline input, .inline fieldset{
+margin: auto 5px auto 5px;
+}
+.inline input[type=number] {
+  width: 3em !important;
 }

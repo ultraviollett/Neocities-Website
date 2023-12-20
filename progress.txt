@@ -21,9 +21,11 @@ x-add disable workskin toggle to each one
 --current goals--
 
 general:
--replace everything w best practices
+-fix imsg
+-remove <pre> from mcbook
 -REPLACE TWITTER 
 -add tumblr
+-add error message telling ppl to go to Ao3 work when .txt file isnt pulled
 -add note about toggling workskin to each workskin
 -finish tutorial page, CHECK WITH PEOPLE IT MAKES SENSE
 -ensure all fields that need to go blank after hitting add do so
@@ -31,13 +33,15 @@ general:
 -find a way to read it with a common screenreader?
 -check everything before you 'publish' it
 
-add HTML generators: [ADD]
--add tumblr [TBLR]
-x-add twitter [TWT]
+add HTML generators:
+-add tumblr
+    -add poll results options
+x-add twitter
     -add up to four images allowed
     -add poll time left
     -add poll results options
-
+-improve mcpoem 
+    -add colour picker
 -add twitchchat [TWCH]
 -add mc messaging
 -add youtube thumbnails
@@ -46,8 +50,6 @@ x-add twitter [TWT]
 -add discord https://archiveofourown.org/works/26534413/chapters/74599071#workskin 
 
 
-other (less important):
--add colour picker for various things (ie mcpoem, twitchchat) [COLOURPICK]
 
 --far off goals--
 -add tip jar

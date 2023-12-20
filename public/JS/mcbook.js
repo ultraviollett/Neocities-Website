@@ -22,6 +22,7 @@ function addText() {
 $(function() {
 
 fetch("CSS/mcbook.txt").then(res => res.text()).then(text => {
+    
     const contentDiv = document.getElementById("CSS-to-copy");
     contentDiv.textContent = text;
   });
