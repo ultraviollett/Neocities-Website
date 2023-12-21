@@ -16,7 +16,7 @@ function addSurroundingDiv(x){
     
 
     const fullThing = `<div class="mcchat ${bg}${fade}">
-    <div class="screenreader" align=center><b>-- Minecraft Chat: --</b></div>
+    <div class="screenreader" align=center><small>-- Minecraft Chat: --</small></div>
     <hr>
     ${x}
     <hr>
@@ -49,7 +49,7 @@ function addNewText(){
 }
 
 
-function compileThing(add=true){
+function compileCode(add=true){
 
     let x =  $("#input-text").val() && add ? addNewText() : "";
 
@@ -69,10 +69,17 @@ $(function() {
 
     $('#add').on('click', function() {
         //compiles the whole code together as is currently
-        compileThing();
+        compileCode();
     
         $("#input-text").val("");
         $('#show-colored-text').prop('checked', false);
+    });
+
+    $('#bg-choose').on('click', function() {
+        //updates bg
+
+        compileCode(false);
+
     });
 
     $('#add-colored-text').on('click', function() {
@@ -103,9 +110,9 @@ $(function() {
     $('#fade').on('click', function() {
         //reveals colored text div when checkmarked
         if( $('input[id="fade"]:checked').val() ){
-            compileThing(false);
+            compileCode(false);
         }else{
-            compileThing(false);
+            compileCode(false);
         }
     });
 
