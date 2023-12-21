@@ -106,14 +106,14 @@
 }/*for the whisper styled text*/
 
 /*whole bunch of other colours*/
-.mcchat .green{ color: green}
+.mcchat .green{ color: rgb(24, 240, 24)}
 .mcchat .yellow{ color: yellow}
 .mcchat .red{ color: red}
 
 .mcchat .orange{ color: orange}
-.mcchat .blue{color: lightblue}
-.mcchat .purple{color: purple}
-.mcchat .pink{color: pink}
+.mcchat .blue{color: rgb(63, 192, 235)}
+.mcchat .purple{color: rgb(158, 73, 255)}
+.mcchat .pink{color: rgb(255, 112, 165)}
 .mcchat .grey{color: grey}
 
 

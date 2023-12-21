@@ -15,28 +15,36 @@ function addSurroundingDiv(x){
     var bg = $("select#bg-choose").children("option:selected").val();
     
 
-    const fullThing = `
-<div class="mcchat ${bg}${fade}">
-<div class="screenreader" align=center><b>-- Minecraft Chat: --</b></div>
-<hr>${x}<hr></div>`;
+    const fullThing = `<div class="mcchat ${bg}${fade}">
+    <div class="screenreader" align=center><b>-- Minecraft Chat: --</b></div>
+    <hr>
+    ${x}
+    <hr>
+</div>`;
     return fullThing;
 }
 
 function addNewText(){
     const type = findTextType(); //find color picked
     var text = allReplace( $("#input-text").val(), { 
-        '<': '&lt;',
-        '>': '&gt;',
+        '<(?!\/?span)' : '&lt;',
+        '/<(?!\/?span)/i' : '&gt;',
         '\r?\n' : '<br>',
-        '&lt;span' : "<span",
-        '"&gt;': '">',
-        '&lt;/span&gt;': "</span>"
+
     }
      ); //gets text and replaces any values that confuse html
 
-    const x = `<p><span class="${type}">
-${text}
-</span></p>`;
+    if (type == "joinleft"){
+        text = `[${text}]`;
+    } else if (type == "whispers"){
+        text = `(${text})`;
+    }
+
+    const x = `<p>
+    <span class="${type}">
+    ${text}
+    </span>
+</p>`;
     return x;
 }
 
@@ -70,10 +78,15 @@ $(function() {
     $('#add-colored-text').on('click', function() {
         //compiles coloured text
         const color = $("select#colored-text-choose").children("option:selected").val();
-        const text = $("#input-colored-text").val();
+        const text =  $("#input-colored-text").val();
         var x = $("#input-text").val();
         x = `${x}<span class="${color}"> ${text} </span>`
         $("#input-text").val(x);
+
+        $('#show-colored-text').prop('checked', false);
+        $("#colored-text-opt").slideUp();
+        $("#input-colored-text").val("");
+
 
     });
 
@@ -102,7 +115,6 @@ $(function() {
         var x = $("select#colored-text-choose").children("option:selected").val();
         $("#display-colored-text").text(x);
         
-        $('#show-colored-text').prop('checked', false);
 
     });
 
