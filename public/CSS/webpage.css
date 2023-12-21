@@ -101,7 +101,7 @@ input, select{
   border: 3px dotted rgba(0, 0, 0, 0.744);
   font-weight: bold;
   font-size: 1.1em;
-  color: black
+  color: rgba(0, 0, 0, 0.6);
 }
 
 input:focus, select:focus, textarea:focus{
@@ -130,10 +130,17 @@ textarea{
 }
 
 textarea::placeholder{
-  color: rgba(0, 0, 0, 0.722);
+  color: rgba(0, 0, 0, 0.6);
   font-family: monospace;
   font-size: 1.05em;
 }
+
+textarea.big-text::placeholder{
+  font-size: 1.4em;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+
 
 .large-input{
   min-height: 3cm;
@@ -308,7 +315,7 @@ to make it easier to read when on desktop
 
 }
 
-.easy-to-read:last-of-type, .easy-to-readend{
+.easy-to-read:last-of-type, .easy-to-read-end{
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   padding-bottom: 2em;
@@ -330,9 +337,7 @@ to make it easier to read when on desktop
 
 
 
-.big-text{
-font-size: 1.5em;
-}
+
 
 .easy-to-read input{
   width: fit-content;

@@ -95,6 +95,7 @@
 	background: #007aff;
 	color: white;
 }
+
 .imessage .out dd:last-of-type::after {
 	right: -0.625em;
 	border-left: 0.625em solid #007aff;

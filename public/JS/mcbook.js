@@ -1,14 +1,13 @@
 function addText() {
     //adds text from input-text in realtime to book on webpage
     
-    var x = $('#input-text').val();
-    x = x.replace(/\r?\n/g, '<br />');
+    var x = allReplace($('#input-text').val());
 
     document.getElementById("output-div").innerHTML = x;
     const fullThing = 
 `
-<div class="mcbook">
-<p class="screenreader" align="center">-- Minecraft Book: -- </p>
+<div class="mcbook" align="center">
+<p class="screenreader" align="center"<small> -- Minecraft Book: -- </small></p>
 <hr>
 <p>${x}</p>
 <hr>

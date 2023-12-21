@@ -47,6 +47,7 @@ const contentDiv = document.getElementById("css-to-copy");
 
 
 function switchGroupChatDm(){
+    compileCode(false);
     if ( $("#group-dm-type").val() == 'DM' ){
         $('[id$=header-choose-label]').text("Add contact's name for header?");
         $("#input-header").attr("placeholder","Insert contact's name");
@@ -226,7 +227,7 @@ function switchName(){
 
     addSlashDiv = childCount == 0 ? "" : "</div>"
 
-    const x = childCount == 0 || isChange ? `${addSlashDiv}
+    const x = isChange ? `${addSlashDiv}
 <div class = "${currentInOut}">
 <dt><b>${currentName}</b></dt>` : "";
 
@@ -236,9 +237,11 @@ function switchName(){
     prevInOut = currentInOut;
     prevName = currentName;
 
-    return x;
+   return x;
 
 }
+
+
 
 function addNewText(){
     //adds text of message
@@ -376,6 +379,55 @@ Read ${x}<span class="screenreader">]</span>
 */
 }
 
+function compileCode(addNew = true){
+    //addNew is true by default, but if it is false that means that only small things are changing,
+    //and are usually changes in the surrounding div
+
+    var x;
+        
+    let newName = addNew ? switchName() : "";
+
+    //checks if readreceipt is true and if so grabs it
+    const readReceipt = $('input[id="read-receipt-choose"]:checked').val() ? addReadReceipt() : "";
+
+    switch ($("#message-type").val()){
+        case "Message":
+            //checks if there is required input to add new text
+            x = $("#input-text").val() && addNew ? addNewText() + readReceipt : "";
+            break;
+
+        case "Timestamp":
+            x = addNew ? x + addTimestamp() : "";
+            isChange = true;
+            break;
+
+        case "Image":
+            //ensures there is required input to add image
+            x = $("#input-link-text").val() && addNew ? addImage() + readReceipt : "";
+            break;
+
+        case "Link":
+            //ensures there is required input to add link
+            x = $("#input-link-text").val() && addNew ? addLink() + readReceipt : "";
+            break;
+
+        case "Typing Dots":
+            x = addNew ? addTypingDots(): "";
+            break;
+
+    }
+
+    x = prev + newName + x;
+
+    fullThing = addSurroundingDiv(x);
+
+    $('#output-div').html(fullThing);
+
+    $('#html-output').text(fullThing);
+
+    prev = x;
+}
+
 
 $(function() {
 
@@ -383,49 +435,9 @@ $(function() {
     $('#add').on('click', function() {
         //compiles the whole code together as is currently
         
-        var x;
         
 
-        x = switchName();
-        //checks if readreceipt is true and if so grabs it
-        const readReceipt = $('input[id="read-receipt-choose"]:checked').val() ? addReadReceipt() : "";
-
-        switch ($("#message-type").val()){
-            case "Message":
-                //checks if there is required input to add new text
-                x = $("#input-text").val() ? x + addNewText() + readReceipt : x;
-                break;
-
-            case "Timestamp":
-                x = x + addTimestamp();
-                isChange = true;
-                break;
-
-            case "Image":
-                //ensures there is required input to add image
-                x = $("#input-link-text").val() ? x + addImage() + readReceipt : x;
-                break;
-
-            case "Link":
-                //ensures there is required input to add link
-                x = $("#input-link-text").val() ? x + addLink() + readReceipt : x;
-                break;
-
-            case "Typing Dots":
-                x = x + addTypingDots();
-                break;
-
-        }    
-
-        x = prev + x;
-        prev = x;
-
-        x = addSurroundingDiv(x);
-
-        $('#output-div').html(x);
-        $('#html-output').text(x);
-        
-        
+        compileCode();
 
         //now to clear out everythings loll
         $('#input-text').val('');
@@ -451,15 +463,25 @@ $(function() {
             $("#header-div").show();
         }else{
             $("#header-div").hide();
+            compileCode();
         }
     });
 
     $("#textbar-choose").on("click", function() {
+        compileCode(false);
         if( $('input[id="textbar-choose"]:checked').val() ){
             document.getElementById("textbar-div").style.display = "";
         }else{
              document.getElementById("textbar-div").style.display = "none";
         }
+    });
+
+    $("#input-textbar").on("input", function() {
+        compileCode(false);
+    });
+
+    $("#input-header").on("input", function() {
+        compileCode(false);
     });
 
     $("#timestamp-choose").on("click", function() {

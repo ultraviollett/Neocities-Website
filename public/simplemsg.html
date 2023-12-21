@@ -24,18 +24,17 @@
 
 
 <div class="easy-to-read easy-to-read-start">
-<h3>Input text:</h3>
-<textarea type="text" id="input-text" class="large-input">
+<p></p>
+<textarea type="text" id="input-text" class="large-input big-text" placeholder="Input text here">
 </textarea>
-<br>
 
 
 <fieldset>
-<legend>pick side:</legend>
+<legend>Pick Side:</legend>
 <div><input type="radio" id="leftchoose" name="contact" checked/><label for="leftchoose">Left</label>
 <input type="radio" id="rightchoose" name="contact"/><label for="rightchoose">Right</label> </div>
 </fieldset>
-<br>
+
 <button id="add">Add</button>
 
 <div id="toggle-div">
@@ -51,34 +50,33 @@
 <br>
 <div id="output-div">
 
+  <p class="screenreader"><small> -- Text Messages: -- </small></p>
   <div class="simplemsg">
-    <p class="screenreader" align="center">-- Text Messages: --</p>  
-    <hr>
-
-    <p class="right" align="right">
-      <span class="screenreader">right text: </span>
-      Wow, what a very nice and unubtrusive workskin!
-    </p>
-    <p class="left" align="left">
-      <span class="screenreader">left text: </span>
-      *unobtrusive
-    </p>
-    <p class="left" align="left">
-      <span class="screenreader">left text: </span>
-      also, notice how because the background is dark
-      the font is light. The text will change colour
-      depending on what siteskin you havf
-    </p>
-    <p class="right" align="right">
-      <span class="screenreader">right text: </span>*have
-    </p>
-    <p class="left" align="left">
-      <span class="screenreader">left text: </span>*have
-    </p>
-    <p class="left" align="left">
-      <span class="screenreader">left text: </span>:|
-    </p>
-    <hr>
+  <hr>
+  <p class="screenreader"><small> right text:</small></p>
+  <p class = "right " align = "right">
+  Wow! what a nice and unubtrusive workskin!
+  </p>
+  <p class="screenreader"><small> left text:</small></p>
+  <p class = "left " align = "left">
+  *unobtrusive
+  </p>
+  <p class="screenreader"><small> left text:</small></p>
+  <p class = "left " align = "left">
+  Notice how the font color is white right now? If you paste it onto ao3 and you have light mode on, it will turn dark. It will follow the colors of whatever site skin you're using
+  </p>
+  <p class="screenreader"><small> left text:</small></p>
+  <p class = "left " align = "left">
+  Also, there is no option to add names for this one. with the workskin disabled, the texts are on the same side they're supposed to be, and are labeled "right/left text:" for screenreaders.
+  </p>
+  <p class="screenreader"><small> right text:</small></p>
+  <p class = "right " align = "right">
+  Feel free to add the names of your characters manually :D
+  </p>
+  <p class="screenreader"><small> right text:</small></p>
+  <p class = "right " align = "right">
+  if you want a groupchat, use the iMessage workskin, or there may be other skins in the future!
+  </p><hr>
   </div>
 
 </div>
@@ -102,7 +100,7 @@
   </textarea>
   </div>
 </div>
-<script src="JS/simplemsg.js"></script> 
 <script src="JS/gen.js"></script> 
+<script src="./JS/simplemsg.js"></script> 
 </body>
 </html>

@@ -1,6 +1,6 @@
 function addText() {
     //updates whenever text is updated, adds text to inside button
-    const x = document.getElementById("buttontext").value;
+    const x = allReplace(document.getElementById("buttontext").value);
     
     //adds HTML to be copied to textarea
     const fullThing = `<div class="mcbuttondiv">

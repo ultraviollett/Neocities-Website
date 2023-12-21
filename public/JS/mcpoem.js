@@ -27,16 +27,17 @@ function findColor(){
 
 function addSurroundingDiv(x){ 
     //adds surrounding div to current code
-    return `
-<div class="mcpoemdiv">
-<p class="screenreader" align="center">-- Minecraft End Poem: --</p><hr> ${x} <hr></div>`;
+    return `<div class="mcpoemdiv">
+<p class="screenreader" align="center">
+<small> -- Minecraft End Poem: -- </small>
+</p><hr> ${x} <hr></div>`;
 
 }
 
 function addNewText(x){
     const color = findColor(); //find color picked
 
-    const text = $("#input-text").val().replace(/\r?\n/g, '<br />');//get text from input-text box, keeps paragraphs
+    const text = allReplace( $("#input-text").val() );//get text from input-text box, keeps paragraphs
 
     x = x + `
 <p class="${color}">

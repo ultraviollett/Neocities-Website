@@ -24,9 +24,9 @@
 
 <div class="easy-to-read easy-to-read-start">
 
-<h3>Input Text:</h3>
 
-<textarea type="text" id="input-text" class="large-input" oninput="addText()">Start writing, and your words will appear in the book.
+
+<textarea type="text" id="input-text" class="large-input big-text" oninput="addText()" placeholder="Input Text here">
 </textarea>
 
 
@@ -47,15 +47,15 @@
 
 <div id="output-div">
 
-<div class="mcbook">
-<p class="screenreader" align="center">-- Minecraft Book: -- </p>
+<div class="mcbook" align="center">
+<p class="screenreader" align="center"><small> -- Minecraft Book: -- </small></p>
 <hr>
 <p>
 Dear Diary,
 <br><br>
 This is an example text to demonstrate this minecraft book.
 <br><br>
-Once you add text to the 'input text' box, it will appear here.
+Once you add text to the input box, it will appear here.
 
 </p>
 <hr>
@@ -81,8 +81,8 @@ Your HTML will appear here
 </div>
 </div>
 
-<script src="JS/mcbook.js"></script> 
 <script src="JS/gen.js"></script> 
+<script src="./JS/mcbook.js"></script> 
 
 </body>
 </html>

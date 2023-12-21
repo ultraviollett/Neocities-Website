@@ -2,7 +2,7 @@ var prev = ""; //holds code (minus surrounding div) to be added to
 
 function addSurroundingDiv(x){
     //adds div that wraps around the message.
-x = `<p class="screenreader">-- Text Messages: --</p>
+x = `<p class="screenreader"><small> -- Text Messages: -- </small></p>
 <div class="simplemsg">
 <hr>${x}<hr>
 </div>`;
@@ -16,11 +16,11 @@ function addNewMessage(x){
         //check if right radio is checked
         leftOrRight = "right";
     }
-    const inputText = $("#input-text").val().replace(/\r?\n/g, '<br />');;
+    const inputText = allReplace($("#input-text").val() );
 
 x =  `${x}
+<p class="screenreader"><small> ${leftOrRight} text:</small></p>
 <p class = "${leftOrRight} " align = "${leftOrRight}">
-<span class="screenreader"> ${leftOrRight} text: </span>
 ${inputText}
 </p>`;
     return x;

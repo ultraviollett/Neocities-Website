@@ -36,7 +36,7 @@ function addNewText(){
 
     if (type == "joinleft"){
         text = `[${text}]`;
-    } else if (type == "whispers"){
+    } else if (type == "whisper"){
         text = `(${text})`;
     }
 
