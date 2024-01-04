@@ -17,23 +17,24 @@ X-CHEKC EVERY SKIN WORKS
 x-add disable workskin toggle to each one
 x-fix imsg
 x-remove <pre> from mcbook -> plus a lot of others 
+x-add mc messaging
+
+
 
 
 
 --current goals--
 
 general:
-
-
 -REPLACE TWITTER 
 -add tumblr
 -add error message telling ppl to go to Ao3 work when .txt file isnt pulled
 -add note about toggling workskin to each workskin
 -finish tutorial page, CHECK WITH PEOPLE IT MAKES SENSE
 -ensure all fields that need to go blank after hitting add do so
--add options to add names for alt text for simplemsg
 -find a way to read it with a common screenreader?
 -check everything before you 'publish' it
+-change style
 
 add HTML generators:
 -add tumblr
@@ -45,7 +46,6 @@ x-add twitter
 -improve mcpoem 
     -add colour picker
 -add twitchchat [TWCH]
--add mc messaging
 -add youtube thumbnails
 -add reddit 
 -add 4chan
@@ -68,3 +68,7 @@ workskin tips (to be compiled later, probably in an ao3 work):
 -IF U HAVE A WHITE BACKGROUND PLEASE SET FONT COLOUR / AND OPPOSITE
 -ao3 WILL add paragraphs to things you dont want it to
 -USE SQUIDGE TO HOST IMAGES
+
+
+Known bugs:
+imsg- if you add two typing dots in a row for 'you', the first bubble of the tail will disappear for all typing dots besides the last one

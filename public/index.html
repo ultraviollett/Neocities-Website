@@ -1,69 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/webpage.css">
-    <link rel="stylesheet" href="CSS/index.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../dist/output.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./js/main.js"></script>
+</head>
+<body class="bg-slate-200 text-darkdark dark:bg-darkdark dark:text-light ">
 
-    <script async src="https://us.umami.is/script.js" data-website-id="a83fd8ce-547f-48e8-8ec9-c030c31bf933"></script>
-    <title>Workskin Workshop
-    </title>
-  </head>
+  <div class="flex flex-col justify-between align-middle w-screen min-h-screen ">
   
-    <body>
-<h1 class="whitetext">Welcome to: <br> the Workskin Workshop</h1>
-<div class="easy-to-read">
- <div class="button-lineup">
-  <p>
-    <button class="workskin" onclick="window.location.href = 'tutorial.html';"><h2>How does this work?<h2></button>
+    <header class=" overflow-hidden flex justify-between text-bluedark dark:text-bright h-10 border-b-4 border-bluedark dark:border-brightlight">  
+      <button class=" align-middle px-3 font-bold pt-2" onclick="window.location.href = 'index.html';">
+        HOME</button>
+        <div class="flex items-center px-4 justify-center">
+      <label for="dark-mode" id="dark-mode-label">Dark Mode</label>
+      <div class=" ml-2 mt-[6px]">
+      <input type="checkbox" class="checkbox-bipolar-input" id="dark-mode">
+      <label for="dark-mode">
+        <span class="checkbox-bipolar">
+          <span class="on">
+            L
+          </span>
+          <span class="off">
+            D
+          </span>
+        </span>
+      </label>
+      </div>
+        </div>
+    </header>
+
+
+<div class="m-0 mx-2 grid justify-center md:max-w-[70%] self-center">
+  <div class="w-fit m-auto self-center ">
+  <div class="bg-opacity-40 bg-bright  dark:bg-opacity-20 dark:bg-white p-6 py-1 rounded-md my-1">  
+    <p>welcome to</p>
+  <h1 class="text-center text-6xl pt-2 titlecard my-3 lg:my-1 ">Ultra's Neocities!</h1>
+  </div>
+  <p class=" opacity-60 text-xs ml-2">
+    [ This is a WIP, so there's not much to see now. ]
   </p>
-<br>
-<p> <h2> Currently available:</h2></p>
-<p>
-  <button class="workskin" onclick="window.location.href = 'imsg.html';">iMessage Texting Generator</button>
-</p>
-<p>
-  <button class="workskin" onclick="window.location.href = 'simplemsg.html';">Simple Messaging Generator</button>
-</p>
-<p>
-  <button class="workskin" onclick="window.location.href = 'mcchat.html';">Minecraft Chat Generator</button>
-</p>
-<p>
-  <button class="workskin" onclick="window.location.href = 'mcbutton.html';">Minecraft Button Generator</button>
-</p>
-<p>
-  <button class="workskin" onclick="window.location.href = 'mcbook.html';">Minecraft Book Generator</button>
-</p>
-<p>
-  <button class="workskin" onclick="window.location.href = 'mcpoem.html';">Minecraft End Poem Generator</button>
-</p>
+  </div>
+<div class="main-text">
 
-<div id="unfinished"><h2>Broken / Unfinished Generators</h2>
-<p>
-  <button class="workskin" onclick="window.location.href = 'twt.html';"> Twitter Generator</button>
-</p>
 
-<p>
-  <button class="workskin" onclick="window.location.href = 'tblr.html';">Tumblr Post Generator</button>
-</p>
+  <p class="my-4 easyfont">
+    Welcome to my page! My main hobby is fandom, I like to draw fanart and write fic. I also code HTML/CSS, which is what this page will mainly be about.
+  </p>
+  <h2>Current Projects:</h2>
 
-<p><a href="test.html">test page</a></p>
-</div>
+  <a href="https://workskin-workshop.netlify.app/" class="div-link">
+  <div class="border-solid border-2 border-bluedark dark:border-bright rounded-md m-2 p-2 px-6" id="workskin-workshop-link" data-location="https://workskin-workshop.netlify.app/">
+    
+    <h3 class=" font-bold text-lg my-2">The Workskin Workshop</h3>
+    <p class="easyfont">
+      Generate Ao3 Workskins to add messaging, tweets, tumblr posts, minecraft stuff and more to your fic on Ao3!
 
-<br>
-<h2>Want me to add a workskin? Something not working? Anything I should know / could help you with?</h2>
-<p><button class="workskin" onclick="window.location.href = 'contactform.html';">Contact me</button></p>
+    </p>
+    
+  </div>
+</a>
 </div>
 </div>
 
-<p>
 
-<input type="checkbox" id="show-unfinished" onclick="showUnfinished()">
-<label for="show-unfinished"> Show Broken / Unfinished Generators </label>
-
-</p>
-<script src="JS/index.js"></script>
-    </body>
+  <footer></footer>
+  </div>
+  
+</body>
 </html>
